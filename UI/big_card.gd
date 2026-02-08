@@ -85,10 +85,11 @@ func _on_button_transfer_pressed() -> void:
 	for card in path.get_children():
 		inv_stack_clicked.emit(card.card_data, card.card_data.quantity)
 func _on_item_stack_clicked(item_stack: ItemStack):
-	if item_stack.quantity < 3:
-		inv_stack_clicked.emit(item_stack, 1)
-	else:
-		print("MNERJ")
+	inv_stack_clicked.emit(item_stack, 1)
+	#if item_stack.quantity < 3:
+		#inv_stack_clicked.emit(item_stack, 1)
+	#else:
+		#print("MNERJ")
 func save_inv():
 	GameManager.invs[local_data.resource_path] = local_data.real_inv
 func save_inv_money():
