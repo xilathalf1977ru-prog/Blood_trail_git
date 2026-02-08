@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d1kv83nxlucxo"]
+
+[ext_resource type="Script" uid="uid://xa0eupax16u6" path="res://UI/big_card.gd" id="1_8j5wj"]
+
+[node name="BigCard" type="ColorRect" unique_id=1400627484]
+offset_right = 600.0
+offset_bottom = 1050.0
+color = Color(0.101960786, 0.30980393, 0.16470589, 1)
+script = ExtResource("1_8j5wj")
+
+[node name="Name" type="Label" parent="." unique_id=314753981]
+layout_mode = 0
+offset_top = -5.0
+offset_right = 562.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 28
+text = "Пусто"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=285158431]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.057000004
+anchor_bottom = 0.026
+offset_top = 33.0
+offset_right = 565.8
+offset_bottom = 1022.7
+follow_focus = true
+draw_focus_border = true
+vertical_scroll_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer" unique_id=1079917153]
+custom_minimum_size = Vector2(590, 6)
+layout_mode = 2
+
+[node name="ButtonTransfer" type="Button" parent="." unique_id=1206347200]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 570.0
+offset_top = -1058.0
+offset_bottom = -1014.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 26
+text = "⇄"
+
+[connection signal="pressed" from="ButtonTransfer" to="." method="_on_button_transfer_pressed"]

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b72lw5m0t0ajd"]
+
+[ext_resource type="PackedScene" uid="uid://bwkqvmxk8oye2" path="res://Scenes/map.tscn" id="1_0nejw"]
+[ext_resource type="Script" uid="uid://og7o6gsnr2c5" path="res://GDscripts/game_world.gd" id="1_qvgq0"]
+[ext_resource type="PackedScene" uid="uid://bcj06yl0bl6fn" path="res://Scenes/player.tscn" id="3_alii3"]
+[ext_resource type="Script" uid="uid://tl5uknwddbde" path="res://GDscripts/map.gd" id="3_p4c8d"]
+[ext_resource type="Script" uid="uid://cjapr132u6t1d" path="res://GDscripts/camera_2d.gd" id="4_hy2kt"]
+
+[node name="GameWorld" type="Node2D" unique_id=118282427]
+script = ExtResource("1_qvgq0")
+
+[node name="map" parent="." unique_id=1331073335 instance=ExtResource("1_0nejw")]
+position = Vector2(0, 248)
+script = ExtResource("3_p4c8d")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=840432887]
+
+[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=1063971285]
+offset_left = -128.0
+offset_top = 640.0
+offset_right = 128.0
+offset_bottom = 896.0
+color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D" unique_id=177909703]
+offset_left = 128.0
+offset_top = 640.0
+offset_right = 384.0
+offset_bottom = 896.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Node2D" unique_id=1289103773]
+offset_left = 384.0
+offset_top = 640.0
+offset_right = 640.0
+offset_bottom = 896.0
+color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Node2D" unique_id=354186867]
+offset_left = 640.0
+offset_top = 640.0
+offset_right = 896.0
+offset_bottom = 896.0
+color = Color(0, 0, 0, 1)
+
+[node name="player" parent="." unique_id=1096313570 instance=ExtResource("3_alii3")]
+position = Vector2(0, 768)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=422631650]
+position = Vector2(0, 520)
+script = ExtResource("4_hy2kt")

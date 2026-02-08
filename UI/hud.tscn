@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://0nqdslmfxdwk"]
+
+[ext_resource type="Script" uid="uid://c4po73poidfyt" path="res://UI/hud.gd" id="1_e0onf"]
+
+[node name="HUD" type="Control" unique_id=803828367]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_e0onf")
+
+[node name="HomeDistanceLabel" type="Label" parent="." unique_id=30108801]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+
+[node name="InventoryButton" type="Button" parent="." unique_id=1384596821]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -62.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+text = "Мой INV"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=95601927]
+visible = false
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.37254903)
+
+[connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]

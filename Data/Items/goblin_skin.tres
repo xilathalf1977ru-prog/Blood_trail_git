@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://dnr81348rxnbf"]
+
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="1_cyvow"]
+
+[resource]
+script = ExtResource("1_cyvow")
+name = "Шкура гоблина"
+type = "goblin_skin"
+cost = 2
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

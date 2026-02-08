@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ActionData" format=3 uid="uid://bek4xqvvwuqwa"]
+
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_mgqjs"]
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="2_w2bbd"]
+[ext_resource type="Resource" uid="uid://cuugb3fs6xsxr" path="res://Data/Items/Stacks/goblin_middle_skin_stack.tres" id="3_cambv"]
+
+[resource]
+script = ExtResource("2_w2bbd")
+name = "Торговать"
+type = "trade"
+money = 300
+inventory = Array[ExtResource("1_mgqjs")]([ExtResource("3_cambv")])
+metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

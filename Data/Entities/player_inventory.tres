@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ActionData" format=3 uid="uid://bboqahe5nobfs"]
+
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_g3ub0"]
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="2_41rd6"]
+[ext_resource type="Resource" uid="uid://d1ihoqcxe68t4" path="res://Data/Items/Stacks/goblin_skin_stack.tres" id="3_0w7ga"]
+[ext_resource type="Resource" uid="uid://cuugb3fs6xsxr" path="res://Data/Items/Stacks/goblin_middle_skin_stack.tres" id="3_vcr6m"]
+
+[resource]
+script = ExtResource("2_41rd6")
+name = "Инвентарь игрока"
+type = "inv"
+money = 100
+inventory = Dictionary[ExtResource("1_g3ub0"), int]({
+ExtResource("3_vcr6m"): 3,
+ExtResource("3_0w7ga"): 2
+})
+metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=2 format=3 uid="uid://c0bxdhhaxl3j8"]
+
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_vkpe2"]
+
+[resource]
+script = ExtResource("1_vkpe2")
+name = "Лечиться"
+type = "heal"
+heal_amount = 999
+metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

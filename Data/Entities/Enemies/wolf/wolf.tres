@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EntityData" load_steps=2 format=3 uid="uid://chiciqtlfnlae"]
+
+[ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_ticih"]
+
+[resource]
+script = ExtResource("1_ticih")
+name = "Волк"
+max_hp = 60
+current_hp = 60
+attack_speed = 8
+damage = 160
+metadata/_custom_type_script = "uid://bqduy5pjk0fl"
