@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bp18h823c37ib"]
+
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_ib3uq"]
+[ext_resource type="Resource" uid="uid://x5u5qvwyww0e" path="res://Data/Actions/heal50.tres" id="2_l3cbn"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="3_8hojc"]
+[ext_resource type="Resource" uid="uid://7051ap6qcpre" path="res://Data/Items/bottle_empty/bottle_empty.tres" id="4_ypmpw"]
+
+[resource]
+script = ExtResource("3_8hojc")
+name = "Эликсир хп 50"
+type = "elixir_hp_50"
+editor_main_type = 1
+cost = 20
+actions = Array[ExtResource("1_ib3uq")]([ExtResource("2_l3cbn")])
+transforms_to = ExtResource("4_ypmpw")
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

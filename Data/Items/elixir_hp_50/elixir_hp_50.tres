@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemStack" format=3 uid="uid://cqslpxicsymar"]
+
+[ext_resource type="Resource" uid="uid://bp18h823c37ib" path="res://Data/Items/elixir_hp_50/elixir_hp_50_item.tres" id="1_qjghe"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_lub3b"]
+
+[resource]
+script = ExtResource("2_lub3b")
+item = ExtResource("1_qjghe")
+metadata/_custom_type_script = "uid://dmn0esob0sf5k"

@@ -1,17 +1,13 @@
 extends ColorRect
 
-const START_X: int = 151
-const START_Y: int = 181
-const STEP_Y: int = 360
 const CARD_SCENE: Object = preload("res://UI/card.tscn")
-var path: HBoxContainer
+var path: VBoxContainer
 var local_data: Resource = null
 var local_context: String = ""
 @warning_ignore("unused_signal")
 signal inv_stack_clicked(item_stack: ItemStack)
 @warning_ignore("unused_signal")
-signal up_step_card(pos_y: int)
-func _ready() -> void:path = $ScrollContainer/HBoxContainer
+func _ready() -> void:path = $ScrollContainer/CardContainer
 func setup(data: Resource, context: String) -> void:
 	clear_cards()
 	local_data = data
@@ -19,53 +15,41 @@ func setup(data: Resource, context: String) -> void:
 	if context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]:
 		var items: Array[ItemStack] = data.real_inv
 		for i in items.size():
-			var card: Sprite2D = CARD_SCENE.instantiate()
+			var card: TextureRect = CARD_SCENE.instantiate()
 			card.setup(items[i], context)
-			_setup_card_common(card, items[i], i)
-			up_step_card.connect(card.on_up_step_card)
+			_setup_card_common(card, items[i])
 		save_inv()
 	elif context in [GC.PLACE]:
 		var items: Array[ActionData] = data.actions
-		for i in items.size():
-			var card: Sprite2D = CARD_SCENE.instantiate()
+		var actions_size: int = items.size()
+		for i in actions_size:
+			var card: TextureRect = CARD_SCENE.instantiate()
 			card.setup(items[i], items[i].type)
-			_setup_card_common(card, items[i], i)
+			_setup_card_common(card, items[i])
 	update_ui()
-	
 func add_item(item_stack: ItemStack, n: int):
 	if path.has_node(item_stack.name):
-		var local_item_stack: Resource = path.get_node(item_stack.name).card_data
-		#local_item_stack.quantity += 1
-		local_item_stack.quantity += n
-		path.get_node(local_item_stack.name).setup_vis(local_item_stack, local_context)
+		path.add_item_quantity(item_stack, n)
 	else:
-		#item_stack.quantity = 1
-		item_stack.quantity = n
-		var card: Sprite2D = CARD_SCENE.instantiate()
-		card.setup(item_stack, local_context)
-		_setup_card_common(card, item_stack, local_data.real_inv.size())
-		up_step_card.connect(card.on_up_step_card)
+		var card: TextureRect = CARD_SCENE.instantiate()
 		local_data.real_inv.append(item_stack)
+		item_stack.quantity = n
+		card.setup(item_stack, item_stack.type)
+		_setup_card_common(card, item_stack)
 	save_inv()
 func remove_item(item_stack: ItemStack, n: int):
 	var local_item_stack: Resource = path.get_node(item_stack.name).card_data
-	#local_item_stack.quantity -= 1
-	
 	local_item_stack.quantity -= n
-	path.get_node(local_item_stack.name).setup_vis(local_item_stack, local_context)
+	path.get_node(local_item_stack.name).setup_vis(local_item_stack)
 	if local_item_stack.quantity == 0:
-		up_step_card.emit(path.get_node(local_item_stack.name).position.y)
 		clear_card(path.get_node(local_item_stack.name))
 		local_data.real_inv.erase(local_item_stack)
 	save_inv()
-func _setup_card_common(card: Sprite2D, res_data, row_index: int) -> void:
-	card.setup_vis(res_data, local_context)
-	card.name = res_data.name
+func _setup_card_common(card: TextureRect, res_data) -> void:
 	card.item_stack_clicked.connect(_on_item_stack_clicked)
-	_position_card(card, row_index)
-	path.add_child(card)
-func _position_card(card, row_index: int) -> void:
-	card.position = Vector2(START_X, START_Y + row_index * STEP_Y)
+	card.item_stack_delete.connect(remove_item)
+	card.item_stack_create.connect(add_item)
+	path.setup_card_common(card, res_data)
 func _on_button_x_pressed() -> void:
 	visible = false
 	local_data = null
@@ -77,23 +61,33 @@ func clear_cards():
 func clear_card(card):
 	if card.item_stack_clicked.is_connected(_on_item_stack_clicked):
 		card.item_stack_clicked.disconnect(_on_item_stack_clicked)
-	if up_step_card.is_connected(card.on_up_step_card):
-		up_step_card.disconnect(card.on_up_step_card)
+	if card.item_stack_delete.is_connected(remove_item):
+		card.item_stack_delete.disconnect(remove_item)
+	if card.item_stack_create.is_connected(add_item):
+		card.item_stack_create.disconnect(add_item)
 	card.queue_free()
-	
 func _on_button_transfer_pressed() -> void:
 	for card in path.get_children():
 		inv_stack_clicked.emit(card.card_data, card.card_data.quantity)
 func _on_item_stack_clicked(item_stack: ItemStack):
 	inv_stack_clicked.emit(item_stack, 1)
-	#if item_stack.quantity < 3:
-		#inv_stack_clicked.emit(item_stack, 1)
-	#else:
-		#print("MNERJ")
 func save_inv():
-	GameManager.invs[local_data.resource_path] = local_data.real_inv
+	#GameManager.invs[local_data.resource_path] = local_data.real_inv
+	local_data.inventory.clear()
+	for i in local_data.real_inv:
+		local_data.inventory[i] = i.quantity
+		#var copy = i.duplicate()
+		#copy.quantity = inventory[i]
+		#real_inv.append(copy)
+	
+	
+	#print(local_data.owner_id)
+	#print(local_data.inventory)
+	GameManager.invs[local_data.owner_id] = local_data.inventory#local_data.real_inv
 func save_inv_money():
-	GameManager.invs_money[local_data.resource_path] = local_data.money
+	#GameManager.invs_money[local_data.resource_path] = local_data.money
+	
+	GameManager.invs[local_data.owner_id] = local_data.money
 func update_ui():
 	$ButtonTransfer.visible = local_context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]
 	if local_context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]:

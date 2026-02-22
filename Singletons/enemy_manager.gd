@@ -17,8 +17,18 @@ func _create_random_enemy():
 	return template.duplicate()
 func _get_direction_for_position(index: int, total_count: int) -> Vector2:
 	# Простая логика: первые половина - слева, вторая - справа
+	#print(index % 3)
+	var vector_enemy = Vector2(0, 0)
+	var y = index % 3
+	if y == 0:
+		vector_enemy += Vector2.UP
+	elif y == 2:
+		vector_enemy += Vector2.DOWN
 	var half = total_count / 2.0
 	if index < half:
-		return Vector2.LEFT
+		vector_enemy += Vector2.LEFT
+		#return Vector2.LEFT
 	else:
-		return Vector2.RIGHT
+		vector_enemy += Vector2.RIGHT
+	#print(vector_enemy)
+	return vector_enemy

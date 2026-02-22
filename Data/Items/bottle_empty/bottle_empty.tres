@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemStack" format=3 uid="uid://7051ap6qcpre"]
+
+[ext_resource type="Resource" uid="uid://clyv7vp8daynf" path="res://Data/Items/bottle_empty/bottle_empty_item.tres" id="1_57fb3"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_21kqt"]
+
+[resource]
+script = ExtResource("2_21kqt")
+item = ExtResource("1_57fb3")
+metadata/_custom_type_script = "uid://dmn0esob0sf5k"

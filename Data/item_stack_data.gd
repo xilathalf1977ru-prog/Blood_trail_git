@@ -1,22 +1,51 @@
 extends Resource
 class_name ItemStack
 
-
 @export var item: ItemData
-@export var quantity: int = 1
+var quantity: int = 1
 
 var name: String:
 	get:
-		return item.name if item else ""
+		return item.name# if item else ""
 var type: String:
 	get:
-		return item.type if item else ""
+		return item.type# if item else ""
+var main_type: String:
+	get:
+		return item.main_type# if item else ""
+
+var editor_main_type: int:
+	get:
+		return item.editor_main_type# if item else 0
+var EditorType:
+	get:
+		return item.EditorType# if item else 0
+
+var equip_type: String:
+	get:
+		return item.equip_type# if item else ""
+var equiped: bool:
+	set(new_value):
+		item.equiped = new_value
+	get:
+		return item.equiped
+var equip_bonus: Dictionary:
+	get:
+		return item.equip_bonus# if item else {}
 var cost: int:
 	get:
-		return item.cost if item else 0
+		return item.cost# if item else 0
 var icon: Texture2D:
 	get:
-		return item.icon if item else null
+		return item.icon# if item else null
+var actions: Array[ActionData]:
+	get:
+		return item.actions# if item else []
+var transforms_to: ItemStack:
+	get:
+		return item.transforms_to# if item else null
+
+
 #@export var durability: float = 1.0  # ← добавь если нужно
 #@export var quality: int = 1         # ← добавь если нужно
 

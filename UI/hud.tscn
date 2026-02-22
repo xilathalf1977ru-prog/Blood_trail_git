@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0nqdslmfxdwk"]
 
 [ext_resource type="Script" uid="uid://c4po73poidfyt" path="res://UI/hud.gd" id="1_e0onf"]
+[ext_resource type="Texture2D" uid="uid://bh1rp0r8x5jg3" path="res://Sprites/hpbar.png" id="2_bytes"]
 
 [node name="HUD" type="Control" unique_id=803828367]
 layout_mode = 3
@@ -22,7 +23,7 @@ offset_right = 40.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 
-[node name="InventoryButton" type="Button" parent="." unique_id=1384596821]
+[node name="ButtonInv" type="Button" parent="." unique_id=1384596821]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -35,7 +36,23 @@ offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
-text = "Мой INV"
+text = "My INV"
+
+[node name="ButtonSleep" type="Button" parent="." unique_id=1401699890]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -377.0
+offset_top = -62.0
+offset_right = -252.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+text = "zzZ"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=95601927]
 visible = false
@@ -44,4 +61,32 @@ offset_right = 960.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.37254903)
 
-[connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=564124582]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1041.0
+offset_right = 304.0
+offset_bottom = 1076.0
+value = 50.0
+texture_progress = ExtResource("2_bytes")
+
+[node name="ColorRect" type="ColorRect" parent="TextureProgressBar" unique_id=265988030]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 35.0
+color = Color(0, 0, 0, 1)
+
+[node name="HP" type="Label" parent="." unique_id=2093113863]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1041.0
+offset_right = 304.0
+offset_bottom = 1076.0
+theme_override_font_sizes/font_size = 24
+text = "100/200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ButtonInv" to="." method="_on_button_inv_pressed"]
+[connection signal="pressed" from="ButtonSleep" to="." method="_on_button_sleep_pressed"]

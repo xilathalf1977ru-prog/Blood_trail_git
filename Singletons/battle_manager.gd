@@ -8,17 +8,21 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 		if player_data.current_hp <= 0:
 			break
 		# Игрок атакует
-		enemy_data.current_hp -= player_data.damage  
-		print(player_data.name, " атакует: -", player_data.damage, " HP")
+		#enemy_data.current_hp -= player_data.attack
+		enemy_data.current_hp -= max(0, player_data.attack - enemy_data.shield)
+		print(player_data.name, " атакует: -", player_data.attack, " HP")
 		# Враг атакует
-		player_data.current_hp -= enemy_data.damage
-		print(enemy_data.name, " атакует: -", enemy_data.damage, " HP")
+		#player_data.current_hp -= enemy_data.attack
+		player_data.current_hp -= max(0, enemy_data.attack - player_data.shield)
+		print(enemy_data.name, " атакует: -", enemy_data.attack, " HP")
 	var victory = player_data.current_hp > 0
 	
 	if victory:
-		print("✅ ПОБЕДА! +", enemy_data.food, " еды")
+		print("✅ ПОБЕДА!")
+		
+		EventBus.log_show.emit("Враг убит " + enemy_data.name)
 		add_loot(player_data, enemy_data)
-		player_data.food += enemy_data.food
+		#player_data.food += enemy_data.food
 		#player_data.position += 1
 	else:
 		print("❌ ПОРАЖЕНИЕ!")

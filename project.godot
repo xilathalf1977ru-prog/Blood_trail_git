@@ -21,9 +21,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*res://Singletons/event_bus.gd"
+Factory="*uid://stj812d816mh"
 InputManager="*res://Singletons/input_manager.gd"
-SceneManager="*res://Singletons/scene_manager.gd"
-GameState="*res://Singletons/game_state.gd"
 SaveSystem="*res://Singletons/save_system.gd"
 GameManager="*res://Singletons/game_manager.gd"
 EnemyManager="*res://Singletons/enemy_manager.gd"

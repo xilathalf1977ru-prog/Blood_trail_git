@@ -8,4 +8,5 @@ script = ExtResource("1_g3hfp")
 name = "Торговать"
 type = "trade"
 money = 300
+menu = true
 metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

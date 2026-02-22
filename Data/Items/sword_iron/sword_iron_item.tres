@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bwy7w7fa2h1nd"]
+
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_lb3uh"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_t4r36"]
+
+[resource]
+script = ExtResource("2_t4r36")
+name = "Железный меч"
+type = "equip"
+editor_main_type = 2
+equip_bonus = Dictionary[String, int]({
+"attack": 10
+})
+cost = 50
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

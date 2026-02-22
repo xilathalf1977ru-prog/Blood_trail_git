@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemStack" format=3 uid="uid://r6x4p8pon3ku"]
+
+[ext_resource type="Resource" uid="uid://dnr81348rxnbf" path="res://Data/Items/goblin_skin/goblin_skin_item.tres" id="1_sc26y"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_ynhkp"]
+
+[resource]
+script = ExtResource("2_ynhkp")
+item = ExtResource("1_sc26y")
+metadata/_custom_type_script = "uid://dmn0esob0sf5k"

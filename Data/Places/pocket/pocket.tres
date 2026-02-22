@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlaceData" format=3 uid="uid://bf0ho48qqc0b"]
+
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_n8dmg"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_va2r2"]
+[ext_resource type="Resource" uid="uid://cqslpxicsymar" path="res://Data/Items/elixir_hp_50/elixir_hp_50.tres" id="2_mrr41"]
+[ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="3_va2r2"]
+
+[resource]
+script = ExtResource("3_va2r2")
+name = "Pocket"
+type = "inv"
+Inventory = Dictionary[ExtResource("1_va2r2"), int]({
+ExtResource("2_mrr41"): 1
+})
+metadata/_custom_type_script = "uid://darocc302rkw8"

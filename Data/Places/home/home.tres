@@ -2,14 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_fkxyf"]
 [ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="1_y2dbt"]
-[ext_resource type="Resource" uid="uid://c0bxdhhaxl3j8" path="res://Data/Actions/heal.tres" id="2_111ae"]
+[ext_resource type="Resource" uid="uid://c0bxdhhaxl3j8" path="res://Data/Actions/sleep.tres" id="3_eqecv"]
 [ext_resource type="Resource" uid="uid://381nkmy530xm" path="res://Data/Places/home/home_inventory.tres" id="3_vg547"]
 
 [resource]
 script = ExtResource("1_y2dbt")
 name = "Мой дом"
 type = "home"
-actions = Array[ExtResource("1_fkxyf")]([ExtResource("2_111ae")])
-inv = ExtResource("3_vg547")
-heal_amount = 999
+actions = Array[ExtResource("1_fkxyf")]([ExtResource("3_eqecv"), ExtResource("3_vg547")])
 metadata/_custom_type_script = "uid://darocc302rkw8"

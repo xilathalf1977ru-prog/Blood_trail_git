@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d2kk01fkqiluh"]
+
+[ext_resource type="Script" uid="uid://ylnqmxnbp6dj" path="res://GDscripts/entity.gd" id="1_hsfu5"]
+[ext_resource type="PackedScene" uid="uid://d2vnd4s2nn4bw" path="res://UI/card.tscn" id="2_l7g7l"]
+
+[node name="Entity" type="Node2D" unique_id=1896997183]
+script = ExtResource("1_hsfu5")
+
+[node name="CardEntity" parent="." unique_id=1073989229 instance=ExtResource("2_l7g7l")]

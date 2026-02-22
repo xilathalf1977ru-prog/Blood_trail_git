@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActionData" format=3 uid="uid://c6ascdf6sdc7n"]
+
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_pnp0s"]
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="2_etgm3"]
+
+[resource]
+script = ExtResource("2_etgm3")
+name = "Инвентарь"
+type = "inv"
+menu = true
+metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

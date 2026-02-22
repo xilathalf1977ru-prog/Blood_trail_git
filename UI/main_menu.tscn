@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmaq4rpgdkhre"]
+[gd_scene format=3 uid="uid://bmaq4rpgdkhre"]
 
 [ext_resource type="Script" uid="uid://dya0n2jyagxei" path="res://UI/main_menu.gd" id="1_tt5f1"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=365289229]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tt5f1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=870102975]
 layout_mode = 0
 offset_left = -142.0
 offset_top = -85.0
@@ -19,7 +19,7 @@ offset_right = 2316.0
 offset_bottom = 1330.0
 color = Color(0.101960786, 0.30980393, 0.16470589, 1)
 
-[node name="NewGameButton" type="Button" parent="."]
+[node name="NewGameButton" type="Button" parent="." unique_id=796164079]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -32,7 +32,7 @@ grow_horizontal = 2
 scale = Vector2(2, 2)
 text = "Начать игру"
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ExitButton" type="Button" parent="." unique_id=1683545393]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://clyv7vp8daynf"]
+
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_77ecs"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_0kny8"]
+
+[resource]
+script = ExtResource("2_0kny8")
+name = "Бутылка пустая"
+type = "bottle_empty"
+cost = 10
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

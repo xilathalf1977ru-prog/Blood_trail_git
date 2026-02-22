@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcj06yl0bl6fn"]
+[gd_scene format=3 uid="uid://bcj06yl0bl6fn"]
 
 [ext_resource type="Script" uid="uid://c24xi7ulkoqx" path="res://GDscripts/player.gd" id="1_v0iea"]
-[ext_resource type="PackedScene" uid="uid://ul4b2imlm4sg" path="res://UI/card.tscn" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://d2vnd4s2nn4bw" path="res://UI/card.tscn" id="3_vgqql"]
 
-[node name="player" type="Node2D"]
+[node name="player" type="Node2D" unique_id=1176564648]
 script = ExtResource("1_v0iea")
 
-[node name="Card" parent="." instance=ExtResource("3_6t5aa")]
+[node name="CardPlayer" parent="." unique_id=1073989229 instance=ExtResource("3_vgqql")]

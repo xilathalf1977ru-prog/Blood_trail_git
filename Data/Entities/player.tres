@@ -3,15 +3,16 @@
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_adkyd"]
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_ehfks"]
 [ext_resource type="Resource" uid="uid://bboqahe5nobfs" path="res://Data/Entities/player_inventory.tres" id="2_3hqo3"]
+[ext_resource type="Texture2D" uid="uid://dwofirb74xylr" path="res://Sprites/wolf.png" id="3_0w73y"]
 
 [resource]
 script = ExtResource("1_ehfks")
 name = "Игрок"
+icon = ExtResource("3_0w73y")
+id = "player"
 player = true
 max_hp = 100
 current_hp = 100
-food = 50
-attack_speed = 14
-damage = 10
-inv = ExtResource("2_3hqo3")
+attack = 10
+actions = Array[ExtResource("1_adkyd")]([ExtResource("2_3hqo3")])
 metadata/_custom_type_script = "uid://bqduy5pjk0fl"

@@ -11,10 +11,17 @@ signal menu(data: Resource, context: String)
 signal check_all_menus_closed()
 @warning_ignore("unused_signal")
 signal all_menus_close()
-
 @warning_ignore("unused_signal")
 signal resource_init()
 
+
+@warning_ignore("unused_signal")
+signal log_show(log_text: String)
+
+@warning_ignore("unused_signal")
+signal show_quantity_menu(vis: bool, n: int, buffer: Array)
+@warning_ignore("unused_signal")
+signal result_quantity_menu(n: int, buffer: Array)
 
 ## --- ЖИЗНЕННЫЙ ЦИКЛ СЕССИИ ---
 @warning_ignore("unused_signal")
@@ -24,7 +31,7 @@ signal save()             # запрос на сохранение
 @warning_ignore("unused_signal")
 signal cleanup_game()     # запрос на очистку игрового мира
 @warning_ignore("unused_signal")
-signal place_visibility_changed(cell: int, place_data: PlaceData, show: bool)
+signal place_visibility_changed(cell: int, place_data: Resource, show: bool)
 @warning_ignore("unused_signal")
 signal player_at_place(place_data: PlaceData, vis: bool)
 
@@ -36,17 +43,18 @@ signal enemies_generated(enemies: Array[EntityData])
 @warning_ignore("unused_signal")
 signal player_changed(player_data: EntityData)
 
+@warning_ignore("unused_signal")
+signal player_equip_change(equip_data: ItemStack, changer: int)
+
 ## --- ДЕЙСТВИЯ ИГРОКА ---
 @warning_ignore("unused_signal")
 signal player_move(direction: Vector2)
 @warning_ignore("unused_signal")
-signal player_moved(steps: int)
+signal player_moved(steps: Vector2)
 
 ## --- ВЗАИМОДЕЙСТВИЕ С СУЩНОСТЯМИ ---
 @warning_ignore("unused_signal")
-signal card_selected(data: Resource, direction: Vector2)
-@warning_ignore("unused_signal")
-signal card_details_requested(data: Resource)
+signal card_selected(data: Resource)
 
 ## --- СМЕРТЬ И УДАЛЕНИЕ ---
 @warning_ignore("unused_signal")

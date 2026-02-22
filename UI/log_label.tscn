@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bo76e2pff3bk0"]
+
+[node name="LogLabel" type="Label" unique_id=1442989782]
+offset_right = 136.0
+offset_bottom = 34.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+text = "Hello World"

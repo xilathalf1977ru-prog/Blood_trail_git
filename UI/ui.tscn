@@ -1,42 +1,70 @@
 [gd_scene format=3 uid="uid://snso4ial8ry5"]
 
 [ext_resource type="Script" uid="uid://cm0xfdluufjpj" path="res://UI/ui.gd" id="1_jxero"]
-[ext_resource type="PackedScene" uid="uid://ul4b2imlm4sg" path="res://UI/card.tscn" id="2_e6gg6"]
 [ext_resource type="Script" uid="uid://ri138rtrwb5e" path="res://UI/big_cards.gd" id="3_c7tqi"]
 [ext_resource type="PackedScene" uid="uid://0nqdslmfxdwk" path="res://UI/hud.tscn" id="3_e6gg6"]
+[ext_resource type="PackedScene" uid="uid://d2vnd4s2nn4bw" path="res://UI/card.tscn" id="3_h81ot"]
 [ext_resource type="PackedScene" uid="uid://d1kv83nxlucxo" path="res://UI/big_card.tscn" id="3_nm1m0"]
 [ext_resource type="PackedScene" uid="uid://bmaq4rpgdkhre" path="res://UI/main_menu.tscn" id="4_hat8c"]
 [ext_resource type="PackedScene" uid="uid://bpyrxgcfio3u" path="res://UI/death_screen.tscn" id="5_3sbvi"]
-[ext_resource type="Script" uid="uid://b1x7uusncmh7l" path="res://GDscripts/button_plus.gd" id="8_cbfhl"]
+[ext_resource type="PackedScene" uid="uid://iljjgs4t3y6t" path="res://UI/log.tscn" id="6_h81ot"]
+[ext_resource type="Script" uid="uid://c4mx2k718u5gw" path="res://UI/quantity_menu.gd" id="8_4fiuh"]
+[ext_resource type="Script" uid="uid://b1x7uusncmh7l" path="res://GDscripts/button_n_changer.gd" id="8_cbfhl"]
 
 [node name="UI" type="CanvasLayer" unique_id=2138594352]
 script = ExtResource("1_jxero")
-metadata/_edit_horizontal_guides_ = [-618.0]
+
+[node name="HUD" parent="." unique_id=315903585 instance=ExtResource("3_e6gg6")]
 
 [node name="EnemyChoice" type="Control" parent="." unique_id=1850415745]
+visible = false
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 476.0
 grow_horizontal = 2
 
-[node name="CardLeft1" parent="EnemyChoice" unique_id=918739577 instance=ExtResource("2_e6gg6")]
-position = Vector2(145, 235)
+[node name="CardLeft1" parent="EnemyChoice" unique_id=1073989229 instance=ExtResource("3_h81ot")]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 12.0
+offset_right = 839.0
+offset_bottom = 268.0
 
-[node name="CardLeft2" parent="EnemyChoice" unique_id=1220608298 instance=ExtResource("2_e6gg6")]
-position = Vector2(415, 235)
+[node name="CardLeft2" parent="EnemyChoice" unique_id=1968615195 instance=ExtResource("3_h81ot")]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 276.0
+offset_right = 839.0
+offset_bottom = 532.0
 
-[node name="CardLeft3" parent="EnemyChoice" unique_id=53746289 instance=ExtResource("2_e6gg6")]
-position = Vector2(685, 235)
+[node name="CardLeft3" parent="EnemyChoice" unique_id=2067715077 instance=ExtResource("3_h81ot")]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 580.0
+offset_right = 839.0
+offset_bottom = 836.0
 
-[node name="CardRight1" parent="EnemyChoice" unique_id=785546641 instance=ExtResource("2_e6gg6")]
-position = Vector2(1235, 235)
+[node name="CardRight1" parent="EnemyChoice" unique_id=1485674780 instance=ExtResource("3_h81ot")]
+layout_mode = 0
+offset_left = 1110.0
+offset_top = 60.0
+offset_right = 1360.0
+offset_bottom = 410.0
 
-[node name="CardRight2" parent="EnemyChoice" unique_id=1458346903 instance=ExtResource("2_e6gg6")]
-position = Vector2(1505, 235)
+[node name="CardRight2" parent="EnemyChoice" unique_id=1697340695 instance=ExtResource("3_h81ot")]
+layout_mode = 0
+offset_left = 1380.0
+offset_top = 60.0
+offset_right = 1630.0
+offset_bottom = 410.0
 
-[node name="CardRight3" parent="EnemyChoice" unique_id=350201947 instance=ExtResource("2_e6gg6")]
-position = Vector2(1775, 235)
+[node name="CardRight3" parent="EnemyChoice" unique_id=356814892 instance=ExtResource("3_h81ot")]
+layout_mode = 0
+offset_left = 1650.0
+offset_top = 60.0
+offset_right = 1900.0
+offset_bottom = 410.0
 
 [node name="PlaceChoice" type="Control" parent="." unique_id=445065728]
 layout_mode = 3
@@ -44,9 +72,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CardPlace" parent="PlaceChoice" unique_id=1367367388 instance=ExtResource("2_e6gg6")]
-visible = false
-position = Vector2(960, 323)
+[node name="CardPlace" parent="PlaceChoice" unique_id=1689939893 instance=ExtResource("3_h81ot")]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 4.0
+offset_right = 1085.0
+offset_bottom = 354.0
 
 [node name="BigCards" type="Control" parent="." unique_id=1776871196]
 visible = false
@@ -66,31 +97,127 @@ color = Color(0, 0, 0, 0.39215687)
 visible = false
 layout_mode = 0
 offset_left = 15.0
-offset_top = 15.0
 offset_right = 615.0
-offset_bottom = 1065.0
 
 [node name="BigCard1" parent="BigCards" unique_id=761164176 instance=ExtResource("3_nm1m0")]
 visible = false
 layout_mode = 0
 offset_left = 660.0
-offset_top = 15.0
 offset_right = 1260.0
-offset_bottom = 1065.0
 
 [node name="BigCard2" parent="BigCards" unique_id=1698150315 instance=ExtResource("3_nm1m0")]
 visible = false
 layout_mode = 0
 offset_left = 1305.0
-offset_top = 15.0
 offset_right = 1905.0
-offset_bottom = 1065.0
 
-[node name="HUD" parent="." unique_id=315903585 instance=ExtResource("3_e6gg6")]
-offset_left = 41.0
-offset_top = 3.0
-offset_right = 41.0
-offset_bottom = 3.0
+[node name="QuantityMenu" type="Control" parent="." unique_id=1307643033]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 112.0
+offset_right = 40.0
+offset_bottom = 152.0
+script = ExtResource("8_4fiuh")
+
+[node name="ColorRect" type="ColorRect" parent="QuantityMenu" unique_id=1012489663]
+layout_mode = 0
+offset_top = -112.0
+offset_right = 1920.0
+offset_bottom = 968.0
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="Background" type="ColorRect" parent="QuantityMenu" unique_id=1508838844]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 653.0
+offset_right = 1085.0
+offset_bottom = 905.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="QuantityMenu/Background" unique_id=96161]
+layout_mode = 0
+offset_right = 205.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 24
+text = "Сколько?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonCancel" type="Button" parent="QuantityMenu/Background" unique_id=1252273222]
+layout_mode = 0
+offset_left = 205.0
+offset_right = 250.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 27
+text = "X"
+
+[node name="ButtonMinus" type="Button" parent="QuantityMenu/Background" unique_id=1290634738]
+layout_mode = 0
+offset_top = 52.0
+offset_right = 64.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 40
+text = "-"
+script = ExtResource("8_cbfhl")
+interval = 0.1
+
+[node name="NText" type="Label" parent="QuantityMenu/Background" unique_id=881877375]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 52.0
+offset_right = 186.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPlus" type="Button" parent="QuantityMenu/Background" unique_id=918904808]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 52.0
+offset_right = 250.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 40
+text = "+"
+script = ExtResource("8_cbfhl")
+interval = 0.1
+plus = true
+
+[node name="ButtonMin" type="Button" parent="QuantityMenu/Background" unique_id=458061892]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 64.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 27
+text = "Min"
+
+[node name="ButtonHalf" type="Button" parent="QuantityMenu/Background" unique_id=1677683877]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 120.0
+offset_right = 182.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 27
+text = "	1/2"
+
+[node name="ButtonMax" type="Button" parent="QuantityMenu/Background" unique_id=177436877]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 120.0
+offset_right = 250.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 27
+text = "Max"
+
+[node name="ButtonOK" type="Button" parent="QuantityMenu/Background" unique_id=1668586078]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 188.0
+offset_right = 182.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 27
+text = "OK"
 
 [node name="MainMenu" parent="." unique_id=2128373734 instance=ExtResource("4_hat8c")]
 visible = false
@@ -98,47 +225,8 @@ visible = false
 [node name="DeathScreen" parent="." unique_id=112483228 instance=ExtResource("5_3sbvi")]
 visible = false
 
-[node name="QuantityMenu" type="Control" parent="." unique_id=1307643033]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="QuantityMenu" unique_id=1508838844]
-layout_mode = 0
-offset_left = 835.0
-offset_top = 653.0
-offset_right = 1085.0
-offset_bottom = 1003.0
-color = Color(0, 0, 0, 1)
-
-[node name="ButtonMinus" type="Button" parent="QuantityMenu/ColorRect" unique_id=1290634738]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-text = "-"
-
-[node name="ButtonPlus" type="Button" parent="QuantityMenu/ColorRect" unique_id=918904808]
-layout_mode = 0
-offset_left = 186.0
-offset_right = 250.0
-offset_bottom = 64.0
-text = "+"
-script = ExtResource("8_cbfhl")
-plus = true
-
-[node name="Name" type="Label" parent="QuantityMenu/ColorRect" unique_id=881877375]
-layout_mode = 0
-offset_left = 64.0
-offset_right = 186.0
-offset_bottom = 64.0
-theme_override_font_sizes/font_size = 42
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Log" parent="." unique_id=516364193 instance=ExtResource("6_h81ot")]
 
 [connection signal="inv_stack_clicked" from="BigCards/BigCard0" to="BigCards" method="_on_big_card_0_inv_stack_clicked"]
 [connection signal="inv_stack_clicked" from="BigCards/BigCard1" to="BigCards" method="_on_big_card_1_inv_stack_clicked"]
 [connection signal="inv_stack_clicked" from="BigCards/BigCard2" to="BigCards" method="_on_big_card_2_inv_stack_clicked"]
-[connection signal="button_down" from="QuantityMenu/ColorRect/ButtonPlus" to="QuantityMenu/ColorRect/ButtonPlus" method="_on_button_down"]
-[connection signal="button_up" from="QuantityMenu/ColorRect/ButtonPlus" to="QuantityMenu/ColorRect/ButtonPlus" method="_on_button_up"]

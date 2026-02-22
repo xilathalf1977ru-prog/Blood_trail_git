@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="EntityData" load_steps=2 format=3 uid="uid://chiciqtlfnlae"]
+[gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://chiciqtlfnlae"]
 
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_e1kjf"]
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_ticih"]
+[ext_resource type="Texture2D" uid="uid://dwofirb74xylr" path="res://Sprites/wolf.png" id="2_61r1m"]
 
 [resource]
 script = ExtResource("1_ticih")
 name = "Волк"
+icon = ExtResource("2_61r1m")
 max_hp = 60
 current_hp = 60
-attack_speed = 8
-damage = 160
+attack = 60
 metadata/_custom_type_script = "uid://bqduy5pjk0fl"

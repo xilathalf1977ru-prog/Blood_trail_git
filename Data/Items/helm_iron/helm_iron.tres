@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemStack" format=3 uid="uid://dgjvmxo1di50b"]
+
+[ext_resource type="Resource" uid="uid://dxh31tm6dw3du" path="res://Data/Items/helm_iron/helm_iron_item.tres" id="1_u7ios"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_entgn"]
+
+[resource]
+script = ExtResource("2_entgn")
+item = ExtResource("1_u7ios")
+metadata/_custom_type_script = "uid://dmn0esob0sf5k"

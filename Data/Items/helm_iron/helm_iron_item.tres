@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dxh31tm6dw3du"]
+
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_176oj"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_edwff"]
+
+[resource]
+script = ExtResource("2_edwff")
+name = "Железный шлем"
+type = "equip"
+editor_main_type = 2
+editor_equip_type = 2
+equip_bonus = Dictionary[String, int]({
+"shield": 2
+})
+cost = 50
+metadata/_custom_type_script = "uid://dulsm86jld1sl"
