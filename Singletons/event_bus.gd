@@ -53,7 +53,7 @@ signal player_move(direction: Vector2)
 @warning_ignore("unused_signal")
 signal player_move_to(direction: Vector2)
 @warning_ignore("unused_signal")
-signal player_moved(steps: Vector2)
+signal player_horizontal_moved(pos: Vector2)
 
 ## --- ВЗАИМОДЕЙСТВИЕ С СУЩНОСТЯМИ ---
 @warning_ignore("unused_signal")

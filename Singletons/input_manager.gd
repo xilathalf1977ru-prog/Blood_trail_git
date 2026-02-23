@@ -1,10 +1,5 @@
 extends Node
 
-
-
-
-
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_right"):
 		EventBus.player_move.emit(Vector2.RIGHT)
@@ -20,5 +15,4 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("load"):
 		GameManager.load_game()
 	elif event.is_action_pressed("pause"):
-		print(EventBus.get_connections())
 		EventBus.all_menus_close.emit()

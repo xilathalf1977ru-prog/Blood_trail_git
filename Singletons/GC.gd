@@ -2,7 +2,7 @@ extends Node
 
 const CELL: int = 192#256
 const CELL_Y: Array = [353, 545, 737]
-const END_WORLD: int = 4
+const END_WORLD: int = 6
 
 ## --- ТИПЫ КАРТ ---
 const PLAYER: String = "player"

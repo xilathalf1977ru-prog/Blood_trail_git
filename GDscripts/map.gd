@@ -7,7 +7,7 @@ var currently_visible_cells: Array = []
 func _ready():
 	places_templates = DataLoader.load_res_dict("res://Data/Places/")
 	items_templates = DataLoader.load_res_dict("res://Data/Items/")
-	EventBus.player_moved.connect(update_places)
+	EventBus.player_horizontal_moved.connect(update_places)
 	
 	
 	#var testm3 = Factory.create_inv(places_templates, items_templates)
@@ -22,8 +22,8 @@ func _ready():
 		#-1:testm1,
 		#-2:testm2,
 		#-3:testm3,
-		#-4:places_templates["portal"],
-		#0:places_templates["home"],
+		-4:places_templates["portal"],
+		0:places_templates["home"],
 		#1:test,
 		#2:test2,
 		#3:test3,
@@ -63,9 +63,12 @@ func update_places(player_pos: Vector2):
 	currently_visible_cells = new_visible_cells
 		# Проверяем стоит ли игрок на месте
 	if place_map.has(player_cell):
-		EventBus.player_at_place.emit(place_map[player_cell], true)  # вошел
+		#EventBus.player_at_place.emit(place_map[player_cell], true)  # вошел
+		EventBus.player_at_place.emit(player_cell, true)  # вошел
 	else:
-		EventBus.player_at_place.emit(null, false)  # вышел
+		#EventBus.player_at_place.emit(null, false)  # вышел
+		EventBus.player_at_place.emit(player_cell, false)  # вошел
+	
 
 
 func has_save_file() -> bool:

@@ -11,7 +11,7 @@ func _ready() -> void:
 	EventBus.card_selected.connect(on_selected)
 	EventBus.object_died.connect(on_object_died)
 	EventBus.save.connect(save_game)
-	EventBus.player_moved.connect(on_player_moved)
+	EventBus.player_horizontal_moved.connect(on_player_moved)
 	
 	#call_deferred("resource_init")
 #func resource_init():

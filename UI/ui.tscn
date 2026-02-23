@@ -67,17 +67,19 @@ offset_right = 1900.0
 offset_bottom = 410.0
 
 [node name="PlaceChoice" type="Control" parent="." unique_id=445065728]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="CardPlace" parent="PlaceChoice" unique_id=1689939893 instance=ExtResource("3_h81ot")]
+visible = false
 layout_mode = 0
 offset_left = 835.0
-offset_top = 4.0
-offset_right = 1085.0
-offset_bottom = 354.0
+offset_top = 637.0
+offset_right = 1091.0
+offset_bottom = 893.0
 
 [node name="BigCards" type="Control" parent="." unique_id=1776871196]
 visible = false
