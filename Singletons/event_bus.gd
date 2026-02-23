@@ -49,6 +49,9 @@ signal player_equip_change(equip_data: ItemStack, changer: int)
 ## --- ДЕЙСТВИЯ ИГРОКА ---
 @warning_ignore("unused_signal")
 signal player_move(direction: Vector2)
+
+@warning_ignore("unused_signal")
+signal player_move_to(direction: Vector2)
 @warning_ignore("unused_signal")
 signal player_moved(steps: Vector2)
 

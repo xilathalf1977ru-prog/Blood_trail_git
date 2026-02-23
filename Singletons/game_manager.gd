@@ -70,7 +70,7 @@ func on_selected(data: Resource):
 	if data is EntityData:
 		#BattleManager.start_auto_battle(player_ref.data, data)
 		#print(data.direction)
-		EventBus.player_move.emit(data.direction)
+		EventBus.player_move_to.emit(data.direction)
 func details_requested(_entity_data: Resource):
 	pass
 func on_object_died(obj):

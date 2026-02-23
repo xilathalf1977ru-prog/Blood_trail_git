@@ -62,7 +62,7 @@ func show_cards(enemies: Array[EntityData]) -> void:
 		@warning_ignore("integer_division")
 		if i > (entities.size()-1)/2:
 			card.position.x = GameManager.player_ref.data.position.x + GC.CELL
-			print(enemy_data.direction.y+1)
+			#print(enemy_data.direction.y+1)
 			card.position.y = GC.CELL_Y[enemy_data.direction.y+1]
 			#n += 1
 			current_enemies_pos[card.position] = enemy_data
@@ -73,7 +73,7 @@ func show_cards(enemies: Array[EntityData]) -> void:
 			current_enemies_pos[card.position] = enemy_data
 		card.setup(enemy_data, GC.ENEMY)
 func on_player_moved(data):
-	print(data)
+	#print(data)
 	if data in current_enemies_pos.keys():
 		BattleManager.start_auto_battle(GameManager.player_ref.data, current_enemies_pos[data])
 		GameManager.current_enemies = EnemyManager.generate_enemies(6)

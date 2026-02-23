@@ -1,29 +1,33 @@
 extends Node2D
 
 const DATA_PATH: String = "res://Data/Entities/"
-
+var last_pos: Vector2 = Vector2(0, 0)
+var timer_running: bool = false
 @onready var data: EntityData = load(DATA_PATH + name + ".tres")
 func _ready():
 	GameManager.register_player(self)
 	EventBus.player_move.connect(_on_player_move)
+	EventBus.player_move_to.connect(_on_player_move_to)
 	EventBus.player_changed.connect(_on_player_changed)
 	EventBus.player_equip_change.connect(change_equip)
 	$CardPlayer.setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)
 	data.position = position
-	#call_deferred("test")
-#func test():
-	#EventBus.player_move.emit(Vector2(32, 0))
 func _on_player_changed(player_data):
 	data = player_data.duplicate()
 	$CardPlayer.setup(data, GC.PLAYER)
-func _on_player_move(direction: Vector2):
-	#print(direction.y)
-	#var move_direction = int(direction.x)
-	#print(move_direction)
-	_move(direction)
-
-func _move(pos: Vector2):
+func _on_player_move(pos: Vector2):
+	if !timer_running:
+		last_pos = pos
+		timer_running = true
+		await get_tree().create_timer(0.05).timeout
+		move_check(pos, true)
+		last_pos = Vector2(0, 0)
+		timer_running = false
+	else:
+		last_pos += pos
+func _on_player_move_to(pos: Vector2):move_check(pos, false)
+func move_check(pos: Vector2, move: bool):
 	var direction = int(pos.x)
 	if (data.steps + direction) > GC.END_WORLD:
 		var direction_post = direction - (GC.END_WORLD - data.steps)
@@ -35,23 +39,13 @@ func _move(pos: Vector2):
 		data.position.x = data.steps * GC.CELL
 	else:
 		data.steps += direction
-		data.position.x += GC.CELL * direction
-		
-	var direction_y: int = int(pos.y)
-	#print(direction_y)
-	#if direction_y == 1:
-		#data.position.y = GC.CELL_Y[2]#GC.CELL * direction_y
-	#elif direction_y == -1:
-		#data.position.y = GC.CELL_Y[0]#GC.CELL * direction_y
-	#elif :
-	#	data.position.y = GC.CELL_Y[0]
-	#print(direction_y+1)
-	
-	data.position.y = GC.CELL_Y[direction_y+1]
-	
-	
-	position.x = data.position.x
-	position.y = data.position.y
+		if move and int(data.position.y + last_pos.y * GC.CELL) in GC.CELL_Y:
+			data.position += last_pos * GC.CELL
+		else:
+			data.position.x += GC.CELL * direction
+			var direction_y: int = int(pos.y)
+			data.position.y = GC.CELL_Y[direction_y+1]
+	position = data.position
 	EventBus.player_changed.emit(data)
 	EventBus.player_moved.emit(data.position)
 	$CardPlayer.setup(data, GC.PLAYER)
