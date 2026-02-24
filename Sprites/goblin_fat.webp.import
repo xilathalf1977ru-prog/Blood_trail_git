@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b05500psphneq"
-path="res://.godot/imported/part.png-777d5e911d20537b682e0727f956fcf8.ctex"
+uid="uid://dx6q3rgu2c3cd"
+path="res://.godot/imported/goblin_fat.webp-d64b7e8d67b7e71b3d92eee7016cd3bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/part.png"
-dest_files=["res://.godot/imported/part.png-777d5e911d20537b682e0727f956fcf8.ctex"]
+source_file="res://Sprites/goblin_fat.webp"
+dest_files=["res://.godot/imported/goblin_fat.webp-d64b7e8d67b7e71b3d92eee7016cd3bb.ctex"]
 
 [params]
 

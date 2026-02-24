@@ -1,8 +1,12 @@
 extends Node
 
-const CELL: int = 192#256
+const CELL: int = 192
 const CELL_Y: Array = [353, 545, 737]
-const END_WORLD: int = 6
+#const CELL_PLACE: int = 737
+var cell_place_y: int:
+	get:
+		return CELL_Y[2]
+const END_WORLD: int = 7
 
 ## --- ТИПЫ КАРТ ---
 const PLAYER: String = "player"

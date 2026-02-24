@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7hls3d330tt6"
-path="res://.godot/imported/rogue.png-d6ec36e424bb6f4cfc5c3c33719c245c.ctex"
+uid="uid://bmsh110yu2yuv"
+path="res://.godot/imported/part.webp-c217ff489ba583c810561cc9e718c537.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/rogue.png"
-dest_files=["res://.godot/imported/rogue.png-d6ec36e424bb6f4cfc5c3c33719c245c.ctex"]
+source_file="res://Sprites/part.webp"
+dest_files=["res://.godot/imported/part.webp-c217ff489ba583c810561cc9e718c537.ctex"]
 
 [params]
 

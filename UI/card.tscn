@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2yn8bhi6gs6r" path="res://UI/button.gd" id="2_6nsdj"]
 [ext_resource type="Script" uid="uid://df4bxa3hcwxa0" path="res://UI/card.gd" id="2_j0kp0"]
-[ext_resource type="Texture2D" uid="uid://dwofirb74xylr" path="res://Sprites/wolf.png" id="3_d460q"]
+[ext_resource type="Texture2D" uid="uid://dggmftffp04t0" path="res://Sprites/rogue.webp" id="3_d460q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0kp0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -13,6 +13,7 @@ offset_left = -128.0
 offset_top = -128.0
 offset_right = 128.0
 offset_bottom = 128.0
+pivot_offset = Vector2(128, 128)
 script = ExtResource("2_j0kp0")
 
 [node name="ButtonSelect" type="Button" parent="." unique_id=1684614192]
@@ -34,19 +35,21 @@ script = ExtResource("2_6nsdj")
 
 [node name="Name" type="Label" parent="." unique_id=480992897]
 layout_mode = 0
-offset_right = 250.0
-offset_bottom = 30.0
+offset_left = 3.0
+offset_top = 222.0
+offset_right = 253.0
+offset_bottom = 252.0
 theme_override_font_sizes/font_size = 21
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1350083175]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=970109611]
 texture_filter = 1
 layout_mode = 0
 offset_left = 32.0
 offset_top = 32.0
-offset_right = 288.0
-offset_bottom = 288.0
-scale = Vector2(0.75, 0.75)
+offset_right = 1056.0
+offset_bottom = 1056.0
+scale = Vector2(0.188, 0.188)
 mouse_filter = 2
 texture = ExtResource("3_d460q")
 

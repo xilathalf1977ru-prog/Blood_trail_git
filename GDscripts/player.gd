@@ -21,7 +21,7 @@ func _on_player_move(pos: Vector2):
 		last_pos = pos
 		timer_running = true
 		await get_tree().create_timer(0.05).timeout
-		move_check(pos, true)
+		move_check(last_pos, true)
 		last_pos = Vector2(0, 0)
 		timer_running = false
 	else:
@@ -47,8 +47,8 @@ func move_check(pos: Vector2, move: bool):
 			data.position.y = GC.CELL_Y[direction_y+1]
 	position = data.position
 	EventBus.player_changed.emit(data)
+	EventBus.player_horizontal_moved.emit(data.position)
 	if direction != 0:
-		EventBus.player_horizontal_moved.emit(data.position)
 		GameManager.current_enemies = EnemyManager.generate_enemies(6)
 	$CardPlayer.setup(data, GC.PLAYER)
 func load_data(player_data: EntityData):

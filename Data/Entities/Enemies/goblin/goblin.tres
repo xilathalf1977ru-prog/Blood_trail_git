@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_ajd8i"]
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_k7s0h"]
 [ext_resource type="Resource" uid="uid://40d2hhrp1ov8" path="res://Data/Entities/Enemies/goblin/goblin_inventory.tres" id="2_hdydc"]
-[ext_resource type="Texture2D" uid="uid://ba7dndufphb8x" path="res://Sprites/goblin.png" id="3_eofkm"]
+[ext_resource type="Texture2D" uid="uid://dv0leaml5q0t6" path="res://Sprites/goblin.webp" id="3_eofkm"]
 
 [resource]
 script = ExtResource("1_k7s0h")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0nqdslmfxdwk"]
 
 [ext_resource type="Script" uid="uid://c4po73poidfyt" path="res://UI/hud.gd" id="1_e0onf"]
-[ext_resource type="Texture2D" uid="uid://bh1rp0r8x5jg3" path="res://Sprites/hpbar.png" id="2_bytes"]
+[ext_resource type="Texture2D" uid="uid://dekmgqdct60x" path="res://Sprites/hpbar.webp" id="2_bytes"]
 
 [node name="HUD" type="Control" unique_id=803828367]
 layout_mode = 3

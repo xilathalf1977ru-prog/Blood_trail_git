@@ -2,17 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://bwkqvmxk8oye2" path="res://Scenes/map.tscn" id="1_0nejw"]
 [ext_resource type="Script" uid="uid://og7o6gsnr2c5" path="res://GDscripts/game_world.gd" id="1_qvgq0"]
-[ext_resource type="Texture2D" uid="uid://dqb1u0tbcro54" path="res://Sprites/SkyNight.png" id="2_d0bjv"]
-[ext_resource type="Texture2D" uid="uid://u8ijbnsvaxq" path="res://Sprites/Stars.png" id="3_27os8"]
 [ext_resource type="PackedScene" uid="uid://bcj06yl0bl6fn" path="res://Scenes/player.tscn" id="3_alii3"]
 [ext_resource type="Script" uid="uid://tl5uknwddbde" path="res://GDscripts/map.gd" id="3_p4c8d"]
 [ext_resource type="Script" uid="uid://cjapr132u6t1d" path="res://GDscripts/camera_2d.gd" id="4_hy2kt"]
-[ext_resource type="Texture2D" uid="uid://b05500psphneq" path="res://Sprites/part.png" id="7_27os8"]
-[ext_resource type="PackedScene" uid="uid://d2vnd4s2nn4bw" path="res://UI/card.tscn" id="9_rr1si"]
+[ext_resource type="Texture2D" uid="uid://ipbstcnjhr21" path="res://Sprites/SkyNight.webp" id="4_xqdar"]
+[ext_resource type="Texture2D" uid="uid://cn1qtikybj1qk" path="res://Sprites/Stars.webp" id="5_xqdar"]
+[ext_resource type="Texture2D" uid="uid://bmsh110yu2yuv" path="res://Sprites/part.webp" id="6_xnm3i"]
 [ext_resource type="PackedScene" uid="uid://d2kk01fkqiluh" path="res://Scenes/entity.tscn" id="9_xqdar"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rr1si"]
-texture = ExtResource("3_27os8")
+texture = ExtResource("5_xqdar")
 texture_region_size = Vector2i(256, 256)
 0:0/0 = 0
 
@@ -21,7 +20,7 @@ tile_size = Vector2i(256, 256)
 sources/1 = SubResource("TileSetAtlasSource_rr1si")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqdar"]
-texture = ExtResource("7_27os8")
+texture = ExtResource("6_xnm3i")
 texture_region_size = Vector2i(48, 134)
 0:0/0 = 0
 
@@ -44,7 +43,7 @@ offset_top = -104.0
 offset_right = -9744.0
 offset_bottom = 152.0
 scale = Vector2(80, 5)
-texture = ExtResource("2_d0bjv")
+texture = ExtResource("4_xqdar")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Background" unique_id=370963229]
 show_behind_parent = true
@@ -61,6 +60,7 @@ tile_map_data = PackedByteArray("AAD+////AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAA
 tile_set = SubResource("TileSet_xnm3i")
 
 [node name="ColorRect2" type="ColorRect" parent="Background" unique_id=1239728247]
+visible = false
 offset_left = -96.0
 offset_top = 449.0
 offset_right = 96.0
@@ -68,6 +68,7 @@ offset_bottom = 641.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Background" unique_id=32633618]
+visible = false
 offset_left = -288.0
 offset_top = 257.0
 offset_right = -96.0
@@ -99,17 +100,3 @@ position = Vector2(823, 507)
 
 [node name="Entity6" parent="EnemyChoice" unique_id=161193564 instance=ExtResource("9_xqdar")]
 position = Vector2(823, 507)
-
-[node name="Card" parent="." unique_id=1485113130 instance=ExtResource("9_rr1si")]
-visible = false
-offset_left = -320.0
-offset_top = 225.0
-offset_right = -64.0
-offset_bottom = 481.0
-
-[node name="Card2" parent="." unique_id=1157549516 instance=ExtResource("9_rr1si")]
-visible = false
-offset_left = 180.0
-offset_top = 225.0
-offset_right = 436.0
-offset_bottom = 481.0

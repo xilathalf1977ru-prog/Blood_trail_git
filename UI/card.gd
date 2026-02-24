@@ -17,6 +17,8 @@ func setup(data: Resource, type: String):
 	elif data is PlaceData:setup_place(data as PlaceData)
 	if name != "CardPlayer" and name != "CardEntity" and $Name.text:
 		name = $Name.text
+	if data.icon:
+		$TextureRect.texture = data.icon
 func setup_entity(entity: EntityData):
 	$Name.visible = false
 	var text:String
@@ -39,8 +41,8 @@ func setup_entity(entity: EntityData):
 			"distance": entity.steps})
 	$Name.text = entity.name
 	$TextLabel.text = text
-	if entity.icon:
-		$TextureRect.texture = entity.icon
+	#if entity.icon:
+		#$TextureRect.texture = entity.icon
 func setup_place(place: PlaceData):
 	$Name.text = place.name
 func setup_vis(data):

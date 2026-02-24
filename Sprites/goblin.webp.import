@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj7yxmog5i5x1"
-path="res://.godot/imported/Card.webp-101a72b95d658e2a73f4fa47115a1e9c.ctex"
+uid="uid://dv0leaml5q0t6"
+path="res://.godot/imported/goblin.webp-50d1007488df780a0ba6f99b36f73ff6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Card.webp"
-dest_files=["res://.godot/imported/Card.webp-101a72b95d658e2a73f4fa47115a1e9c.ctex"]
+source_file="res://Sprites/goblin.webp"
+dest_files=["res://.godot/imported/goblin.webp-50d1007488df780a0ba6f99b36f73ff6.ctex"]
 
 [params]
 

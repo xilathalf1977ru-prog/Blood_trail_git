@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwofirb74xylr"
-path="res://.godot/imported/wolf.png-9e5db8874098aabbcbbc721da2c74b21.ctex"
+uid="uid://ipbstcnjhr21"
+path="res://.godot/imported/SkyNight.webp-5b78b3d40319b70d3f1ee1f04e510924.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wolf.png"
-dest_files=["res://.godot/imported/wolf.png-9e5db8874098aabbcbbc721da2c74b21.ctex"]
+source_file="res://Sprites/SkyNight.webp"
+dest_files=["res://.godot/imported/SkyNight.webp-5b78b3d40319b70d3f1ee1f04e510924.ctex"]
 
 [params]
 

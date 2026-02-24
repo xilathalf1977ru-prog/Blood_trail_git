@@ -17,6 +17,7 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 			EventBus.log_show.emit("Напал враг " + enemy.name)
 		GC.Act.TELEPORT_RNG:
 			var dist: int = GC.rng.randi_range(data.dist*-1, data.dist)
+			await get_tree().process_frame
 			EventBus.player_move.emit(Vector2(dist, 0))
 			EventBus.all_menus_close.emit()
 			EventBus.log_show.emit("Телепортировался на " + str(dist))
