@@ -24,47 +24,19 @@ anchor_right = 1.0
 offset_bottom = 476.0
 grow_horizontal = 2
 
-[node name="CardLeft1" parent="EnemyChoice" unique_id=1073989229 instance=ExtResource("3_h81ot")]
+[node name="CardEnemy" parent="EnemyChoice" unique_id=1073989229 instance=ExtResource("3_h81ot")]
 layout_mode = 0
 offset_left = 583.0
-offset_top = 12.0
+offset_top = 0.0
 offset_right = 839.0
-offset_bottom = 268.0
+offset_bottom = 256.0
 
-[node name="CardLeft2" parent="EnemyChoice" unique_id=1968615195 instance=ExtResource("3_h81ot")]
+[node name="CardPlayer" parent="EnemyChoice" unique_id=1968615195 instance=ExtResource("3_h81ot")]
 layout_mode = 0
-offset_left = 583.0
-offset_top = 276.0
-offset_right = 839.0
-offset_bottom = 532.0
-
-[node name="CardLeft3" parent="EnemyChoice" unique_id=2067715077 instance=ExtResource("3_h81ot")]
-layout_mode = 0
-offset_left = 583.0
-offset_top = 580.0
-offset_right = 839.0
-offset_bottom = 836.0
-
-[node name="CardRight1" parent="EnemyChoice" unique_id=1485674780 instance=ExtResource("3_h81ot")]
-layout_mode = 0
-offset_left = 1110.0
-offset_top = 60.0
-offset_right = 1360.0
-offset_bottom = 410.0
-
-[node name="CardRight2" parent="EnemyChoice" unique_id=1697340695 instance=ExtResource("3_h81ot")]
-layout_mode = 0
-offset_left = 1380.0
-offset_top = 60.0
-offset_right = 1630.0
-offset_bottom = 410.0
-
-[node name="CardRight3" parent="EnemyChoice" unique_id=356814892 instance=ExtResource("3_h81ot")]
-layout_mode = 0
-offset_left = 1650.0
-offset_top = 60.0
-offset_right = 1900.0
-offset_bottom = 410.0
+offset_left = 882.0
+offset_top = 0.0
+offset_right = 1138.0
+offset_bottom = 256.0
 
 [node name="PlaceChoice" type="Control" parent="." unique_id=445065728]
 visible = false

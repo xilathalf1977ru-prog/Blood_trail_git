@@ -7,7 +7,7 @@
 [node name="BigCard" type="ColorRect" unique_id=1400627484]
 offset_right = 600.0
 offset_bottom = 1080.0
-color = Color(0.101960786, 0.30980393, 0.16470589, 1)
+color = Color(0.101960786, 0.30980393, 0.16470589, 0.78431374)
 script = ExtResource("1_8j5wj")
 
 [node name="Name" type="Label" parent="." unique_id=314753981]

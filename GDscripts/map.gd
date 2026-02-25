@@ -10,24 +10,23 @@ func _ready():
 	EventBus.player_horizontal_moved.connect(update_places)
 	
 	
-	#var testm3 = Factory.create_inv(places_templates, items_templates)
-	#var testm2 = Factory.create_inv(places_templates, items_templates)
-	#var testm1 = Factory.create_inv(places_templates, items_templates)
-	#
-	#var test = Factory.create_inv(places_templates, items_templates)
-	#var test2 = Factory.create_inv(places_templates, items_templates)
-	#var test3 = Factory.create_inv(places_templates, items_templates)
+	var testm3 = Factory.create_inv(places_templates, items_templates)
+	var testm2 = Factory.create_inv(places_templates, items_templates)
+	var testm1 = Factory.create_inv(places_templates, items_templates)
+	var test = Factory.create_inv(places_templates, items_templates)
+	var test2 = Factory.create_inv(places_templates, items_templates)
+	var test3 = Factory.create_inv(places_templates, items_templates)
 	
 	place_map = {
 		#-1:testm1,
-		#-2:testm2,
-		#-3:testm3,
-		-4:places_templates["portal"],
+		-2:testm2,
+		-3:testm3,
+		-1:places_templates["portal"],
 		0:places_templates["home"],
-		#1:test,
-		#2:test2,
-		#3:test3,
-		#4:places_templates["store"],
+		1:test,
+		2:test2,
+		3:test3,
+		4:places_templates["store"],
 	}
 	
 	for i in place_map.keys():

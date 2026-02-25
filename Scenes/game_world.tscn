@@ -84,19 +84,19 @@ script = ExtResource("4_hy2kt")
 
 [node name="EnemyChoice" type="Node2D" parent="." unique_id=229126439]
 
-[node name="Entity" parent="EnemyChoice" unique_id=1896997183 instance=ExtResource("9_xqdar")]
+[node name="Entity3" parent="EnemyChoice" unique_id=1478902055 instance=ExtResource("9_xqdar")]
+position = Vector2(823, 507)
 
 [node name="Entity2" parent="EnemyChoice" unique_id=717248869 instance=ExtResource("9_xqdar")]
 position = Vector2(-1, 0)
 
-[node name="Entity3" parent="EnemyChoice" unique_id=1478902055 instance=ExtResource("9_xqdar")]
-position = Vector2(823, 507)
+[node name="Entity" parent="EnemyChoice" unique_id=1896997183 instance=ExtResource("9_xqdar")]
 
-[node name="Entity4" parent="EnemyChoice" unique_id=1024520710 instance=ExtResource("9_xqdar")]
+[node name="Entity6" parent="EnemyChoice" unique_id=161193564 instance=ExtResource("9_xqdar")]
 position = Vector2(823, 507)
 
 [node name="Entity5" parent="EnemyChoice" unique_id=1549524936 instance=ExtResource("9_xqdar")]
 position = Vector2(823, 507)
 
-[node name="Entity6" parent="EnemyChoice" unique_id=161193564 instance=ExtResource("9_xqdar")]
+[node name="Entity4" parent="EnemyChoice" unique_id=1024520710 instance=ExtResource("9_xqdar")]
 position = Vector2(823, 507)

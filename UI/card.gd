@@ -23,17 +23,17 @@ func setup_entity(entity: EntityData):
 	$Name.visible = false
 	var text:String
 	if context == GC.ENEMY:
-		text = """hp: {hp}
-		attack: {attack}
+		text = """Здоровье: {hp}
+		Атака: {attack}
 		""".format({
 			"hp": entity.current_hp,
 			"attack": entity.attack,
 			})
 	elif context == GC.PLAYER:
-		text = """hp: {hp}
-		attack: {attack}
-		shield: {shield}
-		distance: {distance}
+		text = """Здоровье: {hp}
+		Атака: {attack}
+		Броня: {shield}
+		Шаги: {distance}
 		""".format({
 			"hp": entity.current_hp,
 			"attack": entity.attack,
@@ -41,10 +41,12 @@ func setup_entity(entity: EntityData):
 			"distance": entity.steps})
 	$Name.text = entity.name
 	$TextLabel.text = text
-	#if entity.icon:
-		#$TextureRect.texture = entity.icon
 func setup_place(place: PlaceData):
 	$Name.text = place.name
+	$TextLabel.text = ""
+	for i in place.actions:
+		$TextLabel.text += "\n" + i.name
+	
 func setup_vis(data):
 	if data is ItemStack:
 		$TextLabel.text = (
@@ -53,10 +55,12 @@ func setup_vis(data):
 			)
 		for i in data.equip_bonus:
 			
-			
 			$TextLabel.text += "\n" + i + " " + str(data.equip_bonus[i])
 		$EquipedIcon.visible = data.equiped
-	$Name.text = data.name
+		$TextLabel.position.y = 0
+		$Name.text = data.name + " X" + str(data.quantity)
+	else:
+		$Name.text = data.name
 	name = data.name
 	
 func _on_button_select_mouse_button_left() -> void:
@@ -65,12 +69,12 @@ func _on_button_select_mouse_button_left() -> void:
 	if card_data is EntityData:
 		EventBus.card_selected.emit(card_data)
 	elif card_data is PlaceData:
-		if card_data.actions.size() == 1:
-			if card_data.actions[0].menu:
-				EventBus.menu.emit(card_data.actions[0], card_data.actions[0].type)
-			else:
-				ActionManager.handle_action(card_data.actions[0], card_data.actions[0].type)
-			return
+		#if card_data.actions.size() == 1:
+			#if card_data.actions[0].menu:
+				#EventBus.menu.emit(card_data.actions[0], card_data.actions[0].type)
+			#else:
+				#ActionManager.handle_action(card_data.actions[0], card_data.actions[0].type)
+			#return
 		EventBus.menu.emit(card_data, context)
 	elif card_data is ItemStack:
 		item_stack_clicked.emit(card_data)
@@ -102,3 +106,13 @@ func _on_result_quantity_menu(n: int, _buffer: Array) -> void:
 		use_item(n)
 	if EventBus.result_quantity_menu.is_connected(_on_result_quantity_menu):
 		EventBus.result_quantity_menu.disconnect(_on_result_quantity_menu)
+
+func _on_button_select_mouse_entered() -> void:
+	if card_data is EntityData or card_data is ItemStack or card_data is PlaceData:
+		$TextLabel.visible = true
+	if card_data is EntityData and context != GC.PLAYER:
+		EventBus.show_player_stats.emit(true)
+func _on_button_select_mouse_exited() -> void:
+	$TextLabel.visible = false
+	if card_data is EntityData and context != GC.PLAYER:
+		EventBus.show_player_stats.emit(false)

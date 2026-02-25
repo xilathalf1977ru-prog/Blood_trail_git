@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu5vsdku2a2ui"
-path="res://.godot/imported/wolf.webp-c743e65d493779052109a25f9a6a8f66.ctex"
+uid="uid://cvwglb6bq7cji"
+path="res://.godot/imported/bottle_empty.webp-8eb7a6a74a545e16bfc19eaee95c6d4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wolf.webp"
-dest_files=["res://.godot/imported/wolf.webp-c743e65d493779052109a25f9a6a8f66.ctex"]
+source_file="res://Sprites/bottle_empty.webp"
+dest_files=["res://.godot/imported/bottle_empty.webp-8eb7a6a74a545e16bfc19eaee95c6d4e.ctex"]
 
 [params]
 

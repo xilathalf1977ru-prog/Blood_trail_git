@@ -13,8 +13,9 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 		GC.Act.RANDOM_ATTACK:
 			var enemy_pool: Array[EntityData] = GameManager.current_enemies
 			var enemy: EntityData = enemy_pool[GC.rng.randi_range(0, enemy_pool.size()-1)]
-			BattleManager.start_auto_battle(player, enemy)
+			EnemyManager.generate_enemies(6)
 			EventBus.log_show.emit("Напал враг " + enemy.name)
+			BattleManager.start_auto_battle(player, enemy)
 		GC.Act.TELEPORT_RNG:
 			var dist: int = GC.rng.randi_range(data.dist*-1, data.dist)
 			await get_tree().process_frame

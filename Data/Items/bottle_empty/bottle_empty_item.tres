@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_77ecs"]
 [ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_0kny8"]
+[ext_resource type="Texture2D" uid="uid://c46ldt6et5apk" path="res://Sprites/bottle_empty.webp" id="2_p2qtn"]
 
 [resource]
 script = ExtResource("2_0kny8")
 name = "Бутылка пустая"
 type = "bottle_empty"
+icon = ExtResource("2_p2qtn")
 cost = 10
 metadata/_custom_type_script = "uid://dulsm86jld1sl"

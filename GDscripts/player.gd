@@ -10,6 +10,9 @@ func _ready():
 	EventBus.player_move_to.connect(_on_player_move_to)
 	EventBus.player_changed.connect(_on_player_changed)
 	EventBus.player_equip_change.connect(change_equip)
+	
+	EventBus.show_player_stats.connect(_on_show_player_stats)
+	
 	$CardPlayer.setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)
 	data.position = position
@@ -26,7 +29,8 @@ func _on_player_move(pos: Vector2):
 		timer_running = false
 	else:
 		last_pos += pos
-func _on_player_move_to(pos: Vector2):move_check(pos, false)
+func _on_player_move_to(pos: Vector2):
+	move_check(pos, false)
 func move_check(pos: Vector2, move: bool):
 	var direction = int(pos.x)
 	if (data.steps + direction) > GC.END_WORLD:
@@ -42,7 +46,7 @@ func move_check(pos: Vector2, move: bool):
 		if move and int(data.position.y + last_pos.y * GC.CELL) in GC.CELL_Y:
 			data.position += last_pos * GC.CELL
 		else:
-			data.position.x += GC.CELL * direction
+			data.position.x += direction * (GC.CELL)
 			var direction_y: int = int(pos.y)
 			data.position.y = GC.CELL_Y[direction_y+1]
 	position = data.position
@@ -69,3 +73,9 @@ func change_stats(stat_values, direction):
 			"attack": data.attack += (stat_values[i]) * direction
 			"shield": data.shield += (stat_values[i]) * direction
 	$CardPlayer.setup(data, GC.PLAYER)
+
+func _on_show_player_stats(vis):
+	if vis:$CardPlayer._on_button_select_mouse_entered()
+	else:$CardPlayer._on_button_select_mouse_exited()
+	#print(vis)
+	#$CardPlayer/Card/TextLabel.visible = vis

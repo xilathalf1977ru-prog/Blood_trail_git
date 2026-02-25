@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu5vsdku2a2ui"
-path="res://.godot/imported/wolf.webp-c743e65d493779052109a25f9a6a8f66.ctex"
+uid="uid://bmn5bbjvyecqm"
+path="res://.godot/imported/helm_iron.webp-6232f4b023bf3d96fa1cc666467788d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wolf.webp"
-dest_files=["res://.godot/imported/wolf.webp-c743e65d493779052109a25f9a6a8f66.ctex"]
+source_file="res://Sprites/helm_iron.webp"
+dest_files=["res://.godot/imported/helm_iron.webp-6232f4b023bf3d96fa1cc666467788d8.ctex"]
 
 [params]
 

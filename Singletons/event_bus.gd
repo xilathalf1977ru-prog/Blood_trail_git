@@ -51,6 +51,9 @@ signal player_equip_change(equip_data: ItemStack, changer: int)
 signal player_move(direction: Vector2)
 
 @warning_ignore("unused_signal")
+signal show_player_stats(vis: bool)
+
+@warning_ignore("unused_signal")
 signal player_move_to(direction: Vector2)
 @warning_ignore("unused_signal")
 signal player_horizontal_moved(pos: Vector2)
