@@ -2,18 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_g3ub0"]
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="2_41rd6"]
-[ext_resource type="Resource" uid="uid://bfv0cowyhvftd" path="res://Data/Items/sword_iron/sword_iron.tres" id="2_vcr6m"]
-[ext_resource type="Resource" uid="uid://dgjvmxo1di50b" path="res://Data/Items/helm_iron/helm_iron.tres" id="3_vcr6m"]
-[ext_resource type="Resource" uid="uid://cqslpxicsymar" path="res://Data/Items/elixir_hp_50/elixir_hp_50.tres" id="4_0w7ga"]
 
 [resource]
 script = ExtResource("2_41rd6")
 name = "Инвентарь игрока"
 type = "inv"
-money = 100
-inventory = Dictionary[ExtResource("1_g3ub0"), int]({
-ExtResource("2_vcr6m"): 1,
-ExtResource("3_vcr6m"): 1,
-ExtResource("4_0w7ga"): 1
-})
 metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

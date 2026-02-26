@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActionData" format=3 uid="uid://paj1jhf3fjti"]
 
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_cjyjm"]
-[ext_resource type="Resource" uid="uid://cuugb3fs6xsxr" path="res://Data/Items/goblin_middle_skin/goblin_middle_skin.tres" id="2_8a4ji"]
+[ext_resource type="Resource" uid="uid://cuugb3fs6xsxr" path="res://Data/Items/goblin_fat_head/goblin_fat_head.tres" id="2_8a4ji"]
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="3_5si6t"]
 
 [resource]

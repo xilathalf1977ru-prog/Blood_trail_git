@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_to8mi"]
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_u21w1"]
+[ext_resource type="Texture2D" uid="uid://brtkvdlobijmq" path="res://Data/Places/home/pocket2.webp" id="1_v3rsc"]
 
 [resource]
 script = ExtResource("1_u21w1")
 name = "Инвентарь"
 type = "inv"
+icon = ExtResource("1_v3rsc")
 menu = true
 metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

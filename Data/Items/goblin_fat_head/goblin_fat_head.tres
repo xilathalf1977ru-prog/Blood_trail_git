@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemStack" format=3 uid="uid://cuugb3fs6xsxr"]
 
-[ext_resource type="Resource" uid="uid://bgl32xr6g4oc3" path="res://Data/Items/goblin_middle_skin/goblin_middle_skin_item.tres" id="1_cfilg"]
+[ext_resource type="Resource" uid="uid://bgl32xr6g4oc3" path="res://Data/Items/goblin_fat_head/goblin_fat_head_item.tres" id="1_cfilg"]
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_qhrtt"]
 
 [resource]

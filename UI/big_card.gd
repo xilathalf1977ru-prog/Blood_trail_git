@@ -48,7 +48,7 @@ func remove_item(item_stack: ItemStack, n: int):
 func _setup_card_common(card: TextureRect, res_data) -> void:
 	card.item_stack_clicked.connect(_on_item_stack_clicked)
 	card.item_stack_delete.connect(remove_item)
-	card.item_stack_create.connect(add_item)
+	card.item_stack_use.connect(use_item)
 	path.setup_card_common(card, res_data)
 func _on_button_x_pressed() -> void:
 	visible = false
@@ -63,8 +63,8 @@ func clear_card(card):
 		card.item_stack_clicked.disconnect(_on_item_stack_clicked)
 	if card.item_stack_delete.is_connected(remove_item):
 		card.item_stack_delete.disconnect(remove_item)
-	if card.item_stack_create.is_connected(add_item):
-		card.item_stack_create.disconnect(add_item)
+	if card.item_stack_use.is_connected(use_item):
+		card.item_stack_use.disconnect(use_item)
 	card.queue_free()
 func _on_button_transfer_pressed() -> void:
 	for card in path.get_children():
@@ -86,11 +86,27 @@ func save_inv():
 	GameManager.invs[local_data.owner_id] = local_data.inventory#local_data.real_inv
 func save_inv_money():
 	#GameManager.invs_money[local_data.resource_path] = local_data.money
-	
-	GameManager.invs[local_data.owner_id] = local_data.money
+	pass
+	#GameManager.invs[local_data.owner_id] = local_data.money
 func update_ui():
 	$ButtonTransfer.visible = local_context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]
 	if local_context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]:
 		$Name.text = local_data.name + " $ " + str(local_data.money)
 	elif local_context in [GC.PLACE]:
 		$Name.text = local_data.name
+
+func use_item(item_stack: ItemStack, n: int):
+	if local_data.owner_id != "player":
+		return
+	#if item_stack
+	if item_stack.editor_main_type == item_stack.EditorType.EQUIP:
+		item_stack.equiped = !item_stack.equiped
+		path.get_node(item_stack.name).setup_vis(item_stack)
+		ActionManager.handle_action(item_stack, item_stack.type)
+		
+		
+		return
+	ActionManager.handle_action(item_stack.actions[0], item_stack.actions[0].type, n)
+	if item_stack.transforms_to:
+		add_item(item_stack.transforms_to, n)
+	remove_item(item_stack, n)

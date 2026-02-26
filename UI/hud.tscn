@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://0nqdslmfxdwk"]
 
 [ext_resource type="Script" uid="uid://c4po73poidfyt" path="res://UI/hud.gd" id="1_e0onf"]
-[ext_resource type="Texture2D" uid="uid://dekmgqdct60x" path="res://Sprites/hpbar.webp" id="2_bytes"]
+[ext_resource type="Texture2D" uid="uid://bg062bh6ctvc6" path="res://Sprites/Sleep.webp" id="2_2o5uh"]
+[ext_resource type="Texture2D" uid="uid://brtkvdlobijmq" path="res://Data/Places/home/pocket2.webp" id="2_b1lf8"]
+[ext_resource type="Texture2D" uid="uid://b53nvosgq7t4n" path="res://Sprites/hpbar.webp" id="2_bytes"]
 
 [node name="HUD" type="Control" unique_id=803828367]
 layout_mode = 3
@@ -36,7 +38,15 @@ offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
-text = "My INV"
+focus_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="ButtonInv" unique_id=2071075018]
+layout_mode = 0
+offset_left = 46.999996
+offset_right = 1071.0
+offset_bottom = 1024.0
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_b1lf8")
 
 [node name="ButtonSleep" type="Button" parent="." unique_id=1401699890]
 layout_mode = 1
@@ -52,7 +62,15 @@ offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
-text = "zzZ"
+focus_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="ButtonSleep" unique_id=1321808769]
+layout_mode = 0
+offset_left = 45.5
+offset_right = 1069.5
+offset_bottom = 1024.0
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_2o5uh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=95601927]
 visible = false

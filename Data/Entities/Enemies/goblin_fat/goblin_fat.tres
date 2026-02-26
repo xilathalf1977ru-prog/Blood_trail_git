@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_8o1e7"]
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_uc68m"]
-[ext_resource type="Resource" uid="uid://paj1jhf3fjti" path="res://Data/Entities/Enemies/goblin_middle/goblin_middle_inventory.tres" id="2_nh5yo"]
-[ext_resource type="Texture2D" uid="uid://dx6q3rgu2c3cd" path="res://Sprites/goblin_fat.webp" id="3_sxehk"]
+[ext_resource type="Resource" uid="uid://paj1jhf3fjti" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_inventory.tres" id="2_nh5yo"]
+[ext_resource type="Texture2D" uid="uid://chtx2ss7cfvjs" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_icon.webp" id="3_l05kj"]
 
 [resource]
 script = ExtResource("1_uc68m")
 name = "Гоблин толстяк"
-icon = ExtResource("3_sxehk")
+icon = ExtResource("3_l05kj")
 max_hp = 40
 current_hp = 40
 attack = 6

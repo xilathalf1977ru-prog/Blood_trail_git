@@ -31,7 +31,9 @@ func load_game():
 		return false
 	if player_ref:  # Если игрок уже зарегистрирован
 		player_ref.load_data(save_data.player_data.duplicate())
-		EventBus.player_moved.emit(player_ref.data.steps)
+		#EventBus.player_moved.emit(player_ref.data.position)
+		#EventBus.player_move_to.emit(player_ref.data.position)
+		
 		EventBus.enemies_generated.emit(save_data.enemies)
 		#for i in save_data.invs.size():
 			#var inv = load(save_data.invs.keys()[i])
@@ -43,7 +45,6 @@ func load_game():
 			player_ref.data.inv.inventory = GameManager.invs[player_ref.data.id].duplicate(true)
 			player_ref.data.inv.on_resource_init()
 		
-		EventBus.player_moved.emit(player_ref.data.steps)
 		
 		
 		

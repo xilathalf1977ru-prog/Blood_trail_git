@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bgl32xr6g4oc3"]
+
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_a8svs"]
+[ext_resource type="Texture2D" uid="uid://bkniwgxnfss5q" path="res://Data/Items/goblin_fat_head/goblin_fat_head_icon.webp" id="2_5jahj"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_5tuma"]
+
+[resource]
+script = ExtResource("2_5tuma")
+name = "Голова гоблина толстяка"
+type = "goblin_fat_head"
+icon = ExtResource("2_5jahj")
+cost = 40
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

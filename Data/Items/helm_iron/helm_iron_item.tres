@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dxh31tm6dw3du"]
 
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_176oj"]
-[ext_resource type="Texture2D" uid="uid://dcyridgi0ft5x" path="res://Sprites/helm_iron.webp" id="2_0glco"]
+[ext_resource type="Texture2D" uid="uid://bmn5bbjvyecqm" path="res://Data/Items/helm_iron/helm_iron.webp" id="2_0glco"]
 [ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_edwff"]
 
 [resource]
@@ -11,7 +11,7 @@ type = "equip"
 editor_main_type = 2
 editor_equip_type = 2
 equip_bonus = Dictionary[String, int]({
-"shield": 2
+"броня": 2
 })
 icon = ExtResource("2_0glco")
 cost = 50

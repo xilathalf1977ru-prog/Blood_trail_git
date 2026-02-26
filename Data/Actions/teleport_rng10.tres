@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ActionData" format=3 uid="uid://cpaa4u8elj54m"]
 
-[ext_resource type="Texture2D" uid="uid://df1kujirup8wa" path="res://Sprites/portal.webp" id="1_e2xc4"]
+[ext_resource type="Texture2D" uid="uid://bog86m125viow" path="res://Data/Places/portal/portal.webp" id="1_e2xc4"]
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_jfvrr"]
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="2_e2xc4"]
 

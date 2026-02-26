@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_ib3uq"]
 [ext_resource type="Resource" uid="uid://x5u5qvwyww0e" path="res://Data/Actions/heal50.tres" id="2_l3cbn"]
 [ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="3_8hojc"]
-[ext_resource type="Texture2D" uid="uid://c12vsv2abbe25" path="res://Sprites/elixir_hp_50.webp" id="3_vgfyi"]
+[ext_resource type="Texture2D" uid="uid://0s0dfta13sp3" path="res://Data/Items/elixir_hp_50/elixir_hp_50.webp" id="3_vgfyi"]
 [ext_resource type="Resource" uid="uid://7051ap6qcpre" path="res://Data/Items/bottle_empty/bottle_empty.tres" id="4_ypmpw"]
 
 [resource]

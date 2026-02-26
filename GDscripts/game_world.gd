@@ -21,7 +21,7 @@ func _ready() -> void:
 	]
 func resource_init():
 	EventBus.resource_init.emit()
-	EnemyManager.generate_enemies(6)
+	GameManager.current_enemies = EnemyManager.generate_enemies(6)
 func on_place_visibility_changed(cell: int, place_data: Resource, vis: bool):
 	if vis: spawn_place_card(cell, place_data)
 	else: despawn_place_card(cell)
@@ -57,6 +57,8 @@ func show_enemies_cards(enemies: Array[EntityData]) -> void:
 		current_enemies_pos[card.position] = enemy_data
 		card.setup(enemy_data, GC.ENEMY)
 func on_player_moved(data):
+	print_debug(data)
+	print_debug(current_enemies_pos.keys())
 	if data in current_enemies_pos.keys():
 		BattleManager.start_auto_battle(GameManager.player_ref.data, current_enemies_pos[data])
 	var player_cell: int = data.x/GC.CELL

@@ -9,7 +9,12 @@ signal item_stack_clicked(item_stack: ItemStack)
 @warning_ignore("unused_signal")
 signal item_stack_delete(item_stack: ItemStack)
 @warning_ignore("unused_signal")
-signal item_stack_create(item_stack: ItemStack)
+signal item_stack_use(item_stack: ItemStack)
+
+#У меня говнометод, масштабирования спрайтов (Жрёт дофига VRAM).
+#Надо переделать его под масштабирование через код.
+#Ещё спрайты по разному выглядят на юзать шейдер CleanEdge или типо того
+
 func setup(data: Resource, type: String):
 	card_data = data
 	context = type
@@ -57,7 +62,7 @@ func setup_vis(data):
 			
 			$TextLabel.text += "\n" + i + " " + str(data.equip_bonus[i])
 		$EquipedIcon.visible = data.equiped
-		$TextLabel.position.y = 0
+		$TextLabel.position = Vector2(224, 32)
 		$Name.text = data.name + " X" + str(data.quantity)
 	else:
 		$Name.text = data.name
@@ -90,20 +95,24 @@ func _on_button_select_mouse_button_right() -> void:
 					EventBus.show_quantity_menu.emit(true, card_data.quantity, [])
 					EventBus.result_quantity_menu.connect(_on_result_quantity_menu)
 					return
-				use_item(1)
+				#use_item(1)
+				item_stack_use.emit(card_data, 1)
 				return
 		elif card_data.editor_main_type == card_data.EditorType.EQUIP:
-			card_data.equiped = !card_data.equiped
-			setup_vis(card_data)
-			ActionManager.handle_action(card_data, card_data.type)
-func use_item(n) -> void:
-	ActionManager.handle_action(card_data.actions[0], card_data.actions[0].type, n)
-	if card_data.transforms_to:
-		item_stack_create.emit(card_data.transforms_to, n)
-	item_stack_delete.emit(card_data, n)
+			item_stack_use.emit(card_data, 1)
+			#card_data.equiped = !card_data.equiped
+			#setup_vis(card_data)
+			#ActionManager.handle_action(card_data, card_data.type)
+			
+#func use_item(n) -> void:
+	#ActionManager.handle_action(card_data.actions[0], card_data.actions[0].type, n)
+	#if card_data.transforms_to:
+		#item_stack_use.emit(card_data.transforms_to, n)
+	#item_stack_delete.emit(card_data, n)
 func _on_result_quantity_menu(n: int, _buffer: Array) -> void:
 	if n > 0:
-		use_item(n)
+		#use_item(n)
+		item_stack_use.emit(card_data, n)
 	if EventBus.result_quantity_menu.is_connected(_on_result_quantity_menu):
 		EventBus.result_quantity_menu.disconnect(_on_result_quantity_menu)
 

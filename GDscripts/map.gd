@@ -12,7 +12,7 @@ func _ready():
 	
 	var testm3 = Factory.create_inv(places_templates, items_templates)
 	var testm2 = Factory.create_inv(places_templates, items_templates)
-	var testm1 = Factory.create_inv(places_templates, items_templates)
+	#var testm1 = Factory.create_inv(places_templates, items_templates)
 	var test = Factory.create_inv(places_templates, items_templates)
 	var test2 = Factory.create_inv(places_templates, items_templates)
 	var test3 = Factory.create_inv(places_templates, items_templates)

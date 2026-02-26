@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dnr81348rxnbf"]
 
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_ojktr"]
+[ext_resource type="Texture2D" uid="uid://bx25bbd8h7sw7" path="res://Data/Items/goblin_head/goblin_head_icon.png" id="2_pr45n"]
 [ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_w0a4w"]
 
 [resource]
 script = ExtResource("2_w0a4w")
-name = "Шкура гоблина"
-type = "goblin_skin"
-editor_main_type = 2
+name = "Голова гоблина"
+type = "goblin_head"
+icon = ExtResource("2_pr45n")
 cost = 20
 metadata/_custom_type_script = "uid://dulsm86jld1sl"

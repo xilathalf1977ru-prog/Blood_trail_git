@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_37obe"]
 [ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="1_ecifm"]
 [ext_resource type="Resource" uid="uid://cpaa4u8elj54m" path="res://Data/Actions/teleport_rng10.tres" id="2_er2eh"]
-[ext_resource type="Texture2D" uid="uid://df1kujirup8wa" path="res://Sprites/portal.webp" id="3_g4iwa"]
+[ext_resource type="Texture2D" uid="uid://bog86m125viow" path="res://Data/Places/portal/portal.webp" id="3_g4iwa"]
 
 [resource]
 script = ExtResource("1_ecifm")

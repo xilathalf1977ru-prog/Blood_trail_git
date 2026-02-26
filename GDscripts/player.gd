@@ -37,6 +37,7 @@ func move_check(pos: Vector2, move: bool):
 		var direction_post = direction - (GC.END_WORLD - data.steps)
 		data.steps = -(GC.END_WORLD + 1) + direction_post
 		data.position.x = data.steps * GC.CELL
+		
 	elif (data.steps + direction) < -GC.END_WORLD:
 		var direction_post = direction - (-GC.END_WORLD - data.steps)
 		data.steps = (GC.END_WORLD + 1) + direction_post

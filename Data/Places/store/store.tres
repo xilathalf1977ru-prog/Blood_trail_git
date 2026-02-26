@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_sili3"]
 [ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="2_f40h6"]
-[ext_resource type="Texture2D" uid="uid://bq1q4vjqlkcfj" path="res://Sprites/store.webp" id="2_pu03p"]
+[ext_resource type="Texture2D" uid="uid://w1r7pjtrkde3" path="res://Data/Places/store/store.webp" id="2_pu03p"]
+[ext_resource type="Resource" uid="uid://bek4xqvvwuqwa" path="res://Data/Places/store/trade.tres" id="2_v83sx"]
 
 [resource]
 script = ExtResource("2_f40h6")
 name = "Магазин"
 type = "trade"
 icon = ExtResource("2_pu03p")
+actions = Array[ExtResource("1_sili3")]([ExtResource("2_v83sx")])
 metadata/_custom_type_script = "uid://darocc302rkw8"

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_w6c2d"]
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="2_cqou8"]
-[ext_resource type="Resource" uid="uid://r6x4p8pon3ku" path="res://Data/Items/goblin_skin/goblin_skin.tres" id="2_pnisp"]
+[ext_resource type="Resource" uid="uid://r6x4p8pon3ku" path="res://Data/Items/goblin_head/goblin_head.tres" id="2_pnisp"]
 
 [resource]
 script = ExtResource("2_cqou8")
