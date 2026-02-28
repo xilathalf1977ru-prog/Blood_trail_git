@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlaceData" format=3 uid="uid://dd4genxo4lk75"]
+
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_a0esv"]
+[ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="3_qlfxd"]
+
+[resource]
+script = ExtResource("3_qlfxd")
+name = "Мечь в камне"
+type = "inv"
+metadata/_custom_type_script = "uid://darocc302rkw8"

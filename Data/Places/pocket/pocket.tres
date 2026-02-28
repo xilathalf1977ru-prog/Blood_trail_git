@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("3_va2r2")
 name = "Мешок"
-type = "inv"
+type = "loot"
 icon = ExtResource("2_n8dmg")
 metadata/_custom_type_script = "uid://darocc302rkw8"

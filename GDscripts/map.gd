@@ -7,32 +7,30 @@ var currently_visible_cells: Array = []
 func _ready():
 	places_templates = DataLoader.load_res_dict("res://Data/Places/")
 	items_templates = DataLoader.load_res_dict("res://Data/Items/")
+	
 	EventBus.player_horizontal_moved.connect(update_places)
-	
-	
-	var testm3 = Factory.create_inv(places_templates, items_templates)
-	var testm2 = Factory.create_inv(places_templates, items_templates)
+	EventBus.delete_place.connect(on_delete_place)
+
+	#var testm3 = Factory.create_inv(places_templates, items_templates)
+	#var testm2 = Factory.create_inv(places_templates, items_templates)
 	#var testm1 = Factory.create_inv(places_templates, items_templates)
-	var test = Factory.create_inv(places_templates, items_templates)
-	var test2 = Factory.create_inv(places_templates, items_templates)
+	#var test = Factory.create_inv(places_templates, items_templates)
+	#var test2 = Factory.create_inv(places_templates, items_templates)
 	var test3 = Factory.create_inv(places_templates, items_templates)
 	
 	place_map = {
 		#-1:testm1,
-		-2:testm2,
-		-3:testm3,
+		#-2:testm2,
+		#-3:testm3,
 		-1:places_templates["portal"],
 		0:places_templates["home"],
-		1:test,
-		2:test2,
-		3:test3,
+		#1:test,
+		#2:test2,
+		-9:test3,
 		4:places_templates["store"],
 	}
 	
-	for i in place_map.keys():
-		print(place_map[i].id)
-		place_map[i + (GC.END_WORLD * 2 + 1)] = place_map[i]
-		place_map[i - (GC.END_WORLD * 2 + 1)] = place_map[i]
+	create_mirrors_places()
 	call_deferred("autorun")
 func autorun():update_places(Vector2(0, 0))
 func update_places(player_pos: Vector2):
@@ -55,9 +53,11 @@ func update_places(player_pos: Vector2):
 			became_hidden.append(cell)
 	# Сообщаем GameWorld о изменениях видимости	
 	for cell in became_visible:
-		EventBus.place_visibility_changed.emit(cell, place_map[cell], true)
+		if place_map.has(cell):
+			EventBus.place_visibility_changed.emit(cell, place_map[cell], true)
 	for cell in became_hidden:
-		EventBus.place_visibility_changed.emit(cell, place_map[cell], false)
+		if place_map.has(cell):
+			EventBus.place_visibility_changed.emit(cell, place_map[cell], false)
 		
 	currently_visible_cells = new_visible_cells
 		# Проверяем стоит ли игрок на месте
@@ -72,3 +72,21 @@ func update_places(player_pos: Vector2):
 
 func has_save_file() -> bool:
 	return FileAccess.file_exists("user://save.tres")
+func on_delete_place(place_data):
+	
+	print("========================================")
+	print(place_data)
+	print(place_map.values())
+	print("========================================")
+	if place_data in place_map.values():
+		place_map.erase(place_map.find_key(place_data))
+		delete_mirrors_places(place_data)
+	print(place_map.values())
+
+func create_mirrors_places():
+	for i in place_map.keys():
+		place_map[i + (GC.END_WORLD * 2 + 1)] = place_map[i]
+		place_map[i - (GC.END_WORLD * 2 + 1)] = place_map[i]
+func delete_mirrors_places(place_data):
+	place_map.erase(place_map.find_key(place_data))
+	place_map.erase(place_map.find_key(place_data))

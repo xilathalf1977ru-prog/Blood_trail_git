@@ -11,11 +11,6 @@ func _ready() -> void:
 	EventBus.card_selected.connect(on_selected)
 	EventBus.object_died.connect(on_object_died)
 	EventBus.save.connect(save_game)
-	EventBus.player_horizontal_moved.connect(on_player_moved)
-	
-	#call_deferred("resource_init")
-#func resource_init():
-	#EventBus.resource_init.emit()
 func save_game() -> void:
 	if player_ref:
 		Factory.save_game(
@@ -33,21 +28,14 @@ func load_game():
 		player_ref.load_data(save_data.player_data.duplicate())
 		#EventBus.player_moved.emit(player_ref.data.position)
 		#EventBus.player_move_to.emit(player_ref.data.position)
-		
 		EventBus.enemies_generated.emit(save_data.enemies)
 		#for i in save_data.invs.size():
 			#var inv = load(save_data.invs.keys()[i])
 			#inv.real_inv = save_data.invs.values()[i]
 		invs = save_data.invs.duplicate(true)
-		
 		if player_ref.data.id in GameManager.invs:
-			#print(GameManager.invs[player_ref.data.id])
 			player_ref.data.inv.inventory = GameManager.invs[player_ref.data.id].duplicate(true)
 			player_ref.data.inv.on_resource_init()
-		
-		
-		
-		
 		for i in save_data.invs_money.size():
 			var inv = load(save_data.invs_money.keys()[i])
 			inv.money = save_data.invs_money.values()[i]
@@ -64,13 +52,8 @@ func register_player(player: Node):
 		player.load_data(pending_save_data.player_data)
 		pending_save_data = null
 		print("✅ Сохранение применено к игроку")
-func on_player_moved(_steps: Vector2):
-	pass
-	#current_enemies = EnemyManager.generate_enemies(6)
 func on_selected(data: Resource):
 	if data is EntityData:
-		#BattleManager.start_auto_battle(player_ref.data, data)
-		#print(data.direction)
 		EventBus.player_move_to.emit(data.direction)
 func details_requested(_entity_data: Resource):
 	pass

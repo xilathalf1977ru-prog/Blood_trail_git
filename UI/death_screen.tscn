@@ -1,15 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpyrxgcfio3u"]
+[gd_scene format=3 uid="uid://bpyrxgcfio3u"]
 
 [ext_resource type="Script" uid="uid://copqdjfrr1iqq" path="res://UI/death_screen.gd" id="1_ls05l"]
+[ext_resource type="PackedScene" uid="uid://iljjgs4t3y6t" path="res://UI/log.tscn" id="2_n1nej"]
 
-[node name="DeathScreen" type="Control"]
+[node name="DeathScreen" type="Control" unique_id=805250004]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("1_ls05l")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2107601386]
 layout_mode = 0
 offset_left = -289.0
 offset_top = -88.0
@@ -17,7 +18,7 @@ offset_right = 2337.0
 offset_bottom = 1353.0
 color = Color(0.35, 0, 0.017500067, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=409250129]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -29,7 +30,16 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 86
 text = "Игра окончена"
 
-[node name="MainMenuButton" type="Button" parent="."]
+[node name="Log" parent="." unique_id=516364193 instance=ExtResource("2_n1nej")]
+layout_mode = 0
+offset_left = -3232.0002
+offset_top = -3.0
+offset_right = -3192.0002
+offset_bottom = 37.0
+scale = Vector2(3, 3)
+CD = 10.0
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1213660383]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

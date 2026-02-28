@@ -13,3 +13,7 @@ func _ready() -> void:
 func show_death_screen(vis :bool):
 	$DeathScreen.visible = vis
 func show_main_menu(vis :bool):$MainMenu.visible = vis
+
+
+func _on_button_close_pressed() -> void:
+	$History.visible = false

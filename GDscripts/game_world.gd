@@ -10,6 +10,9 @@ func _ready() -> void:
 	EventBus.cleanup_game.connect(on_cleanup_game)
 	EventBus.place_visibility_changed.connect(on_place_visibility_changed)
 	EventBus.player_horizontal_moved.connect(on_player_moved)
+	
+	EventBus.delete_place.connect(on_delete_place)
+	
 	call_deferred("resource_init")
 	entities = [
 		$EnemyChoice/Entity,
@@ -54,13 +57,17 @@ func show_enemies_cards(enemies: Array[EntityData]) -> void:
 		card.position = Vector2(
 			GameManager.player_ref.data.position.x + GC.CELL * side,
 			GC.CELL_Y[enemy_data.direction.y + 1])
-		current_enemies_pos[card.position] = enemy_data
+		current_enemies_pos[Vector2(side, card.position.y)] = enemy_data
 		card.setup(enemy_data, GC.ENEMY)
+var last_posx_player: int = 0
 func on_player_moved(data):
-	print_debug(data)
-	print_debug(current_enemies_pos.keys())
-	if data in current_enemies_pos.keys():
-		BattleManager.start_auto_battle(GameManager.player_ref.data, current_enemies_pos[data])
+	var direction_player: int = 0
+	if data.x > last_posx_player: direction_player = 1
+	elif data.x < last_posx_player: direction_player = -1
+	last_posx_player = data.x
+	var player_key = Vector2(direction_player, data.y)
+	if player_key in current_enemies_pos.keys():
+		BattleManager.start_auto_battle(GameManager.player_ref.data, current_enemies_pos[player_key])
 	var player_cell: int = data.x/GC.CELL
 	var places_pos: Array = []
 	for i in place_cards.keys():
@@ -72,3 +79,10 @@ func on_player_moved(data):
 		place_cards[player_cell]._on_button_select_mouse_button_left()
 	else:
 		EventBus.all_menus_close.emit()
+
+func on_delete_place(place_data):
+	# Найти и удалить карточку
+	for cell in place_cards:
+		if place_cards[cell].card_data == place_data:
+			despawn_place_card(cell)
+			break

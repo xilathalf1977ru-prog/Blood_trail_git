@@ -35,6 +35,10 @@ signal place_visibility_changed(cell: int, place_data: Resource, show: bool)
 @warning_ignore("unused_signal")
 signal player_at_place(place_data: PlaceData, vis: bool)
 
+
+@warning_ignore("unused_signal")
+signal delete_place(place_data: PlaceData)
+
 ## --- ГЕНЕРАЦИЯ КОНТЕНТА ---
 @warning_ignore("unused_signal")
 signal enemies_generated(enemies: Array[EntityData])

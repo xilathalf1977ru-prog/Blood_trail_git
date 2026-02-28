@@ -15,7 +15,7 @@ offset_right = 128.0
 offset_bottom = 128.0
 pivot_offset = Vector2(128, 128)
 script = ExtResource("2_j0kp0")
-metadata/_edit_vertical_guides_ = [96.0]
+metadata/_edit_vertical_guides_ = [96.0, -96.0]
 metadata/_edit_horizontal_guides_ = [-96.0]
 
 [node name="ButtonSelect" type="Button" parent="." unique_id=1684614192]
@@ -34,6 +34,31 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_j0kp0")
 button_mask = 3
 script = ExtResource("2_6nsdj")
+
+[node name="ButtonEquip" type="Button" parent="ButtonSelect" unique_id=215274849]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 255.99991
+offset_right = 95.99991
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 28
+button_mask = 3
+text = "Одеть"
+
+[node name="EquipedIcon" type="ColorRect" parent="ButtonSelect/ButtonEquip" unique_id=625221746]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_right = 96.00008
+offset_bottom = 48.0
+mouse_filter = 2
+color = Color(0.009695242, 0.4739014, 0, 1)
 
 [node name="Name" type="Label" parent="." unique_id=480992897]
 layout_mode = 0
@@ -78,16 +103,9 @@ offset_bottom = 192.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.78431374)
 
-[node name="EquipedIcon" type="ColorRect" parent="." unique_id=625221746]
-visible = false
-layout_mode = 0
-offset_left = 50.0
-offset_top = 149.0
-offset_right = 90.0
-offset_bottom = 189.0
-color = Color(0.009695242, 0.4739014, 0, 1)
-
+[connection signal="equip" from="ButtonSelect" to="." method="_on_button_select_equip"]
 [connection signal="mouse_button_left" from="ButtonSelect" to="." method="_on_button_select_mouse_button_left"]
 [connection signal="mouse_button_right" from="ButtonSelect" to="." method="_on_button_select_mouse_button_right"]
 [connection signal="mouse_entered" from="ButtonSelect" to="." method="_on_button_select_mouse_entered"]
 [connection signal="mouse_exited" from="ButtonSelect" to="." method="_on_button_select_mouse_exited"]
+[connection signal="pressed" from="ButtonSelect/ButtonEquip" to="ButtonSelect" method="_on_button_equip_pressed"]

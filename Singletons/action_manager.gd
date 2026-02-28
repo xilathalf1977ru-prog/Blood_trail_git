@@ -10,6 +10,15 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 			EventBus.menu.emit(data, GC.Act.TRADE)
 		GC.Act.INV:
 			EventBus.menu.emit(data, GC.Act.INV)
+		GC.LOOT:
+			
+			#player.inv.real_inv += data.inv.real_inv
+			add_loot(player, data)
+			
+			EventBus.delete_place.emit(data)
+			#EventBus.all_menus_close.emit()
+			
+			
 		GC.Act.RANDOM_ATTACK:
 			var enemy_pool: Array[EntityData] = GameManager.current_enemies
 			for i in enemy_pool:
@@ -32,3 +41,17 @@ func heal(data: Resource, n: int = 1) -> void:
 	player.current_hp = min(player.current_hp + data.heal_amount * n, player.max_hp)
 	EventBus.player_changed.emit(player)
 	EventBus.log_show.emit("Полечился на " + str(data.heal_amount * n))
+
+func add_loot(player_local: EntityData, enemy: Resource):
+	for enemy_stack in enemy.inv.real_inv:
+		var found: bool = false
+		# Ищем такой же стак у игрока
+		for player_stack in player_local.inv.real_inv:
+			if player_stack.can_merge_with(enemy_stack):
+				player_stack.merge(enemy_stack)
+				found = true
+				break
+		# Если не нашли - добавляем копию
+		if not found:
+			player_local.inv.real_inv.append(enemy_stack.duplicate())
+	EventBus.player_changed.emit(player_local)

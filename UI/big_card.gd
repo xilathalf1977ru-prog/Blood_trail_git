@@ -82,7 +82,9 @@ func save_inv():
 	
 	
 	#print(local_data.owner_id)
-	#print(local_data.inventory)
+	print(local_data.type)
+	if local_data.inventory.size() == 0 and local_data.type == "static_loot":
+		print("Удаляем объект с карты")
 	GameManager.invs[local_data.owner_id] = local_data.inventory#local_data.real_inv
 func save_inv_money():
 	#GameManager.invs_money[local_data.resource_path] = local_data.money
@@ -100,7 +102,7 @@ func use_item(item_stack: ItemStack, n: int):
 		return
 	#if item_stack
 	if item_stack.editor_main_type == item_stack.EditorType.EQUIP:
-		item_stack.equiped = !item_stack.equiped
+		#item_stack.equiped = !item_stack.equiped
 		path.get_node(item_stack.name).setup_vis(item_stack)
 		ActionManager.handle_action(item_stack, item_stack.type)
 		

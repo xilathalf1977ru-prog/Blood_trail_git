@@ -61,7 +61,9 @@ func setup_vis(data):
 		for i in data.equip_bonus:
 			
 			$TextLabel.text += "\n" + i + " " + str(data.equip_bonus[i])
-		$EquipedIcon.visible = data.equiped
+		
+		$ButtonSelect.set_extra_button(data)
+		
 		$TextLabel.position = Vector2(224, 32)
 		$Name.text = data.name + " X" + str(data.quantity)
 	else:
@@ -74,7 +76,10 @@ func _on_button_select_mouse_button_left() -> void:
 	if card_data is EntityData:
 		EventBus.card_selected.emit(card_data)
 	elif card_data is PlaceData:
-		#if card_data.actions.size() == 1:
+		if card_data.actions.size() == 1 and card_data.type == GC.LOOT:
+			print("EE")
+			ActionManager.handle_action(card_data, card_data.type)
+			return
 			#if card_data.actions[0].menu:
 				#EventBus.menu.emit(card_data.actions[0], card_data.actions[0].type)
 			#else:
@@ -98,8 +103,8 @@ func _on_button_select_mouse_button_right() -> void:
 				#use_item(1)
 				item_stack_use.emit(card_data, 1)
 				return
-		elif card_data.editor_main_type == card_data.EditorType.EQUIP:
-			item_stack_use.emit(card_data, 1)
+		#elif card_data.editor_main_type == card_data.EditorType.EQUIP:
+			#item_stack_use.emit(card_data, 1)
 			#card_data.equiped = !card_data.equiped
 			#setup_vis(card_data)
 			#ActionManager.handle_action(card_data, card_data.type)
@@ -125,3 +130,7 @@ func _on_button_select_mouse_exited() -> void:
 	$TextLabel.visible = false
 	if card_data is EntityData and context != GC.PLAYER:
 		EventBus.show_player_stats.emit(false)
+
+
+func _on_button_select_equip() -> void:
+	item_stack_use.emit(card_data, 1)

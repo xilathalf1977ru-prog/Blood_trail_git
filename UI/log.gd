@@ -1,6 +1,6 @@
 extends Control
 
-const CD: float = 5.0
+@export var CD: float = 5.0
 const LIMIT: int = 20
 var arr_log: Array[String] = []
 var slot: PackedScene = preload("res://UI/log_label.tscn")

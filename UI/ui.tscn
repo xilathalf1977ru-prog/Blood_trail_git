@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bpyrxgcfio3u" path="res://UI/death_screen.tscn" id="5_3sbvi"]
 [ext_resource type="PackedScene" uid="uid://iljjgs4t3y6t" path="res://UI/log.tscn" id="6_h81ot"]
 [ext_resource type="Script" uid="uid://c4mx2k718u5gw" path="res://UI/quantity_menu.gd" id="8_4fiuh"]
+[ext_resource type="Texture2D" uid="uid://bu5vsdku2a2ui" path="res://Data/Entities/Enemies/wolf/wolf_icon.webp" id="8_6rr40"]
 [ext_resource type="Script" uid="uid://b1x7uusncmh7l" path="res://GDscripts/button_n_changer.gd" id="8_cbfhl"]
+[ext_resource type="Texture2D" uid="uid://5dgbqg62cu3e" path="res://Data/Places/stone_and_sword/stone_and_sword.webp" id="9_0w6e5"]
 
 [node name="UI" type="CanvasLayer" unique_id=2138594352]
 script = ExtResource("1_jxero")
@@ -30,6 +32,7 @@ offset_left = 583.0
 offset_top = 0.0
 offset_right = 839.0
 offset_bottom = 256.0
+metadata/_edit_vertical_guides_ = [96.0]
 
 [node name="CardPlayer" parent="EnemyChoice" unique_id=1968615195 instance=ExtResource("3_h81ot")]
 layout_mode = 0
@@ -37,6 +40,7 @@ offset_left = 882.0
 offset_top = 0.0
 offset_right = 1138.0
 offset_bottom = 256.0
+metadata/_edit_vertical_guides_ = [96.0]
 
 [node name="PlaceChoice" type="Control" parent="." unique_id=445065728]
 visible = false
@@ -52,6 +56,7 @@ offset_left = 835.0
 offset_top = 637.0
 offset_right = 1091.0
 offset_bottom = 893.0
+metadata/_edit_vertical_guides_ = [96.0]
 
 [node name="BigCards" type="Control" parent="." unique_id=1776871196]
 visible = false
@@ -193,14 +198,108 @@ offset_bottom = 252.0
 theme_override_font_sizes/font_size = 27
 text = "OK"
 
-[node name="MainMenu" parent="." unique_id=2128373734 instance=ExtResource("4_hat8c")]
+[node name="History" type="Control" parent="." unique_id=1443787515]
 visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="DeathScreen" parent="." unique_id=112483228 instance=ExtResource("5_3sbvi")]
+[node name="ColorRect" type="ColorRect" parent="History" unique_id=810308017]
+layout_mode = 0
+offset_left = -289.0
+offset_top = -88.0
+offset_right = 2337.0
+offset_bottom = 1353.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="History" unique_id=465400231]
+layout_mode = 0
+offset_left = 1447.0
+offset_top = 371.0
+offset_right = 2471.0
+offset_bottom = 1395.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_6rr40")
+
+[node name="TextureRect2" type="TextureRect" parent="History" unique_id=583862858]
+layout_mode = 0
+offset_left = 1293.0
+offset_top = 177.0
+offset_right = 2317.0
+offset_bottom = 1201.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_0w6e5")
+
+[node name="Label" type="Label" parent="History" unique_id=1538272721]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 1900.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "Задание"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="History" unique_id=1734271479]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -9.0
+offset_top = 113.0
+offset_right = 1900.0
+offset_bottom = 910.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 48
+text = "Здравствуй \"герой\", твоя цель найти меч в камне.
+
+
+
+Без него ты слаб, и тебя может победить просто волк...
+
+
+Меч находится на другом конце мира.
+Можешь идти и через запад и через восток.
+Надеюсь ты знаешь, где запад и восток???
+Запад это налево, восток это направо!!!!
+"
+horizontal_alignment = 1
+
+[node name="ButtonClose" type="Button" parent="History" unique_id=1895450205]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 789.0
+offset_top = 942.0
+offset_right = 914.0
+offset_bottom = 973.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 24
+text = "Закрыть"
+
+[node name="MainMenu" parent="." unique_id=2128373734 instance=ExtResource("4_hat8c")]
 visible = false
 
 [node name="Log" parent="." unique_id=516364193 instance=ExtResource("6_h81ot")]
 
+[node name="DeathScreen" parent="." unique_id=112483228 instance=ExtResource("5_3sbvi")]
+visible = false
+
 [connection signal="inv_stack_clicked" from="BigCards/BigCard0" to="BigCards" method="_on_big_card_0_inv_stack_clicked"]
 [connection signal="inv_stack_clicked" from="BigCards/BigCard1" to="BigCards" method="_on_big_card_1_inv_stack_clicked"]
 [connection signal="inv_stack_clicked" from="BigCards/BigCard2" to="BigCards" method="_on_big_card_2_inv_stack_clicked"]
+[connection signal="pressed" from="History/ButtonClose" to="." method="_on_button_close_pressed"]

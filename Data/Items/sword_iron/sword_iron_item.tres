@@ -10,7 +10,7 @@ name = "Железный меч"
 type = "equip"
 editor_main_type = 2
 equip_bonus = Dictionary[String, int]({
-"атака": 10
+"атака": 200
 })
 icon = ExtResource("2_tk0x3")
 cost = 50

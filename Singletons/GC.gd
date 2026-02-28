@@ -6,7 +6,7 @@ const CELL_Y: Array = [353, 545, 737]
 var cell_place_y: int:
 	get:
 		return CELL_Y[2]
-const END_WORLD: int = 7
+const END_WORLD: int = 9
 
 ## --- ТИПЫ КАРТ ---
 const PLAYER: String = "player"
@@ -15,6 +15,11 @@ const PLACE: String = "place"
 const FAR_PLACE: String = "far_place"
 const ACTION: String = "action"
 const ITEMSTACK: String = "itemstack"
+
+
+## --- ТИПЫ ЛОКАЦИЙ ---
+const LOOT: String = "loot"
+
 
 ## --- ТИПЫ ДЕЙСТВИЙ ---
 class Act:

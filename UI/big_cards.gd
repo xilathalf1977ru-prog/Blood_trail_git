@@ -21,7 +21,9 @@ func show_menu(data: Resource, context: String) -> void:
 			big_cards[i].visible = false
 			big_cards[i].get_node("Name").text = ""
 			big_cards[i].clear_cards()
+			
 	if context in [GC.Act.INV, GC.Act.TRADE]:
+		print(context)
 		big_cards[0].visible = true
 		big_cards[0].setup(GameManager.player_ref.data.inv, context)
 		big_cards[1].visible = true

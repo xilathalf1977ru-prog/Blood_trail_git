@@ -71,8 +71,8 @@ func change_equip(equip_data: ItemStack) -> void:
 func change_stats(stat_values, direction):
 	for i in stat_values.keys():
 		match i:
-			"attack": data.attack += (stat_values[i]) * direction
-			"shield": data.shield += (stat_values[i]) * direction
+			"атака": data.attack += (stat_values[i]) * direction
+			"броня": data.shield += (stat_values[i]) * direction
 	$CardPlayer.setup(data, GC.PLAYER)
 
 func _on_show_player_stats(vis):
