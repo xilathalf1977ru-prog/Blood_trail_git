@@ -66,6 +66,7 @@ from_inv: Object, to_inv: Object) -> void:
 		to_inv.update_ui()
 		from_inv.save_inv_money()
 		to_inv.save_inv_money()
+		
 	to_inv.add_item(item_stack.duplicate(), n)
 	from_inv.remove_item(item_stack, n)
 func _on_result_quantity_menu(n: int, buffer: Array) -> void:

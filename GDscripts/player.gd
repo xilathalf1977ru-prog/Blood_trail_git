@@ -62,12 +62,15 @@ func load_data(player_data: EntityData):
 	EventBus.player_changed.emit(data)
 	$CardPlayer.setup(data, GC.PLAYER)
 func change_equip(equip_data: ItemStack) -> void:
+	print(equip_data.equip_type)
 	if equip_data.equip_type in data.equip_slots:
 		data.equip_slots.erase(equip_data.equip_type)
 		change_stats(equip_data.equip_bonus, -1)
+		print("MINUS")
 	else:
 		data.equip_slots.append(equip_data.equip_type)
 		change_stats(equip_data.equip_bonus, 1)
+		print("PLUS")
 func change_stats(stat_values, direction):
 	for i in stat_values.keys():
 		match i:

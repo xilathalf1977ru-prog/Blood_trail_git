@@ -76,7 +76,7 @@ func on_player_moved(data):
 	if player_cell in place_cards.keys():
 		place_cards[player_cell].setup(place_cards[player_cell].card_data, GC.PLACE)
 	if data in places_pos:
-		place_cards[player_cell]._on_button_select_mouse_button_left()
+		place_cards[player_cell]._on_button_select_pressed()
 	else:
 		EventBus.all_menus_close.emit()
 

@@ -6,7 +6,6 @@ var local_data: Resource = null
 var local_context: String = ""
 @warning_ignore("unused_signal")
 signal inv_stack_clicked(item_stack: ItemStack)
-@warning_ignore("unused_signal")
 func _ready() -> void:path = $ScrollContainer/CardContainer
 func setup(data: Resource, context: String) -> void:
 	clear_cards()
@@ -47,7 +46,6 @@ func remove_item(item_stack: ItemStack, n: int):
 	save_inv()
 func _setup_card_common(card: TextureRect, res_data) -> void:
 	card.item_stack_clicked.connect(_on_item_stack_clicked)
-	card.item_stack_delete.connect(remove_item)
 	card.item_stack_use.connect(use_item)
 	path.setup_card_common(card, res_data)
 func _on_button_x_pressed() -> void:
@@ -61,8 +59,6 @@ func clear_cards():
 func clear_card(card):
 	if card.item_stack_clicked.is_connected(_on_item_stack_clicked):
 		card.item_stack_clicked.disconnect(_on_item_stack_clicked)
-	if card.item_stack_delete.is_connected(remove_item):
-		card.item_stack_delete.disconnect(remove_item)
 	if card.item_stack_use.is_connected(use_item):
 		card.item_stack_use.disconnect(use_item)
 	card.queue_free()
@@ -79,12 +75,6 @@ func save_inv():
 		#var copy = i.duplicate()
 		#copy.quantity = inventory[i]
 		#real_inv.append(copy)
-	
-	
-	#print(local_data.owner_id)
-	print(local_data.type)
-	if local_data.inventory.size() == 0 and local_data.type == "static_loot":
-		print("Удаляем объект с карты")
 	GameManager.invs[local_data.owner_id] = local_data.inventory#local_data.real_inv
 func save_inv_money():
 	#GameManager.invs_money[local_data.resource_path] = local_data.money
@@ -96,17 +86,12 @@ func update_ui():
 		$Name.text = local_data.name + " $ " + str(local_data.money)
 	elif local_context in [GC.PLACE]:
 		$Name.text = local_data.name
-
 func use_item(item_stack: ItemStack, n: int):
 	if local_data.owner_id != "player":
 		return
-	#if item_stack
 	if item_stack.editor_main_type == item_stack.EditorType.EQUIP:
-		#item_stack.equiped = !item_stack.equiped
 		path.get_node(item_stack.name).setup_vis(item_stack)
 		ActionManager.handle_action(item_stack, item_stack.type)
-		
-		
 		return
 	ActionManager.handle_action(item_stack.actions[0], item_stack.actions[0].type, n)
 	if item_stack.transforms_to:

@@ -35,7 +35,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_j0kp0")
 button_mask = 3
 script = ExtResource("2_6nsdj")
 
-[node name="ButtonEquip" type="Button" parent="ButtonSelect" unique_id=215274849]
+[node name="ButtonExtra" type="Button" parent="ButtonSelect" unique_id=215274849]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -49,9 +49,8 @@ grow_vertical = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 28
 button_mask = 3
-text = "Одеть"
 
-[node name="EquipedIcon" type="ColorRect" parent="ButtonSelect/ButtonEquip" unique_id=625221746]
+[node name="EquipedIcon" type="ColorRect" parent="ButtonSelect/ButtonExtra" unique_id=625221746]
 visible = false
 show_behind_parent = true
 layout_mode = 0
@@ -103,9 +102,8 @@ offset_bottom = 192.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.78431374)
 
-[connection signal="equip" from="ButtonSelect" to="." method="_on_button_select_equip"]
-[connection signal="mouse_button_left" from="ButtonSelect" to="." method="_on_button_select_mouse_button_left"]
-[connection signal="mouse_button_right" from="ButtonSelect" to="." method="_on_button_select_mouse_button_right"]
+[connection signal="extra_button" from="ButtonSelect" to="." method="_on_button_select_extra_button"]
 [connection signal="mouse_entered" from="ButtonSelect" to="." method="_on_button_select_mouse_entered"]
 [connection signal="mouse_exited" from="ButtonSelect" to="." method="_on_button_select_mouse_exited"]
-[connection signal="pressed" from="ButtonSelect/ButtonEquip" to="ButtonSelect" method="_on_button_equip_pressed"]
+[connection signal="pressed" from="ButtonSelect" to="." method="_on_button_select_pressed"]
+[connection signal="pressed" from="ButtonSelect/ButtonExtra" to="ButtonSelect" method="_on_button_equip_pressed"]
