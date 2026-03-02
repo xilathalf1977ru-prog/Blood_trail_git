@@ -2,8 +2,10 @@ extends Resource
 
 class_name EntityData  # ⭐ВАЖНО: даём имя классу!
 
-var equip_slots: Array = []
-
+var equip_slots: Dictionary = {
+	"WEAPON": null,
+	"HAT": null,
+}
 @export var name: String
 @export var icon: Texture2D
 @export var id: String = "none"
@@ -25,6 +27,6 @@ func _init() -> void:
 	EventBus.resource_init.connect(on_resource_init)
 func on_resource_init() -> void:
 	for i in actions:
-		i.owner_id = id
+		i.id = id
 		if i.type in [GC.Act.INV, GC.Act.TRADE]:
 			inv = i

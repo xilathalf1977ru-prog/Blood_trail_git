@@ -13,7 +13,7 @@ func _init() -> void:
 	EventBus.resource_init.connect(on_resource_init)
 func on_resource_init() -> void:
 	for i in actions:
-		i.owner_id = id
+		i.id = id
 		if i.type in [GC.Act.INV, GC.Act.TRADE, GC.LOOT]:
+		#if i.type in [GC.Act.INV, GC.Act.TRADE]:
 			inv = i
-			#print(inv)

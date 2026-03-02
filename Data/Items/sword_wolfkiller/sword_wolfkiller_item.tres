@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cq612srxku4os"]
+
+[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_plnds"]
+[ext_resource type="Texture2D" uid="uid://dffgttl4prfs8" path="res://Data/Items/sword_wolfkiller/sword_wolfkiller.webp" id="2_hdrdx"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="3_0p618"]
+
+[resource]
+script = ExtResource("3_0p618")
+name = "Волкодав"
+type = "equip"
+editor_main_type = 2
+equip_bonus = Dictionary[String, int]({
+"атака": 200
+})
+icon = ExtResource("2_hdrdx")
+cost = 500
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

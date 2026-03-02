@@ -9,7 +9,7 @@ class_name ActionData
 @export var menu: bool
 @export var dist: int
 
-var owner_id: String
+var id: String
 
 @export var inventory: Dictionary[ItemStack, int]
 var real_inv: Array[ItemStack]

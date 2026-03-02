@@ -13,12 +13,15 @@ func _ready():
 	
 	EventBus.show_player_stats.connect(_on_show_player_stats)
 	
+	EventBus.check_equip.connect(on_check_equip)
+	
 	$CardPlayer.setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)
 	data.position = position
-func _on_player_changed(player_data):
-	data = player_data.duplicate()
-	$CardPlayer.setup(data, GC.PLAYER)
+func _on_player_changed(_player_data):
+	#data = player_data.duplicate()
+	#$CardPlayer.setup(data, GC.PLAYER)
+	pass
 func _on_player_move(pos: Vector2):
 	if !timer_running:
 		last_pos = pos
@@ -37,7 +40,6 @@ func move_check(pos: Vector2, move: bool):
 		var direction_post = direction - (GC.END_WORLD - data.steps)
 		data.steps = -(GC.END_WORLD + 1) + direction_post
 		data.position.x = data.steps * GC.CELL
-		
 	elif (data.steps + direction) < -GC.END_WORLD:
 		var direction_post = direction - (-GC.END_WORLD - data.steps)
 		data.steps = (GC.END_WORLD + 1) + direction_post
@@ -52,7 +54,7 @@ func move_check(pos: Vector2, move: bool):
 			data.position.y = GC.CELL_Y[direction_y+1]
 	position = data.position
 	EventBus.player_changed.emit(data)
-	EventBus.player_horizontal_moved.emit(data.position)
+	EventBus.player_moved.emit(data.position)
 	if direction != 0:
 		GameManager.current_enemies = EnemyManager.generate_enemies(6)
 	$CardPlayer.setup(data, GC.PLAYER)
@@ -62,22 +64,29 @@ func load_data(player_data: EntityData):
 	EventBus.player_changed.emit(data)
 	$CardPlayer.setup(data, GC.PLAYER)
 func change_equip(equip_data: ItemStack) -> void:
-	print(equip_data.equip_type)
-	if equip_data.equip_type in data.equip_slots:
-		data.equip_slots.erase(equip_data.equip_type)
-		change_stats(equip_data.equip_bonus, -1)
-		print("MINUS")
-	else:
-		data.equip_slots.append(equip_data.equip_type)
+	if data.equip_slots[equip_data.equip_type] == null:
+		data.equip_slots[equip_data.equip_type] = equip_data
+		equip_data.equiped = true
 		change_stats(equip_data.equip_bonus, 1)
-		print("PLUS")
+	elif !data.equip_slots[equip_data.equip_type] == null:
+		print(equip_data)
+		print(data.equip_slots[equip_data.equip_type])
+		
+		data.equip_slots[equip_data.equip_type] = null
+		equip_data.equiped = false
+		change_stats(equip_data.equip_bonus, -1)
+func on_check_equip(equip_data: ItemStack) -> void:
+	if !data.equip_slots[equip_data.equip_type] == null:
+		EventBus.unequip.emit(equip_data)
+		data.equip_slots[equip_data.equip_type] = null
+		change_stats(equip_data.equip_bonus, -1)
 func change_stats(stat_values, direction):
 	for i in stat_values.keys():
 		match i:
 			"атака": data.attack += (stat_values[i]) * direction
 			"броня": data.shield += (stat_values[i]) * direction
 	$CardPlayer.setup(data, GC.PLAYER)
-
+	EventBus.player_changed.emit(data)
 func _on_show_player_stats(vis):
 	if vis:$CardPlayer._on_button_select_mouse_entered()
 	else:$CardPlayer._on_button_select_mouse_exited()

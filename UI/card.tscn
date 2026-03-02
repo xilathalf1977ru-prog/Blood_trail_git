@@ -42,20 +42,20 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 255.99991
-offset_right = 95.99991
-offset_bottom = -208.0
+offset_right = 191.99991
+offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 40
 button_mask = 3
 
 [node name="EquipedIcon" type="ColorRect" parent="ButtonSelect/ButtonExtra" unique_id=625221746]
 visible = false
 show_behind_parent = true
 layout_mode = 0
-offset_right = 96.00008
-offset_bottom = 48.0
+offset_right = 192.0
+offset_bottom = 96.0
 mouse_filter = 2
 color = Color(0.009695242, 0.4739014, 0, 1)
 

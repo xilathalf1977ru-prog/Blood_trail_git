@@ -199,7 +199,6 @@ theme_override_font_sizes/font_size = 27
 text = "OK"
 
 [node name="History" type="Control" parent="." unique_id=1443787515]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -215,9 +214,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="History" unique_id=465400231]
 layout_mode = 0
-offset_left = 1447.0
+offset_left = 1360.0
 offset_top = 371.0
-offset_right = 2471.0
+offset_right = 2384.0
 offset_bottom = 1395.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_6rr40")
@@ -240,6 +239,7 @@ offset_left = -20.0
 offset_right = 1900.0
 offset_bottom = 88.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.95000005, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 64
@@ -264,7 +264,7 @@ text = "Здравствуй \"герой\", твоя цель найти меч
 
 
 
-Без него ты слаб, и тебя может победить просто волк...
+Без него ты слаб, и тебя победит просто волк...
 
 
 Меч находится на другом конце мира.

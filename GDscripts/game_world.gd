@@ -9,7 +9,7 @@ func _ready() -> void:
 	EventBus.enemies_generated.connect(show_enemies_cards)
 	EventBus.cleanup_game.connect(on_cleanup_game)
 	EventBus.place_visibility_changed.connect(on_place_visibility_changed)
-	EventBus.player_horizontal_moved.connect(on_player_moved)
+	EventBus.player_moved.connect(on_player_moved)
 	
 	EventBus.delete_place.connect(on_delete_place)
 	

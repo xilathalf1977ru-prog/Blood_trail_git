@@ -10,6 +10,7 @@
 script = ExtResource("1_y2dbt")
 name = "Мой дом"
 type = "home"
+id = "home"
 icon = ExtResource("4_i57lp")
 actions = Array[ExtResource("1_fkxyf")]([ExtResource("3_eqecv"), ExtResource("3_vg547")])
 metadata/_custom_type_script = "uid://darocc302rkw8"

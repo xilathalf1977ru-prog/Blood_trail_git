@@ -31,4 +31,7 @@ class Act:
 	const TELEPORT_RNG: String = "teleport_rng"
 	const SLEEP: String = "sleep"
 	const EQUIP: String = "equip"
+	
+	const UNEQUIP: String = "unequip"
+	
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()

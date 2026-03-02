@@ -48,7 +48,7 @@ func setup_place(place: PlaceData):
 	$TextLabel.text = ""
 	for i in place.actions:
 		$TextLabel.text += "\n" + i.name
-func setup_vis(data):
+func setup_vis(data, name_owner):
 	if data is ItemStack:
 		$TextLabel.text = (
 			"X" + str(data.quantity)
@@ -56,7 +56,10 @@ func setup_vis(data):
 			)
 		for i in data.equip_bonus:
 			$TextLabel.text += "\n" + i + " " + str(data.equip_bonus[i])
-		$ButtonSelect.set_extra_button(data)
+		
+		if name_owner == "player":
+			$ButtonSelect.set_extra_button(data)
+		
 		$TextLabel.position = Vector2(224, 32)
 		$Name.text = data.name + " X" + str(data.quantity)
 	else:
@@ -91,11 +94,4 @@ func _on_button_select_mouse_exited() -> void:
 	if card_data is EntityData and context != GC.PLAYER:
 		EventBus.show_player_stats.emit(false)
 func _on_button_select_extra_button() -> void:
-	#if card_data.editor_main_type == card_data.EditorType.USE:
-		#if card_data.quantity > QUANTITY_MENU_THRESHOLD:
-			#EventBus.show_quantity_menu.emit(true, card_data.quantity, [])
-			#EventBus.result_quantity_menu.connect(_on_result_quantity_menu)
-			#return
-		#item_stack_use.emit(card_data, 1)
-		#return
 	item_stack_use.emit(card_data, 1)

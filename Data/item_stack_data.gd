@@ -6,24 +6,24 @@ var quantity: int = 1
 
 var name: String:
 	get:
-		return item.name# if item else ""
+		return item.name
 var type: String:
 	get:
-		return item.type# if item else ""
+		return item.type
 var main_type: String:
 	get:
-		return item.main_type# if item else ""
+		return item.main_type
 
-var editor_main_type: int:
-	get:
-		return item.editor_main_type# if item else 0
-var EditorType:
-	get:
-		return item.EditorType# if item else 0
+#var editor_main_type: int:
+	#get:
+		#return item.editor_main_type
+#var EditorType:
+	#get:
+		#return item.EditorType
 
 var equip_type: String:
 	get:
-		return item.equip_type# if item else ""
+		return item.equip_type
 var equiped: bool:
 	set(new_value):
 		item.equiped = new_value

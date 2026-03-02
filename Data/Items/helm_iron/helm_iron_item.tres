@@ -9,7 +9,7 @@ script = ExtResource("2_edwff")
 name = "Железный шлем"
 type = "equip"
 editor_main_type = 2
-editor_equip_type = 2
+editor_equip_type = 1
 equip_bonus = Dictionary[String, int]({
 "броня": 2
 })

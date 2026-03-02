@@ -8,26 +8,27 @@ func _ready():
 	places_templates = DataLoader.load_res_dict("res://Data/Places/")
 	items_templates = DataLoader.load_res_dict("res://Data/Items/")
 	
-	EventBus.player_horizontal_moved.connect(update_places)
+	EventBus.player_moved.connect(update_places)
 	EventBus.delete_place.connect(on_delete_place)
 
-	#var testm3 = Factory.create_inv(places_templates, items_templates)
-	#var testm2 = Factory.create_inv(places_templates, items_templates)
-	#var testm1 = Factory.create_inv(places_templates, items_templates)
-	#var test = Factory.create_inv(places_templates, items_templates)
-	#var test2 = Factory.create_inv(places_templates, items_templates)
+	var testm3 = Factory.create_inv(places_templates, items_templates)
+	var testm2 = Factory.create_inv(places_templates, items_templates)
+	var testm1 = Factory.create_inv(places_templates, items_templates)
+	var test = Factory.create_inv(places_templates, items_templates)
+	var test2 = Factory.create_inv(places_templates, items_templates)
 	var test3 = Factory.create_inv(places_templates, items_templates)
 	
 	place_map = {
-		#-1:testm1,
-		#-2:testm2,
-		#-3:testm3,
+		-4:testm1,
+		-3:testm3,
+		-2:testm2,
 		-1:places_templates["portal"],
 		0:places_templates["home"],
-		#1:test,
-		#2:test2,
-		-9:test3,
+		1:test,
+		2:test2,
+		3:test3,
 		4:places_templates["store"],
+		9:places_templates["stone_and_sword"],
 	}
 	
 	create_mirrors_places()
