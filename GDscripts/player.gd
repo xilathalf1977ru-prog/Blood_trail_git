@@ -9,12 +9,7 @@ func _ready():
 	EventBus.player_move.connect(_on_player_move)
 	EventBus.player_move_to.connect(_on_player_move_to)
 	EventBus.player_changed.connect(_on_player_changed)
-	EventBus.player_equip_change.connect(change_equip)
-	
 	EventBus.show_player_stats.connect(_on_show_player_stats)
-	
-	EventBus.check_equip.connect(on_check_equip)
-	
 	$CardPlayer.setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)
 	data.position = position
@@ -63,30 +58,6 @@ func load_data(player_data: EntityData):
 	position.x = data.position.x
 	EventBus.player_changed.emit(data)
 	$CardPlayer.setup(data, GC.PLAYER)
-func change_equip(equip_data: ItemStack) -> void:
-	if data.equip_slots[equip_data.equip_type] == null:
-		data.equip_slots[equip_data.equip_type] = equip_data
-		equip_data.equiped = true
-		change_stats(equip_data.equip_bonus, 1)
-	elif !data.equip_slots[equip_data.equip_type] == null:
-		print(equip_data)
-		print(data.equip_slots[equip_data.equip_type])
-		
-		data.equip_slots[equip_data.equip_type] = null
-		equip_data.equiped = false
-		change_stats(equip_data.equip_bonus, -1)
-func on_check_equip(equip_data: ItemStack) -> void:
-	if !data.equip_slots[equip_data.equip_type] == null:
-		EventBus.unequip.emit(equip_data)
-		data.equip_slots[equip_data.equip_type] = null
-		change_stats(equip_data.equip_bonus, -1)
-func change_stats(stat_values, direction):
-	for i in stat_values.keys():
-		match i:
-			"атака": data.attack += (stat_values[i]) * direction
-			"броня": data.shield += (stat_values[i]) * direction
-	$CardPlayer.setup(data, GC.PLAYER)
-	EventBus.player_changed.emit(data)
 func _on_show_player_stats(vis):
 	if vis:$CardPlayer._on_button_select_mouse_entered()
 	else:$CardPlayer._on_button_select_mouse_exited()

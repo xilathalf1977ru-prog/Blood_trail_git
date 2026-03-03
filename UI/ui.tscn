@@ -199,6 +199,7 @@ theme_override_font_sizes/font_size = 27
 text = "OK"
 
 [node name="History" type="Control" parent="." unique_id=1443787515]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

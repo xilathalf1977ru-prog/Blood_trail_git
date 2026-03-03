@@ -2,10 +2,13 @@ extends Resource
 
 class_name EntityData  # ⭐ВАЖНО: даём имя классу!
 
-var equip_slots: Dictionary = {
-	"WEAPON": null,
-	"HAT": null,
-}
+#var equip_slots: Dictionary = {
+	#"WEAPON": null,
+	#"HAT": null,
+#}
+var equip_slots: Dictionary = {}
+
+
 @export var name: String
 @export var icon: Texture2D
 @export var id: String = "none"

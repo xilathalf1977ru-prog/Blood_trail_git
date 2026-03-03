@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://bcj06yl0bl6fn"]
 
 [ext_resource type="Script" uid="uid://c24xi7ulkoqx" path="res://GDscripts/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://cj077s6ccrqiq" path="res://GDscripts/equip_manager.gd" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://d2vnd4s2nn4bw" path="res://UI/card.tscn" id="3_vgqql"]
 
 [node name="player" type="Node2D" unique_id=1176564648]
 script = ExtResource("1_v0iea")
+
+[node name="EquipManager" type="Node" parent="." unique_id=560342750]
+script = ExtResource("2_6t5aa")
 
 [node name="CardPlayer" parent="." unique_id=1073989229 instance=ExtResource("3_vgqql")]

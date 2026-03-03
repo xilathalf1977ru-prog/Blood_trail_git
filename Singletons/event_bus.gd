@@ -54,6 +54,8 @@ signal player_equip_change(equip_data: ItemStack)
 signal check_equip(equip_data: ItemStack)
 
 @warning_ignore("unused_signal")
+signal equip(equip_data: ItemStack)
+@warning_ignore("unused_signal")
 signal unequip(equip_data: ItemStack)
 
 
