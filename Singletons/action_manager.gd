@@ -44,6 +44,14 @@ func heal(data: Resource, n: int = 1) -> void:
 
 func add_loot(player_local: EntityData, enemy: Resource):
 	for enemy_stack in enemy.inv.real_inv:
+		
+		print(enemy_stack.name)
+		EventBus.log_show.emit("Вы получили предмет: " + enemy_stack.name)
+		
+		if enemy_stack.name == "Волкодав":
+			EventBus.log_show.emit("Задание выполнено")
+			EventBus.quest_finished.emit()
+		
 		var found: bool = false
 		# Ищем такой же стак у игрока
 		for player_stack in player_local.inv.real_inv:
@@ -54,4 +62,6 @@ func add_loot(player_local: EntityData, enemy: Resource):
 		# Если не нашли - добавляем копию
 		if not found:
 			player_local.inv.real_inv.append(enemy_stack.duplicate())
+	
+	EventBus.sfx.emit("loot")
 	EventBus.player_changed.emit(player_local)

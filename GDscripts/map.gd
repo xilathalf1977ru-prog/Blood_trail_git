@@ -7,7 +7,7 @@ var currently_visible_cells: Array = []
 func _ready():
 	places_templates = DataLoader.load_res_dict("res://Data/Places/")
 	items_templates = DataLoader.load_res_dict("res://Data/Items/")
-	
+	black_list_random_item()
 	EventBus.player_moved.connect(update_places)
 	EventBus.delete_place.connect(on_delete_place)
 
@@ -63,27 +63,15 @@ func update_places(player_pos: Vector2):
 	currently_visible_cells = new_visible_cells
 		# Проверяем стоит ли игрок на месте
 	if place_map.has(player_cell):
-		#EventBus.player_at_place.emit(place_map[player_cell], true)  # вошел
 		EventBus.player_at_place.emit(player_cell, true)  # вошел
 	else:
-		#EventBus.player_at_place.emit(null, false)  # вышел
-		EventBus.player_at_place.emit(player_cell, false)  # вошел
-	
-
-
+		EventBus.player_at_place.emit(player_cell, false)  # вышел
 func has_save_file() -> bool:
 	return FileAccess.file_exists("user://save.tres")
 func on_delete_place(place_data):
-	
-	print("========================================")
-	print(place_data)
-	print(place_map.values())
-	print("========================================")
 	if place_data in place_map.values():
 		place_map.erase(place_map.find_key(place_data))
 		delete_mirrors_places(place_data)
-	print(place_map.values())
-
 func create_mirrors_places():
 	for i in place_map.keys():
 		place_map[i + (GC.END_WORLD * 2 + 1)] = place_map[i]
@@ -91,3 +79,7 @@ func create_mirrors_places():
 func delete_mirrors_places(place_data):
 	place_map.erase(place_map.find_key(place_data))
 	place_map.erase(place_map.find_key(place_data))
+
+func black_list_random_item():
+	items_templates.erase("sword_wolfkiller")
+	items_templates.erase("wolf_head")

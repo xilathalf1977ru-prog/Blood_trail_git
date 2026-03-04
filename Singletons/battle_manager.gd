@@ -2,7 +2,7 @@ extends Node
 
 func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 	print("⚔️ Бой начинается: ", player_data.name, " vs ", enemy_data.name)
-	
+	EventBus.sfx.emit("attack")
 	# Работаем напрямую с данными
 	while player_data.current_hp > 0 and enemy_data.current_hp > 0:
 		if player_data.current_hp <= 0:
@@ -24,6 +24,7 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 		#player_data.position += 1
 	else:
 		#print("❌ ПОРАЖЕНИЕ!")
+		EventBus.sfx.emit("dead")
 		player_data.current_hp = max(0, player_data.current_hp)
 		EventBus.object_died.emit(player_data)
 		EventBus.log_show.emit("Вас убил " + enemy_data.name)

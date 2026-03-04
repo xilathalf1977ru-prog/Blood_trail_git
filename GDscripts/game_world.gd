@@ -47,7 +47,6 @@ func on_cleanup_game():
 	await get_tree().process_frame
 	queue_free()
 func show_enemies_cards(enemies: Array[EntityData]) -> void:
-	$EnemyChoice.visible = true
 	current_enemies_pos.clear()
 	for i in min(enemies.size(), entities.size()):
 		var enemy_data: EntityData = enemies[i]

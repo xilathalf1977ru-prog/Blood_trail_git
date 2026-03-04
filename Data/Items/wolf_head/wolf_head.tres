@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemStack" format=3 uid="uid://bah7nl6ouci0d"]
+
+[ext_resource type="Resource" uid="uid://bh7lvtnnle7pe" path="res://Data/Items/wolf_head/wolf_head_item.tres" id="1_05661"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_x30c8"]
+
+[resource]
+script = ExtResource("2_x30c8")
+item = ExtResource("1_05661")
+metadata/_custom_type_script = "uid://dmn0esob0sf5k"

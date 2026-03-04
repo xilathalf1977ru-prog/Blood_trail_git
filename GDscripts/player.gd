@@ -4,7 +4,10 @@ const DATA_PATH: String = "res://Data/Entities/"
 var last_pos: Vector2 = Vector2(0, 0)
 var timer_running: bool = false
 @onready var data: EntityData = load(DATA_PATH + name + ".tres")
+
 func _ready():
+	data.current_hp = data.max_hp
+	
 	GameManager.register_player(self)
 	EventBus.player_move.connect(_on_player_move)
 	EventBus.player_move_to.connect(_on_player_move_to)
@@ -54,6 +57,7 @@ func move_check(pos: Vector2, move: bool):
 		GameManager.current_enemies = EnemyManager.generate_enemies(6)
 	$CardPlayer.setup(data, GC.PLAYER)
 func load_data(player_data: EntityData):
+	print("e")
 	data = player_data
 	position.x = data.position.x
 	EventBus.player_changed.emit(data)

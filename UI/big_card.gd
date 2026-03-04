@@ -34,13 +34,7 @@ func add_item(item_stack: ItemStack, n: int):
 		var card: TextureRect = CARD_SCENE.instantiate()
 		local_data.real_inv.append(item_stack)
 		item_stack.quantity = n
-		
-		if item_stack.main_type == "EQUIP":
-			item_stack.equiped = false
 		card.setup(item_stack, item_stack.type)
-		
-			
-		
 		_setup_card_common(card, item_stack)
 	save_inv()
 func remove_item(item_stack: ItemStack, n: int):
@@ -100,6 +94,7 @@ func use_item(item_stack: ItemStack, n: int):
 		path.get_node(item_stack.name).setup_vis(item_stack, local_data.id)
 		ActionManager.handle_action(item_stack, GC.Act.EQUIP)
 		return
+	EventBus.sfx.emit("drink")
 	ActionManager.handle_action(item_stack.actions[0], item_stack.actions[0].type, n)
 	if item_stack.transforms_to:
 		add_item(item_stack.transforms_to, n)

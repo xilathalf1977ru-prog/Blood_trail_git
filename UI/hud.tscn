@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bg062bh6ctvc6" path="res://Sprites/Sleep.webp" id="2_2o5uh"]
 [ext_resource type="Texture2D" uid="uid://brtkvdlobijmq" path="res://Data/Places/home/pocket2.webp" id="2_b1lf8"]
 [ext_resource type="Texture2D" uid="uid://b53nvosgq7t4n" path="res://Sprites/hpbar.webp" id="2_bytes"]
+[ext_resource type="Texture2D" uid="uid://bt25xgs7uxr4w" path="res://Sprites/scroll.webp" id="4_rnl6m"]
 
 [node name="HUD" type="Control" unique_id=803828367]
 layout_mode = 3
@@ -25,31 +26,6 @@ offset_right = 40.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 
-[node name="ButtonInv" type="Button" parent="." unique_id=1384596821]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -125.0
-offset_top = -62.0
-offset_bottom = -31.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
-focus_mode = 0
-text = "Вещи"
-alignment = 0
-
-[node name="TextureRect" type="TextureRect" parent="ButtonInv" unique_id=2071075018]
-layout_mode = 0
-offset_left = 46.999996
-offset_right = 1071.0
-offset_bottom = 1024.0
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("2_b1lf8")
-
 [node name="ButtonSleep" type="Button" parent="." unique_id=1401699890]
 layout_mode = 1
 anchors_preset = 7
@@ -57,9 +33,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -377.0
+offset_left = -302.0
 offset_top = -62.0
-offset_right = -252.0
+offset_right = -202.0
 offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -71,11 +47,64 @@ alignment = 0
 
 [node name="TextureRect" type="TextureRect" parent="ButtonSleep" unique_id=1321808769]
 layout_mode = 0
-offset_left = 45.5
-offset_right = 1069.5
+offset_left = 34.5
+offset_right = 1058.5
 offset_bottom = 1024.0
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("2_2o5uh")
+
+[node name="ButtonInv" type="Button" parent="." unique_id=1384596821]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -62.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+focus_mode = 0
+text = "Вещи"
+alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="ButtonInv" unique_id=2071075018]
+layout_mode = 0
+offset_left = 49.5
+offset_right = 1073.5
+offset_bottom = 1024.0
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_b1lf8")
+
+[node name="ButtonQuest" type="Button" parent="." unique_id=1678774476]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 102.0
+offset_top = -62.0
+offset_right = 202.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+focus_mode = 0
+text = "Журнал"
+alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="ButtonQuest" unique_id=1943047045]
+texture_filter = 1
+layout_mode = 0
+offset_left = 66.5
+offset_top = 3.0
+offset_right = 82.5
+offset_bottom = 20.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_rnl6m")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=95601927]
 visible = false
@@ -120,5 +149,6 @@ text = "100/200"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="ButtonInv" to="." method="_on_button_inv_pressed"]
 [connection signal="pressed" from="ButtonSleep" to="." method="_on_button_sleep_pressed"]
+[connection signal="pressed" from="ButtonInv" to="." method="_on_button_inv_pressed"]
+[connection signal="pressed" from="ButtonQuest" to="." method="_on_button_quest_pressed"]

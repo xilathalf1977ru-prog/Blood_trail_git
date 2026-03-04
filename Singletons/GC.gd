@@ -33,5 +33,18 @@ class Act:
 	const EQUIP: String = "equip"
 	
 	const UNEQUIP: String = "unequip"
+
+
+const SFX: Dictionary[String, AudioStream] = {
+	"attack":preload("res://SFX/SwordParry1.wav"),
+	"dead":preload("res://SFX/ManDead.mp3"),
+	"drink":preload("res://SFX/Drink.mp3"),
+	"loot":preload("res://SFX/loot.mp3"),
+	"drop":preload("res://SFX/Drop.mp3"),
 	
+	"armor":preload("res://SFX/armor.wav"),
+	"sword":preload("res://SFX/sword.wav"),
+}
+
+
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
