@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c2jx6dluvqtdg"]
+
+[ext_resource type="Script" uid="uid://cd4da24b8bnga" path="res://Test/test.gd" id="1_yfa23"]
+[ext_resource type="Texture2D" uid="uid://rn6q6btvw6tv" path="res://Sprites/rogue.webp" id="2_lxp54"]
+
+[node name="Node2D" type="Node2D" unique_id=1145799707]
+script = ExtResource("1_yfa23")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1434860400]
+texture_filter = 1
+position = Vector2(625, 600)
+scale = Vector2(6, 6)
+texture = ExtResource("2_lxp54")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=569141233]
+visible = false
+texture_filter = 1
+position = Vector2(500, 100)
+scale = Vector2(6, 6)
+texture = ExtResource("2_lxp54")

@@ -179,21 +179,23 @@ offset_bottom = 1353.0
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="History" unique_id=465400231]
+texture_filter = 1
 layout_mode = 0
-offset_left = 1360.0
-offset_top = 371.0
-offset_right = 2384.0
-offset_bottom = 1395.0
-scale = Vector2(0.2, 0.2)
+offset_left = 1270.0
+offset_top = 273.0
+offset_right = 1318.0
+offset_bottom = 321.0
+scale = Vector2(7, 7)
 texture = ExtResource("8_6rr40")
 
 [node name="TextureRect2" type="TextureRect" parent="History" unique_id=583862858]
+texture_filter = 1
 layout_mode = 0
-offset_left = 1293.0
-offset_top = 177.0
-offset_right = 2317.0
-offset_bottom = 1201.0
-scale = Vector2(0.2, 0.2)
+offset_left = 1218.0001
+offset_top = 188.0
+offset_right = 1266.0001
+offset_bottom = 236.0
+scale = Vector2(7, 7)
 texture = ExtResource("9_0w6e5")
 
 [node name="Label" type="Label" parent="History" unique_id=1538272721]

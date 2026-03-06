@@ -15,8 +15,7 @@ offset_right = 128.0
 offset_bottom = 128.0
 pivot_offset = Vector2(128, 128)
 script = ExtResource("2_j0kp0")
-metadata/_edit_vertical_guides_ = [96.0, -96.0]
-metadata/_edit_horizontal_guides_ = [-96.0]
+metadata/_edit_horizontal_guides_ = [953.0]
 
 [node name="ButtonSelect" type="Button" parent="." unique_id=1684614192]
 layout_mode = 1
@@ -75,9 +74,9 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 32.0
 offset_top = 32.0
-offset_right = 1056.0
-offset_bottom = 1056.0
-scale = Vector2(0.188, 0.188)
+offset_right = 80.0
+offset_bottom = 80.0
+scale = Vector2(4, 4)
 mouse_filter = 2
 texture = ExtResource("3_d460q")
 

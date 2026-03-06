@@ -57,6 +57,9 @@ func setup_vis(data, name_owner):
 		for i in data.equip_bonus:
 			$TextLabel.text += "\n" + i + " " + str(data.equip_bonus[i])
 		
+		$TextureRect.size = Vector2(96, 96)
+		$TextureRect.position = Vector2(-64, -64)
+		
 		if name_owner == "player":
 			$ButtonSelect.set_extra_button(data)
 		

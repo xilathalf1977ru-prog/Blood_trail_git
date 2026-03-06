@@ -46,11 +46,13 @@ text = "Сон"
 alignment = 0
 
 [node name="TextureRect" type="TextureRect" parent="ButtonSleep" unique_id=1321808769]
+texture_filter = 1
 layout_mode = 0
-offset_left = 34.5
-offset_right = 1058.5
-offset_bottom = 1024.0
-scale = Vector2(0.03, 0.03)
+offset_left = 33.5
+offset_top = -2.0
+offset_right = 81.5
+offset_bottom = 46.0
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_2o5uh")
 
 [node name="ButtonInv" type="Button" parent="." unique_id=1384596821]
@@ -71,11 +73,13 @@ text = "Вещи"
 alignment = 0
 
 [node name="TextureRect" type="TextureRect" parent="ButtonInv" unique_id=2071075018]
+texture_filter = 1
 layout_mode = 0
-offset_left = 49.5
-offset_right = 1073.5
-offset_bottom = 1024.0
-scale = Vector2(0.03, 0.03)
+offset_left = 18.0
+offset_top = -28.0
+offset_right = 66.0
+offset_bottom = 20.0
+scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_b1lf8")
 
 [node name="ButtonQuest" type="Button" parent="." unique_id=1678774476]
