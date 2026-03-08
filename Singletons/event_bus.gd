@@ -28,6 +28,9 @@ signal result_quantity_menu(n: int, buffer: Array)
 @warning_ignore("unused_signal")
 signal quest_finished()
 
+@warning_ignore("unused_signal")
+signal camera_move(position)
+
 ## --- ЖИЗНЕННЫЙ ЦИКЛ СЕССИИ ---
 @warning_ignore("unused_signal")
 signal loading()          # начало загрузки уровня/сессии

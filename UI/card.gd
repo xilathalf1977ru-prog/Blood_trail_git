@@ -7,11 +7,6 @@ var card_data: Resource
 signal item_stack_clicked(item_stack: ItemStack)
 @warning_ignore("unused_signal")
 signal item_stack_use(item_stack: ItemStack)
-
-#У меня говнометод, масштабирования спрайтов (Жрёт дофига VRAM).
-#Надо переделать его под масштабирование через код.
-#Ещё спрайты по разному выглядят на юзать шейдер CleanEdge или типо того
-
 func setup(data: Resource, type: String):
 	card_data = data
 	context = type

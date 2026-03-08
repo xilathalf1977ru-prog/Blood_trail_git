@@ -1,7 +1,7 @@
 extends Node
 
 func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
-	print("⚔️ Бой начинается: ", player_data.name, " vs ", enemy_data.name)
+	#print("⚔️ Бой начинается: ", player_data.name, " vs ", enemy_data.name)
 	EventBus.sfx.emit("attack")
 	# Работаем напрямую с данными
 	while player_data.current_hp > 0 and enemy_data.current_hp > 0:

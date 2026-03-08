@@ -1,12 +1,14 @@
 extends Node
 
+var control_free: bool = true
+
 const CELL: int = 192
 const CELL_Y: Array = [353, 545, 737]
 #const CELL_PLACE: int = 737
 var cell_place_y: int:
 	get:
 		return CELL_Y[2]
-const END_WORLD: int = 9
+const END_WORLD: int = 4
 
 ## --- ТИПЫ КАРТ ---
 const PLAYER: String = "player"
