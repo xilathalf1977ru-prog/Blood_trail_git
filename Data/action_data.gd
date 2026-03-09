@@ -4,6 +4,9 @@ class_name ActionData
 @export var name: String
 @export var type: String
 @export var icon: Texture2D
+
+@export var sprites: SpriteFrames
+
 @export var heal_amount: int
 @export var money: int
 @export var menu: bool

@@ -11,6 +11,9 @@ var equip_slots: Dictionary = {}
 
 @export var name: String
 @export var icon: Texture2D
+
+@export var sprites: SpriteFrames
+
 @export var id: String = "none"
 @export var player: bool
 @export var max_hp: int

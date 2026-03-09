@@ -10,6 +10,8 @@ var cell_place_y: int:
 		return CELL_Y[2]
 const END_WORLD: int = 4
 
+var anim_speed: float = 0.2
+
 ## --- ТИПЫ КАРТ ---
 const PLAYER: String = "player"
 const ENEMY: String = "enemy"
@@ -43,9 +45,10 @@ const SFX: Dictionary[String, AudioStream] = {
 	"drink":preload("res://SFX/Drink.mp3"),
 	"loot":preload("res://SFX/loot.mp3"),
 	"drop":preload("res://SFX/Drop.mp3"),
-	
 	"armor":preload("res://SFX/armor.wav"),
 	"sword":preload("res://SFX/sword.wav"),
+	"walk":preload("res://SFX/walk.mp3"),
+	"portal":preload("res://SFX/portal.mp3"),
 }
 
 

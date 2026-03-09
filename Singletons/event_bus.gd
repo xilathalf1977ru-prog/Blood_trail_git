@@ -71,6 +71,10 @@ signal unequip(equip_data: ItemStack)
 @warning_ignore("unused_signal")
 signal player_move(direction: Vector2)
 
+
+@warning_ignore("unused_signal")
+signal player_teleport(direction: Vector2)
+
 @warning_ignore("unused_signal")
 signal show_player_stats(vis: bool)
 

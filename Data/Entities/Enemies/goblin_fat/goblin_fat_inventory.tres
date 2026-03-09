@@ -3,11 +3,40 @@
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_cjyjm"]
 [ext_resource type="Resource" uid="uid://cuugb3fs6xsxr" path="res://Data/Items/goblin_fat_head/goblin_fat_head.tres" id="2_8a4ji"]
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="3_5si6t"]
+[ext_resource type="Texture2D" uid="uid://dp731ljjl3wom" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0001.webp" id="4_rugcn"]
+[ext_resource type="Texture2D" uid="uid://cjbs62ie1kgm" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0002.webp" id="5_voine"]
+[ext_resource type="Texture2D" uid="uid://3agnr20xjmo0" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0003.webp" id="6_64q1x"]
+[ext_resource type="Texture2D" uid="uid://bsmul1q35v3hi" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0004.webp" id="7_hr35u"]
+[ext_resource type="Texture2D" uid="uid://d368higw5odnv" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0005.webp" id="8_i0hgr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_maxkk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rugcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_voine")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_64q1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hr35u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i0hgr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("3_5si6t")
 name = "Инвентарь"
 type = "inv"
+sprites = SubResource("SpriteFrames_maxkk")
 inventory = Dictionary[ExtResource("1_cjyjm"), int]({
 ExtResource("2_8a4ji"): 1
 })

@@ -4,11 +4,36 @@
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_ticih"]
 [ext_resource type="Resource" uid="uid://0h4pwataqgfp" path="res://Data/Entities/Enemies/wolf/wolf_inventory.tres" id="2_3vg2v"]
 [ext_resource type="Texture2D" uid="uid://bu5vsdku2a2ui" path="res://Data/Entities/Enemies/wolf/wolf_icon.webp" id="3_3vg2v"]
+[ext_resource type="Texture2D" uid="uid://bankjst5emjj5" path="res://Data/Entities/Enemies/wolf/wolf_0001.webp" id="5_tcm5p"]
+[ext_resource type="Texture2D" uid="uid://ca8vjunk6vvlp" path="res://Data/Entities/Enemies/wolf/wolf_0002.webp" id="6_6cvop"]
+[ext_resource type="Texture2D" uid="uid://cwyf747ial44s" path="res://Data/Entities/Enemies/wolf/wolf_0003.webp" id="7_82clm"]
+[ext_resource type="Texture2D" uid="uid://b2w5h8hm8j78v" path="res://Data/Entities/Enemies/wolf/wolf_0004.webp" id="8_44hqf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcwdv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tcm5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6cvop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_82clm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_44hqf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_ticih")
 name = "Волк"
 icon = ExtResource("3_3vg2v")
+sprites = SubResource("SpriteFrames_dcwdv")
 max_hp = 60
 current_hp = 60
 attack = 60

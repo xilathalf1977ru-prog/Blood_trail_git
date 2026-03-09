@@ -6,6 +6,8 @@ class_name PlaceData
 @export var id: String = "none"
 @export var icon: Texture2D
 
+@export var sprites: SpriteFrames
+
 @export var actions: Array[ActionData]
 @export var inv: ActionData
 

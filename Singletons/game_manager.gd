@@ -53,7 +53,7 @@ func register_player(player: Node):
 		pending_save_data = null
 		print("✅ Сохранение применено к игроку")
 func on_selected(data: Resource):
-	if data is EntityData:
+	if data is EntityData and GC.control_free:
 		EventBus.player_move_to.emit(data.direction)
 func details_requested(_entity_data: Resource):
 	pass

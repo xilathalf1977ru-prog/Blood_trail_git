@@ -4,22 +4,16 @@ const DATA_PATH: String = "res://Data/Entities/"
 var last_pos: Vector2 = Vector2(0, 0)
 var timer_running: bool = false
 @onready var data: EntityData = load(DATA_PATH + name + ".tres")
-
 func _ready():
 	data.current_hp = data.max_hp
-	
 	GameManager.register_player(self)
 	EventBus.player_move.connect(_on_player_move)
+	EventBus.player_teleport.connect(_on_player_teleport)
 	EventBus.player_move_to.connect(_on_player_move_to)
-	EventBus.player_changed.connect(_on_player_changed)
 	EventBus.show_player_stats.connect(_on_show_player_stats)
 	$CardPlayer.setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)
 	data.position = position
-func _on_player_changed(_player_data):
-	#data = player_data.duplicate()
-	#$CardPlayer.setup(data, GC.PLAYER)
-	pass
 func _on_player_move(pos: Vector2):
 	if !timer_running:
 		last_pos = pos
@@ -31,44 +25,21 @@ func _on_player_move(pos: Vector2):
 	else:
 		last_pos += pos
 func _on_player_move_to(pos: Vector2):
-	print("887")
 	move_check(pos, false)
 func move_check(pos: Vector2, move: bool):
 	var direction = int(pos.x)
-	
-	#if (data.steps + direction) > GC.END_WORLD:
-		#var direction_post = direction - (GC.END_WORLD - data.steps)
-		#data.steps = -(GC.END_WORLD + 1) + direction_post
-		#data.position.x = data.steps * GC.CELL
-		#limit = true
-	#elif (data.steps + direction) < -GC.END_WORLD:
-		#var direction_post = direction - (-GC.END_WORLD - data.steps)
-		#data.steps = (GC.END_WORLD + 1) + direction_post
-		#data.position.x = data.steps * GC.CELL
-		#limit = true
-	#else:
-	#data.steps += direction
 	if move and int(data.position.y + last_pos.y * GC.CELL) in GC.CELL_Y:
 		data.position += last_pos * GC.CELL
 	else:
 		data.position.x += direction * (GC.CELL)
 		var direction_y: int = int(pos.y)
 		data.position.y = GC.CELL_Y[direction_y+1]
-	
-
 	var tween = create_tween()
 	tween.finished.connect(_on_tween_finished.bind(direction))
 	GC.control_free = false
-	tween.tween_property(self, "position", data.position, 0.2)
-	#EventBus.camera_move.emit(data.position.x)
-	
+	EventBus.sfx.emit("walk")
+	tween.tween_property(self, "position", data.position, GC.anim_speed)
 func _on_tween_finished(direction):
-	#EventBus.player_changed.emit(data)
-	#EventBus.player_moved.emit(data.position)
-	#if direction != 0:
-		#GameManager.current_enemies = EnemyManager.generate_enemies(6)
-	#$CardPlayer.setup(data, GC.PLAYER)
-	
 	var limit = 0
 	if (data.steps + direction) > GC.END_WORLD:
 		limit = -1
@@ -85,8 +56,6 @@ func _on_tween_finished(direction):
 		if direction != 0:
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)
 		$CardPlayer.setup(data, GC.PLAYER)
-		
-		
 		EventBus.camera_move.emit(data.position.x - (-GC.CELL * limit), false)
 		EventBus.camera_move.emit(data.position.x)
 	else:
@@ -97,7 +66,6 @@ func _on_tween_finished(direction):
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)
 		$CardPlayer.setup(data, GC.PLAYER)
 		EventBus.camera_move.emit(data.position.x)
-		#EventBus.camera_move.emit(data.position.x, false)
 	GC.control_free = true
 func load_data(player_data: EntityData):
 	data = player_data
@@ -107,3 +75,22 @@ func load_data(player_data: EntityData):
 func _on_show_player_stats(vis):
 	if vis:$CardPlayer._on_button_select_mouse_entered()
 	else:$CardPlayer._on_button_select_mouse_exited()
+func _on_player_teleport(direction: int):
+	GC.control_free = false
+	await fade_out(self)
+	var change_pos_x: int = direction * GC.CELL
+	data.position.x += change_pos_x
+	position = data.position
+	_on_tween_finished(direction)
+	fade_in(self)
+func fade_out(node, duration: float = GC.anim_speed):
+	var tween = create_tween()
+	tween.tween_property(node, "modulate:a", 0.0, duration)
+	tween.tween_callback(func(): node.visible = false)
+	await tween.finished
+func fade_in(node, duration: float = GC.anim_speed):
+	node.visible = true
+	node.modulate.a = 0.0
+	var tween = create_tween()
+	tween.tween_property(node, "modulate:a", 1.0, duration)
+	await tween.finished

@@ -4,11 +4,28 @@
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_k7s0h"]
 [ext_resource type="Resource" uid="uid://40d2hhrp1ov8" path="res://Data/Entities/Enemies/goblin/goblin_inventory.tres" id="2_hdydc"]
 [ext_resource type="Texture2D" uid="uid://b3y3huyxn8ouk" path="res://Data/Entities/Enemies/goblin/goblin_icon.webp" id="3_eofkm"]
+[ext_resource type="Texture2D" uid="uid://5ra8se582rre" path="res://Data/Entities/Enemies/goblin/goblin_0001.webp" id="5_utmja"]
+[ext_resource type="Texture2D" uid="uid://lo2kl50uf1sh" path="res://Data/Entities/Enemies/goblin/goblin_0002.webp" id="6_7m0ty"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u53f1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_utmja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7m0ty")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_k7s0h")
 name = "Гоблин"
 icon = ExtResource("3_eofkm")
+sprites = SubResource("SpriteFrames_u53f1")
 max_hp = 30
 current_hp = 30
 attack = 6

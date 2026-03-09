@@ -4,11 +4,36 @@
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_ehfks"]
 [ext_resource type="Resource" uid="uid://bboqahe5nobfs" path="res://Data/Entities/player_inventory.tres" id="2_3hqo3"]
 [ext_resource type="Texture2D" uid="uid://rn6q6btvw6tv" path="res://Sprites/rogue.webp" id="3_0w73y"]
+[ext_resource type="Texture2D" uid="uid://bvnx52kshfbre" path="res://Sprites/rogue_0001.webp" id="5_u4vgu"]
+[ext_resource type="Texture2D" uid="uid://csv4y216c8rgh" path="res://Sprites/rogue_0002.webp" id="6_aet8b"]
+[ext_resource type="Texture2D" uid="uid://kxvf52igj1ha" path="res://Sprites/rogue_0003.webp" id="7_na7np"]
+[ext_resource type="Texture2D" uid="uid://cwrk7rw3s33re" path="res://Sprites/rogue_0004.webp" id="8_k3l0y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jms68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_u4vgu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_aet8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_na7np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k3l0y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_ehfks")
 name = "Игрок"
 icon = ExtResource("3_0w73y")
+sprites = SubResource("SpriteFrames_jms68")
 id = "player"
 player = true
 max_hp = 100
