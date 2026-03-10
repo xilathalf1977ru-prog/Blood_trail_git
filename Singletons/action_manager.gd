@@ -20,20 +20,20 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 			
 			
 		GC.Act.RANDOM_ATTACK:
-			var enemy_pool: Array = EnemyManager.enemy_templates
+			var enemy_pool: Array = EnemyManager.enemy_templates.duplicate_deep()
 			var enemy: EntityData = enemy_pool[GC.rng.randi_range(0, enemy_pool.size()-1)]
 			BattleManager.start_auto_battle(player, enemy)
 			EventBus.log_show.emit("Напал враг " + enemy.name)
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)
 		GC.Act.TELEPORT_RNG:
-			var dist: int = GC.rng.randi_range(data.dist*-1, data.dist)
-			#await get_tree().process_frame
-			#EventBus.player_move.emit(Vector2(dist, 0))
+			#var dist: int = GC.rng.randi_range(data.dist*-1, data.dist)
+			#EventBus.player_teleport.emit(dist)
+			#EventBus.all_menus_close.emit()
 			#EventBus.sfx.emit("portal")
-			EventBus.player_teleport.emit(dist)
-			EventBus.all_menus_close.emit()
-			EventBus.sfx.emit("portal")
-			EventBus.log_show.emit("Телепортировался на " + str(dist))
+			#EventBus.log_show.emit("Телепортировался на " + str(dist))
+			EventBus.alert_show.emit(GC.Act.TELEPORT_RNG, data)
+			
+			
 		GC.Act.SLEEP:
 			heal(data, n)
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)

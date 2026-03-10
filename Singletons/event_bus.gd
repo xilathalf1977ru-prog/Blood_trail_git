@@ -8,8 +8,7 @@ signal death_screen_changed(vis: bool)
 @warning_ignore("unused_signal")
 signal menu(data: Resource, context: String)
 
-@warning_ignore("unused_signal")
-signal show_quest()
+
 @warning_ignore("unused_signal")
 signal check_all_menus_closed()
 @warning_ignore("unused_signal")
@@ -24,12 +23,17 @@ signal sfx(sfx_name: String)
 signal show_quantity_menu(vis: bool, n: int, buffer: Array)
 @warning_ignore("unused_signal")
 signal result_quantity_menu(n: int, buffer: Array)
-
+@warning_ignore("unused_signal")
+signal show_quest()
 @warning_ignore("unused_signal")
 signal quest_finished()
 
 @warning_ignore("unused_signal")
 signal camera_move(position)
+
+
+@warning_ignore("unused_signal")
+signal alert_show(alert_name: String, res_data: Resource)
 
 ## --- ЖИЗНЕННЫЙ ЦИКЛ СЕССИИ ---
 @warning_ignore("unused_signal")

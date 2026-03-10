@@ -17,7 +17,6 @@
 script = ExtResource("1_jxero")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1015708256]
-volume_db = -10.0
 
 [node name="SFXManager" type="Node" parent="." unique_id=7288264]
 script = ExtResource("2_o2jkc")
@@ -165,7 +164,6 @@ theme_override_font_sizes/font_size = 27
 text = "OK"
 
 [node name="History" type="Control" parent="." unique_id=1443787515]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -260,6 +258,90 @@ scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 24
 text = "Закрыть"
 
+[node name="Alert" type="Control" parent="." unique_id=912207972]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect3" type="ColorRect" parent="Alert" unique_id=1216939561]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="Audio" type="AudioStreamPlayer" parent="Alert" unique_id=2010531121]
+
+[node name="ColorRect" type="ColorRect" parent="Alert" unique_id=1445538545]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 340.0
+offset_right = 1260.0
+offset_bottom = 740.0
+color = Color(0.17, 0.17, 0.17, 0.78431374)
+
+[node name="Label" type="Label" parent="Alert" unique_id=1719252846]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 640.0
+offset_top = 380.0
+offset_right = 1242.0
+offset_bottom = 656.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Alert" unique_id=1106548742]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 340.0
+offset_right = 1260.0
+offset_bottom = 380.0
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label3" type="Label" parent="Alert/ColorRect2" unique_id=355062871]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_right = 302.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.9490196, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 24
+text = "ОПАСНОСТЬ!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonYes" type="Button" parent="Alert" unique_id=733437354]
+modulate = Color(0.29999995, 1, 0, 1)
+layout_mode = 0
+offset_left = 664.0
+offset_top = 656.0
+offset_right = 784.0
+offset_bottom = 736.0
+theme_override_font_sizes/font_size = 32
+text = "Да!"
+
+[node name="ButtonNo" type="Button" parent="Alert" unique_id=1051874559]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 1136.0
+offset_top = 656.0
+offset_right = 1256.0
+offset_bottom = 736.0
+theme_override_font_sizes/font_size = 32
+text = "Нет"
+
 [node name="MainMenu" parent="." unique_id=2128373734 instance=ExtResource("4_hat8c")]
 visible = false
 
@@ -272,3 +354,5 @@ visible = false
 [connection signal="inv_stack_clicked" from="BigCards/BigCard1" to="BigCards" method="_on_big_card_1_inv_stack_clicked"]
 [connection signal="inv_stack_clicked" from="BigCards/BigCard2" to="BigCards" method="_on_big_card_2_inv_stack_clicked"]
 [connection signal="pressed" from="History/ButtonClose" to="." method="_on_button_close_pressed"]
+[connection signal="pressed" from="Alert/ButtonYes" to="." method="_on_alert_yes_pressed"]
+[connection signal="pressed" from="Alert/ButtonNo" to="." method="_on_alert_no_pressed"]

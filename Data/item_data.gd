@@ -19,6 +19,8 @@ var equip_type: String:
 var equiped: bool = false
 
 @export var icon: Texture2D
+
+@export var sprites: SpriteFrames
 @export var cost: int
 @export var actions: Array[ActionData]
 

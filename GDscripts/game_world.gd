@@ -80,7 +80,6 @@ func on_player_moved(data):
 		EventBus.all_menus_close.emit()
 
 func on_delete_place(place_data):
-	# Найти и удалить карточку
 	for cell in place_cards:
 		if place_cards[cell].card_data == place_data:
 			despawn_place_card(cell)

@@ -20,6 +20,10 @@ var main_type: String:
 #var EditorType:
 	#get:
 		#return item.EditorType
+var sprites: SpriteFrames:
+	get:
+		return item.sprites
+
 
 var equip_type: String:
 	get:

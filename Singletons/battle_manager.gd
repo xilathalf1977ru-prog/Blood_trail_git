@@ -25,6 +25,12 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 	else:
 		#print("❌ ПОРАЖЕНИЕ!")
 		EventBus.sfx.emit("dead")
+		
+		player_data.inv.inventory.clear()
+		player_data.steps = 0
+		player_data.shield = 0
+		player_data.attack = 10
+		
 		player_data.current_hp = max(0, player_data.current_hp)
 		EventBus.object_died.emit(player_data)
 		EventBus.log_show.emit("Вас убил " + enemy_data.name)
