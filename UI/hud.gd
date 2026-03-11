@@ -20,3 +20,7 @@ func on_player_changed(data: Resource) -> void:
 
 func _on_button_quest_pressed() -> void:
 	EventBus.show_quest.emit()
+
+
+func _on_button_exit_pressed() -> void:
+	get_tree().quit()

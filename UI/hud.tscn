@@ -110,6 +110,23 @@ offset_bottom = 20.0
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_rnl6m")
 
+[node name="ButtonExit" type="Button" parent="." unique_id=694524176]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 756.0
+offset_top = -1076.0
+offset_right = 856.0
+offset_bottom = -1045.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+focus_mode = 0
+text = "Выход"
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=95601927]
 visible = false
 layout_mode = 0
@@ -156,3 +173,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="ButtonSleep" to="." method="_on_button_sleep_pressed"]
 [connection signal="pressed" from="ButtonInv" to="." method="_on_button_inv_pressed"]
 [connection signal="pressed" from="ButtonQuest" to="." method="_on_button_quest_pressed"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_button_exit_pressed"]
