@@ -36,7 +36,7 @@ func unequip(equip_data: ItemStack) -> void:
 func change_stats(stat_values, direction):
 	for i in stat_values.keys():
 		match i:
-			"атака": data.attack += (stat_values[i]) * direction
-			"броня": data.shield += (stat_values[i]) * direction
+			"damage": data.damage += (stat_values[i]) * direction
+			"armor": data.armor += (stat_values[i]) * direction
 	get_parent().get_node("CardPlayer").setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)

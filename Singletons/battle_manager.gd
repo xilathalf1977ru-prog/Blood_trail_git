@@ -8,10 +8,10 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 		if player_data.current_hp <= 0:
 			break
 		# Игрок атакует
-		enemy_data.current_hp -= max(0, player_data.attack - enemy_data.shield)
+		enemy_data.current_hp -= max(0, player_data.damage - enemy_data.armor)
 		#print(player_data.name, " атакует: -", player_data.attack, " HP")
 		# Враг атакует
-		player_data.current_hp -= max(0, enemy_data.attack - player_data.shield)
+		player_data.current_hp -= max(0, enemy_data.damage - player_data.armor)
 		#print(enemy_data.name, " атакует: -", enemy_data.attack, " HP")
 	var victory = player_data.current_hp > 0
 	
@@ -28,8 +28,8 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 		
 		player_data.inv.inventory.clear()
 		player_data.steps = 0
-		player_data.shield = 0
-		player_data.attack = 10
+		player_data.armor = 0
+		player_data.damage = 10
 		
 		player_data.current_hp = max(0, player_data.current_hp)
 		EventBus.object_died.emit(player_data)

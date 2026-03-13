@@ -16,6 +16,9 @@ var equip_type: String:
 		return EditorEquip.find_key(editor_equip_type)
 
 @export var equip_bonus: Dictionary[String, int]
+
+
+
 var equiped: bool = false
 
 @export var icon: Texture2D

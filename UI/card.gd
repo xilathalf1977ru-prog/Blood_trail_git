@@ -24,30 +24,24 @@ func setup(data: Resource, type: String):
 func setup_entity(entity: EntityData):
 	$Name.visible = false
 	var text:String
-	if context == GC.ENEMY:
-		text = """Здоровье: {hp}
-		Атака: {attack}
-		""".format({
-			"hp": entity.current_hp,
-			"attack": entity.attack,
-			})
-	elif context == GC.PLAYER:
-		text = """Здоровье: {hp}
-		Атака: {attack}
-		Броня: {shield}
-		Шаги: {distance}
-		""".format({
-			"hp": entity.current_hp,
-			"attack": entity.attack,
-			"shield": entity.shield,
-			"distance": entity.steps})
+	text = """
+	{hp}: {hp_n}
+	{damage}: {damage_n}
+	{armor}: {armor_n}
+	""".format({
+		"armor": TR.lc("armor"),
+		"damage": TR.lc("damage"),
+		"hp": TR.lc("hp"),
+		"hp_n": entity.current_hp,
+		"damage_n": entity.damage,
+		"armor_n": entity.armor,
+		})
 	$Name.text = entity.name
 	$TextLabel.text = text
 func setup_place(place: PlaceData):
+	$Name.visible = false
 	$Name.text = place.name
 	$TextLabel.text = ""
-	for i in place.actions:
-		$TextLabel.text += "\n" + i.name
 func setup_vis(data, name_owner):
 	if data is ItemStack:
 		$TextLabel.text = (
@@ -55,18 +49,15 @@ func setup_vis(data, name_owner):
 			+ "\n $ " + str(data.cost)
 			)
 		for i in data.equip_bonus:
-			$TextLabel.text += "\n" + i + " " + str(data.equip_bonus[i])
-		
+			$TextLabel.text += "\n" + TR.lc(i) + " " + str(data.equip_bonus[i])
 		$TextureRect.size = Vector2(96, 96)
 		$TextureRect.position = Vector2(-64, -64)
-		
 		if name_owner == "player":
 			$ButtonSelect.set_extra_button(data)
-		
 		$TextLabel.position = Vector2(224, 32)
 		$Name.text = data.name + " X" + str(data.quantity)
 	else:
-		$Name.text = data.name
+		$Name.visible = false
 	name = data.name
 func _on_button_select_pressed() -> void:
 	if context in [GC.PLAYER, GC.FAR_PLACE]:

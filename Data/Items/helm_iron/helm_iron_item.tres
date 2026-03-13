@@ -11,7 +11,7 @@ type = "equip"
 editor_main_type = 2
 editor_equip_type = 1
 equip_bonus = Dictionary[String, int]({
-"броня": 2
+"armor": 2
 })
 icon = ExtResource("2_0glco")
 cost = 50

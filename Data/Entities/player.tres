@@ -38,6 +38,6 @@ id = "player"
 player = true
 max_hp = 100
 current_hp = 100
-attack = 10
+damage = 10
 actions = Array[ExtResource("1_adkyd")]([ExtResource("2_3hqo3")])
 metadata/_custom_type_script = "uid://bqduy5pjk0fl"

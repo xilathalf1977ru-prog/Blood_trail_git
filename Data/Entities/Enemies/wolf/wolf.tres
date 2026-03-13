@@ -36,6 +36,6 @@ icon = ExtResource("3_3vg2v")
 sprites = SubResource("SpriteFrames_dcwdv")
 max_hp = 60
 current_hp = 60
-attack = 60
+damage = 60
 actions = Array[ExtResource("1_e1kjf")]([ExtResource("2_3vg2v")])
 metadata/_custom_type_script = "uid://bqduy5pjk0fl"

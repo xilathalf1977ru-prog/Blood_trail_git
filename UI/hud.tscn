@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://brtkvdlobijmq" path="res://Data/Places/home/pocket2.webp" id="2_b1lf8"]
 [ext_resource type="Texture2D" uid="uid://b53nvosgq7t4n" path="res://Sprites/hpbar.webp" id="2_bytes"]
 [ext_resource type="Texture2D" uid="uid://bt25xgs7uxr4w" path="res://Sprites/scroll.webp" id="4_rnl6m"]
+[ext_resource type="Texture2D" uid="uid://lr85pxer8p5a" path="res://UI/exit.webp" id="5_1ui3w"]
 
 [node name="HUD" type="Control" unique_id=803828367]
 layout_mode = 3
@@ -42,18 +43,17 @@ grow_vertical = 0
 scale = Vector2(2, 2)
 focus_mode = 0
 theme_override_font_sizes/font_size = 16
-text = "Сон"
 alignment = 0
 
 [node name="TextureRect" type="TextureRect" parent="ButtonSleep" unique_id=1321808769]
 texture_filter = 1
 layout_mode = 0
-offset_left = 33.5
 offset_top = -2.0
-offset_right = 81.5
+offset_right = 133.33331
 offset_bottom = 46.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_2o5uh")
+stretch_mode = 3
 
 [node name="ButtonInv" type="Button" parent="." unique_id=1384596821]
 layout_mode = 1
@@ -69,18 +69,18 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
 focus_mode = 0
-text = "Вещи"
 alignment = 0
 
 [node name="TextureRect" type="TextureRect" parent="ButtonInv" unique_id=2071075018]
 texture_filter = 1
 layout_mode = 0
-offset_left = 18.0
-offset_top = -28.0
-offset_right = 66.0
-offset_bottom = 20.0
+offset_left = -1.1444092e-05
+offset_top = -27.5
+offset_right = 57.14284
+offset_bottom = 20.5
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_b1lf8")
+stretch_mode = 3
 
 [node name="ButtonQuest" type="Button" parent="." unique_id=1678774476]
 layout_mode = 1
@@ -97,18 +97,17 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
 focus_mode = 0
-text = "Журнал"
 alignment = 0
 
 [node name="TextureRect" type="TextureRect" parent="ButtonQuest" unique_id=1943047045]
 texture_filter = 1
 layout_mode = 0
-offset_left = 66.5
 offset_top = 3.0
-offset_right = 82.5
+offset_right = 66.66669
 offset_bottom = 20.0
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_rnl6m")
+stretch_mode = 5
 
 [node name="ButtonExit" type="Button" parent="." unique_id=694524176]
 layout_mode = 1
@@ -117,15 +116,23 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 756.0
-offset_top = -1076.0
-offset_right = 856.0
-offset_bottom = -1045.0
+offset_left = 886.0
+offset_top = -1078.0
+offset_right = 958.0
+offset_bottom = -1006.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(2, 2)
 focus_mode = 0
-text = "Выход"
+theme_override_font_sizes/font_size = 48
+
+[node name="TextureRect" type="TextureRect" parent="ButtonExit" unique_id=1888832168]
+texture_filter = 1
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_1ui3w")
+stretch_mode = 5
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=95601927]
 visible = false

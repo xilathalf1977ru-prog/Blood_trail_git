@@ -23,8 +23,8 @@ var equip_slots: Dictionary = {}
 @export var steps: int
 #@export var attack_speed: int
 
-@export var attack: int
-@export var shield: int
+@export var damage: int
+@export var armor: int
 
 @export var direction: Vector2
 @export var actions: Array[ActionData]

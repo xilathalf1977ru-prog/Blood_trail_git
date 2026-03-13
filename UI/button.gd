@@ -23,11 +23,13 @@ func set_extra_button(data: Resource) -> void:
 func ui_extra_button(data, type: String):
 	if type == "EQUIP":
 		$ButtonExtra/EquipedIcon.visible = data.equiped
+		$ButtonExtra.add_theme_font_size_override("font_size", 64)
 		if data.equiped:
-			$ButtonExtra.text = "Снять"
+			$ButtonExtra.text = "-"
 		else:
-			$ButtonExtra.text = "Надеть"
+			$ButtonExtra.text = "+"
 	elif type == "USE":
+		$ButtonExtra.add_theme_font_size_override("font_size", 40)
 		$ButtonExtra.text = "Пить"
 func _on_button_equip_pressed() -> void: extra_button.emit()
 func on_equip(data: Resource) -> void:

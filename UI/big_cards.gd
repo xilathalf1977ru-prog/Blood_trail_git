@@ -79,3 +79,7 @@ func disconnect_quantity_menu():
 	EventBus.show_quantity_menu.emit(false, 0, [])
 	if EventBus.result_quantity_menu.is_connected(_on_result_quantity_menu):
 		EventBus.result_quantity_menu.disconnect(_on_result_quantity_menu)
+
+
+func _on_button_exit_pressed() -> void:
+	close_all_menus()

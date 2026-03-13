@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://copqdjfrr1iqq" path="res://UI/death_screen.gd" id="1_ls05l"]
 [ext_resource type="PackedScene" uid="uid://iljjgs4t3y6t" path="res://UI/log.tscn" id="2_n1nej"]
+[ext_resource type="Texture2D" uid="uid://c6pfdlik153qb" path="res://UI/dead.webp" id="3_tawod"]
+[ext_resource type="Texture2D" uid="uid://cddygbrx4ero8" path="res://UI/OK.webp" id="4_mh08j"]
 
 [node name="DeathScreen" type="Control" unique_id=805250004]
 layout_mode = 3
@@ -18,41 +20,51 @@ offset_right = 2337.0
 offset_bottom = 1353.0
 color = Color(0.34901962, 0, 0.015686275, 1)
 
-[node name="Label" type="Label" parent="." unique_id=409250129]
+[node name="Log" parent="." unique_id=516364193 instance=ExtResource("2_n1nej")]
+layout_mode = 0
+offset_left = -3888.0
+offset_top = 117.0
+offset_right = -3848.0
+offset_bottom = 157.0
+scale = Vector2(3, 3)
+CD = 10.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1235347258]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -540.0
+offset_right = 192.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tawod")
+
+[node name="ButtonOK" type="Button" parent="." unique_id=32595387]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -326.5
-offset_right = 326.5
-offset_bottom = 118.0
+offset_left = -72.0
+offset_top = 792.0
+offset_right = 72.0
+offset_bottom = 936.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 86
-text = "Игра окончена"
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
 
-[node name="Log" parent="." unique_id=516364193 instance=ExtResource("2_n1nej")]
+[node name="TextureRect" type="TextureRect" parent="ButtonOK" unique_id=98986168]
+texture_filter = 1
 layout_mode = 0
-offset_left = -3232.0002
-offset_top = -3.0
-offset_right = -3192.0002
-offset_bottom = 37.0
+offset_right = 48.0
+offset_bottom = 48.0
 scale = Vector2(3, 3)
-CD = 10.0
+texture = ExtResource("4_mh08j")
+stretch_mode = 5
 
-[node name="MainMenuButton" type="Button" parent="." unique_id=1213660383]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -30.5
-offset_top = -126.0
-offset_right = 30.5
-offset_bottom = -95.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
-text = "Главное меню"
-
-[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="ButtonOK" to="." method="_on_button_ok_pressed"]
