@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_g3hfp")
-name = "Торговать"
+name = "Trade"
 type = "trade"
 money = 300
 menu = true

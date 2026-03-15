@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://copqdjfrr1iqq" path="res://UI/death_screen.gd" id="1_ls05l"]
 [ext_resource type="PackedScene" uid="uid://iljjgs4t3y6t" path="res://UI/log.tscn" id="2_n1nej"]
-[ext_resource type="Texture2D" uid="uid://c6pfdlik153qb" path="res://UI/dead.webp" id="3_tawod"]
+[ext_resource type="Texture2D" uid="uid://ccar5regmof0q" path="res://UI/dead.webp" id="3_tawod"]
 [ext_resource type="Texture2D" uid="uid://cddygbrx4ero8" path="res://UI/OK.webp" id="4_mh08j"]
 
 [node name="DeathScreen" type="Control" unique_id=805250004]

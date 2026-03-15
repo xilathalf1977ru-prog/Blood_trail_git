@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_41rd6")
-name = "Инвентарь игрока"
+name = "Inventory player"
 type = "inv"
 inventory = Dictionary[ExtResource("1_g3ub0"), int]({
 ExtResource("2_vcr6m"): 1,

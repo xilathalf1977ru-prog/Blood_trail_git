@@ -84,9 +84,10 @@ func save_inv_money():
 func update_ui():
 	$ButtonTransfer.visible = local_context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]
 	if local_context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]:
-		$Name.text = local_data.name + " $ " + str(local_data.money)
+		#$Name.text = local_data.name + " $ " + str(local_data.money)
+		$Name.text = TR.lc(local_data.name) + " $ " + str(local_data.money)
 	elif local_context in [GC.PLACE]:
-		$Name.text = local_data.name
+		$Name.text = TR.lc(local_data.name)#local_data.name
 func use_item(item_stack: ItemStack, n: int):
 	if local_data.id != "player":
 		return

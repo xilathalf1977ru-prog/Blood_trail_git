@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_dvs7u")
-name = "Лечиться"
+name = "Heal"
 type = "heal"
 heal_amount = 50
 metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

@@ -14,7 +14,6 @@ func setup(data: Resource, type: String):
 	elif data is PlaceData:setup_place(data as PlaceData)
 	if name != "CardPlayer" and name != "CardEntity" and $Name.text:
 		name = $Name.text
-	
 	if data.sprites:
 		$Anim.sprite_frames = data.sprites
 		$Anim.play()
@@ -55,7 +54,8 @@ func setup_vis(data, name_owner):
 		if name_owner == "player":
 			$ButtonSelect.set_extra_button(data)
 		$TextLabel.position = Vector2(224, 32)
-		$Name.text = data.name + " X" + str(data.quantity)
+		#$Name.text = data.name + " X" + str(data.quantity)
+		$Name.text = TR.lc(data.name) + " X" + str(data.quantity)
 	else:
 		$Name.visible = false
 	name = data.name

@@ -5,9 +5,6 @@
 
 [resource]
 script = ExtResource("2_amb3a")
-name = "Экипировка"
+name = "Equipment"
 type = "equip"
-equip_bonus = Dictionary[String, int]({
-"damage": 10
-})
 metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

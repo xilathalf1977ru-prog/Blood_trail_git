@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bh7lvtnnle7pe"]
 
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_nh7ti"]
-[ext_resource type="Texture2D" uid="uid://y1uuaieryc05" path="res://Data/Items/wolf_head/wolf_head_icon.webp" id="2_4tt7g"]
+[ext_resource type="Texture2D" uid="uid://2ri34mxwu28e" path="res://Data/Items/wolf_head/wolf_head_icon.webp" id="2_4tt7g"]
 [ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="3_ddpgo"]
 
 [resource]
 script = ExtResource("3_ddpgo")
-name = "Голова волка"
+name = "Wolf head"
 type = "wolf_head"
 icon = ExtResource("2_4tt7g")
 cost = 60

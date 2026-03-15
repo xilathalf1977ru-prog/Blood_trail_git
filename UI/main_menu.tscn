@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bmaq4rpgdkhre"]
 
 [ext_resource type="Script" uid="uid://dya0n2jyagxei" path="res://UI/main_menu.gd" id="1_tt5f1"]
-[ext_resource type="Texture2D" uid="uid://kc6iltug1wgd" path="res://UI/start.webp" id="2_d8nwk"]
-[ext_resource type="Texture2D" uid="uid://lr85pxer8p5a" path="res://UI/exit.webp" id="2_tk8dj"]
+[ext_resource type="Texture2D" uid="uid://cleua2db7k3hl" path="res://UI/start.webp" id="2_d8nwk"]
+[ext_resource type="Texture2D" uid="uid://n25o5vn7xnxc" path="res://UI/exit.webp" id="2_tk8dj"]
 
 [node name="MainMenu" type="Control" unique_id=365289229]
 layout_mode = 3

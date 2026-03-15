@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://0nqdslmfxdwk"]
 
 [ext_resource type="Script" uid="uid://c4po73poidfyt" path="res://UI/hud.gd" id="1_e0onf"]
-[ext_resource type="Texture2D" uid="uid://bg062bh6ctvc6" path="res://Sprites/Sleep.webp" id="2_2o5uh"]
-[ext_resource type="Texture2D" uid="uid://brtkvdlobijmq" path="res://Data/Places/home/pocket2.webp" id="2_b1lf8"]
+[ext_resource type="Texture2D" uid="uid://d3ll5xkik1u0l" path="res://Sprites/Sleep.webp" id="2_2o5uh"]
+[ext_resource type="Texture2D" uid="uid://dowvhraw80kr5" path="res://Data/Places/home/pocket2.webp" id="2_b1lf8"]
 [ext_resource type="Texture2D" uid="uid://b53nvosgq7t4n" path="res://Sprites/hpbar.webp" id="2_bytes"]
-[ext_resource type="Texture2D" uid="uid://bt25xgs7uxr4w" path="res://Sprites/scroll.webp" id="4_rnl6m"]
-[ext_resource type="Texture2D" uid="uid://lr85pxer8p5a" path="res://UI/exit.webp" id="5_1ui3w"]
+[ext_resource type="Texture2D" uid="uid://ck4ls7ff61jn7" path="res://Sprites/scroll.webp" id="4_rnl6m"]
+[ext_resource type="Texture2D" uid="uid://n25o5vn7xnxc" path="res://UI/exit.webp" id="5_1ui3w"]
 
 [node name="HUD" type="Control" unique_id=803828367]
 layout_mode = 3

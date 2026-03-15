@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_8o1e7"]
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_uc68m"]
 [ext_resource type="Resource" uid="uid://paj1jhf3fjti" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_inventory.tres" id="2_nh5yo"]
-[ext_resource type="Texture2D" uid="uid://chtx2ss7cfvjs" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_icon.webp" id="3_l05kj"]
+[ext_resource type="Texture2D" uid="uid://d2xmoo4d1m4ar" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_icon.webp" id="3_l05kj"]
 [ext_resource type="Texture2D" uid="uid://dp731ljjl3wom" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0001.webp" id="5_27hdl"]
 [ext_resource type="Texture2D" uid="uid://cjbs62ie1kgm" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0002.webp" id="6_nux0l"]
 [ext_resource type="Texture2D" uid="uid://3agnr20xjmo0" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0003.webp" id="7_dib0i"]
@@ -35,7 +35,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_uc68m")
-name = "Гоблин толстяк"
+name = "Goblin fat"
 icon = ExtResource("3_l05kj")
 sprites = SubResource("SpriteFrames_qdipr")
 max_hp = 40

@@ -1,8 +1,6 @@
 extends CanvasLayer
 
-const Sound: Dictionary[String, AudioStream] = {
-	"voice":preload("res://Voice/voice.ogg"),
-	"voice2":preload("res://Voice/voice2.ogg"),
+const SOUND: Dictionary[String, AudioStream] = {
 	"theme":preload("res://Music/e.ogg"),
 }
 func _ready() -> void:
@@ -12,11 +10,9 @@ func _ready() -> void:
 	EventBus.quest_finished.connect(on_quest_finished)
 	
 	EventBus.alert_show.connect(on_alert_show)
-	
-	if $History.visible:
-		$AudioStreamPlayer.stream = Sound["voice"]
-	else:
-		$AudioStreamPlayer.stream = Sound["theme"]
+	set_quest_info()
+	if !$History.visible:
+		$AudioStreamPlayer.stream = SOUND["theme"]
 	$AudioStreamPlayer.play()
 func show_death_screen(vis :bool):
 	$DeathScreen.visible = vis
@@ -25,41 +21,31 @@ func show_main_menu(vis :bool):$MainMenu.visible = vis
 
 func _on_button_close_pressed() -> void:
 	$History.visible = false
-	
-	if $History.visible:
-		$AudioStreamPlayer.stream = Sound["voice"]
-	else:
-		$AudioStreamPlayer.stream = Sound["theme"]
+	$AudioStreamPlayer.stream = SOUND["theme"]
 	$AudioStreamPlayer.play()
-
 var quest_finished: bool = false
 func on_show_quest() -> void:
 	$History.visible = true
 	if $History.visible:
-		if !quest_finished:
-			$AudioStreamPlayer.stream = Sound["voice"]
-		elif quest_finished:
-			$AudioStreamPlayer.stream = Sound["voice2"]
+		set_quest_info()
 	else:
-		$AudioStreamPlayer.stream = Sound["theme"]
+		$AudioStreamPlayer.stream = SOUND["theme"]
 	$AudioStreamPlayer.play()
+	
+func set_quest_info() -> void:
+	if !quest_finished:
+		$History/Label2.text = TR.lc("quest1")
+		$AudioStreamPlayer.stream = TR.alc("voice")
+	else:
+		$History/Label2.text = TR.lc("quest1_end")
+		$AudioStreamPlayer.stream = TR.alc("voice2")
+		$History/TextureRect.visible = false
+		$History/TextureRect2.visible = false
 func on_quest_finished() -> void:
 	quest_finished = true
-	$History.visible = true
-	$History/Label2.text = "Ха! Ты выполнил задание...
-	Удивительно, мы думали что тебе не за что не справиться.
-	Многие не смогли его выполнить, и просто ушли в мир иной.
-	Ты можешь собой гордиться, 
-	и можешь попробовать порубить волка в фарш, 
-	этим славным мечом, если ты полностью здоров."
-	$AudioStreamPlayer.stream = Sound["voice2"]
+	set_quest_info()
 	$AudioStreamPlayer.play()
-	$History/TextureRect.visible = false
-	$History/TextureRect2.visible = false
-const ALERTS: Dictionary = {
-	"sleep": preload("res://Voice/alert_sleep.ogg"),
-	"teleport_rng": preload("res://Voice/alert_portal.ogg"),
-}
+	$History.visible = true
 var alert_name_local: String = ""
 var alert_res_local: Resource = null
 func on_alert_show(alert_name: String, alert_res: Resource = null) -> void:
@@ -67,23 +53,11 @@ func on_alert_show(alert_name: String, alert_res: Resource = null) -> void:
 	alert_res_local = alert_res
 	GC.control_free = false
 	if alert_name_local == GC.Act.SLEEP:
-		$Alert/Label.text = "
-			Спать на тропе это риск! Ты исцелишься, 
-			но опасный враг может напасть.
-			
-			Рискнёшь?
-		"
+		$Alert/Label.text = TR.lc("alert_sleep")
 	elif alert_name_local == GC.Act.TELEPORT_RNG:
-		$Alert/Label.text = "
-			Портал это риск!
-			
-			Он телепортирует тебя.
-			Но опасный враг может напасть.
-			
-			Рискнёшь?
-		"
+		$Alert/Label.text = TR.lc("alert_portal")
 	$Alert.visible = true
-	$Alert/Audio.stream = ALERTS[alert_name]
+	$Alert/Audio.stream = TR.alc(alert_name)
 	$Alert/Audio.play()
 func _on_button_x_pressed() -> void:
 	alert_name_local = ""

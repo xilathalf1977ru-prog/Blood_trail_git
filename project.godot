@@ -8,10 +8,6 @@
 
 config_version=5
 
-[animation]
-
-compatibility/default_parent_skeleton_in_mesh_instance_3d=true
-
 [application]
 
 config/name="Blood trail"
@@ -31,12 +27,13 @@ BattleManager="*res://Singletons/battle_manager.gd"
 GC="*res://Singletons/GC.gd"
 ActionManager="*res://Singletons/action_manager.gd"
 DataLoader="*res://Singletons/data_loader.gd"
-TR="*uid://xoadcik53cfp"
+TR="*uid://fpq7djyjrs74"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/size/borderless=true
 window/stretch/mode="canvas_items"
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_ajd8i"]
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_k7s0h"]
 [ext_resource type="Resource" uid="uid://40d2hhrp1ov8" path="res://Data/Entities/Enemies/goblin/goblin_inventory.tres" id="2_hdydc"]
-[ext_resource type="Texture2D" uid="uid://b3y3huyxn8ouk" path="res://Data/Entities/Enemies/goblin/goblin_icon.webp" id="3_eofkm"]
+[ext_resource type="Texture2D" uid="uid://wb0ff2bhi8xo" path="res://Data/Entities/Enemies/goblin/goblin_icon.webp" id="3_eofkm"]
 [ext_resource type="Texture2D" uid="uid://5ra8se582rre" path="res://Data/Entities/Enemies/goblin/goblin_0001.webp" id="5_utmja"]
 [ext_resource type="Texture2D" uid="uid://lo2kl50uf1sh" path="res://Data/Entities/Enemies/goblin/goblin_0002.webp" id="6_7m0ty"]
 
@@ -23,7 +23,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_k7s0h")
-name = "Гоблин"
+name = "Goblin"
 icon = ExtResource("3_eofkm")
 sprites = SubResource("SpriteFrames_u53f1")
 max_hp = 30
