@@ -38,5 +38,5 @@ func change_stats(stat_values, direction):
 		match i:
 			"damage": data.damage += (stat_values[i]) * direction
 			"armor": data.armor += (stat_values[i]) * direction
-	get_parent().get_node("CardPlayer").setup(data, GC.PLAYER)
+	get_parent().get_node("Entity").setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)

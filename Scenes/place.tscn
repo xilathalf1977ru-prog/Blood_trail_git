@@ -7,3 +7,20 @@
 script = ExtResource("1_kj4ng")
 
 [node name="CardPlace" parent="." unique_id=1073989229 instance=ExtResource("2_ukymk")]
+
+[node name="ButtonSelect" type="Button" parent="." unique_id=1329708136]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_behavior_recursive = 2
+button_mask = 3
+
+[connection signal="pressed" from="ButtonSelect" to="." method="_on_button_select_pressed"]

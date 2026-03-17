@@ -76,5 +76,5 @@ func _on_button_ok_pressed() -> void:
 		EventBus.player_teleport.emit(dist)
 		EventBus.all_menus_close.emit()
 		EventBus.sfx.emit("portal")
-		EventBus.log_show.emit("Телепортировался на " + str(dist))
+		EventBus.log_show.emit(TR.lc("Teleported to:") + " " + str(dist))
 	_on_button_x_pressed()

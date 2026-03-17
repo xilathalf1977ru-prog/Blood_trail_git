@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c24xi7ulkoqx" path="res://GDscripts/player.gd" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://cpwqcxsadmrsc" path="res://GDscripts/equip_manager.gd" id="2_6t5aa"]
-[ext_resource type="PackedScene" uid="uid://d2vnd4s2nn4bw" path="res://UI/card.tscn" id="3_vgqql"]
+[ext_resource type="PackedScene" uid="uid://d2kk01fkqiluh" path="res://Scenes/entity.tscn" id="4_vgqql"]
 
 [node name="player" type="Node2D" unique_id=1176564648]
 script = ExtResource("1_v0iea")
@@ -10,4 +10,4 @@ script = ExtResource("1_v0iea")
 [node name="EquipManager" type="Node" parent="." unique_id=560342750]
 script = ExtResource("2_6t5aa")
 
-[node name="CardPlayer" parent="." unique_id=1073989229 instance=ExtResource("3_vgqql")]
+[node name="Entity" parent="." unique_id=1896997183 instance=ExtResource("4_vgqql")]

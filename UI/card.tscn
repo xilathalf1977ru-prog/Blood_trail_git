@@ -14,6 +14,7 @@ offset_top = -128.0
 offset_right = 128.0
 offset_bottom = 128.0
 pivot_offset = Vector2(128, 128)
+mouse_filter = 2
 script = ExtResource("2_j0kp0")
 metadata/_edit_horizontal_guides_ = [953.0]
 

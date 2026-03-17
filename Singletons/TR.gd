@@ -18,12 +18,15 @@ const L: Dictionary[String, Dictionary] = {
 			"Inventory player":"Inventory player",
 			"Inventory":"Inventory",
 			"Trade":"Trade",
+			"Portal":"Portal",
+			
 			"Enemy killed:":"Enemy killed:",
 			"You killed by:":"You killed by:",
 			"Enemy attacked:":"Enemy attacked:",
 			"Cured by:":"Cured by:",
 			"You received item:":"You received item:",
 			"Quest is completed":"Quest is completed",
+			"Teleported to:":"Teleported to:",
 			
 			"quest1": 	
 				'Hello "hero", your goal is to find the sword in the stone.
@@ -76,13 +79,15 @@ const L: Dictionary[String, Dictionary] = {
 			"Inventory player":"Инвентарь игрока",
 			"Inventory":"Инвентарь",
 			"Trade":"Магазин",
+			"Portal":"Портал",
+			
 			"Enemy killed:":"Враг убит:",
 			"You killed by:":"Вас убил:",
 			"Enemy attacked:":"Напал враг:",
 			"Cured by:":"Вылечился на:",
 			"You received item:":"Вы получили вещь:",
 			"Quest is completed":"Задание выполнено",
-			
+			"Teleported to:":"Телепортировался на:",
 			
 			"quest1": 	
 				'Здравствуй "герой", твоя цель найти меч в камне.

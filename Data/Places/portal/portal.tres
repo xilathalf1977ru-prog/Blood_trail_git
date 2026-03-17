@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("1_ecifm")
-name = "Портал"
+name = "Portal"
 type = "portal"
 icon = ExtResource("3_g4iwa")
 actions = Array[ExtResource("1_37obe")]([ExtResource("2_er2eh")])

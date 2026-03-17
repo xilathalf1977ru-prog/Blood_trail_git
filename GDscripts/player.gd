@@ -11,7 +11,7 @@ func _ready():
 	EventBus.player_teleport.connect(_on_player_teleport)
 	EventBus.player_move_to.connect(_on_player_move_to)
 	EventBus.show_player_stats.connect(_on_show_player_stats)
-	$CardPlayer.setup(data, GC.PLAYER)
+	$Entity.setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)
 	data.position = position
 func _on_player_move(pos: Vector2):
@@ -51,7 +51,7 @@ func _on_tween_finished(direction):
 	if direction != 0:
 		GameManager.current_enemies = EnemyManager.generate_enemies(6)
 		EventBus.time_tick.emit(1)
-	$CardPlayer.setup(data, GC.PLAYER)
+	$Entity.setup(data, GC.PLAYER)
 	EventBus.camera_move.emit(data.position.x)
 	GC.control_free = true
 func over_limit(limit: int):
@@ -63,10 +63,10 @@ func load_data(player_data: EntityData):
 	data = player_data
 	position.x = data.position.x
 	EventBus.player_changed.emit(data)
-	$CardPlayer.setup(data, GC.PLAYER)
+	$Entity.setup(data, GC.PLAYER)
 func _on_show_player_stats(vis):
-	if vis:$CardPlayer._on_button_select_mouse_entered()
-	else:$CardPlayer._on_button_select_mouse_exited()
+	if vis:$Entity._on_button_select_mouse_entered()
+	else:$Entity._on_button_select_mouse_exited()
 func _on_player_teleport(direction: int):
 	GC.control_free = false
 	await fade_out(self)

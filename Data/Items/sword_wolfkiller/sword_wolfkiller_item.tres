@@ -9,6 +9,9 @@ script = ExtResource("3_0p618")
 name = "Sword wolfkiller"
 type = "equip"
 editor_main_type = 2
+equip_bonus = Dictionary[String, int]({
+"damage": 60
+})
 icon = ExtResource("2_hdrdx")
 cost = 500
 metadata/_custom_type_script = "uid://dulsm86jld1sl"

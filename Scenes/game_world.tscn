@@ -78,12 +78,12 @@ offset_right = -96.0
 offset_bottom = 449.0
 color = Color(0, 0, 0, 1)
 
-[node name="player" parent="." unique_id=1096313570 instance=ExtResource("3_alii3")]
-position = Vector2(0, 545)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=422631650]
 position = Vector2(0, 520)
 script = ExtResource("4_hy2kt")
+
+[node name="player" parent="." unique_id=1096313570 instance=ExtResource("3_alii3")]
+position = Vector2(0, 545)
 
 [node name="EnemyChoice" type="Node2D" parent="." unique_id=229126439]
 
