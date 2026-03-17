@@ -9,43 +9,20 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 			break
 		# Игрок атакует
 		enemy_data.current_hp -= max(0, player_data.damage - enemy_data.armor)
-		#print(player_data.name, " атакует: -", player_data.attack, " HP")
-		# Враг атакует
 		player_data.current_hp -= max(0, enemy_data.damage - player_data.armor)
-		#print(enemy_data.name, " атакует: -", enemy_data.attack, " HP")
 	var victory = player_data.current_hp > 0
 	
 	if victory:
-		#print("✅ ПОБЕДА!")
+		EventBus.log_show.emit(TR.lc("Enemy killed:") + " " + enemy_data.name)
 		
-		EventBus.log_show.emit("Враг убит " + enemy_data.name)
 		ActionManager.add_loot(player_data, enemy_data)
-		#player_data.food += enemy_data.food
-		#player_data.position += 1
 	else:
-		#print("❌ ПОРАЖЕНИЕ!")
 		EventBus.sfx.emit("dead")
-		
 		player_data.inv.inventory.clear()
 		player_data.steps = 0
 		player_data.armor = 0
 		player_data.damage = 10
-		
 		player_data.current_hp = max(0, player_data.current_hp)
 		EventBus.object_died.emit(player_data)
-		EventBus.log_show.emit("Вас убил " + enemy_data.name)
+		EventBus.log_show.emit(TR.lc("You killed by:") + " " + enemy_data.name)
 	return victory
-
-#func add_loot(player: EntityData, enemy: Resource):
-	#for enemy_stack in enemy.inv.real_inv:
-		#var found: bool = false
-		## Ищем такой же стак у игрока
-		#for player_stack in player.inv.real_inv:
-			#if player_stack.can_merge_with(enemy_stack):
-				#player_stack.merge(enemy_stack)
-				#found = true
-				#break
-		## Если не нашли - добавляем копию
-		#if not found:
-			#player.inv.real_inv.append(enemy_stack.duplicate())
-	#EventBus.player_changed.emit(player)

@@ -40,33 +40,25 @@ func move_check(pos: Vector2, move: bool):
 	EventBus.sfx.emit("walk")
 	tween.tween_property(self, "position", data.position, GC.anim_speed)
 func _on_tween_finished(direction):
-	var limit = 0
 	if (data.steps + direction) > GC.END_WORLD:
-		limit = -1
-		data.steps = GC.END_WORLD * limit
-		data.position.x = data.steps * GC.CELL
+		over_limit(-1)
 	elif (data.steps + direction) < -GC.END_WORLD:
-		limit = 1
-		data.steps = GC.END_WORLD * limit
-		data.position.x = data.steps * GC.CELL
-	if limit != 0:
-		position = data.position
-		EventBus.player_changed.emit(data)
-		EventBus.player_moved.emit(data.position)
-		if direction != 0:
-			GameManager.current_enemies = EnemyManager.generate_enemies(6)
-		$CardPlayer.setup(data, GC.PLAYER)
-		EventBus.camera_move.emit(data.position.x - (-GC.CELL * limit), false)
-		EventBus.camera_move.emit(data.position.x)
+		over_limit(1)
 	else:
 		data.steps += direction
-		EventBus.player_changed.emit(data)
-		EventBus.player_moved.emit(data.position)
-		if direction != 0:
-			GameManager.current_enemies = EnemyManager.generate_enemies(6)
-		$CardPlayer.setup(data, GC.PLAYER)
-		EventBus.camera_move.emit(data.position.x)
+	EventBus.player_changed.emit(data)
+	EventBus.player_moved.emit(data.position)
+	if direction != 0:
+		GameManager.current_enemies = EnemyManager.generate_enemies(6)
+		EventBus.time_tick.emit(1)
+	$CardPlayer.setup(data, GC.PLAYER)
+	EventBus.camera_move.emit(data.position.x)
 	GC.control_free = true
+func over_limit(limit: int):
+	data.steps = GC.END_WORLD * limit
+	data.position.x = data.steps * GC.CELL
+	position = data.position
+	EventBus.camera_move.emit(data.position.x - (-GC.CELL * limit), false)
 func load_data(player_data: EntityData):
 	data = player_data
 	position.x = data.position.x

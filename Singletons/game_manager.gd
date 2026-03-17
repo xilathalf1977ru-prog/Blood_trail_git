@@ -7,10 +7,13 @@ var current_enemies: Array[EntityData]
 var invs: Dictionary[String, Dictionary]
 var invs_money: Dictionary[String, int]
 
+var day: int = 1
+
 func _ready() -> void:
 	EventBus.card_selected.connect(on_selected)
 	EventBus.object_died.connect(on_object_died)
 	EventBus.save.connect(save_game)
+	EventBus.time_tick.connect(on_time_tick)
 func save_game() -> void:
 	if player_ref:
 		Factory.save_game(
@@ -62,3 +65,8 @@ func on_object_died(obj):
 		if obj.player:
 			EventBus.death_screen_changed.emit(true)
 			EventBus.cleanup_game.emit()
+
+func on_time_tick(n: int):
+	day += n
+	print(day)
+	

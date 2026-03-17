@@ -1,12 +1,6 @@
 extends Node2D
 
-#var context: String
-#var card_data: Resource
-
 func setup(data: Resource, type: String):
-	#card_data = data
-	#context = type
-	
 	fade_in(self, GC.anim_speed * 2)
 	data.position = position
 	$CardEntity.setup(data, type)

@@ -12,7 +12,7 @@ func setup(data: Resource, type: String):
 	context = type
 	if data is EntityData:setup_entity(data as EntityData)
 	elif data is PlaceData:setup_place(data as PlaceData)
-	if name != "CardPlayer" and name != "CardEntity" and $Name.text:
+	if name != "CardPlayer" and name != "CardEntity" and name != "CardPlace" and $Name.text:
 		name = $Name.text
 	if data.sprites:
 		$Anim.sprite_frames = data.sprites

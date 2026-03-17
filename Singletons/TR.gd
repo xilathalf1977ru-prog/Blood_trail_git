@@ -1,5 +1,6 @@
 extends Node
 
+var lang: String = "en"
 const L: Dictionary[String, Dictionary] = {
 	"en":{
 			"armor":				"armor",
@@ -12,10 +13,17 @@ const L: Dictionary[String, Dictionary] = {
 			"Goblin fat head":"Goblin fat head",
 			"Wolf head":"Wolf head",
 			"Elixir HP 50":"Elixir HP 50",
+			"Bottle empty":"Bottle empty",
 			"My home":"My home",
 			"Inventory player":"Inventory player",
 			"Inventory":"Inventory",
 			"Trade":"Trade",
+			"Enemy killed:":"Enemy killed:",
+			"You killed by:":"You killed by:",
+			"Enemy attacked:":"Enemy attacked:",
+			"Cured by:":"Cured by:",
+			"You received item:":"You received item:",
+			"Quest is completed":"Quest is completed",
 			
 			"quest1": 	
 				'Hello "hero", your goal is to find the sword in the stone.
@@ -63,10 +71,18 @@ const L: Dictionary[String, Dictionary] = {
 			"Goblin fat head":"Голова жирного гоблина",
 			"Wolf head":"Голова волка",
 			"Elixir HP 50":"Эликсир здоровья 50",
+			"Bottle empty":"Пустая бутылка",
 			"My home":"Мой дом",
 			"Inventory player":"Инвентарь игрока",
 			"Inventory":"Инвентарь",
 			"Trade":"Магазин",
+			"Enemy killed:":"Враг убит:",
+			"You killed by:":"Вас убил:",
+			"Enemy attacked:":"Напал враг:",
+			"Cured by:":"Вылечился на:",
+			"You received item:":"Вы получили вещь:",
+			"Quest is completed":"Задание выполнено",
+			
 			
 			"quest1": 	
 				'Здравствуй "герой", твоя цель найти меч в камне.
@@ -104,11 +120,9 @@ const L: Dictionary[String, Dictionary] = {
 				',
 		},
 }
-var lang: String = "en"
-func lc(text: String) -> String:
-	return L[lang][text]
 
-
+func lc(text: String) -> String: return L[lang][text]
+	
 const A: Dictionary[String, Dictionary] = {
 	"en":{
 		"voice":preload("res://Voice/en/voice_en.ogg"),
@@ -123,5 +137,5 @@ const A: Dictionary[String, Dictionary] = {
 		"sleep":preload("res://Voice/ru/alert_sleep_ru.ogg"),
 		},
 	}
-func alc(text: String) -> AudioStream:
-	return A[lang][text]
+
+func alc(text: String) -> AudioStream: return A[lang][text]

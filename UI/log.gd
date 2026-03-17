@@ -9,6 +9,9 @@ func _ready() -> void:
 	path = $ScrollContainer/VBoxContainer
 	EventBus.log_show.connect(on_log_show)
 func on_log_show(sent_text):
+	#print(TR.lc(sent_text))
+	
+	
 	if arr_log.size() == LIMIT:
 		path.get_node(arr_log[0]).queue_free()
 		arr_log.erase(arr_log[0])

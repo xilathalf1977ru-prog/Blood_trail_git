@@ -22,8 +22,9 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 		GC.Act.RANDOM_ATTACK:
 			var enemy_pool: Array = EnemyManager.enemy_templates.duplicate_deep()
 			var enemy: EntityData = enemy_pool[GC.rng.randi_range(0, enemy_pool.size()-1)]
+			EventBus.log_show.emit(TR.lc("Enemy attacked:") + " " + enemy.name)
 			BattleManager.start_auto_battle(player, enemy)
-			EventBus.log_show.emit("Напал враг " + enemy.name)
+			#EventBus.log_show.emit("Напал враг " + enemy.name)
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)
 		GC.Act.TELEPORT_RNG:
 			#var dist: int = GC.rng.randi_range(data.dist*-1, data.dist)
@@ -37,19 +38,19 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 		GC.Act.SLEEP:
 			heal(data, n)
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)
+			EventBus.time_tick.emit(1)
 		GC.Act.EQUIP: EventBus.player_equip_change.emit(data)
 func heal(data: Resource, n: int = 1) -> void:
 	player.current_hp = min(player.current_hp + data.heal_amount * n, player.max_hp)
 	EventBus.player_changed.emit(player)
-	EventBus.log_show.emit("Полечился на " + str(data.heal_amount * n))
+	EventBus.log_show.emit(TR.lc("Cured by:") + " " + str(data.heal_amount * n))
 
 func add_loot(player_local: EntityData, enemy: Resource):
 	for enemy_stack in enemy.inv.real_inv:
+		EventBus.log_show.emit(TR.lc("You received item:") + " " + enemy_stack.name)
 		
-		EventBus.log_show.emit("Вы получили предмет: " + enemy_stack.name)
-		
-		if enemy_stack.name == "Волкодав":
-			EventBus.log_show.emit("Задание выполнено")
+		if enemy_stack.name == "Sword wolfkiller":
+			EventBus.log_show.emit(TR.lc("Quest is completed"))
 			EventBus.quest_finished.emit()
 		
 		var found: bool = false

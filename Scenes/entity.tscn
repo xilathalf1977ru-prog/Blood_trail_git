@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://d2vnd4s2nn4bw" path="res://UI/card.tscn" id="2_l7g7l"]
 
 [node name="Entity" type="Node2D" unique_id=1896997183]
-visible = false
 script = ExtResource("1_hsfu5")
 
 [node name="CardEntity" parent="." unique_id=1073989229 instance=ExtResource("2_l7g7l")]

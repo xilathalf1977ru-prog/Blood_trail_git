@@ -10,9 +10,7 @@ func _ready() -> void:
 	EventBus.cleanup_game.connect(on_cleanup_game)
 	EventBus.place_visibility_changed.connect(on_place_visibility_changed)
 	EventBus.player_moved.connect(on_player_moved)
-	
 	EventBus.delete_place.connect(on_delete_place)
-	
 	call_deferred("resource_init")
 	entities = [
 		$EnemyChoice/Entity,
@@ -31,9 +29,14 @@ func on_place_visibility_changed(cell: int, place_data: Resource, vis: bool):
 func spawn_place_card(cell: int, data: PlaceData):
 	if place_cards.has(cell):
 		return  #Уже существует
-	var card_scene = preload("res://UI/card.tscn") #Создаем карточку места
+	#var card_scene = preload("res://UI/card.tscn") #Создаем карточку места
+	var card_scene = preload("res://Scenes/place.tscn") #Создаем карточку места
+	
 	var card = card_scene.instantiate()
-	card.position = Vector2((cell * GC.CELL), GC.CELL_Y[2]) - PLACE_OFFSET #Позиционируем в мировых координатах
+	#card.position = Vector2((cell * GC.CELL), GC.CELL_Y[2]) - PLACE_OFFSET #Позиционируем в мировых координатах
+	
+	card.position = Vector2((cell * GC.CELL), GC.CELL_Y[2])
+	
 	card.setup(data, GC.FAR_PLACE)
 	add_child(card)
 	move_child(card, PLACE_CARD_LAYER)
@@ -60,6 +63,8 @@ func show_enemies_cards(enemies: Array[EntityData]) -> void:
 		card.setup(enemy_data, GC.ENEMY)
 var last_posx_player: int = 0
 func on_player_moved(data):
+	#print(data.a)
+	
 	var direction_player: int = 0
 	if data.x > last_posx_player: direction_player = 1
 	elif data.x < last_posx_player: direction_player = -1
@@ -76,9 +81,9 @@ func on_player_moved(data):
 		place_cards[player_cell].setup(place_cards[player_cell].card_data, GC.PLACE)
 	if data in places_pos:
 		place_cards[player_cell]._on_button_select_pressed()
+		
 	else:
 		EventBus.all_menus_close.emit()
-
 func on_delete_place(place_data):
 	for cell in place_cards:
 		if place_cards[cell].card_data == place_data:

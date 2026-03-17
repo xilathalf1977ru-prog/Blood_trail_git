@@ -194,6 +194,7 @@ theme_override_font_sizes/font_size = 27
 text = "OK"
 
 [node name="History" type="Control" parent="." unique_id=1443787515]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -380,7 +381,6 @@ texture = ExtResource("13_8gukh")
 stretch_mode = 5
 
 [node name="MainMenu" parent="." unique_id=2128373734 instance=ExtResource("4_hat8c")]
-visible = false
 
 [node name="Log" parent="." unique_id=516364193 instance=ExtResource("6_h81ot")]
 

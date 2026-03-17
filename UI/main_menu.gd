@@ -14,3 +14,8 @@ func load_scene(scene_path: String):
 	get_tree().root.add_child(scene)
 func _on_button_exit_pressed() -> void:
 	get_tree().quit()
+
+func _on_button_ru_pressed() -> void:
+	TR.lang = "ru"
+func _on_button_en_pressed() -> void:
+	TR.lang = "en"
