@@ -3,6 +3,7 @@ extends TextureRect
 const QUANTITY_MENU_THRESHOLD: int = 3
 var context: String
 var card_data: Resource
+var select_handler: Callable
 @warning_ignore("unused_signal")
 signal item_stack_clicked(item_stack: ItemStack)
 @warning_ignore("unused_signal")
@@ -20,6 +21,20 @@ func setup(data: Resource, type: String):
 		$TextureRect.visible = false
 	if data.icon:
 		$TextureRect.texture = data.icon
+
+func set_select_handler(handler: Callable) -> void:
+	select_handler = handler
+
+func select() -> void:
+	if context in [GC.PLAYER, GC.FAR_PLACE]:
+		return
+	if select_handler.is_valid():
+		select_handler.call(card_data, context)
+		return
+	if card_data is ItemStack:
+		item_stack_clicked.emit(card_data)
+	elif card_data is ActionData:
+		ActionManager.handle_action(card_data, context)
 func setup_entity(entity: EntityData):
 	$Name.visible = false
 	var text:String
@@ -60,19 +75,7 @@ func setup_vis(data, name_owner):
 		$Name.visible = false
 	name = data.name
 func _on_button_select_pressed() -> void:
-	if context in [GC.PLAYER, GC.FAR_PLACE]:
-		return
-	if card_data is EntityData:
-		EventBus.card_selected.emit(card_data)
-	elif card_data is PlaceData:
-		if card_data.actions.size() == 1 and card_data.type == GC.LOOT:
-			ActionManager.handle_action(card_data, card_data.type)
-			return
-		EventBus.menu.emit(card_data, context)
-	elif card_data is ItemStack:
-		item_stack_clicked.emit(card_data)
-	elif card_data is ActionData:
-		ActionManager.handle_action(card_data, context)
+	select()
 func _on_result_quantity_menu(n: int, _buffer: Array) -> void:
 	if n > 0:
 		item_stack_use.emit(card_data, n)
