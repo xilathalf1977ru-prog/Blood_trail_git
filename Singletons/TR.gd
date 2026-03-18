@@ -27,6 +27,7 @@ const L: Dictionary[String, Dictionary] = {
 			"You received item:":"You received item:",
 			"Quest is completed":"Quest is completed",
 			"Teleported to:":"Teleported to:",
+			"How much?":"How much?",
 			
 			"quest1": 	
 				'Hello "hero", your goal is to find the sword in the stone.
@@ -88,6 +89,7 @@ const L: Dictionary[String, Dictionary] = {
 			"You received item:":"Вы получили вещь:",
 			"Quest is completed":"Задание выполнено",
 			"Teleported to:":"Телепортировался на:",
+			"How much?":"Сколько?",
 			
 			"quest1": 	
 				'Здравствуй "герой", твоя цель найти меч в камне.

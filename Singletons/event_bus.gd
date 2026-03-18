@@ -45,8 +45,6 @@ signal cleanup_game()     # запрос на очистку игрового м
 @warning_ignore("unused_signal")
 signal place_visibility_changed(cell: int, place_data: Resource, show: bool)
 @warning_ignore("unused_signal")
-signal player_at_place(place_data: PlaceData, vis: bool)
-@warning_ignore("unused_signal")
 signal delete_place(place_data: PlaceData)
 
 @warning_ignore("unused_signal")
@@ -55,6 +53,9 @@ signal change(place_data: PlaceData)
 
 @warning_ignore("unused_signal")
 signal time_tick(n: int)
+@warning_ignore("unused_signal")
+signal time_ticked(n: int)
+
 
 ## --- ГЕНЕРАЦИЯ КОНТЕНТА ---
 @warning_ignore("unused_signal")

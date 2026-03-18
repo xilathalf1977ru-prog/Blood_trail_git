@@ -2,7 +2,7 @@ extends Node2D
 
 const PLACE_OFFSET: Vector2 = Vector2(128, 128)
 const PLACE_CARD_LAYER: int = 2
-var place_cards: Dictionary = {}
+var place_cards: Dictionary[int, Node2D] = {}
 var entities: Array[Node2D]
 var current_enemies_pos: Dictionary[Vector2, Resource] = {}
 func _ready() -> void:
@@ -29,14 +29,9 @@ func on_place_visibility_changed(cell: int, place_data: Resource, vis: bool):
 func spawn_place_card(cell: int, data: PlaceData):
 	if place_cards.has(cell):
 		return  #Уже существует
-	#var card_scene = preload("res://UI/card.tscn") #Создаем карточку места
 	var card_scene = preload("res://Scenes/place.tscn") #Создаем карточку места
-	
 	var card = card_scene.instantiate()
-	#card.position = Vector2((cell * GC.CELL), GC.CELL_Y[2]) - PLACE_OFFSET #Позиционируем в мировых координатах
-	
 	card.position = Vector2((cell * GC.CELL), GC.CELL_Y[2])
-	
 	card.setup(data, GC.FAR_PLACE)
 	add_child(card)
 	move_child(card, PLACE_CARD_LAYER)
@@ -63,8 +58,6 @@ func show_enemies_cards(enemies: Array[EntityData]) -> void:
 		card.setup(enemy_data, GC.ENEMY)
 var last_posx_player: int = 0
 func on_player_moved(data):
-	#print(data.a)
-	
 	var direction_player: int = 0
 	if data.x > last_posx_player: direction_player = 1
 	elif data.x < last_posx_player: direction_player = -1
@@ -77,13 +70,12 @@ func on_player_moved(data):
 	for i in place_cards.keys():
 		place_cards[i].setup(place_cards[i].card_data, GC.FAR_PLACE)
 		places_pos.append(Vector2(i * GC.CELL, GC.cell_place_y))
+	
+	EventBus.all_menus_close.emit()
 	if player_cell in place_cards.keys():
 		place_cards[player_cell].setup(place_cards[player_cell].card_data, GC.PLACE)
 	if data in places_pos:
 		place_cards[player_cell]._on_button_select_pressed()
-		
-	else:
-		EventBus.all_menus_close.emit()
 func on_delete_place(place_data):
 	for cell in place_cards:
 		if place_cards[cell].card_data == place_data:

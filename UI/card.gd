@@ -20,7 +20,7 @@ func setup_vis(data, name_owner):
 	if data is ItemStack:
 		$TextLabel.text = (
 			"X" + str(data.quantity)
-			+ "\n $ " + str(data.cost)
+			+ "\n $" + str(data.cost)
 			)
 		for i in data.equip_bonus:
 			$TextLabel.text += "\n" + TR.lc(i) + " " + str(data.equip_bonus[i])
@@ -34,11 +34,7 @@ func setup_vis(data, name_owner):
 		$Name.visible = false
 	name = data.name
 func _on_button_select_pressed() -> void:
-	if context in [GC.PLAYER, GC.FAR_PLACE]:
-		return
-	if card_data is EntityData:
-		EventBus.card_selected.emit(card_data)
-	elif card_data is ItemStack:
+	if card_data is ItemStack:
 		item_stack_clicked.emit(card_data)
 	elif card_data is ActionData:
 		ActionManager.handle_action(card_data, context)

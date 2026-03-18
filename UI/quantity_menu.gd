@@ -7,6 +7,7 @@ var n: int = 1:
 var n_max: int = 6
 var local_buffer: Array = []
 func _ready() -> void:
+	$Background/Label.text = TR.lc("How much?")
 	$Background/ButtonCancel.pressed.connect(_on_cancel)
 	$Background/NText.text = str(n)
 	$Background/ButtonMin.pressed.connect(_on_min_n)

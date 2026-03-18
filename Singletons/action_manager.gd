@@ -45,24 +45,23 @@ func heal(data: Resource, n: int = 1) -> void:
 	EventBus.player_changed.emit(player)
 	EventBus.log_show.emit(TR.lc("Cured by:") + " " + str(data.heal_amount * n))
 
-func add_loot(player_local: EntityData, enemy: Resource):
-	for enemy_stack in enemy.inv.real_inv:
-		EventBus.log_show.emit(TR.lc("You received item:") + " " + enemy_stack.name)
-		
-		if enemy_stack.name == "Sword wolfkiller":
+func add_loot(to_inv: Resource, from_inv: Resource):
+	for item in from_inv.inv.real_inv:
+		if item.name == "Sword wolfkiller":
 			EventBus.log_show.emit(TR.lc("Quest is completed"))
 			EventBus.quest_finished.emit()
-		
-		var found: bool = false
-		# Ищем такой же стак у игрока
-		for player_stack in player_local.inv.real_inv:
-			if player_stack.can_merge_with(enemy_stack):
-				player_stack.merge(enemy_stack)
-				found = true
-				break
-		# Если не нашли - добавляем копию
-		if not found:
-			player_local.inv.real_inv.append(enemy_stack.duplicate())
-	
+		EventBus.log_show.emit(TR.lc("You received item:") + " " + item.name)
+		add_item(to_inv, item)
 	EventBus.sfx.emit("loot")
-	EventBus.player_changed.emit(player_local)
+	EventBus.player_changed.emit(to_inv)
+
+
+func add_item(to_inv, item):
+	var found: bool = false
+	for player_stack in to_inv.inv.real_inv:#Ищем такой же стак у игрока
+		if player_stack.can_merge_with(item):
+			player_stack.merge(item)
+			found = true
+			break
+	if not found:#Если не нашли - добавляем копию
+		to_inv.inv.real_inv.append(item.duplicate())

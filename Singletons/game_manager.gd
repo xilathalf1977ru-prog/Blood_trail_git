@@ -68,5 +68,5 @@ func on_object_died(obj):
 
 func on_time_tick(n: int):
 	day += n
-	print(day)
+	EventBus.time_ticked.emit(day)
 	
