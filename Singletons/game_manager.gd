@@ -63,6 +63,9 @@ func details_requested(_entity_data: Resource):
 func on_object_died(obj):
 	if obj is EntityData:
 		if obj.player:
+			
+			
+			
 			EventBus.death_screen_changed.emit(true)
 			EventBus.cleanup_game.emit()
 

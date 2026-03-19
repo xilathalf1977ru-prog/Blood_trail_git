@@ -30,7 +30,7 @@ func ui_extra_button(data, type: String):
 			$ButtonExtra.text = "+"
 	elif type == "USE":
 		$ButtonExtra.add_theme_font_size_override("font_size", 40)
-		$ButtonExtra.text = "Пить"
+		$ButtonExtra.text = TR.lc("Drink")#"Пить"
 func _on_button_equip_pressed() -> void:
 	print("ee")
 	extra_button.emit()

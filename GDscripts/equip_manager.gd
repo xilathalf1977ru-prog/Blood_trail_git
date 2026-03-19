@@ -7,12 +7,10 @@ func _ready() -> void:
 	EventBus.player_equip_change.connect(change_equip)
 	EventBus.check_equip.connect(on_check_equip)
 func change_equip(equip_data: ItemStack) -> void:
-	
 	if equip_data.equip_type == "WEAPON":
 		EventBus.sfx.emit("sword")
 	else:
 		EventBus.sfx.emit("armor")
-	
 	if !equip_data.equip_type in data.equip_slots.keys():
 		equip(equip_data)
 	elif data.equip_slots[equip_data.equip_type] != equip_data:
@@ -40,3 +38,6 @@ func change_stats(stat_values, direction):
 			"armor": data.armor += (stat_values[i]) * direction
 	get_parent().get_node("Entity").setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)
+
+func dead():
+	print(data.equip_slots)

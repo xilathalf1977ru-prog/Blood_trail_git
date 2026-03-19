@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chvqiu1hora2x"]
 
-[ext_resource type="Script" uid="uid://d3u8fjdosr3o4" path="res://Scenes/place.gd" id="1_kj4ng"]
+[ext_resource type="Script" uid="uid://biulij2wn6hv3" path="res://Scenes/place.gd" id="1_kj4ng"]
 [ext_resource type="PackedScene" uid="uid://d2vnd4s2nn4bw" path="res://UI/card.tscn" id="2_ukymk"]
 
 [node name="Place" type="Node2D" unique_id=1623866014]

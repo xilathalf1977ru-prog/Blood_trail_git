@@ -20,6 +20,7 @@ const L: Dictionary[String, Dictionary] = {
 			"Trade":"Trade",
 			"Portal":"Portal",
 			
+			"Drink":"Drink",
 			"Enemy killed:":"Enemy killed:",
 			"You killed by:":"You killed by:",
 			"Enemy attacked:":"Enemy attacked:",
@@ -82,6 +83,7 @@ const L: Dictionary[String, Dictionary] = {
 			"Trade":"Магазин",
 			"Portal":"Портал",
 			
+			"Drink":"Выпить",
 			"Enemy killed:":"Враг убит:",
 			"You killed by:":"Вас убил:",
 			"Enemy attacked:":"Напал враг:",

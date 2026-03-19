@@ -87,6 +87,7 @@ texture = ExtResource("6_o2jkc")
 stretch_mode = 5
 
 [node name="QuantityMenu" type="Control" parent="." unique_id=1307643033]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 112.0

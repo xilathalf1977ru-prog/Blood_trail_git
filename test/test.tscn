@@ -1,29 +1,6 @@
 [gd_scene format=3 uid="uid://c2jx6dluvqtdg"]
 
-[ext_resource type="Script" uid="uid://cd4da24b8bnga" path="res://test/test.gd" id="1_syuel"]
+[ext_resource type="Script" uid="uid://dfw4l3huionux" path="res://test/test.gd" id="1_syuel"]
 
 [node name="Test" type="Node2D" unique_id=147837284]
 script = ExtResource("1_syuel")
-
-[node name="Button" type="Button" parent="." unique_id=334347465]
-offset_left = 57.0
-offset_top = 75.0
-offset_right = 343.0
-offset_bottom = 279.0
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1290869204]
-offset_left = 37.0
-offset_top = 45.0
-offset_right = 133.0
-offset_bottom = 173.0
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=598415170]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 33.0
-offset_right = 62.0
-offset_bottom = 73.0
-mouse_filter = 2
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
