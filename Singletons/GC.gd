@@ -8,7 +8,7 @@ const CELL_Y: Array = [353, 545, 737]
 var cell_place_y: int:
 	get:
 		return CELL_Y[2]
-const END_WORLD: int = 9
+const END_WORLD: int = 1
 
 var anim_speed: float = 0.2
 
@@ -41,7 +41,7 @@ class Act:
 
 const SFX: Dictionary[String, AudioStream] = {
 	"attack":preload("res://SFX/sword_parry1.wav"),
-	"dead":preload("res://SFX/man_dead.ogg"),
+	"dead":preload("res://SFX/woman_dead.ogg"),
 	"drink":preload("res://SFX/drink.ogg"),
 	"loot":preload("res://SFX/loot.ogg"),
 	"drop":preload("res://SFX/drop.ogg"),

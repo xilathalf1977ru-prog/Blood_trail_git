@@ -23,6 +23,7 @@ func _ready() -> void:
 func resource_init():
 	EventBus.resource_init.emit()
 	GameManager.current_enemies = EnemyManager.generate_enemies(6)
+	on_player_moved(GameManager.player_ref.data.position)
 func on_place_visibility_changed(cell: int, place_data: Resource, vis: bool):
 	if vis: spawn_place_card(cell, place_data)
 	else: despawn_place_card(cell)
@@ -36,7 +37,8 @@ func spawn_place_card(cell: int, data: PlaceData):
 	add_child(card)
 	move_child(card, PLACE_CARD_LAYER)
 	place_cards[cell] = card
-	on_player_moved(GameManager.player_ref.data.position)
+	
+	#on_player_moved(GameManager.player_ref.data.position)
 func despawn_place_card(cell: int):
 	if place_cards.has(cell):
 		place_cards[cell].queue_free()
@@ -58,11 +60,10 @@ func show_enemies_cards(enemies: Array[EntityData]) -> void:
 		card.setup(enemy_data, GC.ENEMY)
 var last_posx_player: int = 0
 func on_player_moved(data):
-	var direction_player: int = 0
-	if data.x > last_posx_player: direction_player = 1
-	elif data.x < last_posx_player: direction_player = -1
-	last_posx_player = data.x
-	var player_key = Vector2(direction_player, data.y)
+	var delta: int = int(data.x) - last_posx_player
+	var direct: float = sign(delta) * (1 if abs(delta) == GC.CELL else -1)
+	last_posx_player += delta
+	var player_key = Vector2(direct, data.y)
 	if player_key in current_enemies_pos.keys():
 		BattleManager.start_auto_battle(GameManager.player_ref.data, current_enemies_pos[player_key])
 	var player_cell: int = data.x/GC.CELL

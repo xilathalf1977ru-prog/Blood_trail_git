@@ -3,11 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bwkqvmxk8oye2" path="res://Scenes/map.tscn" id="1_0nejw"]
 [ext_resource type="Script" uid="uid://og7o6gsnr2c5" path="res://GDscripts/game_world.gd" id="1_qvgq0"]
 [ext_resource type="PackedScene" uid="uid://bcj06yl0bl6fn" path="res://Scenes/player.tscn" id="3_alii3"]
-[ext_resource type="Script" uid="uid://tl5uknwddbde" path="res://GDscripts/map.gd" id="3_p4c8d"]
 [ext_resource type="Script" uid="uid://cjapr132u6t1d" path="res://GDscripts/camera_2d.gd" id="4_hy2kt"]
 [ext_resource type="Texture2D" uid="uid://dpetqaf7spnp2" path="res://Sprites/SkyNight.webp" id="4_xqdar"]
+[ext_resource type="Texture2D" uid="uid://bl784fpmocjie" path="res://Sprites/part.png" id="5_27os8"]
 [ext_resource type="Texture2D" uid="uid://dgr3lf2sk3xng" path="res://Sprites/Stars.webp" id="5_xqdar"]
-[ext_resource type="Texture2D" uid="uid://dyrfpmpbsfh8c" path="res://Sprites/part.webp" id="6_xnm3i"]
 [ext_resource type="PackedScene" uid="uid://d2kk01fkqiluh" path="res://Scenes/entity.tscn" id="9_xqdar"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rr1si"]
@@ -20,7 +19,7 @@ tile_size = Vector2i(86, 86)
 sources/1 = SubResource("TileSetAtlasSource_rr1si")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqdar"]
-texture = ExtResource("6_xnm3i")
+texture = ExtResource("5_27os8")
 texture_region_size = Vector2i(48, 172)
 use_texture_padding = false
 0:0/0 = 0
@@ -33,7 +32,6 @@ sources/0 = SubResource("TileSetAtlasSource_xqdar")
 script = ExtResource("1_qvgq0")
 
 [node name="map" parent="." unique_id=1331073335 instance=ExtResource("1_0nejw")]
-script = ExtResource("3_p4c8d")
 
 [node name="Background" type="Node2D" parent="." unique_id=1601691515]
 
@@ -57,7 +55,7 @@ tile_set = SubResource("TileSet_xqdar")
 [node name="TileMapLayer2" type="TileMapLayer" parent="Background" unique_id=562819719]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(0, 910)
+position = Vector2(96, 910)
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAD+////AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAD7////AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAAOAP//AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAARAP//AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAAUAP//AAAAAAAAAAAVAP//AAAAAAAAAAAWAP//AAAAAAAAAAAXAP//AAAAAAAAAAAYAP//AAAAAAAAAAAZAP//AAAAAAAAAAAaAP//AAAAAAAAAAAbAP//AAAAAAAAAAAcAP//AAAAAAAAAAAdAP//AAAAAAAAAAAeAP//AAAAAAAAAAAfAP//AAAAAAAAAAAgAP//AAAAAAAAAAAhAP//AAAAAAAAAAAiAP//AAAAAAAAAAAjAP//AAAAAAAAAAAkAP//AAAAAAAAAAAlAP//AAAAAAAAAAAmAP//AAAAAAAAAAAnAP//AAAAAAAAAAAoAP//AAAAAAAAAAApAP//AAAAAAAAAAAqAP//AAAAAAAAAAD6////AAAAAAAAAAD5////AAAAAAAAAAD4////AAAAAAAAAAD3////AAAAAAAAAAD2////AAAAAAAAAAD1////AAAAAAAAAAD0////AAAAAAAAAADz////AAAAAAAAAADy////AAAAAAAAAADx////AAAAAAAAAADw////AAAAAAAAAADv////AAAAAAAAAADu////AAAAAAAAAADt////AAAAAAAAAADs////AAAAAAAAAADr////AAAAAAAAAADq////AAAAAAAAAADp////AAAAAAAAAADo////AAAAAAAAAADn////AAAAAAAAAADm////AAAAAAAAAADl////AAAAAAAAAADk////AAAAAAAAAADj////AAAAAAAAAADi////AAAAAAAAAADh////AAAAAAAAAADg////AAAAAAAAAADf////AAAAAAAAAADe////AAAAAAAAAADd////AAAAAAAAAADc////AAAAAAAAAADb////AAAAAAAAAADa////AAAAAAAAAADZ////AAAAAAAAAADY////AAAAAAAAAADX////AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_xnm3i")

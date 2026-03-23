@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_ehfks"]
 [ext_resource type="Resource" uid="uid://bboqahe5nobfs" path="res://Data/Entities/player_inventory.tres" id="2_3hqo3"]
 [ext_resource type="Texture2D" uid="uid://rn6q6btvw6tv" path="res://Sprites/rogue.webp" id="3_0w73y"]
-[ext_resource type="Texture2D" uid="uid://bvnx52kshfbre" path="res://Sprites/rogue_0001.webp" id="5_u4vgu"]
-[ext_resource type="Texture2D" uid="uid://csv4y216c8rgh" path="res://Sprites/rogue_0002.webp" id="6_aet8b"]
-[ext_resource type="Texture2D" uid="uid://kxvf52igj1ha" path="res://Sprites/rogue_0003.webp" id="7_na7np"]
-[ext_resource type="Texture2D" uid="uid://cwrk7rw3s33re" path="res://Sprites/rogue_0004.webp" id="8_k3l0y"]
+[ext_resource type="Texture2D" uid="uid://1hn5v4m35345" path="res://Data/Entities/Elf/elf_v4_0001.webp" id="5_u4vgu"]
+[ext_resource type="Texture2D" uid="uid://c4mb1x3rndrgw" path="res://Data/Entities/Elf/elf_v4_0002.webp" id="6_aet8b"]
+[ext_resource type="Texture2D" uid="uid://yfk6apaaseuu" path="res://Data/Entities/Elf/elf_v4_0003.webp" id="7_na7np"]
+[ext_resource type="Texture2D" uid="uid://dhqyqnr8k2a88" path="res://Data/Entities/Elf/elf_v4_0004.webp" id="8_k3l0y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jms68"]
 animations = [{
@@ -39,5 +39,6 @@ player = true
 max_hp = 100
 current_hp = 100
 damage = 10
+armor = 100
 actions = Array[ExtResource("1_adkyd")]([ExtResource("2_3hqo3")])
 metadata/_custom_type_script = "uid://bqduy5pjk0fl"
