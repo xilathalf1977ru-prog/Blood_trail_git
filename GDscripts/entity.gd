@@ -10,8 +10,10 @@ func setup(data: Resource, type: String):
 	if type != GC.PLAYER:
 		fade_in(self, GC.anim_speed * 2)
 		data.position = position
+	elif type == GC.PLAYER:
+		print("2223")
+		$CardEntity/TextureRect.scale.x *=-1 
 	$CardEntity.setup(data, type)
-	
 	var text:String
 	text = """
 	{hp}: {hp_n}

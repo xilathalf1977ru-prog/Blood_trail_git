@@ -3,13 +3,18 @@ extends Node
 var enemy_templates: Array[Resource] = []
 
 func _ready():
-	enemy_templates = DataLoader.load_res("res://Data/Entities/Enemies/")
+	var enemy2 = DataLoader.load_res("res://Data/Entities/Enemies/")
+	for i in enemy2:
+		i.on_resource_init()
+	enemy_templates = enemy2
 func generate_enemies(count: int) -> Array[EntityData]:
+	
 	var enemies: Array[EntityData] = []
 	for i in count:
 		var enemy = _create_random_enemy()
 		enemy.direction = _get_direction_for_position(i, count)
 		enemies.append(enemy)
+	
 	EventBus.enemies_generated.emit(enemies)
 	return enemies
 func _create_random_enemy():
@@ -30,5 +35,4 @@ func _get_direction_for_position(index: int, total_count: int) -> Vector2:
 		#return Vector2.LEFT
 	else:
 		vector_enemy += Vector2.RIGHT
-	#print(vector_enemy)
 	return vector_enemy

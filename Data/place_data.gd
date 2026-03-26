@@ -8,14 +8,22 @@ class_name PlaceData
 
 @export var sprites: SpriteFrames
 
-@export var actions: Array[ActionData]
-@export var inv: ActionData
+#@export var actions: Array[ActionData]
+@export var actions: Dictionary[String, Texture2D]
+
+@export var dist: int
+
+@export var inventory: Dictionary[ItemStack, int]
+var real_inv: Array[ItemStack]
+@export var money: int
+@export var trade: bool
 
 func _init() -> void:
-	EventBus.resource_init.connect(on_resource_init)
+	call_deferred("on_resource_init")
 func on_resource_init() -> void:
-	for i in actions:
-		i.id = id
-		if i.type in [GC.Act.INV, GC.Act.TRADE, GC.LOOT]:
-		#if i.type in [GC.Act.INV, GC.Act.TRADE]:
-			inv = i
+	real_inv.clear()
+	for i in inventory:
+		var copy = i.duplicate()
+		copy.quantity = inventory[i]
+		real_inv.append(copy)
+	

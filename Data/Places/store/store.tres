@@ -1,14 +1,17 @@
 [gd_resource type="Resource" script_class="PlaceData" format=3 uid="uid://dxd4iljlfgkww"]
 
-[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_sili3"]
 [ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="2_f40h6"]
 [ext_resource type="Texture2D" uid="uid://bkbie2tvimu4m" path="res://Data/Places/store/store.webp" id="2_pu03p"]
-[ext_resource type="Resource" uid="uid://bek4xqvvwuqwa" path="res://Data/Places/store/trade.tres" id="2_v83sx"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="5_qfnud"]
 
 [resource]
 script = ExtResource("2_f40h6")
 name = "Trade"
 type = "trade"
 icon = ExtResource("2_pu03p")
-actions = Array[ExtResource("1_sili3")]([ExtResource("2_v83sx")])
+actions = Dictionary[String, Texture2D]({
+"trade": null
+})
+money = 300
+trade = true
 metadata/_custom_type_script = "uid://darocc302rkw8"

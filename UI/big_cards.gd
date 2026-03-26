@@ -21,11 +21,9 @@ func show_menu(data: Resource, context: String) -> void:
 			big_cards[i].visible = false
 			big_cards[i].get_node("Name").text = ""
 			big_cards[i].clear_cards()
-			
 	if context in [GC.Act.INV, GC.Act.TRADE]:
-		print(context)
 		big_cards[0].visible = true
-		big_cards[0].setup(GameManager.player_ref.data.inv, context)
+		big_cards[0].setup(GameManager.player_ref.data, context)
 		big_cards[1].visible = true
 		big_cards[1].setup(data, context)
 		return
@@ -56,8 +54,8 @@ from_inv: Object, to_inv: Object) -> void:
 	item_stack_transfer(item_stack, n, from_inv, to_inv)
 func item_stack_transfer(item_stack: ItemStack, n: int, 
 from_inv: Object, to_inv: Object) -> void:
-	if (from_inv.local_data.type == "trade" 
-	or to_inv.local_data.type == "trade"):
+	if (from_inv.local_data.trade
+	or to_inv.local_data.trade):
 		if to_inv.local_data.money < item_stack.cost * n:
 			return
 		from_inv.local_data.money += item_stack.cost * n

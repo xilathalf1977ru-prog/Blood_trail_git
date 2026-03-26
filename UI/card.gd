@@ -16,6 +16,10 @@ func setup(data: Resource, type: String):
 		$TextureRect.visible = false
 	if data.icon:
 		$TextureRect.texture = data.icon
+	actions_icon(data, type)
+func actions_icon(data, type):
+	if type in [GC.Act.SLEEP]:
+		$TextureRect.texture = data.actions[type]
 func setup_vis(data, name_owner):
 	if data is ItemStack:
 		$TextLabel.text = (
@@ -36,7 +40,14 @@ func setup_vis(data, name_owner):
 func _on_button_select_pressed() -> void:
 	if card_data is ItemStack:
 		item_stack_clicked.emit(card_data)
-	elif card_data is ActionData:
+	#elif card_data is ActionData:
+		#ActionManager.handle_action(card_data, context)
+		
+	elif context == GC.Act.INV or context == GC.Act.TRADE:
+		ActionManager.handle_action(card_data, context)
+	elif context == GC.Act.TELEPORT_RNG:
+		ActionManager.handle_action(card_data, context)
+	elif context == GC.Act.SLEEP:
 		ActionManager.handle_action(card_data, context)
 func _on_result_quantity_menu(n: int, _buffer: Array) -> void:
 	if n > 0:

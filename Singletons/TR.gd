@@ -3,9 +3,11 @@ extends Node
 var lang: String = "en"
 const L: Dictionary[String, Dictionary] = {
 	"en":{
+			"Player":			"Player",
 			"armor":				"armor",
 			"damage":			"damage",
 			"hp":				"hp",
+			
 			"Helm iron":			"Helm iron",
 			"Sword iron":		"Sword iron",
 			"Sword wolfkiller":	"Sword wolfkiller",
@@ -66,9 +68,11 @@ const L: Dictionary[String, Dictionary] = {
 				',
 		},
 	"ru":{
+			"Player":			"Игрок",
 			"armor":				"броня",
 			"damage":			"урон",
 			"hp":				"здоровье",
+			
 			"Helm iron":			"Железный шлем",
 			"Sword iron":		"Железный меч",
 			"Sword wolfkiller":	"Меч волкодав",

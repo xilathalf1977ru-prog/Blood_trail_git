@@ -1,14 +1,7 @@
 [gd_resource type="Resource" script_class="ActionData" format=3 uid="uid://0h4pwataqgfp"]
 
-[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="1_mc770"]
-[ext_resource type="Resource" uid="uid://bah7nl6ouci0d" path="res://Data/Items/wolf_head/wolf_head.tres" id="2_3nal1"]
 [ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="2_r175v"]
 
 [resource]
 script = ExtResource("2_r175v")
-name = "Инвентарь"
-type = "inv"
-inventory = Dictionary[ExtResource("1_mc770"), int]({
-ExtResource("2_3nal1"): 1
-})
 metadata/_custom_type_script = "uid://dkgs0c5hbkv8k"

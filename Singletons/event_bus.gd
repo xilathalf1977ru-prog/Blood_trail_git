@@ -8,13 +8,10 @@ signal death_screen_changed(vis: bool)
 @warning_ignore("unused_signal")
 signal menu(data: Resource, context: String)
 
-
 @warning_ignore("unused_signal")
 signal check_all_menus_closed()
 @warning_ignore("unused_signal")
 signal all_menus_close()
-@warning_ignore("unused_signal")
-signal resource_init()
 @warning_ignore("unused_signal")
 signal log_show(log_text: String)
 @warning_ignore("unused_signal")

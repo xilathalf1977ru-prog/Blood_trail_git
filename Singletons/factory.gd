@@ -30,10 +30,15 @@ func create_inv(places_templates, items_templates):
 	var t = places_templates["pocket"].duplicate(true)
 	t.id = "pocket" + str(n)
 	n += 1
-	var test_inv = preload("res://Data/Actions/inventory.tres" ).duplicate(true)
+	#var test_inv = preload("res://Data/Actions/inventory.tres" ).duplicate(true)
+	#var a = GC.rng.randi_range(0, int(items_templates.size()-1))
+	#test_inv.type = GC.LOOT
+	#test_inv.inventory[items_templates[items_templates.keys()[a]]] = 1
+	##test_inv.on_resource_init()
+	#t.actions.append(test_inv)
+	
 	var a = GC.rng.randi_range(0, int(items_templates.size()-1))
-	test_inv.type = GC.LOOT
-	test_inv.inventory[items_templates[items_templates.keys()[a]]] = 1
-	test_inv.on_resource_init()
-	t.actions.append(test_inv)
+	t.inventory[items_templates[items_templates.keys()[a]]] = 1
+	t.on_resource_init()
+	
 	return t

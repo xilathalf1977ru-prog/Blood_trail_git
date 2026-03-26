@@ -68,8 +68,12 @@ func _on_button_x_pressed() -> void:
 	$Alert/Audio.stream = null
 func _on_button_ok_pressed() -> void:
 	if alert_name_local == GC.Act.SLEEP:
-		const SLEEP_DATA: ActionData = preload("res://Data/Actions/sleep.tres")
-		ActionManager.handle_action(SLEEP_DATA, GC.Act.SLEEP)
+		#const SLEEP_DATA: ActionData = preload("res://Data/Actions/sleep.tres")
+		
+		#ActionManager.handle_action(SLEEP_DATA, GC.Act.SLEEP)
+		ActionManager.heal(999, 1)
+		
+		
 		ActionManager.handle_action(null, GC.Act.RANDOM_ATTACK)
 	elif alert_name_local == GC.Act.TELEPORT_RNG:
 		var dist: int = GC.rng.randi_range(alert_res_local.dist*-1, alert_res_local.dist)

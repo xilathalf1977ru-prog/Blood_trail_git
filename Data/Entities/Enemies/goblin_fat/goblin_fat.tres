@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://q3tx87ndvq63"]
 
-[ext_resource type="Script" uid="uid://dkgs0c5hbkv8k" path="res://Data/action_data.gd" id="1_8o1e7"]
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_uc68m"]
-[ext_resource type="Resource" uid="uid://paj1jhf3fjti" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_inventory.tres" id="2_nh5yo"]
 [ext_resource type="Texture2D" uid="uid://d2xmoo4d1m4ar" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_icon.webp" id="3_l05kj"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="4_dib0i"]
 [ext_resource type="Texture2D" uid="uid://dp731ljjl3wom" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0001.webp" id="5_27hdl"]
+[ext_resource type="Resource" uid="uid://cuugb3fs6xsxr" path="res://Data/Items/goblin_fat_head/goblin_fat_head.tres" id="5_m3xb6"]
 [ext_resource type="Texture2D" uid="uid://cjbs62ie1kgm" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0002.webp" id="6_nux0l"]
 [ext_resource type="Texture2D" uid="uid://3agnr20xjmo0" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0003.webp" id="7_dib0i"]
 [ext_resource type="Texture2D" uid="uid://bsmul1q35v3hi" path="res://Data/Entities/Enemies/goblin_fat/goblin_fat_0004.webp" id="8_m3xb6"]
@@ -41,6 +41,7 @@ sprites = SubResource("SpriteFrames_qdipr")
 max_hp = 40
 current_hp = 40
 damage = 6
-actions = Array[ExtResource("1_8o1e7")]([ExtResource("2_nh5yo")])
-inv = ExtResource("2_nh5yo")
+inventory = Dictionary[ExtResource("4_dib0i"), int]({
+ExtResource("5_m3xb6"): 1
+})
 metadata/_custom_type_script = "uid://bqduy5pjk0fl"

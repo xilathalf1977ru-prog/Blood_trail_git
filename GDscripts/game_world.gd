@@ -12,6 +12,7 @@ func _ready() -> void:
 	EventBus.player_moved.connect(on_player_moved)
 	EventBus.delete_place.connect(on_delete_place)
 	call_deferred("resource_init")
+	#EventBus.resource_init.emit()
 	entities = [
 		$EnemyChoice/Entity,
 		$EnemyChoice/Entity2,
@@ -21,7 +22,7 @@ func _ready() -> void:
 		$EnemyChoice/Entity6,
 	]
 func resource_init():
-	EventBus.resource_init.emit()
+	#EventBus.resource_init.emit()
 	GameManager.current_enemies = EnemyManager.generate_enemies(6)
 	on_player_moved(GameManager.player_ref.data.position)
 func on_place_visibility_changed(cell: int, place_data: Resource, vis: bool):

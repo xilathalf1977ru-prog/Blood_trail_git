@@ -3,6 +3,7 @@ extends VBoxContainer
 const CARD_SCENE: Object = preload("res://UI/card.tscn")
 
 func setup_card_common(card: TextureRect, res_data, name_owner) -> void:
+	
 	card.setup_vis(res_data, name_owner)
 	add_child(card)
 func add_item_quantity(item_stack: ItemStack, n: int, name_owner):

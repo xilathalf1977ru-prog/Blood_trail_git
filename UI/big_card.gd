@@ -11,7 +11,6 @@ func setup(data: Resource, context: String) -> void:
 	clear_cards()
 	local_data = data
 	local_context = context
-	
 	if context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]:
 		var items: Array[ItemStack] = data.real_inv
 		for i in items.size():
@@ -20,12 +19,10 @@ func setup(data: Resource, context: String) -> void:
 			_setup_card_common(card, items[i])
 		save_inv()
 	elif context in [GC.PLACE]:
-		var items: Array[ActionData] = data.actions
-		var actions_size: int = items.size()
-		for i in actions_size:
+		for i in data.actions.size():
 			var card: TextureRect = CARD_SCENE.instantiate()
-			card.setup(items[i], items[i].type)
-			_setup_card_common(card, items[i])
+			card.setup(data, data.actions.keys()[i])
+			_setup_card_common(card, data)
 	update_ui()
 func add_item(item_stack: ItemStack, n: int):
 	if path.has_node(item_stack.name):
@@ -45,7 +42,7 @@ func remove_item(item_stack: ItemStack, n: int):
 		clear_card(path.get_node(local_item_stack.name))
 		local_data.real_inv.erase(local_item_stack)
 	save_inv()
-func _setup_card_common(card: TextureRect, res_data) -> void:
+func _setup_card_common(card: TextureRect, res_data: Resource) -> void:
 	card.item_stack_clicked.connect(_on_item_stack_clicked)
 	card.item_stack_use.connect(use_item)
 	path.setup_card_common(card, res_data, local_data.id)
@@ -76,27 +73,22 @@ func save_inv():
 		#var copy = i.duplicate()
 		#copy.quantity = inventory[i]
 		#real_inv.append(copy)
-	GameManager.invs[local_data.id] = local_data.inventory#local_data.real_inv
-func save_inv_money():
-	#GameManager.invs_money[local_data.resource_path] = local_data.money
-	pass
-	#GameManager.invs[local_data.owner_id] = local_data.money
+	GameManager.invs[local_data.id] = local_data.inventory
+func save_inv_money(): pass
 func update_ui():
 	$ButtonTransfer.visible = local_context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]
 	if local_context in [GC.Act.INV, GC.Act.TRADE, GC.Act.MY_INV]:
-		#$Name.text = local_data.name + " $ " + str(local_data.money)
 		$Name.text = TR.lc(local_data.name) + " $ " + str(local_data.money)
 	elif local_context in [GC.PLACE]:
-		$Name.text = TR.lc(local_data.name)#local_data.name
+		$Name.text = TR.lc(local_data.name)
 func use_item(item_stack: ItemStack, n: int):
-	if local_data.id != "player":
-		return
+	if local_data.id != "player": return
 	if item_stack.main_type == "EQUIP":
 		path.get_node(item_stack.name).setup_vis(item_stack, local_data.id)
 		ActionManager.handle_action(item_stack, GC.Act.EQUIP)
 		return
 	EventBus.sfx.emit("drink")
-	ActionManager.handle_action(item_stack.actions[0], item_stack.actions[0].type, n)
+	ActionManager.handle_action(item_stack, GC.Act.HEAL, n)
 	if item_stack.transforms_to:
 		add_item(item_stack.transforms_to, n)
 	remove_item(item_stack, n)

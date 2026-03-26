@@ -42,9 +42,12 @@ var cost: int:
 var icon: Texture2D:
 	get:
 		return item.icon# if item else null
-var actions: Array[ActionData]:
+#var actions: Array[ActionData]:
+	#get:
+		#return item.actions# if item else []
+var heal_amount: int:
 	get:
-		return item.actions# if item else []
+		return item.heal_amount# if item else 0
 var transforms_to: ItemStack:
 	get:
 		return item.transforms_to# if item else null

@@ -8,7 +8,7 @@ const CELL_Y: Array = [353, 545, 737]
 var cell_place_y: int:
 	get:
 		return CELL_Y[2]
-const END_WORLD: int = 1
+const END_WORLD: int = 9
 
 var anim_speed: float = 0.2
 
@@ -35,8 +35,8 @@ class Act:
 	const TELEPORT_RNG: String = "teleport_rng"
 	const SLEEP: String = "sleep"
 	const EQUIP: String = "equip"
-	
 	const UNEQUIP: String = "unequip"
+	const ROB: String = "rob"
 
 
 const SFX: Dictionary[String, AudioStream] = {
