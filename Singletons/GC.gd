@@ -16,7 +16,6 @@ var anim_speed: float = 0.2
 const PLAYER: String = "player"
 const ENEMY: String = "enemy"
 const PLACE: String = "place"
-const FAR_PLACE: String = "far_place"
 const ACTION: String = "action"
 const ITEMSTACK: String = "itemstack"
 

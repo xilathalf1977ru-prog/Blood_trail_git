@@ -16,3 +16,9 @@ func _on_button_select_pressed():
 		ActionManager.handle_action(card_data, card_data.type)
 		return
 	EventBus.menu.emit(card_data, context)
+
+
+func _on_button_select_mouse_entered() -> void:
+	$ColorRect.visible = true
+func _on_button_select_mouse_exited() -> void:
+	$ColorRect.visible = false

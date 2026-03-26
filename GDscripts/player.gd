@@ -10,7 +10,6 @@ func _ready():
 	EventBus.player_move.connect(_on_player_move)
 	EventBus.player_teleport.connect(_on_player_teleport)
 	EventBus.player_move_to.connect(_on_player_move_to)
-	EventBus.show_player_stats.connect(_on_show_player_stats)
 	$Entity.setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)
 	data.position = position
@@ -64,9 +63,6 @@ func load_data(player_data: EntityData):
 	position.x = data.position.x
 	EventBus.player_changed.emit(data)
 	$Entity.setup(data, GC.PLAYER)
-func _on_show_player_stats(vis):
-	if vis:$Entity._on_button_select_mouse_entered()
-	else:$Entity._on_button_select_mouse_exited()
 func _on_player_teleport(direction: int):
 	GC.control_free = false
 	await fade_out(self)

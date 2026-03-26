@@ -21,6 +21,7 @@ const L: Dictionary[String, Dictionary] = {
 			"Inventory":"Inventory",
 			"Trade":"Trade",
 			"Portal":"Portal",
+			"Pocket":"Pocket",
 			
 			"Drink":"Drink",
 			"Enemy killed:":"Enemy killed:",
@@ -66,6 +67,13 @@ const L: Dictionary[String, Dictionary] = {
 
 				Would you risk it?
 				',
+			"alert_rob":
+				'Robbery is a risk!
+				Fight with the guards, you could die.
+				But if you"re stronger, you"ll take it all.
+								
+				Would you risk it?
+				',
 		},
 	"ru":{
 			"Player":			"Игрок",
@@ -86,6 +94,7 @@ const L: Dictionary[String, Dictionary] = {
 			"Inventory":"Инвентарь",
 			"Trade":"Магазин",
 			"Portal":"Портал",
+			"Pocket":"Мешок",
 			
 			"Drink":"Выпить",
 			"Enemy killed:":"Враг убит:",
@@ -131,6 +140,13 @@ const L: Dictionary[String, Dictionary] = {
 			
 				Рискнёшь?
 				',
+			"alert_rob":
+				'Грабёж это риск!
+				Бой с охраной, ты можешь погибнуть.
+				Но если ты сильнее, ты возьмёшь всё.
+								
+				Рискнёшь?
+				',
 		},
 }
 
@@ -142,12 +158,14 @@ const A: Dictionary[String, Dictionary] = {
 		"voice2":preload("res://Voice/en/voice2_en.ogg"),
 		"teleport_rng":preload("res://Voice/en/alert_portal_en.ogg"),
 		"sleep":preload("res://Voice/en/alert_sleep_en.ogg"),
+		"rob":preload("res://Voice/en/alert_rob_en.ogg"),
 		},
 	"ru":{
 		"voice":preload("res://Voice/ru/voice_ru.ogg"),
 		"voice2":preload("res://Voice/ru/voice2_ru.ogg"),
 		"teleport_rng":preload("res://Voice/ru/alert_portal_ru.ogg"),
 		"sleep":preload("res://Voice/ru/alert_sleep_ru.ogg"),
+		"rob":preload("res://Voice/ru/alert_rob_ru.ogg"),
 		},
 	}
 

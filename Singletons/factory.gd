@@ -39,6 +39,7 @@ func create_inv(places_templates, items_templates):
 	
 	var a = GC.rng.randi_range(0, int(items_templates.size()-1))
 	t.inventory[items_templates[items_templates.keys()[a]]] = 1
+	#print(t.type)
 	t.on_resource_init()
 	
 	return t

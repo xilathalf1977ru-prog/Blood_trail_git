@@ -18,9 +18,9 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 		ActionManager.add_loot(player_data, enemy_data)
 	else:
 		EventBus.sfx.emit("dead")
-		for i in player_data.equip_slots:
+		for i in player_data.equip_slots.keys():
 			EventBus.check_equip.emit(player_data.equip_slots[i])
-		player_data.inv.inventory.clear()
+		player_data.real_inv.clear()
 		player_data.steps = 0
 		player_data.armor = 0
 		player_data.damage = 10

@@ -52,10 +52,22 @@ func on_alert_show(alert_name: String, alert_res: Resource = null) -> void:
 	alert_name_local = alert_name
 	alert_res_local = alert_res
 	GC.control_free = false
+	
+	$Alert/Entity.visible = false
+	$Alert/Entity2.visible = false
 	if alert_name_local == GC.Act.SLEEP:
 		$Alert/Label.text = TR.lc("alert_sleep")
 	elif alert_name_local == GC.Act.TELEPORT_RNG:
 		$Alert/Label.text = TR.lc("alert_portal")
+	elif alert_name_local == GC.Act.ROB:
+		$Alert/Label.text = TR.lc("alert_rob")
+		$Alert/Entity.visible = true
+		$Alert/Entity2.visible = true
+		
+		$Alert/Entity.setup(ActionManager.player, GC.PLAYER)
+		$Alert/Entity2.setup(alert_res.entities[0], GC.PLAYER)
+		
+		
 	$Alert.visible = true
 	$Alert/Audio.stream = TR.alc(alert_name)
 	$Alert/Audio.play()
@@ -68,12 +80,7 @@ func _on_button_x_pressed() -> void:
 	$Alert/Audio.stream = null
 func _on_button_ok_pressed() -> void:
 	if alert_name_local == GC.Act.SLEEP:
-		#const SLEEP_DATA: ActionData = preload("res://Data/Actions/sleep.tres")
-		
-		#ActionManager.handle_action(SLEEP_DATA, GC.Act.SLEEP)
 		ActionManager.heal(999, 1)
-		
-		
 		ActionManager.handle_action(null, GC.Act.RANDOM_ATTACK)
 	elif alert_name_local == GC.Act.TELEPORT_RNG:
 		var dist: int = GC.rng.randi_range(alert_res_local.dist*-1, alert_res_local.dist)
@@ -81,4 +88,14 @@ func _on_button_ok_pressed() -> void:
 		EventBus.all_menus_close.emit()
 		EventBus.sfx.emit("portal")
 		EventBus.log_show.emit(TR.lc("Teleported to:") + " " + str(dist))
+	elif alert_name_local == GC.Act.ROB:
+		var enemy = alert_res_local.entities[0]
+		BattleManager.start_auto_battle(ActionManager.player, enemy.duplicate())
+		ActionManager.add_loot(ActionManager.player, alert_res_local)
+		ActionManager.player.money += alert_res_local.money
+		alert_res_local.money = 0
+		alert_res_local.real_inv.clear()
+		
+		
+		
 	_on_button_x_pressed()

@@ -17,9 +17,12 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 			EventBus.delete_place.emit(data)
 			
 		GC.Act.ROB:
-			var enemy = data.entities[0]
-			BattleManager.start_auto_battle(player, enemy)
-			#add_loot(player, data.inventory)
+			#var enemy = data.entities[0]
+			#BattleManager.start_auto_battle(player, enemy)
+			#add_loot(player, data)
+			#data.real_inv.clear()
+			
+			EventBus.alert_show.emit(context, data)
 			
 		GC.Act.RANDOM_ATTACK:
 			var enemy_pool: Array = EnemyManager.enemy_templates.duplicate_deep()
@@ -35,7 +38,7 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 			#EventBus.all_menus_close.emit()
 			#EventBus.sfx.emit("portal")
 			#EventBus.log_show.emit("Телепортировался на " + str(dist))
-			EventBus.alert_show.emit(GC.Act.TELEPORT_RNG, data)
+			EventBus.alert_show.emit(context, data)
 		GC.Act.SLEEP:
 			heal(999, n)
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)

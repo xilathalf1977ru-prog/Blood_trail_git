@@ -18,7 +18,7 @@ func setup(data: Resource, type: String):
 		$TextureRect.texture = data.icon
 	actions_icon(data, type)
 func actions_icon(data, type):
-	if type in [GC.Act.SLEEP]:
+	if type in [GC.Act.SLEEP, GC.Act.ROB]:
 		$TextureRect.texture = data.actions[type]
 func setup_vis(data, name_owner):
 	if data is ItemStack:
@@ -32,6 +32,8 @@ func setup_vis(data, name_owner):
 		$TextureRect.position = Vector2(-64, -64)
 		if name_owner == "player":
 			$ButtonSelect.set_extra_button(data)
+			
+			
 		$TextLabel.position = Vector2(224, 32)
 		$Name.text = TR.lc(data.name) + " X" + str(data.quantity)
 	else:
@@ -40,14 +42,8 @@ func setup_vis(data, name_owner):
 func _on_button_select_pressed() -> void:
 	if card_data is ItemStack:
 		item_stack_clicked.emit(card_data)
-	#elif card_data is ActionData:
-		#ActionManager.handle_action(card_data, context)
-		
-	elif context == GC.Act.INV or context == GC.Act.TRADE:
-		ActionManager.handle_action(card_data, context)
-	elif context == GC.Act.TELEPORT_RNG:
-		ActionManager.handle_action(card_data, context)
-	elif context == GC.Act.SLEEP:
+	elif context in [GC.Act.INV, GC.Act.TRADE, 
+	GC.Act.TELEPORT_RNG, GC.Act.SLEEP, GC.Act.ROB]:
 		ActionManager.handle_action(card_data, context)
 func _on_result_quantity_menu(n: int, _buffer: Array) -> void:
 	if n > 0:
@@ -55,6 +51,7 @@ func _on_result_quantity_menu(n: int, _buffer: Array) -> void:
 	if EventBus.result_quantity_menu.is_connected(_on_result_quantity_menu):
 		EventBus.result_quantity_menu.disconnect(_on_result_quantity_menu)
 func _on_button_select_mouse_entered() -> void:
+
 	if card_data is ItemStack:
 		$TextLabel.visible = true
 func _on_button_select_mouse_exited() -> void:

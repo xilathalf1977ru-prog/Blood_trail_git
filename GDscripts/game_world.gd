@@ -12,7 +12,6 @@ func _ready() -> void:
 	EventBus.player_moved.connect(on_player_moved)
 	EventBus.delete_place.connect(on_delete_place)
 	call_deferred("resource_init")
-	#EventBus.resource_init.emit()
 	entities = [
 		$EnemyChoice/Entity,
 		$EnemyChoice/Entity2,
@@ -22,7 +21,6 @@ func _ready() -> void:
 		$EnemyChoice/Entity6,
 	]
 func resource_init():
-	#EventBus.resource_init.emit()
 	GameManager.current_enemies = EnemyManager.generate_enemies(6)
 	on_player_moved(GameManager.player_ref.data.position)
 func on_place_visibility_changed(cell: int, place_data: Resource, vis: bool):
@@ -34,12 +32,11 @@ func spawn_place_card(cell: int, data: PlaceData):
 	var card_scene = preload("res://Scenes/place.tscn") #Создаем карточку места
 	var card = card_scene.instantiate()
 	card.position = Vector2((cell * GC.CELL), GC.CELL_Y[2])
-	card.setup(data, GC.FAR_PLACE)
+	card.setup(data, GC.PLACE)
+	
 	add_child(card)
 	move_child(card, PLACE_CARD_LAYER)
 	place_cards[cell] = card
-	
-	#on_player_moved(GameManager.player_ref.data.position)
 func despawn_place_card(cell: int):
 	if place_cards.has(cell):
 		place_cards[cell].queue_free()
@@ -70,12 +67,15 @@ func on_player_moved(data):
 	var player_cell: int = data.x/GC.CELL
 	var places_pos: Array = []
 	for i in place_cards.keys():
-		place_cards[i].setup(place_cards[i].card_data, GC.FAR_PLACE)
+		#place_cards[i].setup(place_cards[i].card_data, GC.PLACE)
+		place_cards[i].get_node("ButtonSelect").visible = false
+		
 		places_pos.append(Vector2(i * GC.CELL, GC.cell_place_y))
 	
 	EventBus.all_menus_close.emit()
 	if player_cell in place_cards.keys():
-		place_cards[player_cell].setup(place_cards[player_cell].card_data, GC.PLACE)
+		#place_cards[player_cell].setup(place_cards[player_cell].card_data, GC.PLACE)
+		place_cards[player_cell].get_node("ButtonSelect").visible = true
 	if data in places_pos:
 		place_cards[player_cell]._on_button_select_pressed()
 func on_delete_place(place_data):
