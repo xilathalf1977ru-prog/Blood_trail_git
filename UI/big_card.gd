@@ -82,13 +82,19 @@ func update_ui():
 	elif local_context in [GC.PLACE]:
 		$Name.text = TR.lc(local_data.name)
 func use_item(item_stack: ItemStack, n: int):
-	if local_data.id != "player": return
+	#if local_data.id != "player": return
 	if item_stack.main_type == "EQUIP":
 		path.get_node(item_stack.name).setup_vis(item_stack, local_data.id)
 		ActionManager.handle_action(item_stack, GC.Act.EQUIP)
 		return
-	EventBus.sfx.emit("drink")
-	ActionManager.handle_action(item_stack, GC.Act.HEAL, n)
-	if item_stack.transforms_to:
-		add_item(item_stack.transforms_to, n)
+	elif item_stack.main_type == "HEAL":
+		EventBus.sfx.emit("drink")
+		ActionManager.handle_action(item_stack, GC.Act.HEAL, n)
+		if item_stack.transforms_to:
+			add_item(item_stack.transforms_to, n)
+	elif item_stack.main_type == "BONUS":
+		EventBus.sfx.emit("drink")
+		ActionManager.handle_action(item_stack, GC.Act.BONUS)
+		if item_stack.transforms_to:
+			add_item(item_stack.transforms_to, n)
 	remove_item(item_stack, n)

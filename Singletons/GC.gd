@@ -36,6 +36,8 @@ class Act:
 	const EQUIP: String = "equip"
 	const UNEQUIP: String = "unequip"
 	const ROB: String = "rob"
+	
+	const BONUS: String = "bonus"
 
 
 const SFX: Dictionary[String, AudioStream] = {

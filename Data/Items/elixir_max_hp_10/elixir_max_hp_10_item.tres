@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cnh00y8travj8"]
+
+[ext_resource type="Texture2D" uid="uid://bxa1ttf5w5u70" path="res://Data/Items/elixir_max_hp_10/elixir_max_hp_10.webp" id="1_uhcx6"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_ocfve"]
+[ext_resource type="Resource" uid="uid://b5v2hw2dk27jd" path="res://Data/Items/bottle_empty_max/bottle_empty_max.tres" id="3_uhcx6"]
+
+[resource]
+script = ExtResource("2_ocfve")
+name = "Elixir MAX HP 10"
+type = "elixir_max_hp"
+editor_main_type = 3
+single_bonus = Dictionary[String, int]({
+"max_hp": 10
+})
+icon = ExtResource("1_uhcx6")
+cost = 150
+transforms_to = ExtResource("3_uhcx6")
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_x7a72"]
 [ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="2_f40h6"]
 [ext_resource type="Texture2D" uid="uid://bkbie2tvimu4m" path="res://Data/Places/store/store.webp" id="2_pu03p"]
-[ext_resource type="Resource" uid="uid://d0ffkdqrja5kr" path="res://Data/Entities/guard/guard.tres" id="3_qfnud"]
+[ext_resource type="Resource" uid="uid://d0ffkdqrja5kr" path="res://Data/Entities/Enemies/guard/guard.tres" id="3_qfnud"]
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="5_qfnud"]
 
 [resource]

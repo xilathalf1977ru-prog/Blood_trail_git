@@ -13,7 +13,7 @@ func setup(data: Resource, type: String):
 	elif data.player:
 		$ButtonSelect.visible = false
 		$CardEntity/ButtonSelect.mouse_filter = 2
-		if EventBus.show_player_stats.is_connected(_on_show_player_stats):
+		if !EventBus.show_player_stats.is_connected(_on_show_player_stats):
 			EventBus.show_player_stats.connect(_on_show_player_stats)
 		
 	$CardEntity.setup(data, type)
@@ -59,6 +59,7 @@ func _on_button_select_mouse_exited() -> void:
 	if card_data is EntityData and !card_data.player:
 		EventBus.show_player_stats.emit(false)
 
-func _on_show_player_stats(vis):
-	if vis:_on_button_select_mouse_entered()
-	else:_on_button_select_mouse_exited()
+func _on_show_player_stats(_vis):
+	pass
+	#if vis:_on_button_select_mouse_entered()
+	#else:_on_button_select_mouse_exited()

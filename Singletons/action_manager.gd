@@ -25,12 +25,10 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 			EventBus.alert_show.emit(context, data)
 			
 		GC.Act.RANDOM_ATTACK:
-			var enemy_pool: Array = EnemyManager.enemy_templates.duplicate_deep()
-			var enemy: EntityData = enemy_pool[GC.rng.randi_range(0, enemy_pool.size()-1)]
+			var enemy: EntityData = EnemyManager._create_random_enemy()
 			enemy.on_resource_init()
 			EventBus.log_show.emit(TR.lc("Enemy attacked:") + " " + enemy.name)
 			BattleManager.start_auto_battle(player, enemy)
-			#EventBus.log_show.emit("Напал враг " + enemy.name)
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)
 		GC.Act.TELEPORT_RNG:
 			#var dist: int = GC.rng.randi_range(data.dist*-1, data.dist)
@@ -44,11 +42,14 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)
 			EventBus.time_tick.emit(1)
 		GC.Act.EQUIP: EventBus.player_equip_change.emit(data)
+		
+		GC.Act.BONUS:
+			print("e1")
+			change_stats(data.single_bonus, 1)
 func heal(heal_amount: int, n: int = 1) -> void:
 	player.current_hp = min(player.current_hp + heal_amount * n, player.max_hp)
 	EventBus.player_changed.emit(player)
 	EventBus.log_show.emit(TR.lc("Cured by:") + " " + str(heal_amount * n))
-
 func add_loot(to_inv: Resource, from_inv: Resource):
 	for item in from_inv.real_inv:
 		if item.name == "Sword wolfkiller":
@@ -58,16 +59,21 @@ func add_loot(to_inv: Resource, from_inv: Resource):
 		add_item(to_inv, item)
 	EventBus.sfx.emit("loot")
 	EventBus.player_changed.emit(to_inv)
-
-
 func add_item(to_inv, item):
 	var found: bool = false
 	for player_stack in to_inv.real_inv:#Ищем такой же стак у игрока
-		
-		
 		if player_stack.can_merge_with(item):
 			player_stack.merge(item)
 			found = true
 			break
 	if not found:#Если не нашли - добавляем копию
 		to_inv.real_inv.append(item.duplicate())
+
+func change_stats(stat_values, direction):
+	for i in stat_values.keys():
+		match i:
+			"damage": player.damage += (stat_values[i]) * direction
+			"armor": player.armor += (stat_values[i]) * direction
+			"max_hp": player.max_hp += (stat_values[i]) * direction
+	#get_parent().get_node("Entity").setup(player, GC.PLAYER)
+	EventBus.player_changed.emit(player)

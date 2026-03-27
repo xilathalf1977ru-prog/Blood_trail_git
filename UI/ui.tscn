@@ -280,6 +280,7 @@ texture = ExtResource("9_8gukh")
 stretch_mode = 5
 
 [node name="Alert" type="Control" parent="." unique_id=912207972]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

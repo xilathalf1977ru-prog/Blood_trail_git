@@ -12,12 +12,12 @@ var equip_slots: Dictionary = {}
 @export var max_hp: int
 @export var current_hp: int
 @export var position: Vector2
+@export var spawn_chance: float = 1.0
 @export var steps: int
 @export var damage: int
 @export var armor: int
 @export var direction: Vector2
-#@export var actions: Array[ActionData]
-#@export var inv: ActionData
+
 
 @export var inventory: Dictionary[ItemStack, int]
 var real_inv: Array[ItemStack]

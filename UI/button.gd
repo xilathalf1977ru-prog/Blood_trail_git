@@ -10,15 +10,16 @@ func _ready() -> void:
 	EventBus.unequip.connect(on_unequip)
 
 func set_extra_button(data: Resource) -> void:
+	print(data.main_type)
 	if data.main_type == "EQUIP":
 		$ButtonExtra.visible = true
 		extra_button_data = data
 		ui_extra_button(data, data.main_type)
-	elif data.main_type == "HEAL":
+	elif data.main_type in ["HEAL", "BONUS"]:
 		$ButtonExtra.visible = true
 		extra_button_data = data
 		ui_extra_button(data, data.main_type)
-	else: 
+	else:
 		$ButtonExtra.visible = false
 func ui_extra_button(data, type: String):
 	if type == "EQUIP":
@@ -28,7 +29,7 @@ func ui_extra_button(data, type: String):
 			$ButtonExtra.text = "-"
 		else:
 			$ButtonExtra.text = "+"
-	elif type == "HEAL":
+	elif type == "HEAL" or "BONUS":
 		$ButtonExtra.add_theme_font_size_override("font_size", 40)
 		$ButtonExtra.text = TR.lc("Drink")#"Пить"
 func _on_button_equip_pressed() -> void:

@@ -12,12 +12,12 @@ func create_map(place_map) -> Dictionary:
 	for i in 6:
 		pockets.append(Factory.create_inv(places_templates, items_templates))
 	
-	place_map[0] = places_templates["home"]
+	place_map[0] = places_templates["store"]
 	place_map[9] = places_templates["stone_and_sword"]
 	
 	var a = [
 		places_templates["portal"],
-		places_templates["store"],
+		#places_templates["store"],
 		]
 	a.append_array(pockets)
 	var available_keys: Array = range(-GC.END_WORLD, GC.END_WORLD+1)

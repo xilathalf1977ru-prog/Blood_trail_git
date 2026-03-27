@@ -35,28 +35,27 @@ var equiped: bool:
 		return item.equiped
 var equip_bonus: Dictionary:
 	get:
-		return item.equip_bonus# if item else {}
+		return item.equip_bonus
+var single_bonus: Dictionary:
+	get:
+		return item.single_bonus
+
 var cost: int:
 	get:
-		return item.cost# if item else 0
+		return item.cost
 var icon: Texture2D:
 	get:
-		return item.icon# if item else null
-#var actions: Array[ActionData]:
-	#get:
-		#return item.actions# if item else []
+		return item.icon
 var heal_amount: int:
 	get:
-		return item.heal_amount# if item else 0
+		return item.heal_amount
 var transforms_to: ItemStack:
 	get:
-		return item.transforms_to# if item else null
+		return item.transforms_to
 
 
 #@export var durability: float = 1.0  # ← добавь если нужно
 #@export var quality: int = 1         # ← добавь если нужно
-
-
 func can_merge_with(other: ItemStack) -> bool:
 	return item == other.item 
 	#and durability == other.durability # ← раскомментируй когда добавишь

@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://d0ffkdqrja5kr"]
 
-[ext_resource type="Texture2D" uid="uid://cbtbc15oem3qf" path="res://Data/Entities/guard/g1.webp" id="1_okjdt"]
+[ext_resource type="Texture2D" uid="uid://cbtbc15oem3qf" path="res://Data/Entities/Enemies/guard/g1.webp" id="1_okjdt"]
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_ry5tp"]
 [ext_resource type="Resource" uid="uid://bfv0cowyhvftd" path="res://Data/Items/sword_iron/sword_iron.tres" id="3_k0ix7"]
 [ext_resource type="Resource" uid="uid://dgjvmxo1di50b" path="res://Data/Items/helm_iron/helm_iron.tres" id="4_h8hov"]
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="5_vbqls"]
-[ext_resource type="Texture2D" uid="uid://bu1jqlq0bm6xh" path="res://Data/Entities/guard/g2.webp" id="6_ij7nu"]
+[ext_resource type="Texture2D" uid="uid://bu1jqlq0bm6xh" path="res://Data/Entities/Enemies/guard/g2.webp" id="6_ij7nu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dcwdv"]
 animations = [{
@@ -28,6 +28,7 @@ icon = ExtResource("1_okjdt")
 sprites = SubResource("SpriteFrames_dcwdv")
 max_hp = 100
 current_hp = 100
+spawn_chance = 0.05
 damage = 20
 armor = 2
 inventory = Dictionary[ExtResource("2_ry5tp"), int]({

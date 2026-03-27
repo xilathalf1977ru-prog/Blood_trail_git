@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b53nvosgq7t4n" path="res://Sprites/hpbar.webp" id="2_bytes"]
 [ext_resource type="Texture2D" uid="uid://ck4ls7ff61jn7" path="res://Sprites/scroll.webp" id="4_rnl6m"]
 [ext_resource type="Texture2D" uid="uid://n25o5vn7xnxc" path="res://UI/exit.webp" id="5_1ui3w"]
+[ext_resource type="Texture2D" uid="uid://dg06ljp40i04m" path="res://UI/sword.webp" id="7_0j753"]
+[ext_resource type="Texture2D" uid="uid://c2cu7fqt17rfp" path="res://UI/shield.webp" id="8_i0a73"]
 
 [node name="HUD" type="Control" unique_id=803828367]
 layout_mode = 3
@@ -26,6 +28,112 @@ offset_top = -45.0
 offset_right = 40.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=95601927]
+visible = false
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.37254903)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=2123813803]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 969.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.3764706, 0.23137255, 0.22745098, 1)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=564124582]
+layout_mode = 0
+offset_left = 4.0000076
+offset_top = 971.00006
+offset_right = 52.000008
+offset_bottom = 1019.00006
+scale = Vector2(6.05, 0.64)
+value = 50.0
+texture_progress = ExtResource("2_bytes")
+
+[node name="ColorRect" type="ColorRect" parent="TextureProgressBar" unique_id=265988030]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+color = Color(0.33, 0, 0, 1)
+
+[node name="HP" type="Label" parent="." unique_id=1201990248]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 970.0
+offset_right = 584.0
+offset_bottom = 1037.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Damage" type="ColorRect" parent="." unique_id=1057707059]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1004.00006
+offset_right = 100.0
+offset_bottom = 1052.0
+scale = Vector2(1.5, 1.5)
+color = Color(0.23137255, 0.12941177, 0.21568628, 1)
+
+[node name="L" type="Label" parent="Damage" unique_id=758283742]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 144.0
+offset_bottom = 95.99988
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Damage" unique_id=1566104117]
+layout_mode = 0
+offset_left = -17.333332
+offset_top = 23.999918
+offset_right = 30.666668
+offset_bottom = 71.999916
+rotation = 3.926991
+scale = Vector2(-1.3, 1.3)
+texture = ExtResource("7_0j753")
+
+[node name="Armor" type="ColorRect" parent="." unique_id=349806552]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 1004.00006
+offset_right = 245.99997
+offset_bottom = 1052.0
+scale = Vector2(1.5, 1.5)
+color = Color(0.39607844, 0.4509804, 0.54901963, 1)
+
+[node name="L" type="Label" parent="Armor" unique_id=1955275507]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 144.0
+offset_bottom = 96.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Armor" unique_id=1338451107]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("8_i0a73")
 
 [node name="ButtonSleep" type="Button" parent="." unique_id=1401699890]
 layout_mode = 1
@@ -48,9 +156,9 @@ alignment = 0
 [node name="TextureRect" type="TextureRect" parent="ButtonSleep" unique_id=1321808769]
 texture_filter = 1
 layout_mode = 0
-offset_top = -2.0
+offset_top = -2.4999847
 offset_right = 133.33331
-offset_bottom = 46.0
+offset_bottom = 45.500015
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_2o5uh")
 stretch_mode = 3
@@ -63,8 +171,8 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -100.0
-offset_top = -62.0
-offset_bottom = -31.0
+offset_top = -72.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -133,49 +241,6 @@ offset_bottom = 48.0
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_1ui3w")
 stretch_mode = 5
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=95601927]
-visible = false
-layout_mode = 0
-offset_right = 960.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.37254903)
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=564124582]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 1021.0
-offset_right = 324.0
-offset_bottom = 1056.0
-value = 50.0
-texture_progress = ExtResource("2_bytes")
-
-[node name="ColorRect2" type="ColorRect" parent="TextureProgressBar" unique_id=2123813803]
-show_behind_parent = true
-layout_mode = 0
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 303.0
-offset_bottom = 38.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect" type="ColorRect" parent="TextureProgressBar" unique_id=265988030]
-show_behind_parent = true
-layout_mode = 0
-offset_right = 300.0
-offset_bottom = 35.0
-color = Color(0.33, 0, 0, 1)
-
-[node name="HP" type="Label" parent="." unique_id=2093113863]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 1021.0
-offset_right = 307.0
-offset_bottom = 1056.0
-theme_override_font_sizes/font_size = 24
-text = "100/200"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="ButtonSleep" to="." method="_on_button_sleep_pressed"]
 [connection signal="pressed" from="ButtonInv" to="." method="_on_button_inv_pressed"]

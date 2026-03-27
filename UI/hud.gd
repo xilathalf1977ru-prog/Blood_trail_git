@@ -18,6 +18,9 @@ func on_player_changed(data: Resource) -> void:
 	$TextureProgressBar.max_value = data.max_hp
 	$TextureProgressBar.value = data.current_hp
 	$HP.text = str(data.current_hp) + "/" + str(data.max_hp)
+	
+	$Damage/L.text = str(data.damage)
+	$Armor/L.text = str(data.armor)
 
 func _on_button_quest_pressed() -> void:
 	EventBus.show_quest.emit()

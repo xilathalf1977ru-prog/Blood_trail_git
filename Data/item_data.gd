@@ -3,7 +3,7 @@ class_name ItemData
 
 @export var name: String
 @export var type: String
-enum EditorType {NONE, HEAL, EQUIP}
+enum EditorType {NONE, HEAL, EQUIP, BONUS}
 @export var editor_main_type: EditorType = EditorType.NONE
 var main_type: String:
 	get:
@@ -17,7 +17,7 @@ var equip_type: String:
 
 @export var equip_bonus: Dictionary[String, int]
 
-
+@export var single_bonus: Dictionary[String, int]
 
 var equiped: bool = false
 
@@ -25,7 +25,6 @@ var equiped: bool = false
 
 @export var sprites: SpriteFrames
 @export var cost: int
-#@export var actions: Array[ActionData]
 @export var heal_amount: int
 
 @export var transforms_to: ItemStack

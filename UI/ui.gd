@@ -52,7 +52,6 @@ func on_alert_show(alert_name: String, alert_res: Resource = null) -> void:
 	alert_name_local = alert_name
 	alert_res_local = alert_res
 	GC.control_free = false
-	
 	$Alert/Entity.visible = false
 	$Alert/Entity2.visible = false
 	if alert_name_local == GC.Act.SLEEP:
@@ -60,6 +59,7 @@ func on_alert_show(alert_name: String, alert_res: Resource = null) -> void:
 	elif alert_name_local == GC.Act.TELEPORT_RNG:
 		$Alert/Label.text = TR.lc("alert_portal")
 	elif alert_name_local == GC.Act.ROB:
+		$BigCards.close_all_menus()
 		$Alert/Label.text = TR.lc("alert_rob")
 		$Alert/Entity.visible = true
 		$Alert/Entity2.visible = true
