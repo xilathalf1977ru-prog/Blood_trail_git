@@ -3,27 +3,16 @@ extends Node
 var player: EntityData:
 	get:
 		return GameManager.player_ref.data
-
 func handle_action(data: Resource, context: String, n: int = 1) -> void:
 	match context:
-		GC.Act.HEAL:
-			heal(data.heal_amount, n)
-		GC.Act.TRADE:
-			EventBus.menu.emit(data, GC.Act.TRADE)
-		GC.Act.INV:
-			EventBus.menu.emit(data, GC.Act.INV)
+		GC.Act.HEAL: heal(data.heal_amount, n)
+		GC.Act.TRADE: EventBus.menu.emit(data, GC.Act.TRADE)
+		GC.Act.INV: EventBus.menu.emit(data, GC.Act.INV)
 		GC.LOOT:
 			add_loot(player, data)
+			
 			EventBus.delete_place.emit(data)
-			
-		GC.Act.ROB:
-			#var enemy = data.entities[0]
-			#BattleManager.start_auto_battle(player, enemy)
-			#add_loot(player, data)
-			#data.real_inv.clear()
-			
-			EventBus.alert_show.emit(context, data)
-			
+		GC.Act.ROB: EventBus.alert_show.emit(context, data)
 		GC.Act.RANDOM_ATTACK:
 			var enemy: EntityData = EnemyManager._create_random_enemy()
 			enemy.on_resource_init()
@@ -42,10 +31,7 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)
 			EventBus.time_tick.emit(1)
 		GC.Act.EQUIP: EventBus.player_equip_change.emit(data)
-		
-		GC.Act.BONUS:
-			print("e1")
-			change_stats(data.single_bonus, 1)
+		GC.Act.BONUS: change_stats(data.single_bonus, 1)
 func heal(heal_amount: int, n: int = 1) -> void:
 	player.current_hp = min(player.current_hp + heal_amount * n, player.max_hp)
 	EventBus.player_changed.emit(player)
@@ -55,7 +41,7 @@ func add_loot(to_inv: Resource, from_inv: Resource):
 		if item.name == "Sword wolfkiller":
 			EventBus.log_show.emit(TR.lc("Quest is completed"))
 			EventBus.quest_finished.emit()
-		EventBus.log_show.emit(TR.lc("You received item:") + " " + item.name)
+		EventBus.log_show.emit(TR.lc("You received item:") + " " + TR.lc(item.name))
 		add_item(to_inv, item)
 	EventBus.sfx.emit("loot")
 	EventBus.player_changed.emit(to_inv)
@@ -68,12 +54,10 @@ func add_item(to_inv, item):
 			break
 	if not found:#Если не нашли - добавляем копию
 		to_inv.real_inv.append(item.duplicate())
-
 func change_stats(stat_values, direction):
 	for i in stat_values.keys():
 		match i:
 			"damage": player.damage += (stat_values[i]) * direction
 			"armor": player.armor += (stat_values[i]) * direction
 			"max_hp": player.max_hp += (stat_values[i]) * direction
-	#get_parent().get_node("Entity").setup(player, GC.PLAYER)
 	EventBus.player_changed.emit(player)

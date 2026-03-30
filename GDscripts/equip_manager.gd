@@ -24,20 +24,17 @@ func on_check_equip(equip_data: ItemStack) -> void:
 func equip(equip_data: ItemStack) -> void:
 	data.equip_slots[equip_data.equip_type] = equip_data
 	equip_data.equiped = true
-	change_stats(equip_data.equip_bonus, 1)
+	ActionManager.change_stats(equip_data.equip_bonus, 1)
 	EventBus.equip.emit(equip_data)
 func unequip(equip_data: ItemStack) -> void:
 	equip_data.equiped = false
-	change_stats(equip_data.equip_bonus, -1)
+	ActionManager.change_stats(equip_data.equip_bonus, -1)
 	data.equip_slots.erase(equip_data.equip_type)
 	EventBus.unequip.emit(equip_data)
-func change_stats(stat_values, direction):
-	for i in stat_values.keys():
-		match i:
-			"damage": data.damage += (stat_values[i]) * direction
-			"armor": data.armor += (stat_values[i]) * direction
-	get_parent().get_node("Entity").setup(data, GC.PLAYER)
-	EventBus.player_changed.emit(data)
-
-func dead():
-	print(data.equip_slots)
+#func change_stats(stat_values, direction):
+	#for i in stat_values.keys():
+		#match i:
+			#"damage": data.damage += (stat_values[i]) * direction
+			#"armor": data.armor += (stat_values[i]) * direction
+	#get_parent().get_node("Entity").setup(data, GC.PLAYER)
+	#EventBus.player_changed.emit(data)

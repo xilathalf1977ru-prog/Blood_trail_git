@@ -58,6 +58,8 @@ func show_enemies_cards(enemies: Array[EntityData]) -> void:
 		card.setup(enemy_data, GC.ENEMY)
 var last_posx_player: int = 0
 func on_player_moved(data):
+	await get_tree().process_frame
+	
 	var delta: int = int(data.x) - last_posx_player
 	var direct: float = sign(delta) * (1 if abs(delta) == GC.CELL else -1)
 	last_posx_player += delta
@@ -66,6 +68,13 @@ func on_player_moved(data):
 		BattleManager.start_auto_battle(GameManager.player_ref.data, current_enemies_pos[player_key])
 	var player_cell: int = data.x/GC.CELL
 	var places_pos: Array = []
+	
+	print("__")
+	for cell in place_cards:
+		print(str(cell) + " " + str(place_cards[cell].card_data.name))
+	
+	#print(place_cards.keys())
+	#print(place_cards.size())
 	for i in place_cards.keys():
 		#place_cards[i].setup(place_cards[i].card_data, GC.PLACE)
 		place_cards[i].get_node("ButtonSelect").visible = false
@@ -74,12 +83,23 @@ func on_player_moved(data):
 	
 	EventBus.all_menus_close.emit()
 	if player_cell in place_cards.keys():
-		#place_cards[player_cell].setup(place_cards[player_cell].card_data, GC.PLACE)
 		place_cards[player_cell].get_node("ButtonSelect").visible = true
 	if data in places_pos:
 		place_cards[player_cell]._on_button_select_pressed()
 func on_delete_place(place_data):
+	print("====")
 	for cell in place_cards:
+		print(str(cell) + " " + str(place_cards[cell].card_data.name))
+		
 		if place_cards[cell].card_data == place_data:
+			
 			despawn_place_card(cell)
+			var dist: int = GC.END_WORLD * 2 + 1
+			
+			
+			despawn_place_card(cell + dist)
+			despawn_place_card(cell - dist)
+			
+			#print(place_cards.keys())
+			#print(place_cards.size())
 			break

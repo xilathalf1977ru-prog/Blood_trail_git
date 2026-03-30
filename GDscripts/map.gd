@@ -12,6 +12,9 @@ func _ready():
 	EventBus.player_moved.connect(update_places)
 	EventBus.delete_place.connect(on_delete_place)
 	EventBus.time_ticked.connect(on_time_ticked)
+	
+	EventBus.create_place.connect(on_create_place)
+	
 	place_map = $map_create.create_map(place_map)
 	call_deferred("autorun")
 func autorun():update_places(Vector2(0, 0))
@@ -41,10 +44,17 @@ func update_places(player_pos: Vector2):
 func has_save_file() -> bool:
 	return FileAccess.file_exists("user://save.tres")
 func on_delete_place(place_data):
+	
 	if place_data in place_map.values():
 		place_map.erase(place_map.find_key(place_data))
 		delete_mirrors_places(place_data)
 func delete_mirrors_places(place_data):
+	#print(place_data)
+	#print("===")
+	#print(place_map)
+	#print("===")
+	#print(place_map.find_key(place_data))
+	
 	place_map.erase(place_map.find_key(place_data))
 	place_map.erase(place_map.find_key(place_data))
 func black_list_random_item():
@@ -56,3 +66,7 @@ func on_time_ticked(_time_now):
 	var item_name: String = items_templates.keys().pick_random()
 	for i in place_time:
 		ActionManager.add_item(place_map[i], items_templates[item_name])
+func on_create_place():
+	$map_create.add_place(place_map)
+	var player_pos = ActionManager.player.position
+	update_places(player_pos)

@@ -10,7 +10,6 @@ func _ready() -> void:
 	EventBus.unequip.connect(on_unequip)
 
 func set_extra_button(data: Resource) -> void:
-	print(data.main_type)
 	if data.main_type == "EQUIP":
 		$ButtonExtra.visible = true
 		extra_button_data = data

@@ -64,7 +64,10 @@ from_inv: Object, to_inv: Object) -> void:
 		to_inv.update_ui()
 		from_inv.save_inv_money()
 		to_inv.save_inv_money()
-	if item_stack.main_type == "EQUIP" and item_stack.quantity == n:
+		
+	#if item_stack.main_type == "EQUIP" and item_stack.quantity == n:
+	if (item_stack.main_type == "EQUIP" and item_stack.quantity == n
+	and from_inv.local_data.id == GC.PLAYER):
 		EventBus.check_equip.emit(item_stack)
 	to_inv.add_item(item_stack.duplicate(), n)
 	from_inv.remove_item(item_stack, n)

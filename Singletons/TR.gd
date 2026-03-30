@@ -1,6 +1,6 @@
 extends Node
 
-var lang: String = "en"
+var lang: String = "ru"
 const L: Dictionary[String, Dictionary] = {
 	"en":{
 			"Player":			"Player",
@@ -8,15 +8,25 @@ const L: Dictionary[String, Dictionary] = {
 			"damage":			"damage",
 			"hp":				"hp",
 			
+			##Существа
+			"Goblin":"Goblin",
+			"Goblin fat":"Goblin fat",
+			"Wolf":"Wolf",
+			"Guard":"Guard",
+			"Bear":"Bear",
+			
+			##Вещи
 			"Helm iron":			"Helm iron",
 			"Sword iron":		"Sword iron",
 			"Sword wolfkiller":	"Sword wolfkiller",
 			"Goblin head":"Goblin head",
 			"Goblin fat head":"Goblin fat head",
 			"Wolf head":"Wolf head",
+			"Bear head":"Bear head",
 			"Elixir HP 50":"Elixir HP 50",
 			"Elixir MAX HP 10":"Elixir MAX HP 10",
 			"Bottle empty":"Bottle empty",
+			
 			"My home":"My home",
 			"Inventory player":"Inventory player",
 			"Inventory":"Inventory",
@@ -25,6 +35,7 @@ const L: Dictionary[String, Dictionary] = {
 			"Pocket":"Pocket",
 			
 			"Drink":"Drink",
+			
 			"Enemy killed:":"Enemy killed:",
 			"You killed by:":"You killed by:",
 			"Enemy attacked:":"Enemy attacked:",
@@ -82,15 +93,25 @@ const L: Dictionary[String, Dictionary] = {
 			"damage":			"урон",
 			"hp":				"здоровье",
 			
+			##Существа
+			"Goblin":"Гоблин",
+			"Goblin fat":"Жирный гоблин",
+			"Wolf":"Волк",
+			"Guard":"Страж",
+			"Bear":"Медведь",
+			
+			##Вещи
 			"Helm iron":			"Железный шлем",
 			"Sword iron":		"Железный меч",
 			"Sword wolfkiller":	"Меч волкодав",
 			"Goblin head":"Голова гоблина",
 			"Goblin fat head":"Голова жирного гоблина",
 			"Wolf head":"Голова волка",
+			"Bear head":"Голова медведя",
 			"Elixir HP 50":"Эликсир хп 50",
 			"Elixir MAX HP 10":"Эликсир макс хп 10",
 			"Bottle empty":"Пустая бутылка",
+			
 			"My home":"Мой дом",
 			"Inventory player":"Инвентарь игрока",
 			"Inventory":"Инвентарь",
@@ -99,6 +120,7 @@ const L: Dictionary[String, Dictionary] = {
 			"Pocket":"Мешок",
 			
 			"Drink":"Выпить",
+			
 			"Enemy killed:":"Враг убит:",
 			"You killed by:":"Вас убил:",
 			"Enemy attacked:":"Напал враг:",
@@ -153,7 +175,6 @@ const L: Dictionary[String, Dictionary] = {
 }
 
 func lc(text: String) -> String: return L[lang][text]
-	
 const A: Dictionary[String, Dictionary] = {
 	"en":{
 		"voice":preload("res://Voice/en/voice_en.ogg"),
@@ -170,5 +191,4 @@ const A: Dictionary[String, Dictionary] = {
 		"rob":preload("res://Voice/ru/alert_rob_ru.ogg"),
 		},
 	}
-
 func alc(text: String) -> AudioStream: return A[lang][text]

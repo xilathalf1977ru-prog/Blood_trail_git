@@ -42,7 +42,7 @@ layout_mode = 0
 offset_top = 969.0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.3764706, 0.23137255, 0.22745098, 1)
+color = Color(0.12941177, 0.23137255, 0.14509805, 1)
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=564124582]
 layout_mode = 0

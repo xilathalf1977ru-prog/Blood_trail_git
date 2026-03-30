@@ -24,11 +24,8 @@ signal result_quantity_menu(n: int, buffer: Array)
 signal show_quest()
 @warning_ignore("unused_signal")
 signal quest_finished()
-
 @warning_ignore("unused_signal")
 signal camera_move(position)
-
-
 @warning_ignore("unused_signal")
 signal alert_show(alert_name: String, res_data: Resource)
 
@@ -58,6 +55,9 @@ signal time_ticked(n: int)
 @warning_ignore("unused_signal")
 signal enemies_generated(enemies: Array[EntityData])
 
+
+@warning_ignore("unused_signal")
+signal create_place()
 ## --- СОСТОЯНИЕ ИГРОКА ---
 @warning_ignore("unused_signal")
 signal player_changed(player_data: EntityData)

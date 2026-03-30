@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://bcirkv8hrjpfl"]
+
+[ext_resource type="Texture2D" uid="uid://cflccd2lxkegx" path="res://Data/Entities/Enemies/bear/bear_0001.webp" id="1_fubxg"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_yhatf"]
+[ext_resource type="Resource" uid="uid://cbb7cv3nfghrw" path="res://Data/Items/bear_head/bear_head.tres" id="3_557y4"]
+[ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="4_kgxpu"]
+[ext_resource type="Texture2D" uid="uid://dwpap1agsccl1" path="res://Data/Entities/Enemies/bear/bear_0002.webp" id="5_557y4"]
+[ext_resource type="Texture2D" uid="uid://bd0j2356rqbn4" path="res://Data/Entities/Enemies/bear/bear_0003.webp" id="6_fubxg"]
+[ext_resource type="Texture2D" uid="uid://bja5wmgn6fjmp" path="res://Data/Entities/Enemies/bear/bear_0004.webp" id="7_t6o06"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65vhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fubxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_557y4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fubxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t6o06")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("4_kgxpu")
+name = "Bear"
+icon = ExtResource("1_fubxg")
+sprites = SubResource("SpriteFrames_65vhs")
+max_hp = 120
+current_hp = 120
+spawn_chance = 0.1
+damage = 80
+inventory = Dictionary[ExtResource("2_yhatf"), int]({
+ExtResource("3_557y4"): 1
+})
+metadata/_custom_type_script = "uid://bqduy5pjk0fl"

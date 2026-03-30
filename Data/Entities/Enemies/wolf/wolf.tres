@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://chiciqtlfnlae"]
 
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_ticih"]
-[ext_resource type="Texture2D" uid="uid://ch0ysafqvapti" path="res://Data/Entities/Enemies/wolf/wolf_icon.webp" id="3_3vg2v"]
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="4_6cvop"]
 [ext_resource type="Resource" uid="uid://bah7nl6ouci0d" path="res://Data/Items/wolf_head/wolf_head.tres" id="5_82clm"]
 [ext_resource type="Texture2D" uid="uid://bankjst5emjj5" path="res://Data/Entities/Enemies/wolf/wolf_0001.webp" id="5_tcm5p"]
@@ -32,11 +31,11 @@ animations = [{
 [resource]
 script = ExtResource("1_ticih")
 name = "Wolf"
-icon = ExtResource("3_3vg2v")
+icon = ExtResource("5_tcm5p")
 sprites = SubResource("SpriteFrames_dcwdv")
 max_hp = 60
 current_hp = 60
-damage = 60
+damage = 50
 inventory = Dictionary[ExtResource("4_6cvop"), int]({
 ExtResource("5_82clm"): 1
 })

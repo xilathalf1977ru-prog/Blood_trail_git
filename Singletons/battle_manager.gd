@@ -13,7 +13,7 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 	var victory = player_data.current_hp > 0
 	
 	if victory:
-		EventBus.log_show.emit(TR.lc("Enemy killed:") + " " + enemy_data.name)
+		EventBus.log_show.emit(TR.lc("Enemy killed:") + " " + TR.lc(enemy_data.name))
 		
 		ActionManager.add_loot(player_data, enemy_data)
 	else:

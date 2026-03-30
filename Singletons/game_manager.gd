@@ -71,5 +71,10 @@ func on_object_died(obj):
 
 func on_time_tick(n: int):
 	day += n
+	
+	#if day % 5 == 0:
+	#if day in [2, 3, 4, 5]:
+	EventBus.create_place.emit()
+	
 	EventBus.time_ticked.emit(day)
 	

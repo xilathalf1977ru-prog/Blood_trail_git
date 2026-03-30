@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="PlaceData" format=3 uid="uid://dnoeytbvr8e5o"]
 
 [ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="1_ecifm"]
+[ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_g4iwa"]
 [ext_resource type="Texture2D" uid="uid://chcoqyx87ri6i" path="res://Data/Places/portal/portal.webp" id="3_g4iwa"]
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="4_1ob61"]
 
 [resource]
 script = ExtResource("1_ecifm")
 name = "Portal"
-type = "portal"
+type = "teleport_rng"
 icon = ExtResource("3_g4iwa")
 actions = Dictionary[String, Texture2D]({
 "teleport_rng": null

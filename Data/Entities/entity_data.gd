@@ -31,4 +31,5 @@ func on_resource_init() -> void:
 	for i in inventory:
 		var copy: Resource = i.duplicate()
 		copy.quantity = inventory[i]
-		real_inv.append(copy.duplicate())
+		#real_inv.append(copy.duplicate())
+		real_inv.append(copy)

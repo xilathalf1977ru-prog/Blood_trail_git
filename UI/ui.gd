@@ -82,6 +82,7 @@ func _on_button_ok_pressed() -> void:
 	if alert_name_local == GC.Act.SLEEP:
 		ActionManager.heal(999, 1)
 		ActionManager.handle_action(null, GC.Act.RANDOM_ATTACK)
+		EventBus.time_tick.emit(1)
 	elif alert_name_local == GC.Act.TELEPORT_RNG:
 		var dist: int = GC.rng.randi_range(alert_res_local.dist*-1, alert_res_local.dist)
 		EventBus.player_teleport.emit(dist)
