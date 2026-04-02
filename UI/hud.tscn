@@ -44,6 +44,15 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.12941177, 0.23137255, 0.14509805, 1)
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=265988030]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 4.0000076
+offset_top = 971.00006
+offset_right = 294.0
+offset_bottom = 1002.0
+color = Color(0.33, 0, 0, 1)
+
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=564124582]
 layout_mode = 0
 offset_left = 4.0000076
@@ -53,13 +62,6 @@ offset_bottom = 1019.00006
 scale = Vector2(6.05, 0.64)
 value = 50.0
 texture_progress = ExtResource("2_bytes")
-
-[node name="ColorRect" type="ColorRect" parent="TextureProgressBar" unique_id=265988030]
-show_behind_parent = true
-layout_mode = 0
-offset_right = 48.0
-offset_bottom = 48.0
-color = Color(0.33, 0, 0, 1)
 
 [node name="HP" type="Label" parent="." unique_id=1201990248]
 layout_mode = 0
@@ -242,7 +244,11 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_1ui3w")
 stretch_mode = 5
 
+[node name="Timer" type="Timer" parent="." unique_id=1066895699]
+wait_time = 0.5
+
 [connection signal="pressed" from="ButtonSleep" to="." method="_on_button_sleep_pressed"]
 [connection signal="pressed" from="ButtonInv" to="." method="_on_button_inv_pressed"]
 [connection signal="pressed" from="ButtonQuest" to="." method="_on_button_quest_pressed"]
 [connection signal="pressed" from="ButtonExit" to="." method="_on_button_exit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

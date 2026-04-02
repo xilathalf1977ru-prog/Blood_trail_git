@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://bxdtxxj0gpix4"]
+
+[ext_resource type="Texture2D" uid="uid://bwbnc8vv6g0t5" path="res://Data/Entities/Elf_zombie/elf_zombie_0001.webp" id="1_q407y"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_is4rp"]
+[ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="4_lqkny"]
+[ext_resource type="Texture2D" uid="uid://bjg5gsu81xp8m" path="res://Data/Entities/Elf_zombie/elf_zombie_0002.webp" id="5_jcv7k"]
+[ext_resource type="Texture2D" uid="uid://bxji3gbfil0hn" path="res://Data/Entities/Elf_zombie/elf_zombie_0003.webp" id="6_x672b"]
+[ext_resource type="Texture2D" uid="uid://sw6qn2lc3my2" path="res://Data/Entities/Elf_zombie/elf_zombie_0004.webp" id="7_f8i0p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65vhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q407y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jcv7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x672b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f8i0p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("4_lqkny")
+name = "Elf zombie"
+icon = ExtResource("1_q407y")
+sprites = SubResource("SpriteFrames_65vhs")
+max_hp = 100
+current_hp = 100
+damage = 40
+armor = 10
+metadata/_custom_type_script = "uid://bqduy5pjk0fl"

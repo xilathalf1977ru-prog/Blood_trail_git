@@ -3,100 +3,53 @@ extends CanvasLayer
 const SOUND: Dictionary[String, AudioStream] = {
 	"theme":preload("res://Music/e.ogg"),
 }
+var story_step: int = 0
 func _ready() -> void:
 	EventBus.death_screen_changed.connect(show_death_screen)
 	EventBus.main_menu_changed.connect(show_main_menu)
 	EventBus.show_quest.connect(on_show_quest)
 	EventBus.quest_finished.connect(on_quest_finished)
-	
-	EventBus.alert_show.connect(on_alert_show)
 	set_quest_info()
 	if !$History.visible:
 		$AudioStreamPlayer.stream = SOUND["theme"]
 	$AudioStreamPlayer.play()
 func show_death_screen(vis :bool):
 	$DeathScreen.visible = vis
-func show_main_menu(vis :bool):$MainMenu.visible = vis
-
-
+func show_main_menu(vis :bool): $MainMenu.visible = vis
 func _on_button_close_pressed() -> void:
+	GC.control_free = true
 	$History.visible = false
 	$AudioStreamPlayer.stream = SOUND["theme"]
 	$AudioStreamPlayer.play()
-var quest_finished: bool = false
 func on_show_quest() -> void:
+	#GC.control_free = false
 	$History.visible = true
 	if $History.visible:
 		set_quest_info()
 	else:
 		$AudioStreamPlayer.stream = SOUND["theme"]
 	$AudioStreamPlayer.play()
-	
 func set_quest_info() -> void:
-	if !quest_finished:
+	#GC.control_free = false
+	$History.visible = true
+	if story_step == 0:
+		$History/Label2.text = TR.lc("quest0")
+		$AudioStreamPlayer.stream = TR.alc("quest0_voice")
+	elif story_step == 1:
 		$History/Label2.text = TR.lc("quest1")
-		$AudioStreamPlayer.stream = TR.alc("voice")
-	else:
-		$History/Label2.text = TR.lc("quest1_end")
-		$AudioStreamPlayer.stream = TR.alc("voice2")
+		$AudioStreamPlayer.stream = TR.alc("quest1_voice")
+	elif story_step == 2:
+		$History/Label2.text = TR.lc("quest2")
+	elif story_step == 3:
+		$History/Label2.text = TR.lc("quest3")
+	if story_step != 0:
 		$History/TextureRect.visible = false
 		$History/TextureRect2.visible = false
-func on_quest_finished() -> void:
-	quest_finished = true
-	set_quest_info()
-	$AudioStreamPlayer.play()
-	$History.visible = true
-var alert_name_local: String = ""
-var alert_res_local: Resource = null
-func on_alert_show(alert_name: String, alert_res: Resource = null) -> void:
-	alert_name_local = alert_name
-	alert_res_local = alert_res
 	GC.control_free = false
-	$Alert/Entity.visible = false
-	$Alert/Entity2.visible = false
-	if alert_name_local == GC.Act.SLEEP:
-		$Alert/Label.text = TR.lc("alert_sleep")
-	elif alert_name_local == GC.Act.TELEPORT_RNG:
-		$Alert/Label.text = TR.lc("alert_portal")
-	elif alert_name_local == GC.Act.ROB:
-		$BigCards.close_all_menus()
-		$Alert/Label.text = TR.lc("alert_rob")
-		$Alert/Entity.visible = true
-		$Alert/Entity2.visible = true
-		
-		$Alert/Entity.setup(ActionManager.player, GC.PLAYER)
-		$Alert/Entity2.setup(alert_res.entities[0], GC.PLAYER)
-		
-		
-	$Alert.visible = true
-	$Alert/Audio.stream = TR.alc(alert_name)
-	$Alert/Audio.play()
-func _on_button_x_pressed() -> void:
-	alert_name_local = ""
-	alert_res_local = null
-	GC.control_free = true
-	$Alert.visible = false
-	$Alert/Audio.stop()
-	$Alert/Audio.stream = null
-func _on_button_ok_pressed() -> void:
-	if alert_name_local == GC.Act.SLEEP:
-		ActionManager.heal(999, 1)
-		ActionManager.handle_action(null, GC.Act.RANDOM_ATTACK)
-		EventBus.time_tick.emit(1)
-	elif alert_name_local == GC.Act.TELEPORT_RNG:
-		var dist: int = GC.rng.randi_range(alert_res_local.dist*-1, alert_res_local.dist)
-		EventBus.player_teleport.emit(dist)
-		EventBus.all_menus_close.emit()
-		EventBus.sfx.emit("portal")
-		EventBus.log_show.emit(TR.lc("Teleported to:") + " " + str(dist))
-	elif alert_name_local == GC.Act.ROB:
-		var enemy = alert_res_local.entities[0]
-		BattleManager.start_auto_battle(ActionManager.player, enemy.duplicate())
-		ActionManager.add_loot(ActionManager.player, alert_res_local)
-		ActionManager.player.money += alert_res_local.money
-		alert_res_local.money = 0
-		alert_res_local.real_inv.clear()
-		
-		
-		
-	_on_button_x_pressed()
+func on_quest_finished(n: int) -> void:
+	if n > story_step:
+		GC.control_free = false
+		story_step = n
+		set_quest_info()
+		$AudioStreamPlayer.play()
+		$History.visible = true

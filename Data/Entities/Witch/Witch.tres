@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://fvf0qfvjui1s"]
+
+[ext_resource type="Texture2D" uid="uid://c3kwfs6k38h52" path="res://Data/Entities/Witch/Witch_0001.webp" id="1_6ses5"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_iwmjn"]
+[ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="3_sp486"]
+[ext_resource type="Texture2D" uid="uid://wfpdl3njagw5" path="res://Data/Entities/Witch/Witch_0002.webp" id="4_rm4p5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65vhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6ses5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rm4p5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("3_sp486")
+name = "Witch"
+icon = ExtResource("1_6ses5")
+sprites = SubResource("SpriteFrames_65vhs")
+max_hp = 80
+current_hp = 80
+damage = 55
+metadata/_custom_type_script = "uid://bqduy5pjk0fl"

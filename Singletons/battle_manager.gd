@@ -13,6 +13,9 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 	var victory = player_data.current_hp > 0
 	
 	if victory:
+		if enemy_data.name == "Wolf":
+			EventBus.quest_finished.emit(2)
+		
 		EventBus.log_show.emit(TR.lc("Enemy killed:") + " " + TR.lc(enemy_data.name))
 		
 		ActionManager.add_loot(player_data, enemy_data)
@@ -26,5 +29,5 @@ func start_auto_battle(player_data: EntityData, enemy_data: EntityData):
 		player_data.damage = 10
 		player_data.current_hp = max(0, player_data.current_hp)
 		EventBus.object_died.emit(player_data)
-		EventBus.log_show.emit(TR.lc("You killed by:") + " " + enemy_data.name)
+		EventBus.log_show.emit(TR.lc("You killed by:") + " " + TR.lc(enemy_data.name))
 	return victory

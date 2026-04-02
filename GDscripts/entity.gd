@@ -63,3 +63,11 @@ func _on_show_player_stats(_vis):
 	pass
 	#if vis:_on_button_select_mouse_entered()
 	#else:_on_button_select_mouse_exited()
+
+
+func _on_button_x_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_ok_pressed() -> void:
+	pass # Replace with function body.

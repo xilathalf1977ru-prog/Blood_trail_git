@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://f3fbdtekaplu"]
+
+[ext_resource type="Script" uid="uid://cixbubhsdbxac" path="res://UI/alert.gd" id="1_sopuc"]
+[ext_resource type="Texture2D" uid="uid://cddygbrx4ero8" path="res://UI/OK.webp" id="2_1h1i3"]
+[ext_resource type="Texture2D" uid="uid://cs467b0t1hotx" path="res://UI/X.webp" id="3_w1tlj"]
+[ext_resource type="PackedScene" uid="uid://d2kk01fkqiluh" path="res://Scenes/entity.tscn" id="4_bmr33"]
+
+[node name="Alert" type="Control" unique_id=752699333]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sopuc")
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1490972366]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.27450982)
+metadata/_edit_lock_ = true
+
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=790257398]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2055458680]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 340.0
+offset_right = 1260.0
+offset_bottom = 740.0
+color = Color(0.17, 0.17, 0.17, 0.78431374)
+
+[node name="Label" type="Label" parent="." unique_id=1355811078]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 640.0
+offset_top = 388.0
+offset_right = 1240.0
+offset_bottom = 640.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=692949584]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 340.0
+offset_right = 1260.0
+offset_bottom = 388.0
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="ButtonX" type="Button" parent="." unique_id=1724460678]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 1140.0
+offset_top = 640.0
+offset_right = 1236.0
+offset_bottom = 736.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+
+[node name="TextureRect" type="TextureRect" parent="ButtonX" unique_id=318739123]
+modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_w1tlj")
+stretch_mode = 5
+
+[node name="ButtonOK" type="Button" parent="." unique_id=1985941115]
+modulate = Color(0, 1, 0.116666794, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 644.0
+offset_top = 640.0
+offset_right = 740.0
+offset_bottom = 736.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 48
+
+[node name="TextureRect" type="TextureRect" parent="ButtonOK" unique_id=179536761]
+texture_filter = 1
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(2, 2)
+texture = ExtResource("2_1h1i3")
+stretch_mode = 5
+
+[node name="Entity" parent="." unique_id=1896997183 instance=ExtResource("4_bmr33")]
+position = Vector2(708, 268)
+
+[node name="Entity2" parent="." unique_id=2092059126 instance=ExtResource("4_bmr33")]
+position = Vector2(1212, 268)
+
+[connection signal="pressed" from="ButtonX" to="." method="_on_button_x_pressed"]
+[connection signal="pressed" from="ButtonOK" to="." method="_on_button_ok_pressed"]

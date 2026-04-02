@@ -14,10 +14,7 @@
 [ext_resource type="Script" uid="uid://b1x7uusncmh7l" path="res://GDscripts/button_n_changer.gd" id="8_cbfhl"]
 [ext_resource type="Texture2D" uid="uid://c8mrbqbhbcxtf" path="res://Data/Places/stone_and_sword/stone_and_sword.webp" id="9_0w6e5"]
 [ext_resource type="Texture2D" uid="uid://ck4ls7ff61jn7" path="res://Sprites/scroll.webp" id="9_8gukh"]
-[ext_resource type="Texture2D" uid="uid://ccar5regmof0q" path="res://UI/dead.webp" id="11_2qbci"]
-[ext_resource type="Texture2D" uid="uid://cddygbrx4ero8" path="res://UI/OK.webp" id="12_o2t6a"]
-[ext_resource type="Texture2D" uid="uid://cs467b0t1hotx" path="res://UI/X.webp" id="13_8gukh"]
-[ext_resource type="PackedScene" uid="uid://d2kk01fkqiluh" path="res://Scenes/entity.tscn" id="15_8gkfd"]
+[ext_resource type="PackedScene" uid="uid://f3fbdtekaplu" path="res://UI/alert.tscn" id="12_ow1yt"]
 
 [node name="UI" type="CanvasLayer" unique_id=2138594352]
 script = ExtResource("1_jxero")
@@ -279,115 +276,8 @@ scale = Vector2(3, 3)
 texture = ExtResource("9_8gukh")
 stretch_mode = 5
 
-[node name="Alert" type="Control" parent="." unique_id=912207972]
+[node name="Alert" parent="." unique_id=752699333 instance=ExtResource("12_ow1yt")]
 visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect3" type="ColorRect" parent="Alert" unique_id=1216939561]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.27450982)
-metadata/_edit_lock_ = true
-
-[node name="Skull" type="TextureRect" parent="Alert" unique_id=1181799472]
-layout_mode = 0
-offset_left = 660.0
-offset_top = 580.0
-offset_right = 810.0
-offset_bottom = 628.0
-scale = Vector2(4, 4)
-texture = ExtResource("11_2qbci")
-stretch_mode = 3
-
-[node name="Audio" type="AudioStreamPlayer" parent="Alert" unique_id=2010531121]
-
-[node name="ColorRect" type="ColorRect" parent="Alert" unique_id=1445538545]
-layout_mode = 0
-offset_left = 660.0
-offset_top = 340.0
-offset_right = 1260.0
-offset_bottom = 740.0
-color = Color(0.17, 0.17, 0.17, 0.78431374)
-
-[node name="Label" type="Label" parent="Alert" unique_id=1719252846]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 640.0
-offset_top = 388.0
-offset_right = 1240.0
-offset_bottom = 640.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 16
-theme_override_font_sizes/font_size = 24
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect2" type="ColorRect" parent="Alert" unique_id=1106548742]
-layout_mode = 0
-offset_left = 660.0
-offset_top = 340.0
-offset_right = 1260.0
-offset_bottom = 388.0
-color = Color(0, 0, 0, 0.78431374)
-
-[node name="ButtonOK" type="Button" parent="Alert" unique_id=1744091602]
-modulate = Color(0, 1, 0.116666794, 1)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 644.0
-offset_top = 640.0
-offset_right = 740.0
-offset_bottom = 736.0
-grow_horizontal = 2
-focus_mode = 0
-theme_override_font_sizes/font_size = 48
-
-[node name="TextureRect" type="TextureRect" parent="Alert/ButtonOK" unique_id=983679828]
-texture_filter = 1
-layout_mode = 0
-offset_right = 48.0
-offset_bottom = 48.0
-scale = Vector2(2, 2)
-texture = ExtResource("12_o2t6a")
-stretch_mode = 5
-
-[node name="ButtonX" type="Button" parent="Alert" unique_id=1130073078]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 1140.0
-offset_top = 640.0
-offset_right = 1236.0
-offset_bottom = 736.0
-grow_horizontal = 2
-focus_mode = 0
-theme_override_font_sizes/font_size = 48
-
-[node name="TextureRect" type="TextureRect" parent="Alert/ButtonX" unique_id=2023842824]
-modulate = Color(1, 0, 0, 1)
-texture_filter = 1
-layout_mode = 0
-offset_right = 48.0
-offset_bottom = 48.0
-scale = Vector2(2, 2)
-texture = ExtResource("13_8gukh")
-stretch_mode = 5
-
-[node name="Entity" parent="Alert" unique_id=1896997183 instance=ExtResource("15_8gkfd")]
-position = Vector2(708, 268)
-
-[node name="Entity2" parent="Alert" unique_id=1080870532 instance=ExtResource("15_8gkfd")]
-position = Vector2(1212, 268)
 
 [node name="MainMenu" parent="." unique_id=2128373734 instance=ExtResource("4_hat8c")]
 visible = false
@@ -402,5 +292,3 @@ visible = false
 [connection signal="inv_stack_clicked" from="BigCards/BigCard2" to="BigCards" method="_on_big_card_2_inv_stack_clicked"]
 [connection signal="pressed" from="BigCards/ButtonExit" to="BigCards" method="_on_button_exit_pressed"]
 [connection signal="pressed" from="History/ButtonClose" to="." method="_on_button_close_pressed"]
-[connection signal="pressed" from="Alert/ButtonOK" to="." method="_on_button_ok_pressed"]
-[connection signal="pressed" from="Alert/ButtonX" to="." method="_on_button_x_pressed"]

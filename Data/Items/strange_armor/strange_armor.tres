@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemStack" format=3 uid="uid://ciomtbhoryd6c"]
+
+[ext_resource type="Resource" uid="uid://bbrcexqasayf8" path="res://Data/Items/strange_armor/strange_armor_item.tres" id="1_yuwis"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_g01x4"]
+
+[resource]
+script = ExtResource("2_g01x4")
+item = ExtResource("1_yuwis")
+metadata/_custom_type_script = "uid://dmn0esob0sf5k"

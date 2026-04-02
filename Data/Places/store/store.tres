@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bkbie2tvimu4m" path="res://Data/Places/store/store.webp" id="2_pu03p"]
 [ext_resource type="Resource" uid="uid://d0ffkdqrja5kr" path="res://Data/Entities/Enemies/guard/guard.tres" id="3_qfnud"]
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="5_qfnud"]
+[ext_resource type="Resource" uid="uid://b60pdofb446xx" path="res://Data/Items/elixir_max_hp_10/elixir_max_hp_10.tres" id="6_grbv0"]
+[ext_resource type="Resource" uid="uid://cqslpxicsymar" path="res://Data/Items/elixir_hp_50/elixir_hp_50.tres" id="7_wo41l"]
 
 [resource]
 script = ExtResource("2_f40h6")
@@ -15,6 +17,10 @@ icon = ExtResource("2_pu03p")
 actions = Dictionary[String, Texture2D]({
 "rob": ExtResource("1_qfnud"),
 "trade": null
+})
+inventory = Dictionary[ExtResource("5_qfnud"), int]({
+ExtResource("6_grbv0"): 3,
+ExtResource("7_wo41l"): 3
 })
 money = 300
 trade = true

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bbrcexqasayf8"]
+
+[ext_resource type="Texture2D" uid="uid://ct44eh4hnayvv" path="res://Data/Items/strange_armor/strange_armor.webp" id="1_saor3"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_7y75g"]
+
+[resource]
+script = ExtResource("2_7y75g")
+name = "Strange armor"
+type = "equip"
+editor_main_type = 2
+editor_equip_type = 2
+equip_bonus = Dictionary[String, int]({
+"armor": 2
+})
+icon = ExtResource("1_saor3")
+cost = 50
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

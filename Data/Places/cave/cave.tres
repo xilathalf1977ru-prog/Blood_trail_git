@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PlaceData" format=3 uid="uid://b1fafwrct1lwn"]
+
+[ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_8jywh"]
+[ext_resource type="Texture2D" uid="uid://cenb2md0ii4hy" path="res://UI/rob.webp" id="1_u2v73"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_n0wgo"]
+[ext_resource type="Texture2D" uid="uid://i2pkd8ejw1he" path="res://Data/Places/cave/cave.webp" id="2_u2v73"]
+[ext_resource type="Resource" uid="uid://bxdtxxj0gpix4" path="res://Data/Entities/Elf_zombie/elf_zombie.tres" id="3_jnhpf"]
+[ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="3_u2v73"]
+[ext_resource type="Resource" uid="uid://ciomtbhoryd6c" path="res://Data/Items/strange_armor/strange_armor.tres" id="6_veux0"]
+
+[resource]
+script = ExtResource("3_u2v73")
+name = "Cave"
+type = "dungeon"
+icon = ExtResource("2_u2v73")
+actions = Dictionary[String, Texture2D]({
+"rob": ExtResource("1_u2v73")
+})
+inventory = Dictionary[ExtResource("2_n0wgo"), int]({
+ExtResource("6_veux0"): 1
+})
+entities = Array[ExtResource("1_8jywh")]([ExtResource("3_jnhpf")])
+metadata/_custom_type_script = "uid://darocc302rkw8"

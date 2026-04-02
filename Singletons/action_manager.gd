@@ -16,7 +16,7 @@ func handle_action(data: Resource, context: String, n: int = 1) -> void:
 		GC.Act.RANDOM_ATTACK:
 			var enemy: EntityData = EnemyManager._create_random_enemy()
 			enemy.on_resource_init()
-			EventBus.log_show.emit(TR.lc("Enemy attacked:") + " " + enemy.name)
+			EventBus.log_show.emit(TR.lc("Enemy attacked:") + " " + TR.lc(enemy.name))
 			BattleManager.start_auto_battle(player, enemy)
 			GameManager.current_enemies = EnemyManager.generate_enemies(6)
 		GC.Act.TELEPORT_RNG:
@@ -40,7 +40,7 @@ func add_loot(to_inv: Resource, from_inv: Resource):
 	for item in from_inv.real_inv:
 		if item.name == "Sword wolfkiller":
 			EventBus.log_show.emit(TR.lc("Quest is completed"))
-			EventBus.quest_finished.emit()
+			EventBus.quest_finished.emit(1)
 		EventBus.log_show.emit(TR.lc("You received item:") + " " + TR.lc(item.name))
 		add_item(to_inv, item)
 	EventBus.sfx.emit("loot")
@@ -60,4 +60,6 @@ func change_stats(stat_values, direction):
 			"damage": player.damage += (stat_values[i]) * direction
 			"armor": player.armor += (stat_values[i]) * direction
 			"max_hp": player.max_hp += (stat_values[i]) * direction
+	if player.max_hp >= 130:
+		EventBus.quest_finished.emit(3)
 	EventBus.player_changed.emit(player)

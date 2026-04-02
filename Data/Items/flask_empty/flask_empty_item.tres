@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ggenqr4vt2bn"]
+
+[ext_resource type="Texture2D" uid="uid://bvfwoljcqxkhd" path="res://Data/Items/flask_empty/flask_empty.webp" id="1_pjicq"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_8ixod"]
+
+[resource]
+script = ExtResource("2_8ixod")
+name = "Flask empty"
+type = "flask_empty"
+icon = ExtResource("1_pjicq")
+cost = 8
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

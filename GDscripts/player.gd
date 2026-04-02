@@ -46,10 +46,11 @@ func _on_tween_finished(direction):
 	else:
 		data.steps += direction
 	EventBus.player_changed.emit(data)
+	if direction != 0:
+		EventBus.time_tick.emit(1)
 	EventBus.player_moved.emit(data.position)
 	if direction != 0:
 		GameManager.current_enemies = EnemyManager.generate_enemies(6)
-		EventBus.time_tick.emit(1)
 	$Entity.setup(data, GC.PLAYER)
 	EventBus.camera_move.emit(data.position.x)
 	GC.control_free = true

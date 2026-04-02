@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlaceData" format=3 uid="uid://dnnlh3y1mblo2"]
+
+[ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_nq4tq"]
+[ext_resource type="Resource" uid="uid://fvf0qfvjui1s" path="res://Data/Entities/Witch/Witch.tres" id="2_56fxs"]
+[ext_resource type="Texture2D" uid="uid://cpfifcjhbrmeq" path="res://Data/Places/tower/tower.webp" id="2_cjjsa"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="3_yu6og"]
+[ext_resource type="Resource" uid="uid://cqslpxicsymar" path="res://Data/Items/elixir_hp_50/elixir_hp_50.tres" id="4_7j3x8"]
+[ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="4_wslfx"]
+
+[resource]
+script = ExtResource("4_wslfx")
+name = "Tower"
+type = "dungeon"
+icon = ExtResource("2_cjjsa")
+inventory = Dictionary[ExtResource("3_yu6og"), int]({
+ExtResource("4_7j3x8"): 1
+})
+entities = Array[ExtResource("1_nq4tq")]([ExtResource("2_56fxs")])
+metadata/_custom_type_script = "uid://darocc302rkw8"
