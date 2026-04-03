@@ -1,6 +1,6 @@
 extends Node
 
-var lang: String = "en"
+var lang: String = "ru"
 const L: Dictionary[String, Dictionary] = {
 	"en":{
 			"Player":			"Player",
@@ -42,7 +42,6 @@ const L: Dictionary[String, Dictionary] = {
 			"Tower":"Tower",
 			
 			"Drink":"Drink",
-			
 			"Enemy killed:":"Enemy killed:",
 			"You killed by:":"You killed by:",
 			"Enemy attacked:":"Enemy attacked:",
@@ -52,11 +51,13 @@ const L: Dictionary[String, Dictionary] = {
 			"Teleported to:":"Teleported to:",
 			"How much?":"How much?",
 			
-			"quest0": 	
+			"quest_s0":"Take the sword in stone in the East",
+			"quest_s1":"Kill the wolf",
+			"quest_s2":"Drink 3 max hp boost potions, they are in the store",
+			"quest_s3":"Take the armor in the cave in the west and put on the armor",
+			"quest_s4":"Put on the armor",
+			"quest0":
 				'Hello, "hero". Your goal is to find the sword in the stone.
-
-
-
 				Without him, you"re weak, and you"ll be defeated by just a wolf...
 
 
@@ -64,7 +65,7 @@ const L: Dictionary[String, Dictionary] = {
 				I hope you know where west and east are???
 				West is to the left, east is to the right!!!!
 				',
-			"quest1": 
+			"quest1":
 				'Ha! You completed the task.…
 				Now you have the wolfkiller sword.
 				Show the wolf who is the crown of evolution here!!! 
@@ -83,6 +84,20 @@ const L: Dictionary[String, Dictionary] = {
 				If you are completely healthy…
 				In the cave to the west, it"s on the left. You"ll find some cool armor!
 				He is guarded by a mad warrior, but you are stronger than her!
+				',
+			"quest4":
+				'That"s great, now this armor is yours.
+				Put it on, and
+				the next interesting task will be waiting for you!
+				',
+			"bad_end":
+				'You put on the armor, and yes, it"s really beautiful.
+				When suddenly you feel like you"re losing control…
+				Your head is spinning, your legs are not listening to you!!!
+				And a terrible pain pierces every nerve. 
+				The last thing you hear
+				before your body becomes a trap for your consciousness
+				is the terrible laughter of the witch.
 				',
 			"alert_portal":
 				'The portal is a risk!
@@ -103,6 +118,21 @@ const L: Dictionary[String, Dictionary] = {
 				But if you"re stronger, you"ll take it all.
 								
 				Would you risk it?
+				',
+			"alert_cave":
+				'You can see the entrance to the cave.
+				There you see a mad and angry woman.
+				But what shocks you is something else...
+
+				She looks like you from the future...
+				Are you sure you want to go there?
+				And fight her?
+				',
+			"alert_tower":
+				'Stop! There"s nothing interesting there...
+				You don"t need to go there, I assure you...
+				Come on, go away.
+				(Leave? Yes or no?)
 				',
 		},
 	"ru":{
@@ -145,7 +175,6 @@ const L: Dictionary[String, Dictionary] = {
 			"Tower":"Башня",
 			
 			"Drink":"Выпить",
-			
 			"Enemy killed:":"Враг убит:",
 			"You killed by:":"Вас убил:",
 			"Enemy attacked:":"Напал враг:",
@@ -155,11 +184,13 @@ const L: Dictionary[String, Dictionary] = {
 			"Teleported to:":"Телепортировался на:",
 			"How much?":"Сколько?",
 			
+			"quest_s0":"Взять меч в камне на востоке",
+			"quest_s1":"Убей волка",
+			"quest_s2":"Выпей 3 зелья повышения макс хп, они в магазине",
+			"quest_s3":"Взять доспех в пещере на западе и надеть доспех",
+			"quest_s4":"Одеть доспех",
 			"quest0": 	
 				'Здравствуй, «герой». Твоя цель — найти меч в камне.
-				
-				
-				
 				Без него ты слаб, и тебя победит просто волк…
 				
 				
@@ -186,6 +217,20 @@ const L: Dictionary[String, Dictionary] = {
 				В пещере на западе, это налево. Ты найдёшь классный доспех!
 				Его охраняет безумная воительница, но ты сильнее её!
 				',
+			"quest4":
+				'Вот отлично, теперь этот доспех твой.
+				Одень его, и тебя будет ждать...
+				Следующее интересное задание!
+				',
+			"bad_end":
+				'Вы одеваете доспех, и да, он действительно прекрасен.
+				Как вдруг вы чувствуете, что теряете контроль…
+				Ваша голова идёт кругом, ваши ноги вас не слушаются!!!
+				И ужасная боль пронзает каждый нерв. 
+				Последнее, что вы слышите, 
+				прежде чем ваше тело станет ловушкой для вашего сознания, 
+				это ужасный смех ведьмы.
+				',
 			"alert_portal":
 				'Портал это риск!
 				Он телепортирует тебя.
@@ -205,6 +250,21 @@ const L: Dictionary[String, Dictionary] = {
 				Но если ты сильнее, ты возьмёшь всё.
 								
 				Рискнёшь?
+				',
+			"alert_cave":
+				'Вы видите вход в пещеру.
+				Там вы видите безумную и злую женщину.
+				Но шокирует вас другое...
+
+				Она похожа на вас из будущего…
+				Вы уверены, что хотите идти туда?
+				И сражаться с ней?
+				',
+			"alert_tower":
+				'Стой! Там нет ничего интересного…
+				Тебе туда не надо, уверяю тебя…
+				Давай уходи.
+				(Уйти? Да или нет?)
 				',
 		},
 }

@@ -12,8 +12,8 @@ func create_map(place_map) -> Dictionary:
 	for i in 5:
 		pockets.append(Factory.create_inv(places_templates, items_templates))
 	place_map[1] = places_templates["home"]
-	place_map[-4] = places_templates["cave"]
-	place_map[-6] = places_templates["tower"]
+	place_map[-1] = places_templates["cave"]
+	place_map[-2] = places_templates["tower"]
 	place_map[4] = places_templates["store"]
 	place_map[0] = places_templates["stone_and_sword"]
 	var a = [

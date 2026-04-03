@@ -39,8 +39,10 @@ func heal(heal_amount: int, n: int = 1) -> void:
 func add_loot(to_inv: Resource, from_inv: Resource):
 	for item in from_inv.real_inv:
 		if item.name == "Sword wolfkiller":
-			EventBus.log_show.emit(TR.lc("Quest is completed"))
+			#EventBus.log_show.emit(TR.lc("Quest is completed"))
 			EventBus.quest_finished.emit(1)
+		elif item.name == "Strange armor":
+			EventBus.quest_finished.emit(4)
 		EventBus.log_show.emit(TR.lc("You received item:") + " " + TR.lc(item.name))
 		add_item(to_inv, item)
 	EventBus.sfx.emit("loot")

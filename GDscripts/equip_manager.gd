@@ -7,6 +7,17 @@ func _ready() -> void:
 	EventBus.player_equip_change.connect(change_equip)
 	EventBus.check_equip.connect(on_check_equip)
 func change_equip(equip_data: ItemStack) -> void:
+	if equip_data.name == "Strange armor":
+		for i in data.equip_slots.keys():
+			EventBus.check_equip.emit(data.equip_slots[i])
+		data.real_inv.clear()
+		data.steps = 0
+		data.armor = 0
+		data.damage = 10
+		data.max_hp = 100
+		data.current_hp = max(0, data.current_hp)
+		EventBus.death_screen_changed.emit(true, true)
+		EventBus.cleanup_game.emit()
 	if equip_data.equip_type == "WEAPON":
 		EventBus.sfx.emit("sword")
 	else:
@@ -31,10 +42,3 @@ func unequip(equip_data: ItemStack) -> void:
 	ActionManager.change_stats(equip_data.equip_bonus, -1)
 	data.equip_slots.erase(equip_data.equip_type)
 	EventBus.unequip.emit(equip_data)
-#func change_stats(stat_values, direction):
-	#for i in stat_values.keys():
-		#match i:
-			#"damage": data.damage += (stat_values[i]) * direction
-			#"armor": data.armor += (stat_values[i]) * direction
-	#get_parent().get_node("Entity").setup(data, GC.PLAYER)
-	#EventBus.player_changed.emit(data)

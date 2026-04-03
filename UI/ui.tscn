@@ -12,8 +12,7 @@
 [ext_resource type="Script" uid="uid://c4mx2k718u5gw" path="res://UI/quantity_menu.gd" id="8_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://ch0ysafqvapti" path="res://Data/Entities/Enemies/wolf/wolf_icon.webp" id="8_6rr40"]
 [ext_resource type="Script" uid="uid://b1x7uusncmh7l" path="res://GDscripts/button_n_changer.gd" id="8_cbfhl"]
-[ext_resource type="Texture2D" uid="uid://c8mrbqbhbcxtf" path="res://Data/Places/stone_and_sword/stone_and_sword.webp" id="9_0w6e5"]
-[ext_resource type="Texture2D" uid="uid://ck4ls7ff61jn7" path="res://Sprites/scroll.webp" id="9_8gukh"]
+[ext_resource type="Texture2D" uid="uid://cddygbrx4ero8" path="res://UI/OK.webp" id="11_ow1yt"]
 [ext_resource type="PackedScene" uid="uid://f3fbdtekaplu" path="res://UI/alert.tscn" id="12_ow1yt"]
 
 [node name="UI" type="CanvasLayer" unique_id=2138594352]
@@ -192,8 +191,9 @@ offset_bottom = 252.0
 theme_override_font_sizes/font_size = 27
 text = "OK"
 
+[node name="Log" parent="." unique_id=516364193 instance=ExtResource("6_h81ot")]
+
 [node name="History" type="Control" parent="." unique_id=1443787515]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -210,22 +210,12 @@ color = Color(0, 0, 0, 1)
 [node name="TextureRect" type="TextureRect" parent="History" unique_id=465400231]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1270.0
-offset_top = 273.0
-offset_right = 1318.0
-offset_bottom = 321.0
+offset_left = 1400.0
+offset_top = 44.000008
+offset_right = 1448.0
+offset_bottom = 92.00001
 scale = Vector2(7, 7)
 texture = ExtResource("8_6rr40")
-
-[node name="TextureRect2" type="TextureRect" parent="History" unique_id=583862858]
-texture_filter = 1
-layout_mode = 0
-offset_left = 1218.0001
-offset_top = 188.0
-offset_right = 1266.0001
-offset_bottom = 236.0
-scale = Vector2(7, 7)
-texture = ExtResource("9_0w6e5")
 
 [node name="Label2" type="Label" parent="History" unique_id=1734271479]
 layout_mode = 1
@@ -233,17 +223,13 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 113.0
 offset_right = 1900.0
-offset_bottom = 950.0
+offset_bottom = 776.0
 grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 48
 text = "Здравствуй \"герой\", твоя цель найти меч в камне.
-
-
-
 Без него ты слаб, и тебя победит просто волк...
 
 
@@ -253,16 +239,35 @@ text = "Здравствуй \"герой\", твоя цель найти меч
 Запад это налево, восток это направо!!!!
 "
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="History" unique_id=2114627007]
+modulate = Color(1, 0.6901961, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 760.0
+offset_right = 1900.0
+offset_bottom = 832.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 52
+text = "Твоя цель: Взять меч в камне"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonClose" type="Button" parent="History" unique_id=904421067]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 868.0
-offset_top = 928.0
-offset_right = 1012.0
-offset_bottom = 1072.0
+offset_left = 1750.0
+offset_top = 930.0
+offset_right = 1894.0
+offset_bottom = 1074.0
 grow_horizontal = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 48
@@ -273,16 +278,28 @@ layout_mode = 0
 offset_right = 48.0
 offset_bottom = 48.0
 scale = Vector2(3, 3)
-texture = ExtResource("9_8gukh")
+texture = ExtResource("11_ow1yt")
 stretch_mode = 5
+
+[node name="QIcon1" type="TextureRect" parent="History" unique_id=326636401]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 836.0
+offset_right = 1080.0
+offset_bottom = 1076.0
+
+[node name="QIcon2" type="TextureRect" parent="History" unique_id=1169281703]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 836.0
+offset_right = 1320.0
+offset_bottom = 1076.0
 
 [node name="Alert" parent="." unique_id=752699333 instance=ExtResource("12_ow1yt")]
 visible = false
 
 [node name="MainMenu" parent="." unique_id=2128373734 instance=ExtResource("4_hat8c")]
 visible = false
-
-[node name="Log" parent="." unique_id=516364193 instance=ExtResource("6_h81ot")]
 
 [node name="DeathScreen" parent="." unique_id=112483228 instance=ExtResource("5_3sbvi")]
 visible = false

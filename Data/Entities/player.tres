@@ -37,7 +37,7 @@ id = "player"
 player = true
 max_hp = 100
 current_hp = 100
-damage = 10
+damage = 200
 armor = 200
 inventory = Dictionary[ExtResource("4_aet8b"), int]({
 ExtResource("3_8mlao"): 10

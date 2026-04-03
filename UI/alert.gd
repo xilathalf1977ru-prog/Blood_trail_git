@@ -10,6 +10,7 @@ func on_alert_show(alert_name: String, alert_res: Resource = null) -> void:
 	GC.control_free = false
 	$Entity.visible = false
 	$Entity2.visible = false
+	$Audio.stream = TR.alc(alert_name)
 	if alert_name_local == GC.Act.SLEEP:
 		$Label.text = TR.lc("alert_sleep")
 	elif alert_name_local == GC.Act.TELEPORT_RNG:
@@ -17,12 +18,17 @@ func on_alert_show(alert_name: String, alert_res: Resource = null) -> void:
 	elif alert_name_local == GC.Act.ROB:
 		EventBus.all_menus_close.emit()
 		$Label.text = TR.lc("alert_rob")
+		if alert_res.name == "Cave":
+			$Label.text = TR.lc("alert_cave")
+			$Audio.stream = null
+		elif alert_res.name == "Tower":
+			$Label.text = TR.lc("alert_tower")
+			$Audio.stream = null
 		$Entity.visible = true
 		$Entity2.visible = true
 		$Entity.setup(ActionManager.player, GC.PLAYER)
 		$Entity2.setup(alert_res.entities[0], GC.PLAYER)
 	visible = true
-	$Audio.stream = TR.alc(alert_name)
 	$Audio.play()
 func _on_button_x_pressed() -> void:
 	alert_name_local = ""
