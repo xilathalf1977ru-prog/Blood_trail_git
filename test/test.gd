@@ -1,19 +1,10 @@
 extends Node2D
 
-var d = {
-	0:null,
-	2:null,
-	3:null,
-}
-
-var d2 = {
-	0:null,
-	2:null,
-	3:null,
-	4:null,
-}
 
 func _ready() -> void:
-	d.merge(d2)
-	print(d.keys())
-	print(d.keys().size())
+	$AudioStreamPlayer.stream = preload("res://Music/e.ogg")
+	$AudioStreamPlayer.play()
+	#await get_tree().create_timer(5.0).timeout
+	#$AudioStreamPlayer.stream_paused = true
+	#await get_tree().create_timer(5.0).timeout
+	#$AudioStreamPlayer.stream_paused = false

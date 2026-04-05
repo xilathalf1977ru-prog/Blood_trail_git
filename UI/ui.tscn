@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c4mx2k718u5gw" path="res://UI/quantity_menu.gd" id="8_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://ch0ysafqvapti" path="res://Data/Entities/Enemies/wolf/wolf_icon.webp" id="8_6rr40"]
 [ext_resource type="Script" uid="uid://b1x7uusncmh7l" path="res://GDscripts/button_n_changer.gd" id="8_cbfhl"]
+[ext_resource type="Texture2D" uid="uid://cpkg3jtq0qjrb" path="res://UI/54.webp" id="10_ow1yt"]
 [ext_resource type="Texture2D" uid="uid://cddygbrx4ero8" path="res://UI/OK.webp" id="11_ow1yt"]
 [ext_resource type="PackedScene" uid="uid://f3fbdtekaplu" path="res://UI/alert.tscn" id="12_ow1yt"]
 
@@ -19,7 +20,6 @@
 script = ExtResource("1_jxero")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1015708256]
-volume_db = -80.0
 
 [node name="SFXManager" type="Node" parent="." unique_id=7288264]
 script = ExtResource("2_o2jkc")
@@ -199,6 +199,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Voice" type="AudioStreamPlayer" parent="History" unique_id=463968635]
+
 [node name="ColorRect" type="ColorRect" parent="History" unique_id=810308017]
 layout_mode = 0
 offset_left = -289.0
@@ -206,6 +208,15 @@ offset_top = -88.0
 offset_right = 2337.0
 offset_bottom = 1353.0
 color = Color(0, 0, 0, 1)
+
+[node name="End" type="TextureRect" parent="History" unique_id=2018141914]
+visible = false
+layout_mode = 0
+offset_left = 807.0
+offset_top = 605.0
+offset_right = 1113.0
+offset_bottom = 1064.0
+texture = ExtResource("10_ow1yt")
 
 [node name="TextureRect" type="TextureRect" parent="History" unique_id=465400231]
 texture_filter = 1
@@ -229,15 +240,11 @@ grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 48
-text = "Здравствуй \"герой\", твоя цель найти меч в камне.
-Без него ты слаб, и тебя победит просто волк...
-
-
-Меч находится на другом конце мира.
-Можешь идти и через запад и через восток.
-Надеюсь ты знаешь, где запад и восток???
-Запад это налево, восток это направо!!!!
-"
+text = "Вы увидели ужасную ведьму. Так она глядела на вас всё это время!
+На столе у неё были детские кости, похоже, вы отвлекли её от обеда.
+И она была очень зла.
+Ведьма умирает от ваших рук, и вдруг вы понимаете,
+что все проклятия ведьмы, перестали действовать..."
 horizontal_alignment = 1
 vertical_alignment = 1
 

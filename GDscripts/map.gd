@@ -4,6 +4,7 @@ var place_map: Dictionary
 var place_time: Array[int] = []
 var places_templates: Dictionary[String, Resource] = {}
 var items_templates: Dictionary[String, Resource] = {}
+var items_templates_shop: Dictionary[String, Resource] = {}
 var currently_visible_cells: Array = []
 
 signal place_deleted
@@ -11,6 +12,7 @@ signal place_deleted
 func _ready():
 	places_templates = DataLoader.load_res_dict("res://Data/Places/")
 	items_templates = DataLoader.load_res_dict("res://Data/Items/")
+	items_templates_shop.merge(items_templates)
 	black_list_random_item()
 	EventBus.player_moved.connect(update_places)
 	EventBus.delete_place.connect(on_delete_place)
@@ -46,10 +48,18 @@ func black_list_random_item():
 	items_templates.erase("bear_head")
 	items_templates.erase("elixir_max_hp_10")
 	items_templates.erase("strange_armor")
+	
+	items_templates_shop.erase("sword_wolfkiller")
+	items_templates_shop.erase("wolf_head")
+	items_templates_shop.erase("goblin_head")
+	items_templates_shop.erase("goblin_fat_head")
+	items_templates_shop.erase("bear_head")
+	items_templates_shop.erase("strange_armor")
 func on_time_ticked(_time_now):
-	var item_name: String = items_templates.keys().pick_random()
+	var item_name: String = items_templates_shop.keys().pick_random()
 	for i in place_time:
-		ActionManager.add_item(place_map[i], items_templates[item_name])
+		print(items_templates_shop.keys())
+		ActionManager.add_item(place_map[i], items_templates_shop[item_name])
 func on_create_place():
 	
 	var a: Dictionary = $map_create.add_place(place_map.duplicate())

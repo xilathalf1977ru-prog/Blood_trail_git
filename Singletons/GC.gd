@@ -1,7 +1,7 @@
 extends Node
 
 var control_free: bool = true
-
+var story_step: int = 0
 const CELL: int = 192
 const CELL_Y: Array = [353, 545, 737]
 #const CELL_PLACE: int = 737

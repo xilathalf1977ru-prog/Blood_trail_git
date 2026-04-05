@@ -1,6 +1,6 @@
 extends Node
 
-var lang: String = "ru"
+var lang: String = "en"
 const L: Dictionary[String, Dictionary] = {
 	"en":{
 			"Player":			"Player",
@@ -99,6 +99,16 @@ const L: Dictionary[String, Dictionary] = {
 				before your body becomes a trap for your consciousness
 				is the terrible laughter of the witch.
 				',
+			"quest10":
+				'You"ve seen a terrible witch. That"s how she looked all the time!
+				She had baby bones on the table, it looks like you distracted her from lunch.
+				And she was very angry.
+				The witch is dying at your hands, and suddenly you realize
+				that all the witch"s curses have stopped working...
+				',
+				
+			
+			
 			"alert_portal":
 				'The portal is a risk!
 				He"ll teleport you.
@@ -231,6 +241,17 @@ const L: Dictionary[String, Dictionary] = {
 				прежде чем ваше тело станет ловушкой для вашего сознания, 
 				это ужасный смех ведьмы.
 				',
+			"quest10":
+				'Вы увидели ужасную ведьму. Так она выглядела всё это время!
+				На столе у неё были детские кости, похоже, вы отвлекли её от обеда.
+				И она была очень зла.
+				Ведьма умирает от ваших рук, и вдруг вы понимаете,
+				что все проклятия ведьмы, перестали действовать...
+				',
+			
+			
+			
+				
 			"alert_portal":
 				'Портал это риск!
 				Он телепортирует тебя.
@@ -270,20 +291,35 @@ const L: Dictionary[String, Dictionary] = {
 }
 
 func lc(text: String) -> String: return L[lang][text]
+
+func alc(text: String) -> AudioStream: return A[lang][text]
 const A: Dictionary[String, Dictionary] = {
 	"en":{
-		"quest0_voice":preload("res://Voice/en/voice_en.ogg"),
+		"quest0_voice":preload("res://Voice/en/voice1_en.ogg"),
 		"quest1_voice":preload("res://Voice/en/voice2_en.ogg"),
+		"quest2_voice":preload("res://Voice/en/voice3_en.ogg"),
+		"quest3_voice":preload("res://Voice/en/voice4_en.ogg"),
+		"quest4_voice":preload("res://Voice/en/voice5_en.ogg"),
+		"quest10_voice":preload("res://Voice/en/voice10_en.ogg"),
+		"bad_end":preload("res://Voice/en/bad_end.ogg"),
 		"teleport_rng":preload("res://Voice/en/alert_portal_en.ogg"),
 		"sleep":preload("res://Voice/en/alert_sleep_en.ogg"),
 		"rob":preload("res://Voice/en/alert_rob_en.ogg"),
+		"Cave":preload("res://Voice/en/alert_cave_en.ogg"),
+		"Tower":preload("res://Voice/en/alert_tower_en.ogg"),
 		},
 	"ru":{
 		"quest0_voice":preload("res://Voice/ru/voice_ru.ogg"),
 		"quest1_voice":preload("res://Voice/ru/voice2_ru.ogg"),
+		"quest2_voice":null,
+		"quest3_voice":null,
+		"quest4_voice":null,
+		"quest10_voice":null,
+		"bad_end":null,
 		"teleport_rng":preload("res://Voice/ru/alert_portal_ru.ogg"),
 		"sleep":preload("res://Voice/ru/alert_sleep_ru.ogg"),
 		"rob":preload("res://Voice/ru/alert_rob_ru.ogg"),
+		"Cave":null,
+		"Tower":null,
 		},
 	}
-func alc(text: String) -> AudioStream: return A[lang][text]

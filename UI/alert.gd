@@ -20,10 +20,10 @@ func on_alert_show(alert_name: String, alert_res: Resource = null) -> void:
 		$Label.text = TR.lc("alert_rob")
 		if alert_res.name == "Cave":
 			$Label.text = TR.lc("alert_cave")
-			$Audio.stream = null
+			$Audio.stream = TR.alc(alert_res.name)
 		elif alert_res.name == "Tower":
 			$Label.text = TR.lc("alert_tower")
-			$Audio.stream = null
+			$Audio.stream = TR.alc(alert_res.name)
 		$Entity.visible = true
 		$Entity2.visible = true
 		$Entity.setup(ActionManager.player, GC.PLAYER)
