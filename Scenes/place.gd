@@ -18,7 +18,6 @@ func fade_in(node, duration: float = GC.anim_speed):
 	tween.tween_property(node, "modulate:a", 1.0, duration)
 	await tween.finished
 func _on_button_select_pressed():
-	print(card_data.type)
 	if card_data.type == GC.LOOT:
 		ActionManager.handle_action(card_data, card_data.type)
 	elif card_data.type == GC.HOME:

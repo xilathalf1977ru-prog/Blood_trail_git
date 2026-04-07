@@ -76,8 +76,8 @@ func on_quest_finished(n: int) -> void:
 		GC.story_step = n
 		set_quest_info()
 		$History.visible = true
-func on_death_screen(vis: bool, _end_game: bool = false):
-	if vis:
+func on_death_screen(vis: bool, end_game: bool = false):
+	if vis and end_game:
 		$AudioStreamPlayer.stream = TR.alc("bad_end")
 		$AudioStreamPlayer.play()
 	else:

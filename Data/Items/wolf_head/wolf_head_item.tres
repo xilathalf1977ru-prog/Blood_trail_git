@@ -7,6 +7,8 @@
 script = ExtResource("3_ddpgo")
 name = "Wolf head"
 type = "wolf_head"
+editor_main_type = 1
 icon = ExtResource("2_4tt7g")
 cost = 60
+heal_amount = 5
 metadata/_custom_type_script = "uid://dulsm86jld1sl"

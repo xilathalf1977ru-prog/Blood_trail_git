@@ -58,14 +58,9 @@ func black_list_random_item():
 func on_time_ticked(_time_now):
 	var item_name: String = items_templates_shop.keys().pick_random()
 	for i in place_time:
-		print(items_templates_shop.keys())
 		ActionManager.add_item(place_map[i], items_templates_shop[item_name])
 func on_create_place():
-	
 	var a: Dictionary = $map_create.add_place(place_map.duplicate())
-	#print(a.keys())
 	place_map.merge(a)
-	
-	
 	var player_pos: Vector2 = ActionManager.player.position
 	update_places(player_pos)

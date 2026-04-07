@@ -7,6 +7,8 @@
 script = ExtResource("2_w0a4w")
 name = "Goblin head"
 type = "goblin_head"
+editor_main_type = 1
 icon = ExtResource("2_pr45n")
 cost = 20
+heal_amount = 5
 metadata/_custom_type_script = "uid://dulsm86jld1sl"

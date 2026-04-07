@@ -1,6 +1,6 @@
 extends Node
 
-var lang: String = "en"
+var lang: String = "ru"
 const L: Dictionary[String, Dictionary] = {
 	"en":{
 			"Player":			"Player",
@@ -41,6 +41,7 @@ const L: Dictionary[String, Dictionary] = {
 			"Cave":"Cave",
 			"Tower":"Tower",
 			
+			"Eat":"Eat",
 			"Drink":"Drink",
 			"Enemy killed:":"Enemy killed:",
 			"You killed by:":"You killed by:",
@@ -184,7 +185,8 @@ const L: Dictionary[String, Dictionary] = {
 			"Cave":"Пещера",
 			"Tower":"Башня",
 			
-			"Drink":"Выпить",
+			"Eat":"Есть",
+			"Drink":"Пить",
 			"Enemy killed:":"Враг убит:",
 			"You killed by:":"Вас убил:",
 			"Enemy attacked:":"Напал враг:",
@@ -292,7 +294,9 @@ const L: Dictionary[String, Dictionary] = {
 
 func lc(text: String) -> String: return L[lang][text]
 
-func alc(text: String) -> AudioStream: return A[lang][text]
+func alc(text: String) -> AudioStream: 
+	if lang == "en": return A[lang][text]
+	else: return null
 const A: Dictionary[String, Dictionary] = {
 	"en":{
 		"quest0_voice":preload("res://Voice/en/voice1_en.ogg"),
@@ -308,18 +312,5 @@ const A: Dictionary[String, Dictionary] = {
 		"Cave":preload("res://Voice/en/alert_cave_en.ogg"),
 		"Tower":preload("res://Voice/en/alert_tower_en.ogg"),
 		},
-	"ru":{
-		"quest0_voice":preload("res://Voice/ru/voice_ru.ogg"),
-		"quest1_voice":preload("res://Voice/ru/voice2_ru.ogg"),
-		"quest2_voice":null,
-		"quest3_voice":null,
-		"quest4_voice":null,
-		"quest10_voice":null,
-		"bad_end":null,
-		"teleport_rng":preload("res://Voice/ru/alert_portal_ru.ogg"),
-		"sleep":preload("res://Voice/ru/alert_sleep_ru.ogg"),
-		"rob":preload("res://Voice/ru/alert_rob_ru.ogg"),
-		"Cave":null,
-		"Tower":null,
-		},
+	"ru":{},
 	}

@@ -31,6 +31,9 @@ func ui_extra_button(data, type: String):
 	elif type == "HEAL" or "BONUS":
 		$ButtonExtra.add_theme_font_size_override("font_size", 40)
 		$ButtonExtra.text = TR.lc("Drink")#"Пить"
+		if "head" in data.name:
+			$ButtonExtra.text = TR.lc("Eat")
+		
 func _on_button_equip_pressed() -> void:
 	extra_button.emit()
 func on_equip(data: Resource) -> void:
