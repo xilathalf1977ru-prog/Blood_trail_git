@@ -3,42 +3,22 @@ extends Node2D
 const PLACE_OFFSET: Vector2 = Vector2(128, 128)
 const PLACE_CARD_LAYER: int = 2
 var place_cards: Dictionary[int, Node2D] = {}
-var entities: Array[Node2D]
+@export var entities: Array[Node2D]
+@export var places: Array[Node2D]
 var current_enemies_pos: Dictionary[Vector2, Resource] = {}
 func _ready() -> void:
 	EventBus.enemies_generated.connect(show_enemies_cards)
 	EventBus.cleanup_game.connect(on_cleanup_game)
-	EventBus.place_visibility_changed.connect(on_place_visibility_changed)
 	EventBus.player_moved.connect(on_player_moved)
 	call_deferred("resource_init")
-	entities = [
-		$EnemyChoice/Entity,
-		$EnemyChoice/Entity2,
-		$EnemyChoice/Entity3,
-		$EnemyChoice/Entity4,
-		$EnemyChoice/Entity5,
-		$EnemyChoice/Entity6,
-	]
 func resource_init():
 	GameManager.current_enemies = EnemyManager.generate_enemies(6)
 	on_player_moved(GameManager.player_ref.data.position)
-func on_place_visibility_changed(cell: int, place_data: Resource, vis: bool):
-	if vis: spawn_place_card(cell, place_data)
-	else: despawn_place_card(cell)
-func spawn_place_card(cell: int, data: PlaceData):
-	if place_cards.has(cell):
-		return  #Уже существует
-	var card_scene = preload("res://Scenes/place.tscn") #Создаем карточку места
-	var card = card_scene.instantiate()
-	card.position = Vector2((cell * GC.CELL), GC.CELL_Y[2])
-	card.setup(data, GC.PLACE)
-	add_child(card)
-	move_child(card, PLACE_CARD_LAYER)
-	place_cards[cell] = card
-func despawn_place_card(cell: int):
-	if place_cards.has(cell):
-		place_cards[cell].queue_free()
-		place_cards.erase(cell)
+func _on_map_places_vis(places_vis: Array) -> void:
+	for i in places.size():
+		if places_vis[i]:
+			places[i].setup(places_vis[i], GC.PLACE)
+		places[i].visible = (places_vis[i] != null)
 func on_cleanup_game():
 	await get_tree().process_frame
 	queue_free()
@@ -56,31 +36,14 @@ func show_enemies_cards(enemies: Array[EntityData]) -> void:
 		card.setup(enemy_data, GC.ENEMY)
 var last_posx_player: int = 0
 func on_player_moved(data):
-	#await get_tree().process_frame
-	
+	$PP.position.x = data.x
 	var delta: int = int(data.x) - last_posx_player
 	var direct: float = sign(delta) * (1 if abs(delta) == GC.CELL else -1)
 	last_posx_player += delta
 	var player_key = Vector2(direct, data.y)
 	if player_key in current_enemies_pos.keys():
 		BattleManager.start_auto_battle(GameManager.player_ref.data, current_enemies_pos[player_key])
-	var player_cell: int = data.x/GC.CELL
-	var places_pos: Array = []
-	for i in place_cards.keys():
-		place_cards[i].get_node("ButtonSelect").visible = false
-		places_pos.append(Vector2(i * GC.CELL, GC.cell_place_y))
-	EventBus.all_menus_close.emit()
-	if player_cell in place_cards.keys():
-		place_cards[player_cell].get_node("ButtonSelect").visible = true
-	if data in places_pos:
-		place_cards[player_cell]._on_button_select_pressed()
-func on_delete_place(place_data):
-	for cell in place_cards:
-		if place_cards[cell].card_data == place_data:
-			despawn_place_card(cell)
-			var dist: int = GC.END_WORLD * 2 + 1
-			despawn_place_card(cell + dist)
-			despawn_place_card(cell - dist)
-			break
-func _on_map_place_deleted(place_data) -> void:
-	on_delete_place(place_data)
+	@warning_ignore("integer_division")
+	var mid_places: int = (places.size() - 1)/2
+	for i in places.size():
+		places[i].get_node("ButtonSelect").visible = (i == mid_places)

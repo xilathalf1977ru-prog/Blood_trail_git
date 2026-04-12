@@ -7,7 +7,7 @@ var items_templates: Dictionary[String, Resource] = {}
 var items_templates_shop: Dictionary[String, Resource] = {}
 var currently_visible_cells: Array = []
 
-signal place_deleted
+signal places_vis
 
 func _ready():
 	places_templates = DataLoader.load_res_dict("res://Data/Places/")
@@ -25,18 +25,24 @@ func update_places(player_pos: Vector2):
 	@warning_ignore("narrowing_conversion")
 	var player_cell: int = player_pos.x/GC.CELL
 	var visible_radius: int = 5
+	var arr: Array = []
+	for i in 11:
+		arr.append(null)
 	for cell in place_map.keys():# Находим все клетки в радиусе видимости, где есть места
 		if abs(cell - player_cell) <= visible_radius:
-			EventBus.place_visibility_changed.emit(cell, place_map[cell], true)
-		else:
-			EventBus.place_visibility_changed.emit(cell, place_map[cell], false)
+			var index: int = cell+5+(player_cell*-1)
+			arr[index] = place_map[cell]
+	places_vis.emit(arr)
 func has_save_file() -> bool:
 	return FileAccess.file_exists("user://save.tres")
 func on_delete_place(place_data):
 	if place_data in place_map.values():
 		place_map.erase(place_map.find_key(place_data))
 		delete_mirrors_places(place_data)
-		place_deleted.emit(place_data)
+		
+		
+		var player_pos: Vector2 = ActionManager.player.position
+		update_places(player_pos)
 func delete_mirrors_places(place_data):
 	place_map.erase(place_map.find_key(place_data))
 	place_map.erase(place_map.find_key(place_data))

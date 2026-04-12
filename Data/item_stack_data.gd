@@ -28,11 +28,6 @@ var sprites: SpriteFrames:
 var equip_type: String:
 	get:
 		return item.equip_type
-var equiped: bool:
-	set(new_value):
-		item.equiped = new_value
-	get:
-		return item.equiped
 var equip_bonus: Dictionary:
 	get:
 		return item.equip_bonus

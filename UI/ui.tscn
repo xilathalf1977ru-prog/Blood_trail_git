@@ -20,6 +20,7 @@
 script = ExtResource("1_jxero")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1015708256]
+volume_db = -80.0
 
 [node name="SFXManager" type="Node" parent="." unique_id=7288264]
 script = ExtResource("2_o2jkc")
@@ -194,6 +195,7 @@ text = "OK"
 [node name="Log" parent="." unique_id=516364193 instance=ExtResource("6_h81ot")]
 
 [node name="History" type="Control" parent="." unique_id=1443787515]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

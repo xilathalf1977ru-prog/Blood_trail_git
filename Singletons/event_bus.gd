@@ -37,8 +37,6 @@ signal save()             # запрос на сохранение
 @warning_ignore("unused_signal")
 signal cleanup_game()     # запрос на очистку игрового мира
 @warning_ignore("unused_signal")
-signal place_visibility_changed(cell: int, place_data: Resource, show: bool)
-@warning_ignore("unused_signal")
 signal delete_place(place_data: PlaceData)
 
 @warning_ignore("unused_signal")
@@ -75,9 +73,6 @@ signal unequip(equip_data: ItemStack)
 
 
 ## --- ДЕЙСТВИЯ ИГРОКА ---
-@warning_ignore("unused_signal")
-signal player_move(direction: Vector2)
-
 
 @warning_ignore("unused_signal")
 signal player_teleport(direction: Vector2)

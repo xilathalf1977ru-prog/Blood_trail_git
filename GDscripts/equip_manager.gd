@@ -10,6 +10,7 @@ func change_equip(equip_data: ItemStack) -> void:
 	if equip_data.name == "Strange armor" and GC.story_step < 10:
 		EventBus.death_screen_changed.emit(true, true)
 		EventBus.cleanup_game.emit()
+	
 	if equip_data.equip_type == "WEAPON":
 		EventBus.sfx.emit("sword")
 	else:
@@ -26,11 +27,9 @@ func on_check_equip(equip_data: ItemStack) -> void:
 		unequip(equip_data)
 func equip(equip_data: ItemStack) -> void:
 	data.equip_slots[equip_data.equip_type] = equip_data
-	equip_data.equiped = true
 	ActionManager.change_stats(equip_data.equip_bonus, 1)
 	EventBus.equip.emit(equip_data)
 func unequip(equip_data: ItemStack) -> void:
-	equip_data.equiped = false
 	ActionManager.change_stats(equip_data.equip_bonus, -1)
 	data.equip_slots.erase(equip_data.equip_type)
 	EventBus.unequip.emit(equip_data)

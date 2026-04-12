@@ -3,55 +3,6 @@ extends Node
 var lang: String = "ru"
 const L: Dictionary[String, Dictionary] = {
 	"en":{
-			"Player":			"Player",
-			"armor":				"armor",
-			"damage":			"damage",
-			"hp":				"hp",
-			"Inventory player":"Inventory player",
-			"Inventory":"Inventory",
-			
-			##Существа
-			"Goblin":"Goblin",
-			"Goblin fat":"Goblin fat",
-			"Wolf":"Wolf",
-			"Guard":"Guard",
-			"Bear":"Bear",
-			"Elf zombie":"Elf zombie",
-			"Witch":"Witch",
-			
-			##Вещи
-			"Helm iron":			"Helm iron",
-			"Strange armor":		"Strange armor",
-			"Sword iron":		"Sword iron",
-			"Sword wolfkiller":	"Sword wolfkiller",
-			"Goblin head":"Goblin head",
-			"Goblin fat head":"Goblin fat head",
-			"Wolf head":"Wolf head",
-			"Bear head":"Bear head",
-			"Elixir HP 50":"Elixir HP 50",
-			"Elixir MAX HP 10":"Elixir MAX HP 10",
-			"Bottle empty":"Bottle empty",
-			"Flask empty":"Flask empty",
-			
-			##Локации
-			"My home":"My home",
-			"Trade":"Trade",
-			"Portal":"Portal",
-			"Pocket":"Pocket",
-			"Cave":"Cave",
-			"Tower":"Tower",
-			
-			"Eat":"Eat",
-			"Drink":"Drink",
-			"Enemy killed:":"Enemy killed:",
-			"You killed by:":"You killed by:",
-			"Enemy attacked:":"Enemy attacked:",
-			"Cured by:":"Cured by:",
-			"You received item:":"You received item:",
-			"Quest is completed":"Quest is completed",
-			"Teleported to:":"Teleported to:",
-			"How much?":"How much?",
-			
 			"quest_s0":"Take the sword in stone in the East",
 			"quest_s1":"Kill the wolf",
 			"quest_s2":"Drink 3 max hp boost potions, they are in the store",
@@ -107,9 +58,6 @@ const L: Dictionary[String, Dictionary] = {
 				The witch is dying at your hands, and suddenly you realize
 				that all the witch"s curses have stopped working...
 				',
-				
-			
-			
 			"alert_portal":
 				'The portal is a risk!
 				He"ll teleport you.
@@ -292,11 +240,15 @@ const L: Dictionary[String, Dictionary] = {
 		},
 }
 
-func lc(text: String) -> String: return L[lang][text]
+func lc(text: String) -> String: 
+	if lang == "en" and !text in L[lang]:
+		return text
+	return L[lang][text]
 
 func alc(text: String) -> AudioStream: 
-	if lang == "en": return A[lang][text]
-	else: return null
+	if lang == "en": 
+		return A[lang][text]
+	return null
 const A: Dictionary[String, Dictionary] = {
 	"en":{
 		"quest0_voice":preload("res://Voice/en/voice1_en.ogg"),

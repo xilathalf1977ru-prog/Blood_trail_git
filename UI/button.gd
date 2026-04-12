@@ -22,9 +22,23 @@ func set_extra_button(data: Resource) -> void:
 		$ButtonExtra.visible = false
 func ui_extra_button(data, type: String):
 	if type == "EQUIP":
-		$ButtonExtra/EquipedIcon.visible = data.equiped
 		$ButtonExtra.add_theme_font_size_override("font_size", 64)
-		if data.equiped:
+		#$ButtonExtra/EquipedIcon.visible = data.equiped
+		#if data.equiped:
+			#$ButtonExtra.text = "-"
+		#else:
+			#$ButtonExtra.text = "+"
+		
+		
+		
+		var equiped: bool
+		for i in GameManager.player_ref.data.equip_slots.values():
+			if i.name == data.name:
+				equiped = true
+				break
+				
+		$ButtonExtra/EquipedIcon.visible = equiped
+		if equiped:
 			$ButtonExtra.text = "-"
 		else:
 			$ButtonExtra.text = "+"

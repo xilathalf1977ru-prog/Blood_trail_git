@@ -14,10 +14,10 @@ func create_map(place_map) -> Dictionary:
 	place_map[0] = places_templates["home"]
 	place_map[-4] = places_templates["cave"]
 	place_map[-6] = places_templates["tower"]
-	place_map[4] = places_templates["store"]
-	place_map[9] = places_templates["stone_and_sword"]
+	place_map[2] = places_templates["store"]
+	place_map[6] = places_templates["stone_and_sword"]
 	var a = [
-		places_templates["portal"],
+		#places_templates["portal"],
 		#places_templates["store"],
 		]
 	a.append_array(pockets)

@@ -2,27 +2,15 @@ extends Node2D
 
 const DATA_PATH: String = "res://Data/Entities/"
 var last_pos: Vector2 = Vector2(0, 0)
-var timer_running: bool = false
 @onready var data: EntityData = load(DATA_PATH + name + ".tres")
 func _ready():
 	data.current_hp = data.max_hp
 	GameManager.register_player(self)
-	EventBus.player_move.connect(_on_player_move)
 	EventBus.player_teleport.connect(_on_player_teleport)
 	EventBus.player_move_to.connect(_on_player_move_to)
 	$Entity.setup(data, GC.PLAYER)
 	EventBus.player_changed.emit(data)
 	data.position = position
-func _on_player_move(pos: Vector2):
-	if !timer_running:
-		last_pos = pos
-		timer_running = true
-		await get_tree().create_timer(0.05).timeout
-		move_check(last_pos, true)
-		last_pos = Vector2(0, 0)
-		timer_running = false
-	else:
-		last_pos += pos
 func _on_player_move_to(pos: Vector2):
 	move_check(pos, false)
 func move_check(pos: Vector2, move: bool):

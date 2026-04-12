@@ -19,8 +19,6 @@ var equip_type: String:
 
 @export var single_bonus: Dictionary[String, int]
 
-var equiped: bool = false
-
 @export var icon: Texture2D
 
 @export var sprites: SpriteFrames
