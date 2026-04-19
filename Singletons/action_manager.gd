@@ -39,7 +39,6 @@ func heal(heal_amount: int, n: int = 1) -> void:
 func add_loot(to_inv: Resource, from_inv: Resource):
 	for item in from_inv.real_inv:
 		if item.name == "Sword wolfkiller":
-			#EventBus.log_show.emit(TR.lc("Quest is completed"))
 			EventBus.quest_finished.emit(1)
 		elif item.name == "Strange armor":
 			EventBus.quest_finished.emit(4)
@@ -47,7 +46,7 @@ func add_loot(to_inv: Resource, from_inv: Resource):
 		add_item(to_inv, item)
 	EventBus.sfx.emit("loot")
 	EventBus.player_changed.emit(to_inv)
-func add_item(to_inv, item):
+func add_item(to_inv: Resource, item: Resource):
 	var found: bool = false
 	for player_stack in to_inv.real_inv:#Ищем такой же стак у игрока
 		if player_stack.can_merge_with(item):

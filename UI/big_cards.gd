@@ -70,6 +70,9 @@ from_inv: Object, to_inv: Object) -> void:
 	and from_inv.local_data.id == GC.PLAYER):
 		EventBus.check_equip.emit(item_stack)
 	to_inv.add_item(item_stack.duplicate(), n)
+	#ActionManager.add_item(to_inv.local_data, item_stack)
+	
+	
 	from_inv.remove_item(item_stack, n)
 	EventBus.sfx.emit("drop")
 func _on_result_quantity_menu(n: int, buffer: Array) -> void:

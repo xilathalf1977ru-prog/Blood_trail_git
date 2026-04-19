@@ -19,6 +19,9 @@
 [node name="UI" type="CanvasLayer" unique_id=2138594352]
 script = ExtResource("1_jxero")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=127075480]
+layer = 0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1015708256]
 volume_db = -80.0
 
@@ -102,10 +105,10 @@ color = Color(0, 0, 0, 0.39215687)
 
 [node name="Background" type="ColorRect" parent="QuantityMenu" unique_id=1508838844]
 layout_mode = 0
-offset_left = 835.0
-offset_top = 653.0
-offset_right = 1085.0
-offset_bottom = 905.0
+offset_left = 810.0
+offset_top = 652.0
+offset_right = 1110.0
+offset_bottom = 952.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="QuantityMenu/Background" unique_id=96161]
@@ -119,17 +122,17 @@ vertical_alignment = 1
 
 [node name="ButtonCancel" type="Button" parent="QuantityMenu/Background" unique_id=1252273222]
 layout_mode = 0
-offset_left = 205.0
-offset_right = 250.0
-offset_bottom = 45.0
+offset_left = 218.0
+offset_right = 300.0
+offset_bottom = 50.0
 theme_override_font_sizes/font_size = 27
 text = "X"
 
 [node name="ButtonMinus" type="Button" parent="QuantityMenu/Background" unique_id=1290634738]
 layout_mode = 0
 offset_top = 52.0
-offset_right = 64.0
-offset_bottom = 116.0
+offset_right = 82.0
+offset_bottom = 134.0
 theme_override_font_sizes/font_size = 40
 text = "-"
 script = ExtResource("8_cbfhl")
@@ -137,20 +140,20 @@ interval = 0.1
 
 [node name="NText" type="Label" parent="QuantityMenu/Background" unique_id=881877375]
 layout_mode = 0
-offset_left = 64.0
+offset_left = 82.0
 offset_top = 52.0
-offset_right = 186.0
-offset_bottom = 120.0
-theme_override_font_sizes/font_size = 42
+offset_right = 218.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 52
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonPlus" type="Button" parent="QuantityMenu/Background" unique_id=918904808]
 layout_mode = 0
-offset_left = 186.0
+offset_left = 218.0
 offset_top = 52.0
-offset_right = 250.0
-offset_bottom = 116.0
+offset_right = 300.0
+offset_bottom = 134.0
 theme_override_font_sizes/font_size = 40
 text = "+"
 script = ExtResource("8_cbfhl")
@@ -159,36 +162,36 @@ plus = true
 
 [node name="ButtonMin" type="Button" parent="QuantityMenu/Background" unique_id=458061892]
 layout_mode = 0
-offset_top = 120.0
-offset_right = 64.0
-offset_bottom = 184.0
+offset_top = 135.0
+offset_right = 100.0
+offset_bottom = 235.0
 theme_override_font_sizes/font_size = 27
 text = "Min"
 
 [node name="ButtonHalf" type="Button" parent="QuantityMenu/Background" unique_id=1677683877]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 120.0
-offset_right = 182.0
-offset_bottom = 184.0
+offset_left = 101.0
+offset_top = 135.0
+offset_right = 199.0
+offset_bottom = 235.0
 theme_override_font_sizes/font_size = 27
 text = "	1/2"
 
 [node name="ButtonMax" type="Button" parent="QuantityMenu/Background" unique_id=177436877]
 layout_mode = 0
-offset_left = 186.0
-offset_top = 120.0
-offset_right = 250.0
-offset_bottom = 184.0
+offset_left = 200.0
+offset_top = 135.0
+offset_right = 300.0
+offset_bottom = 235.0
 theme_override_font_sizes/font_size = 27
 text = "Max"
 
 [node name="ButtonOK" type="Button" parent="QuantityMenu/Background" unique_id=1668586078]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 188.0
-offset_right = 182.0
-offset_bottom = 252.0
+offset_left = 2.0
+offset_top = 236.0
+offset_right = 298.0
+offset_bottom = 298.0
 theme_override_font_sizes/font_size = 27
 text = "OK"
 
@@ -312,6 +315,12 @@ visible = false
 
 [node name="DeathScreen" parent="." unique_id=112483228 instance=ExtResource("5_3sbvi")]
 visible = false
+
+[node name="QuickHeal" type="Control" parent="." unique_id=56484515]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="inv_stack_clicked" from="BigCards/BigCard0" to="BigCards" method="_on_big_card_0_inv_stack_clicked"]
 [connection signal="inv_stack_clicked" from="BigCards/BigCard1" to="BigCards" method="_on_big_card_1_inv_stack_clicked"]

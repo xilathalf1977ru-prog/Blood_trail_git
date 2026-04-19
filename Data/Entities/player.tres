@@ -37,9 +37,9 @@ id = "player"
 player = true
 max_hp = 100
 current_hp = 100
-damage = 200
-armor = 200
+damage = 10
 inventory = Dictionary[ExtResource("4_aet8b"), int]({
 ExtResource("4_na7np"): 5
 })
+money = 500
 metadata/_custom_type_script = "uid://bqduy5pjk0fl"
