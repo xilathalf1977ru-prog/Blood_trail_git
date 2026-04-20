@@ -21,14 +21,14 @@ func _on_button_close_pressed() -> void:
 	$History/Voice.stream = null
 	$AudioStreamPlayer.stream_paused = false
 func on_show_quest() -> void:
-	$History.visible = true
+	#$History.visible = true
 	if $History.visible:
 		set_quest_info()
 	else:
 		$AudioStreamPlayer.stream = SOUND["theme"]
 func set_quest_info() -> void:
 	$AudioStreamPlayer.stream_paused = true
-	$History.visible = true
+	#$History.visible = true
 	if GC.story_step == 0:
 		$History/Label2.text = TR.lc("quest0")
 		$History/Voice.stream = TR.alc("quest0_voice")

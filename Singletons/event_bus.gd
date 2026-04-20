@@ -7,6 +7,8 @@ signal main_menu_changed(vis: bool)
 signal death_screen_changed(vis: bool)
 @warning_ignore("unused_signal")
 signal menu(data: Resource, context: String)
+@warning_ignore("unused_signal")
+signal inv(context: String, data: Resource, data2: Resource)
 
 @warning_ignore("unused_signal")
 signal check_all_menus_closed()

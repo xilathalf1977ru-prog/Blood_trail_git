@@ -14,21 +14,23 @@ func _ready() -> void:
 	EventBus.all_menus_close.connect(close_all_menus)
 	big_cards = [$BigCard0, $BigCard1, $BigCard2]
 func show_menu(data: Resource, context: String) -> void:
-	visible = true
+	#visible = true
+	print(data.name)
 	var n: int = SELECT[context]
 	if n == 0:
 		for i in big_cards.size():
 			big_cards[i].visible = false
 			big_cards[i].get_node("Name").text = ""
 			big_cards[i].clear_cards()
-	if context in [GC.Act.INV, GC.Act.TRADE]:
-		big_cards[0].visible = true
-		big_cards[0].setup(GameManager.player_ref.data, context)
-		big_cards[1].visible = true
-		big_cards[1].setup(data, context)
-		return
-	big_cards[n].visible = true
-	big_cards[n].setup(data, context)
+	if !(context in [GC.Act.INV, GC.Act.TRADE]):
+		visible = true
+		#big_cards[0].visible = true
+		#big_cards[0].setup(GameManager.player_ref.data, context)
+		#big_cards[1].visible = true
+		#big_cards[1].setup(data, context)
+		#return
+		big_cards[n].visible = true
+		big_cards[n].setup(data, context)
 func on_check_all_menus_closed() -> void:
 	if !big_cards[0].visible and !big_cards[1].visible and !big_cards[2].visible:
 		visible = false
@@ -69,11 +71,19 @@ from_inv: Object, to_inv: Object) -> void:
 	if (item_stack.main_type == "EQUIP" and item_stack.quantity == n
 	and from_inv.local_data.id == GC.PLAYER):
 		EventBus.check_equip.emit(item_stack)
+		
+	#to_inv.add_item(item_stack.duplicate(), n)
+	
+	var item_stack2: Resource = item_stack.duplicate()
+	item_stack2.quantity = n
+	
+	ActionManager.add_item(to_inv.local_data, item_stack2)
 	to_inv.add_item(item_stack.duplicate(), n)
-	#ActionManager.add_item(to_inv.local_data, item_stack)
 	
 	
+	#ActionManager.reduce_item(from_inv.local_data, item_stack)
 	from_inv.remove_item(item_stack, n)
+	
 	EventBus.sfx.emit("drop")
 func _on_result_quantity_menu(n: int, buffer: Array) -> void:
 	if n > 0:

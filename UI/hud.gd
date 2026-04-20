@@ -5,7 +5,8 @@ const LIMIT_BLICK: float = 0.51
 func _ready() -> void:
 	EventBus.player_changed.connect(on_player_changed)
 func _on_button_inv_pressed() -> void:
-	EventBus.menu.emit(GameManager.player_ref.data, GC.Act.MY_INV)
+	#EventBus.menu.emit(GameManager.player_ref.data, GC.Act.INV)
+	EventBus.inv.emit(GC.Act.INV, GameManager.player_ref.data)
 func _on_button_sleep_pressed() -> void:
 	EventBus.alert_show.emit(GC.Act.SLEEP)
 func on_player_changed(data: Resource) -> void:

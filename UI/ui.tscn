@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpyrxgcfio3u" path="res://UI/death_screen.tscn" id="5_3sbvi"]
 [ext_resource type="PackedScene" uid="uid://iljjgs4t3y6t" path="res://UI/log.tscn" id="6_h81ot"]
 [ext_resource type="Texture2D" uid="uid://n25o5vn7xnxc" path="res://UI/exit.webp" id="6_o2jkc"]
+[ext_resource type="PackedScene" uid="uid://bwaqopsfa033i" path="res://Inv/inv.tscn" id="7_o2t6a"]
 [ext_resource type="Script" uid="uid://c4mx2k718u5gw" path="res://UI/quantity_menu.gd" id="8_4fiuh"]
 [ext_resource type="Texture2D" uid="uid://ch0ysafqvapti" path="res://Data/Entities/Enemies/wolf/wolf_icon.webp" id="8_6rr40"]
 [ext_resource type="Script" uid="uid://b1x7uusncmh7l" path="res://GDscripts/button_n_changer.gd" id="8_cbfhl"]
@@ -86,6 +87,9 @@ offset_bottom = 48.0
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_o2jkc")
 stretch_mode = 5
+
+[node name="Inv" parent="." unique_id=1126973270 instance=ExtResource("7_o2t6a")]
+visible = false
 
 [node name="QuantityMenu" type="Control" parent="." unique_id=1307643033]
 visible = false

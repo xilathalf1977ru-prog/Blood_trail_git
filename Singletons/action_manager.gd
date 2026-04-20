@@ -48,13 +48,21 @@ func add_loot(to_inv: Resource, from_inv: Resource):
 	EventBus.player_changed.emit(to_inv)
 func add_item(to_inv: Resource, item: Resource):
 	var found: bool = false
-	for player_stack in to_inv.real_inv:#Ищем такой же стак у игрока
+	for player_stack in to_inv.real_inv:#Ищем такой же стак
 		if player_stack.can_merge_with(item):
 			player_stack.merge(item)
 			found = true
 			break
 	if not found:#Если не нашли - добавляем копию
 		to_inv.real_inv.append(item.duplicate())
+		
+		
+func reduce_item(to_inv: Array, item: Resource, n: int):
+	var index = to_inv.find(item)
+	to_inv[index].quantity -=1
+	if to_inv[index].quantity == 0:
+		to_inv.erase(to_inv[index])
+	
 func change_stats(stat_values, direction):
 	for i in stat_values.keys():
 		match i:

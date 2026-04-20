@@ -26,21 +26,35 @@ func setup(data: Resource, context: String) -> void:
 	update_ui()
 func add_item(item_stack: ItemStack, n: int):
 	if path.has_node(item_stack.name):
-		path.add_item_quantity(item_stack, n, local_data.id)
+		#path.add_item_quantity(item_stack, n, local_data.id)
+		#pass
+		var card = path.get_node(item_stack.name)
+		
+		var index = local_data.real_inv.find(item_stack)
+		
+		#card.setup_vis(item_stack, local_data.id)
+		card.setup_vis(local_data.real_inv[index], local_data.id)
 	else:
 		var card: TextureRect = CARD_SCENE.instantiate()
-		local_data.real_inv.append(item_stack)
-		item_stack.quantity = n
+		#local_data.real_inv.append(item_stack)
+		#item_stack.quantity = n
 		card.setup(item_stack, item_stack.type)
 		_setup_card_common(card, item_stack)
+		#pass
 	save_inv()
 func remove_item(item_stack: ItemStack, n: int):
-	var local_item_stack: Resource = path.get_node(item_stack.name).card_data
-	local_item_stack.quantity -= n
-	path.get_node(local_item_stack.name).setup_vis(local_item_stack, local_data.id)
-	if local_item_stack.quantity == 0:
-		clear_card(path.get_node(local_item_stack.name))
-		local_data.real_inv.erase(local_item_stack)
+	#var local_item_stack: Resource = path.get_node(item_stack.name).card_data
+	var card = path.get_node(item_stack.name)
+	#local_item_stack.quantity -= n
+	
+	#path.get_node(local_item_stack.name).setup_vis(local_item_stack, local_data.id)
+	var index = local_data.real_inv.find(item_stack)
+	card.setup_vis(local_data.real_inv[index], local_data.id)
+	print(local_data.real_inv[index].quantity)
+	if local_data.real_inv[index].quantity == 0:
+		#pass
+		clear_card(card)
+		#local_data.real_inv.erase(local_item_stack)
 	save_inv()
 func _setup_card_common(card: TextureRect, res_data: Resource) -> void:
 	card.item_stack_clicked.connect(_on_item_stack_clicked)
@@ -66,13 +80,9 @@ func _on_button_transfer_pressed() -> void:
 func _on_item_stack_clicked(item_stack: ItemStack):
 	inv_stack_clicked.emit(item_stack, 1)
 func save_inv():
-	#GameManager.invs[local_data.resource_path] = local_data.real_inv
 	local_data.inventory.clear()
 	for i in local_data.real_inv:
 		local_data.inventory[i] = i.quantity
-		#var copy = i.duplicate()
-		#copy.quantity = inventory[i]
-		#real_inv.append(copy)
 	GameManager.invs[local_data.id] = local_data.inventory
 func save_inv_money(): pass
 func update_ui():
