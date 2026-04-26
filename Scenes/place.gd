@@ -25,13 +25,13 @@ func _on_button_select_pressed():
 	elif card_data.type == GC.Act.TELEPORT_RNG:
 		EventBus.menu.emit(card_data, context)
 	elif card_data.type == GC.Act.TRADE:
-		if card_data.real_inv == []:
+		if card_data.real_inv2.is_empty():
 			card_data.actions.erase(GC.Act.ROB)
 		else:
 			card_data.actions[GC.Act.ROB] = preload("res://UI/rob.webp")
 		EventBus.menu.emit(card_data, context)
 	elif card_data.type == GC.DUNGEON:
-		if card_data.real_inv == []:
+		if card_data.real_inv2.is_empty():
 			card_data.actions.erase(GC.Act.ROB)
 		else:
 			card_data.actions[GC.Act.ROB] = preload("res://UI/rob.webp")
@@ -40,3 +40,5 @@ func _on_button_select_mouse_entered() -> void:
 	$ColorRect.visible = true
 func _on_button_select_mouse_exited() -> void:
 	$ColorRect.visible = false
+func clear():
+	$CardPlace.card_data = null

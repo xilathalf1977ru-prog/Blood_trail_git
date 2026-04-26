@@ -69,10 +69,10 @@ func set_quest_info() -> void:
 	if GC.story_step != 0:
 		$History/TextureRect.visible = false
 	$History/Voice.play()
-	GC.control_free = false
+	#GC.control_free = false
 func on_quest_finished(n: int) -> void:
 	if n > GC.story_step:
-		GC.control_free = false
+		#GC.control_free = false
 		GC.story_step = n
 		set_quest_info()
 		$History.visible = true

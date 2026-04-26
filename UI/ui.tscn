@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cpkg3jtq0qjrb" path="res://UI/54.webp" id="10_ow1yt"]
 [ext_resource type="Texture2D" uid="uid://cddygbrx4ero8" path="res://UI/OK.webp" id="11_ow1yt"]
 [ext_resource type="PackedScene" uid="uid://f3fbdtekaplu" path="res://UI/alert.tscn" id="12_ow1yt"]
+[ext_resource type="Material" uid="uid://ck80geu8w8r17" path="res://new_shader_material.tres" id="17_8gukh"]
 
 [node name="UI" type="CanvasLayer" unique_id=2138594352]
 script = ExtResource("1_jxero")
@@ -88,6 +89,8 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_o2jkc")
 stretch_mode = 5
 
+[node name="Log" parent="." unique_id=516364193 instance=ExtResource("6_h81ot")]
+
 [node name="Inv" parent="." unique_id=1126973270 instance=ExtResource("7_o2t6a")]
 visible = false
 
@@ -102,104 +105,104 @@ script = ExtResource("8_4fiuh")
 
 [node name="ColorRect" type="ColorRect" parent="QuantityMenu" unique_id=1012489663]
 layout_mode = 0
+offset_left = 10.0
 offset_top = -112.0
-offset_right = 1920.0
+offset_right = 1930.0
 offset_bottom = 968.0
 color = Color(0, 0, 0, 0.39215687)
 
-[node name="Background" type="ColorRect" parent="QuantityMenu" unique_id=1508838844]
+[node name="Background" type="ColorRect" parent="QuantityMenu" unique_id=1683178834]
 layout_mode = 0
-offset_left = 810.0
-offset_top = 652.0
-offset_right = 1110.0
-offset_bottom = 952.0
+offset_left = 772.50006
+offset_top = 494.99994
+offset_right = 1147.5
+offset_bottom = 944.99994
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="QuantityMenu/Background" unique_id=96161]
+[node name="Label" type="Label" parent="QuantityMenu/Background" unique_id=440739402]
 layout_mode = 0
-offset_right = 205.0
-offset_bottom = 50.0
-theme_override_font_sizes/font_size = 24
+offset_right = 315.49994
+offset_bottom = 59.00006
+theme_override_font_sizes/font_size = 32
 text = "How much?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonCancel" type="Button" parent="QuantityMenu/Background" unique_id=1252273222]
+[node name="ButtonCancel" type="Button" parent="QuantityMenu/Background" unique_id=503278975]
 layout_mode = 0
-offset_left = 218.0
-offset_right = 300.0
-offset_bottom = 50.0
-theme_override_font_sizes/font_size = 27
+offset_left = 282.5
+offset_right = 374.5
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 32
 text = "X"
 
-[node name="ButtonMinus" type="Button" parent="QuantityMenu/Background" unique_id=1290634738]
+[node name="ButtonMinus" type="Button" parent="QuantityMenu/Background" unique_id=971227339]
 layout_mode = 0
-offset_top = 52.0
-offset_right = 82.0
-offset_bottom = 134.0
+offset_left = 2.0
+offset_top = 96.0
+offset_right = 125.0
+offset_bottom = 219.0
 theme_override_font_sizes/font_size = 40
 text = "-"
 script = ExtResource("8_cbfhl")
 interval = 0.1
 
-[node name="NText" type="Label" parent="QuantityMenu/Background" unique_id=881877375]
+[node name="NText" type="Label" parent="QuantityMenu/Background" unique_id=1907441942]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 52.0
-offset_right = 218.0
-offset_bottom = 135.0
+offset_left = 125.49994
+offset_top = 96.0
+offset_right = 251.0
+offset_bottom = 179.0
 theme_override_font_sizes/font_size = 52
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonPlus" type="Button" parent="QuantityMenu/Background" unique_id=918904808]
+[node name="ButtonPlus" type="Button" parent="QuantityMenu/Background" unique_id=200630235]
 layout_mode = 0
-offset_left = 218.0
-offset_top = 52.0
-offset_right = 300.0
-offset_bottom = 134.0
+offset_left = 250.49994
+offset_top = 96.00006
+offset_right = 373.49994
+offset_bottom = 219.00006
 theme_override_font_sizes/font_size = 40
 text = "+"
 script = ExtResource("8_cbfhl")
 interval = 0.1
 plus = true
 
-[node name="ButtonMin" type="Button" parent="QuantityMenu/Background" unique_id=458061892]
+[node name="ButtonMin" type="Button" parent="QuantityMenu/Background" unique_id=2119141817]
 layout_mode = 0
-offset_top = 135.0
-offset_right = 100.0
-offset_bottom = 235.0
+offset_top = 221.0
+offset_right = 124.49994
+offset_bottom = 346.0
 theme_override_font_sizes/font_size = 27
 text = "Min"
 
-[node name="ButtonHalf" type="Button" parent="QuantityMenu/Background" unique_id=1677683877]
+[node name="ButtonHalf" type="Button" parent="QuantityMenu/Background" unique_id=177192877]
 layout_mode = 0
-offset_left = 101.0
-offset_top = 135.0
-offset_right = 199.0
-offset_bottom = 235.0
+offset_left = 126.49994
+offset_top = 221.0
+offset_right = 249.49994
+offset_bottom = 346.0
 theme_override_font_sizes/font_size = 27
 text = "	1/2"
 
-[node name="ButtonMax" type="Button" parent="QuantityMenu/Background" unique_id=177436877]
+[node name="ButtonMax" type="Button" parent="QuantityMenu/Background" unique_id=1028283373]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 135.0
-offset_right = 300.0
-offset_bottom = 235.0
+offset_left = 250.49994
+offset_top = 221.0
+offset_right = 375.0
+offset_bottom = 346.0
 theme_override_font_sizes/font_size = 27
 text = "Max"
 
-[node name="ButtonOK" type="Button" parent="QuantityMenu/Background" unique_id=1668586078]
+[node name="ButtonOK" type="Button" parent="QuantityMenu/Background" unique_id=1989660528]
 layout_mode = 0
 offset_left = 2.0
-offset_top = 236.0
-offset_right = 298.0
-offset_bottom = 298.0
+offset_top = 348.0
+offset_right = 373.5
+offset_bottom = 448.0
 theme_override_font_sizes/font_size = 27
 text = "OK"
-
-[node name="Log" parent="." unique_id=516364193 instance=ExtResource("6_h81ot")]
 
 [node name="History" type="Control" parent="." unique_id=1443787515]
 visible = false
@@ -325,6 +328,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="CRT" type="ColorRect" parent="." unique_id=770621194]
+material = ExtResource("17_8gukh")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
 
 [connection signal="inv_stack_clicked" from="BigCards/BigCard0" to="BigCards" method="_on_big_card_0_inv_stack_clicked"]
 [connection signal="inv_stack_clicked" from="BigCards/BigCard1" to="BigCards" method="_on_big_card_1_inv_stack_clicked"]

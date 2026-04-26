@@ -6,8 +6,12 @@ var player: EntityData:
 func handle_action(data: Resource, context: String, n: int = 1) -> void:
 	match context:
 		GC.Act.HEAL: heal(data.heal_amount, n)
-		GC.Act.TRADE: EventBus.menu.emit(data, GC.Act.TRADE)
-		GC.Act.INV: EventBus.menu.emit(data, GC.Act.INV)
+		GC.Act.TRADE: 
+			EventBus.menu.emit(data, GC.Act.TRADE)
+			EventBus.inv.emit(GC.Act.TRADE, [player, data])
+		GC.Act.INV:
+			EventBus.menu.emit(data, GC.Act.INV)
+			EventBus.inv.emit(GC.Act.INV, [player, data])
 		GC.LOOT:
 			add_loot(player, data)
 			
@@ -37,32 +41,15 @@ func heal(heal_amount: int, n: int = 1) -> void:
 	EventBus.player_changed.emit(player)
 	EventBus.log_show.emit(TR.lc("Cured by:") + " " + str(heal_amount * n))
 func add_loot(to_inv: Resource, from_inv: Resource):
-	for item in from_inv.real_inv:
+	for item in from_inv.real_inv2.values():
 		if item.name == "Sword wolfkiller":
 			EventBus.quest_finished.emit(1)
 		elif item.name == "Strange armor":
 			EventBus.quest_finished.emit(4)
 		EventBus.log_show.emit(TR.lc("You received item:") + " " + TR.lc(item.name))
-		add_item(to_inv, item)
+		to_inv.add_item(item, 1)
 	EventBus.sfx.emit("loot")
 	EventBus.player_changed.emit(to_inv)
-func add_item(to_inv: Resource, item: Resource):
-	var found: bool = false
-	for player_stack in to_inv.real_inv:#Ищем такой же стак
-		if player_stack.can_merge_with(item):
-			player_stack.merge(item)
-			found = true
-			break
-	if not found:#Если не нашли - добавляем копию
-		to_inv.real_inv.append(item.duplicate())
-		
-		
-func reduce_item(to_inv: Array, item: Resource, n: int):
-	var index = to_inv.find(item)
-	to_inv[index].quantity -=1
-	if to_inv[index].quantity == 0:
-		to_inv.erase(to_inv[index])
-	
 func change_stats(stat_values, direction):
 	for i in stat_values.keys():
 		match i:

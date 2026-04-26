@@ -18,7 +18,7 @@ func _ready() -> void:
 func on_show(vis, n_max_import, buffer):
 	local_buffer = buffer
 	n_max = n_max_import
-	n = 1
+	n = n_max#1
 	visible = vis
 func _on_select_n_minus():
 	if n > 1:

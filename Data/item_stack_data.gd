@@ -49,21 +49,24 @@ var transforms_to: ItemStack:
 		return item.transforms_to
 
 
+
+
+
 #@export var durability: float = 1.0  # ← добавь если нужно
 #@export var quality: int = 1         # ← добавь если нужно
-func can_merge_with(other: ItemStack) -> bool:
-	return item == other.item 
-	#and durability == other.durability # ← раскомментируй когда добавишь
-	#and quality == other.quality		# ← раскомментируй когда добавишь
-
-func merge(other: ItemStack) -> void:
-	if can_merge_with(other):
-		quantity += other.quantity
-
-func dupl() -> ItemStack:
-	var new_stack = ItemStack.new()
-	new_stack.item = item
-	new_stack.quantity = quantity
-	# new_stack.durability = durability  # ← раскомментируй когда добавишь
-	# new_stack.quality = quality        # ← раскомментируй когда добавишь
-	return new_stack
+#func can_merge_with(other: ItemStack) -> bool:
+	#return item == other.item 
+	##and durability == other.durability # ← раскомментируй когда добавишь
+	##and quality == other.quality		# ← раскомментируй когда добавишь
+#
+#func merge(other: ItemStack) -> void:
+	#if can_merge_with(other):
+		#quantity += other.quantity
+#
+#func dupl() -> ItemStack:
+	#var new_stack = ItemStack.new()
+	#new_stack.item = item
+	#new_stack.quantity = quantity
+	## new_stack.durability = durability  # ← раскомментируй когда добавишь
+	## new_stack.quality = quality        # ← раскомментируй когда добавишь
+	#return new_stack

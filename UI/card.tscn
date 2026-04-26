@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2yn8bhi6gs6r" path="res://UI/button.gd" id="2_6nsdj"]
 [ext_resource type="Script" uid="uid://df4bxa3hcwxa0" path="res://UI/card.gd" id="2_j0kp0"]
-[ext_resource type="Texture2D" uid="uid://rn6q6btvw6tv" path="res://Sprites/rogue.webp" id="3_d460q"]
+[ext_resource type="Texture2D" uid="uid://1hn5v4m35345" path="res://Data/Entities/Elf/elf_v4_0001.webp" id="3_d460q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0kp0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -71,12 +71,10 @@ theme_override_font_sizes/font_size = 21
 horizontal_alignment = 1
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=982238501]
-texture_filter = 1
 position = Vector2(128, 128)
 scale = Vector2(4, 4)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=970109611]
-texture_filter = 1
 layout_mode = 0
 offset_left = 32.0
 offset_top = 32.0

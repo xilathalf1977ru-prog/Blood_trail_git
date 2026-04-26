@@ -1,12 +1,8 @@
 [gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://tfv5wu5xouoc"]
 
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_ehfks"]
-[ext_resource type="Resource" uid="uid://cqslpxicsymar" path="res://Data/Items/elixir_hp_50/elixir_hp_50.tres" id="3_na7np"]
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="4_aet8b"]
-[ext_resource type="Resource" uid="uid://cbb7cv3nfghrw" path="res://Data/Items/bear_head/bear_head.tres" id="4_k3l0y"]
-[ext_resource type="Resource" uid="uid://b5v2hw2dk27jd" path="res://Data/Items/flask_empty/flask_empty.tres" id="5_jms68"]
 [ext_resource type="Texture2D" uid="uid://1hn5v4m35345" path="res://Data/Entities/Elf/elf_v4_0001.webp" id="5_u4vgu"]
-[ext_resource type="Resource" uid="uid://bfv0cowyhvftd" path="res://Data/Items/sword_iron/sword_iron.tres" id="6_1ael2"]
 [ext_resource type="Texture2D" uid="uid://c4mb1x3rndrgw" path="res://Data/Entities/Elf/elf_v4_0002.webp" id="6_aet8b"]
 [ext_resource type="Texture2D" uid="uid://yfk6apaaseuu" path="res://Data/Entities/Elf/elf_v4_0003.webp" id="7_na7np"]
 [ext_resource type="Texture2D" uid="uid://dhqyqnr8k2a88" path="res://Data/Entities/Elf/elf_v4_0004.webp" id="8_k3l0y"]
@@ -40,12 +36,6 @@ id = "player"
 player = true
 max_hp = 100
 current_hp = 100
-damage = 10
-inventory = Dictionary[ExtResource("4_aet8b"), int]({
-ExtResource("3_na7np"): 3,
-ExtResource("4_k3l0y"): 1,
-ExtResource("5_jms68"): 2,
-ExtResource("6_1ael2"): 3
-})
-money = 500
+damage = 200
+armor = 200
 metadata/_custom_type_script = "uid://bqduy5pjk0fl"

@@ -18,7 +18,10 @@ func _on_map_places_vis(places_vis: Array) -> void:
 	for i in places.size():
 		if places_vis[i]:
 			places[i].setup(places_vis[i], GC.PLACE)
-		places[i].visible = (places_vis[i] != null)
+			places[i].visible = true
+		else:
+			places[i].visible = false
+			places[i].clear()
 func on_cleanup_game():
 	await get_tree().process_frame
 	queue_free()
@@ -43,7 +46,10 @@ func on_player_moved(data):
 	var player_key = Vector2(direct, data.y)
 	if player_key in current_enemies_pos.keys():
 		BattleManager.start_auto_battle(GameManager.player_ref.data, current_enemies_pos[player_key])
+	
 	@warning_ignore("integer_division")
 	var mid_places: int = (places.size() - 1)/2
 	for i in places.size():
 		places[i].get_node("ButtonSelect").visible = (i == mid_places)
+	if data.y == GC.cell_place_y and places[mid_places].card_data:
+		places[mid_places]._on_button_select_pressed()

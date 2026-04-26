@@ -9,8 +9,9 @@ var cell_place_y: int:
 	get:
 		return CELL_Y[2]
 const END_WORLD: int = 9
-
 var anim_speed: float = 0.2
+
+const QTY_LIMIT: int = 3
 
 ## --- ТИПЫ КАРТ ---
 const PLAYER: String = "player"

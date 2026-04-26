@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dtvp4i02fu8oi" path="res://Inv/inv.gd" id="1_23nsf"]
 [ext_resource type="Script" uid="uid://cra28pgvb0tf7" path="res://Inv/inv_menu.gd" id="1_nqq71"]
-[ext_resource type="PackedScene" uid="uid://db1ngpfeabdc8" path="res://Inv/inv_slot.tscn" id="1_rkj7o"]
-[ext_resource type="Resource" uid="uid://tfv5wu5xouoc" path="res://Data/Entities/player.tres" id="2_1iyor"]
 [ext_resource type="Texture2D" uid="uid://n25o5vn7xnxc" path="res://UI/exit.webp" id="5_7f6mx"]
 
 [node name="Inv" type="Control" unique_id=1126973270 node_paths=PackedStringArray("menus")]
@@ -14,12 +12,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_23nsf")
-menus = [NodePath("InvMenu0")]
-player_data = ExtResource("2_1iyor")
+menus = [NodePath("InvMenu0"), NodePath("InvMenu1")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1111730253]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.39215687)
 
 [node name="InvMenu0" type="ColorRect" parent="." unique_id=1470124281 node_paths=PackedStringArray("path")]
 layout_mode = 0
-offset_right = 600.0
+offset_left = 335.0
+offset_right = 935.0
 offset_bottom = 1080.0
 color = Color(0.101960786, 0.30980393, 0.16470589, 0.78431374)
 script = ExtResource("1_nqq71")
@@ -49,44 +53,38 @@ vertical_scroll_mode = 2
 [node name="CardContainer" type="VBoxContainer" parent="InvMenu0/ScrollContainer" unique_id=1258743993]
 layout_mode = 2
 
-[node name="InvSlot0" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=874221640 instance=ExtResource("1_rkj7o")]
+[node name="InvMenu1" type="ColorRect" parent="." unique_id=1330481920 node_paths=PackedStringArray("path")]
 visible = false
-layout_mode = 2
+layout_mode = 0
+offset_left = 985.0
+offset_right = 1585.0
+offset_bottom = 1080.0
+color = Color(0.101960786, 0.30980393, 0.16470589, 0.78431374)
+script = ExtResource("1_nqq71")
+path = NodePath("ScrollContainer/CardContainer")
 
-[node name="InvSlot1" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=1045423937 instance=ExtResource("1_rkj7o")]
-visible = false
-layout_mode = 2
+[node name="Name" type="Label" parent="InvMenu1" unique_id=73430815]
+layout_mode = 0
+offset_top = -5.0
+offset_right = 562.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 28
+text = "Игрок"
+horizontal_alignment = 1
 
-[node name="InvSlot2" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=382878428 instance=ExtResource("1_rkj7o")]
-visible = false
-layout_mode = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="InvMenu1" unique_id=1259778569]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.057000004
+anchor_bottom = 0.026
+offset_top = 33.0
+offset_right = 565.8
+offset_bottom = 1051.92
+follow_focus = true
+draw_focus_border = true
+vertical_scroll_mode = 2
 
-[node name="InvSlot3" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=352010864 instance=ExtResource("1_rkj7o")]
-visible = false
-layout_mode = 2
-
-[node name="InvSlot4" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=692730792 instance=ExtResource("1_rkj7o")]
-visible = false
-layout_mode = 2
-
-[node name="InvSlot5" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=1586403140 instance=ExtResource("1_rkj7o")]
-visible = false
-layout_mode = 2
-
-[node name="InvSlot6" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=1042676526 instance=ExtResource("1_rkj7o")]
-visible = false
-layout_mode = 2
-
-[node name="InvSlot7" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=1640083316 instance=ExtResource("1_rkj7o")]
-visible = false
-layout_mode = 2
-
-[node name="InvSlot8" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=1219601132 instance=ExtResource("1_rkj7o")]
-visible = false
-layout_mode = 2
-
-[node name="InvSlot9" parent="InvMenu0/ScrollContainer/CardContainer" unique_id=171448229 instance=ExtResource("1_rkj7o")]
-visible = false
+[node name="CardContainer" type="VBoxContainer" parent="InvMenu1/ScrollContainer" unique_id=895715283]
 layout_mode = 2
 
 [node name="ButtonExit" type="Button" parent="." unique_id=1026699012]
@@ -97,10 +95,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -519.0
-offset_top = -148.0
-offset_right = -447.0
-offset_bottom = -76.0
+offset_left = -771.0
+offset_top = -1080.0
+offset_right = -699.0
+offset_bottom = -1008.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -114,5 +112,8 @@ offset_bottom = 48.0
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_7f6mx")
 stretch_mode = 5
+metadata/_edit_lock_ = true
 
+[connection signal="transfer" from="InvMenu0" to="." method="_on_inv_menu_0_transfer"]
+[connection signal="transfer" from="InvMenu1" to="." method="_on_inv_menu_1_transfer"]
 [connection signal="pressed" from="ButtonExit" to="." method="_on_button_exit_pressed"]

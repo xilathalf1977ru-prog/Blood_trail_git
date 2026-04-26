@@ -13,7 +13,7 @@ func show_death_screen(vis: bool, end_game: bool = false):
 		var player_data: Resource = ActionManager.player
 		for i in player_data.equip_slots.keys():
 			EventBus.check_equip.emit(player_data.equip_slots[i])
-		player_data.real_inv.clear()
+		player_data.real_inv2.clear()
 		player_data.steps = 0
 		player_data.armor = 0
 		player_data.damage = 10

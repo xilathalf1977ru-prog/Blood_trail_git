@@ -11,11 +11,11 @@ func create_map(place_map) -> Dictionary:
 	var pockets = []
 	for i in 5:
 		pockets.append(Factory.create_inv(places_templates, items_templates))
-	place_map[0] = places_templates["store"]
+	place_map[4] = places_templates["store"]
 	place_map[-4] = places_templates["cave"]
 	place_map[-6] = places_templates["tower"]
-	place_map[2] = places_templates["home"]
-	place_map[6] = places_templates["stone_and_sword"]
+	place_map[0] = places_templates["home"]
+	place_map[9] = places_templates["stone_and_sword"]
 	var a = [
 		#places_templates["portal"],
 		#places_templates["store"],
@@ -60,13 +60,6 @@ func add_place(place_map):
 		cell = available_keys[random_index]
 		place_map[cell] = item
 		available_keys.remove_at(random_index)
-	
-	#print(cell)
-	#print(cell + (GC.END_WORLD * 2 + 1))
-	#print(cell - (GC.END_WORLD * 2 + 1))
 	place_map[cell + (GC.END_WORLD * 2 + 1)] = place_map[cell]
 	place_map[cell - (GC.END_WORLD * 2 + 1)] = place_map[cell]
-	#print(place_map)
-	
-		
 	return place_map

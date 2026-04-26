@@ -55,5 +55,5 @@ func _on_button_ok_pressed() -> void:
 		ActionManager.add_loot(ActionManager.player, alert_res_local)
 		ActionManager.player.money += alert_res_local.money
 		alert_res_local.money = 0
-		alert_res_local.real_inv.clear()
+		alert_res_local.real_inv2.clear()
 	_on_button_x_pressed()
