@@ -124,6 +124,7 @@ const L: Dictionary[String, Dictionary] = {
 			"Elixir MAX HP 10":"Эликсир макс хп 10",
 			"Bottle empty":"Пустая бутылка",
 			"Flask empty":"Пустая колба",
+			"Mushroom":"Гриб",
 			
 			##Локации
 			"My home":"Мой дом",

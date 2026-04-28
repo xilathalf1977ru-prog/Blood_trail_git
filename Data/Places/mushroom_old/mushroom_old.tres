@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlaceData" format=3 uid="uid://blhnporhvevod"]
+
+[ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_phlul"]
+[ext_resource type="Texture2D" uid="uid://rdwnp001cwd7" path="res://Data/Places/mushroom_old/mushroom_old.webp" id="2_w8yfo"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="3_anatv"]
+[ext_resource type="Script" uid="uid://darocc302rkw8" path="res://Data/place_data.gd" id="5_yhacd"]
+
+[resource]
+script = ExtResource("5_yhacd")
+name = "Mushroom old"
+type = "loot"
+icon = ExtResource("2_w8yfo")
+timed = true
+metadata/_custom_type_script = "uid://darocc302rkw8"

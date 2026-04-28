@@ -51,5 +51,6 @@ func on_player_moved(data):
 	var mid_places: int = (places.size() - 1)/2
 	for i in places.size():
 		places[i].get_node("ButtonSelect").visible = (i == mid_places)
-	if data.y == GC.cell_place_y and places[mid_places].card_data:
+	if (data.y == GC.cell_place_y and places[mid_places].card_data 
+	and places[mid_places].card_data.type == GC.LOOT):
 		places[mid_places]._on_button_select_pressed()

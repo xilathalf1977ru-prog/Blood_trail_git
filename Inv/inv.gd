@@ -1,11 +1,9 @@
 extends Control
 
 @export var menus: Array[ColorRect]
-var my_context: String
 func _ready() -> void:
 	EventBus.inv.connect(show_inv)
-func show_inv(context: String, arr_res: Array):
-	my_context = context
+func show_inv(_context: String, arr_res: Array):
 	for i in arr_res.size():
 		menus[i].data = arr_res[i]
 		menus[i].inv_data = arr_res[i].real_inv2
@@ -27,7 +25,7 @@ func _on_inv_menu_1_transfer(item_stack: ItemStack, n: int) -> void:
 		item_stack_transfer(item_stack, n, menus[1], menus[0])
 func item_stack_transfer(item_stack: ItemStack, n: int, 
 from_inv: Object, to_inv: Object) -> void:
-	if my_context == GC.Act.TRADE:
+	if from_inv.data.trade or to_inv.data.trade:
 		if to_inv.data.money < item_stack.cost * n:
 			return
 		from_inv.data.money += item_stack.cost * n

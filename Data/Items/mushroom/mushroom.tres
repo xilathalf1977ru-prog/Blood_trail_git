@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemStack" format=3 uid="uid://bvxyungt5skc5"]
+
+[ext_resource type="Resource" uid="uid://b6ap0gq24xdoc" path="res://Data/Items/mushroom/mushroom_item.tres" id="1_1maph"]
+[ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="2_5j4q6"]
+
+[resource]
+script = ExtResource("2_5j4q6")
+item = ExtResource("1_1maph")
+metadata/_custom_type_script = "uid://dmn0esob0sf5k"

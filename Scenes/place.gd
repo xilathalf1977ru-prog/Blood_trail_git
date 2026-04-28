@@ -10,7 +10,6 @@ func _ready() -> void:
 	$CardPlace/ButtonSelect.queue_free()
 func setup(data: Resource, type: String):
 	$CardPlace.setup(data, type)
-	#fade_in($CardPlace)
 func fade_in(node, duration: float = GC.anim_speed):
 	node.visible = true
 	node.modulate.a = 0.0

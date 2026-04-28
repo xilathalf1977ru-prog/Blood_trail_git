@@ -17,7 +17,10 @@ var real_inv2: Dictionary[String, ItemStack]
 
 @export var entities: Array[EntityData]
 @export var player: bool = false
+@export var timed: bool = false
+var ticks: int = 0
 
+@export var transform_to: PlaceData = null
 func _init() -> void:
 	call_deferred("on_resource_init")
 func on_resource_init() -> void:

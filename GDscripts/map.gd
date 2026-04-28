@@ -62,11 +62,27 @@ func black_list_random_item():
 	items_templates_shop.erase("bear_head")
 	items_templates_shop.erase("strange_armor")
 func on_time_ticked(_time_now):
+	print(place_time)
 	var item_name: String = items_templates_shop.keys().pick_random()
 	for i in place_time:
-		place_map[i].add_item(items_templates_shop[item_name], 1)
+		if place_map[i].trade:
+			place_map[i].add_item(items_templates_shop[item_name], 1)
+		if place_map[i].timed:
+			place_map[i].ticks += 1
+			#if place_map[i].name == "Mushroom" and place_map[i].ticks > 1:
+			if place_map[i].name in ["Mushroom", "Mushroom young"] and place_map[i].ticks > 1:
+				var trans = place_map[i].transform_to
+				on_delete_place(place_map[i])
+				var a: Dictionary = $map_create.add_place(place_map.duplicate(), trans, i)
+				place_map.merge(a)
+				var player_pos: Vector2 = ActionManager.player.position
+				update_places(player_pos)
+				
+				
+			elif place_map[i].name == "Mushroom old" and place_map[i].ticks > 1:
+				on_delete_place(place_map[i])
 func on_create_place():
-	var a: Dictionary = $map_create.add_place(place_map.duplicate())
+	var a: Dictionary = $map_create.add_place_rng(place_map.duplicate())
 	place_map.merge(a)
 	var player_pos: Vector2 = ActionManager.player.position
 	update_places(player_pos)

@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://tfv5wu5xouoc"]
 
 [ext_resource type="Script" uid="uid://bqduy5pjk0fl" path="res://Data/Entities/entity_data.gd" id="1_ehfks"]
+[ext_resource type="Resource" uid="uid://cqslpxicsymar" path="res://Data/Items/elixir_hp_50/elixir_hp_50.tres" id="3_8mlao"]
 [ext_resource type="Script" uid="uid://dmn0esob0sf5k" path="res://Data/item_stack_data.gd" id="4_aet8b"]
 [ext_resource type="Texture2D" uid="uid://1hn5v4m35345" path="res://Data/Entities/Elf/elf_v4_0001.webp" id="5_u4vgu"]
 [ext_resource type="Texture2D" uid="uid://c4mb1x3rndrgw" path="res://Data/Entities/Elf/elf_v4_0002.webp" id="6_aet8b"]
@@ -38,4 +39,7 @@ max_hp = 100
 current_hp = 100
 damage = 200
 armor = 200
+inventory = Dictionary[ExtResource("4_aet8b"), int]({
+ExtResource("3_8mlao"): 2
+})
 metadata/_custom_type_script = "uid://bqduy5pjk0fl"

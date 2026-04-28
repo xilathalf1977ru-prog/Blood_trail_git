@@ -44,7 +44,7 @@ script = ExtResource("3_c7tqi")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.39215687)
+color = Color(0, 0, 0, 0)
 
 [node name="BigCard0" parent="BigCards" unique_id=429347535 instance=ExtResource("3_nm1m0")]
 layout_mode = 0

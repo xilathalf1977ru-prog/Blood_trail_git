@@ -4,11 +4,10 @@ var control_free: bool = true
 var story_step: int = 0
 const CELL: int = 192
 const CELL_Y: Array = [353, 545, 737]
-#const CELL_PLACE: int = 737
 var cell_place_y: int:
 	get:
 		return CELL_Y[2]
-const END_WORLD: int = 9
+const END_WORLD: int = 2
 var anim_speed: float = 0.2
 
 const QTY_LIMIT: int = 3

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://d2vnd4s2nn4bw"]
 
-[ext_resource type="Script" uid="uid://c2yn8bhi6gs6r" path="res://UI/button.gd" id="2_6nsdj"]
 [ext_resource type="Script" uid="uid://df4bxa3hcwxa0" path="res://UI/card.gd" id="2_j0kp0"]
 [ext_resource type="Texture2D" uid="uid://1hn5v4m35345" path="res://Data/Entities/Elf/elf_v4_0001.webp" id="3_d460q"]
 
@@ -33,31 +32,6 @@ scale = Vector2(0.75, 0.75)
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_j0kp0")
 button_mask = 3
-script = ExtResource("2_6nsdj")
-
-[node name="ButtonExtra" type="Button" parent="ButtonSelect" unique_id=215274849]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 255.99991
-offset_right = 191.99991
-offset_bottom = -160.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme_override_font_sizes/font_size = 40
-button_mask = 3
-
-[node name="EquipedIcon" type="ColorRect" parent="ButtonSelect/ButtonExtra" unique_id=625221746]
-visible = false
-show_behind_parent = true
-layout_mode = 0
-offset_right = 192.0
-offset_bottom = 96.0
-mouse_filter = 2
-color = Color(0.009695242, 0.4739014, 0, 1)
 
 [node name="Name" type="Label" parent="." unique_id=480992897]
 layout_mode = 0
@@ -105,8 +79,6 @@ offset_bottom = 192.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.78431374)
 
-[connection signal="extra_button" from="ButtonSelect" to="." method="_on_button_select_extra_button"]
 [connection signal="mouse_entered" from="ButtonSelect" to="." method="_on_button_select_mouse_entered"]
 [connection signal="mouse_exited" from="ButtonSelect" to="." method="_on_button_select_mouse_exited"]
 [connection signal="pressed" from="ButtonSelect" to="." method="_on_button_select_pressed"]
-[connection signal="pressed" from="ButtonSelect/ButtonExtra" to="ButtonSelect" method="_on_button_equip_pressed"]

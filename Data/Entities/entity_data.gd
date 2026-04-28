@@ -43,8 +43,12 @@ func add_item(item: Resource, n: int):
 	else:
 		real_inv2[key] = item
 		real_inv2[key].quantity = n#1
+	if player:
+		EventBus.player_changed.emit(self)
 func reduce_item(item: Resource, n: int):
 	var key: String = item.name
 	real_inv2[key].quantity -=n#1
 	if real_inv2[key].quantity == 0:
 		real_inv2.erase(key)
+	if player:
+		EventBus.player_changed.emit(self)

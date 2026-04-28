@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b53nvosgq7t4n" path="res://Sprites/hpbar.webp" id="2_bytes"]
 [ext_resource type="Texture2D" uid="uid://ck4ls7ff61jn7" path="res://Sprites/scroll.webp" id="4_rnl6m"]
 [ext_resource type="Texture2D" uid="uid://n25o5vn7xnxc" path="res://UI/exit.webp" id="5_1ui3w"]
+[ext_resource type="Texture2D" uid="uid://bfnoou86mlqkw" path="res://Data/Items/elixir_hp_50/elixir_hp_50.webp" id="6_pf7ph"]
 [ext_resource type="Texture2D" uid="uid://dg06ljp40i04m" path="res://UI/sword.webp" id="7_0j753"]
 [ext_resource type="Texture2D" uid="uid://c2cu7fqt17rfp" path="res://UI/shield.webp" id="8_i0a73"]
 
@@ -165,6 +166,90 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_2o5uh")
 stretch_mode = 3
 
+[node name="ButtonHeal" type="Button" parent="." unique_id=1041560829]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -660.0
+offset_top = -111.0
+offset_right = -560.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="ButtonHeal" unique_id=1103078947]
+texture_filter = 1
+layout_mode = 0
+offset_top = -31.499985
+offset_right = 50.0
+offset_bottom = 16.500015
+scale = Vector2(2, 2)
+texture = ExtResource("6_pf7ph")
+stretch_mode = 3
+
+[node name="ButtonHeal" type="Button" parent="ButtonHeal" unique_id=58338602]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -660.0
+offset_top = -111.0
+offset_right = -560.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="ButtonHeal/ButtonHeal" unique_id=1533415952]
+texture_filter = 1
+layout_mode = 0
+offset_top = -31.499985
+offset_right = 50.0
+offset_bottom = 16.500015
+scale = Vector2(2, 2)
+texture = ExtResource("6_pf7ph")
+stretch_mode = 3
+
+[node name="ButtonHeal" type="Button" parent="ButtonHeal/ButtonHeal" unique_id=627888069]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -660.0
+offset_top = -111.0
+offset_right = -560.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+focus_mode = 0
+theme_override_font_sizes/font_size = 16
+alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="ButtonHeal/ButtonHeal/ButtonHeal" unique_id=1289919466]
+texture_filter = 1
+layout_mode = 0
+offset_top = -31.499985
+offset_right = 50.0
+offset_bottom = 16.500015
+scale = Vector2(2, 2)
+texture = ExtResource("6_pf7ph")
+stretch_mode = 3
+
 [node name="ButtonInv" type="Button" parent="." unique_id=1384596821]
 layout_mode = 1
 anchors_preset = 7
@@ -248,6 +333,7 @@ stretch_mode = 5
 wait_time = 0.5
 
 [connection signal="pressed" from="ButtonSleep" to="." method="_on_button_sleep_pressed"]
+[connection signal="pressed" from="ButtonHeal" to="." method="_on_button_heal_pressed"]
 [connection signal="pressed" from="ButtonInv" to="." method="_on_button_inv_pressed"]
 [connection signal="pressed" from="ButtonQuest" to="." method="_on_button_quest_pressed"]
 [connection signal="pressed" from="ButtonExit" to="." method="_on_button_exit_pressed"]

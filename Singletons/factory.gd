@@ -22,24 +22,26 @@ invs_money: Dictionary[String, int],
 		print("Файл сохранения создан: ", save_path)
 	else:
 		print("Ошибка сохранения: ", error)
-func create_place():
-	pass
-	#var place_resource = PlaceData.new()
 var n: int = 0
-func create_inv(places_templates, items_templates):
-	var t = places_templates["pocket"].duplicate(true)
-	t.id = "pocket" + str(n)
+func create_place_rng(places_templates, items_templates):
+	#var arr_names: Array = ["pocket", "mushroom_young"]
+	var place_name: String = "mushroom_young"#arr_names.pick_random()
+	
+	var place: Resource = places_templates[place_name].duplicate(true)
+	place.id = place_name + str(n)
 	n += 1
-	#var test_inv = preload("res://Data/Actions/inventory.tres" ).duplicate(true)
-	#var a = GC.rng.randi_range(0, int(items_templates.size()-1))
-	#test_inv.type = GC.LOOT
-	#test_inv.inventory[items_templates[items_templates.keys()[a]]] = 1
-	##test_inv.on_resource_init()
-	#t.actions.append(test_inv)
-	
-	var a = GC.rng.randi_range(0, int(items_templates.size()-1))
-	t.inventory[items_templates[items_templates.keys()[a]]] = 1
-	#print(t.type)
-	t.on_resource_init()
-	
-	return t
+	var random_item: int = GC.rng.randi_range(0, int(items_templates.size()-1))
+	place.inventory[items_templates[items_templates.keys()[random_item]]] = 1
+	place.on_resource_init()
+	place.ticks = 0
+	return place
+
+
+func create_place(places_templates, items_templates):
+	var place: Resource = places_templates["pocket"].duplicate(true)
+	place.id = "pocket" + str(n)
+	n += 1
+	var random_item: int = GC.rng.randi_range(0, int(items_templates.size()-1))
+	place.inventory[items_templates[items_templates.keys()[random_item]]] = 1
+	place.on_resource_init()
+	return place

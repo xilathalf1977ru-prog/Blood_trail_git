@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b6ap0gq24xdoc"]
+
+[ext_resource type="Texture2D" uid="uid://c0vt6jof7kapl" path="res://Data/Items/mushroom/mushroom.webp" id="1_e0nn4"]
+[ext_resource type="Script" uid="uid://dulsm86jld1sl" path="res://Data/item_data.gd" id="2_xq3ia"]
+[ext_resource type="Resource" uid="uid://7051ap6qcpre" path="res://Data/Items/bottle_empty/bottle_empty.tres" id="3_d4tuy"]
+
+[resource]
+script = ExtResource("2_xq3ia")
+name = "Mushroom"
+type = "mushroom"
+editor_main_type = 1
+icon = ExtResource("1_e0nn4")
+cost = 20
+heal_amount = 20
+transforms_to = ExtResource("3_d4tuy")
+metadata/_custom_type_script = "uid://dulsm86jld1sl"

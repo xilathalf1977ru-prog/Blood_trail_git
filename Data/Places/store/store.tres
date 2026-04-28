@@ -25,4 +25,5 @@ ExtResource("7_wo41l"): 3
 money = 300
 trade = true
 entities = Array[ExtResource("1_x7a72")]([ExtResource("3_qfnud")])
+timed = true
 metadata/_custom_type_script = "uid://darocc302rkw8"
