@@ -18,14 +18,14 @@ menus = [NodePath("InvMenu0"), NodePath("InvMenu1")]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.39215687)
+color = Color(1, 1, 1, 0)
 
 [node name="InvMenu0" type="ColorRect" parent="." unique_id=1470124281 node_paths=PackedStringArray("path")]
 layout_mode = 0
 offset_left = 335.0
 offset_right = 935.0
 offset_bottom = 1080.0
-color = Color(0.101960786, 0.30980393, 0.16470589, 0.78431374)
+color = Color(0.101960786, 0.30980393, 0.16470589, 0.3137255)
 script = ExtResource("1_nqq71")
 path = NodePath("ScrollContainer/CardContainer")
 
@@ -59,7 +59,7 @@ layout_mode = 0
 offset_left = 985.0
 offset_right = 1585.0
 offset_bottom = 1080.0
-color = Color(0.101960786, 0.30980393, 0.16470589, 0.78431374)
+color = Color(0.101960786, 0.30980393, 0.16470589, 0.3137255)
 script = ExtResource("1_nqq71")
 path = NodePath("ScrollContainer/CardContainer")
 

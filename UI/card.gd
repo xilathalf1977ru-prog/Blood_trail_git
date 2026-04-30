@@ -16,7 +16,7 @@ func setup(data: Resource, type: String):
 func actions_icon(data, type):
 	if type in [GC.Act.SLEEP, GC.Act.ROB]:
 		$TextureRect.texture = data.actions[type]
-func setup_vis(data, name_owner):
+func setup_vis(data, _name_owner):
 	$Name.visible = false
 	name = data.name
 func _on_button_select_pressed() -> void:

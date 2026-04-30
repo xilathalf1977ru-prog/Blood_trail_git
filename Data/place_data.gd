@@ -18,7 +18,8 @@ var real_inv2: Dictionary[String, ItemStack]
 @export var entities: Array[EntityData]
 @export var player: bool = false
 @export var timed: bool = false
-var ticks: int = 0
+@export var max_ticks: int = 2
+var ticks: int = -1
 
 @export var transform_to: PlaceData = null
 func _init() -> void:

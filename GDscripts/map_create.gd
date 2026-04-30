@@ -8,20 +8,23 @@ var items_templates: Dictionary[String, Resource]:
 	get: return get_parent().items_templates
 
 func create_map(place_map) -> Dictionary:
-	var pockets = []
-	#for i in 5:
-		#pockets.append(Factory.create_inv(places_templates, items_templates))
-	place_map[-1] = places_templates["store"]
+	var places = []
+	for i in 1:
+		#var rng_names = ["mushroom", "mushroom_old", "mushroom_young"]
+		var rng_names = ["mushroom_old"]
+		places.append(Factory.create_place2(places_templates, items_templates, rng_names.pick_random()))
+	place_map[-1] = places_templates["tower"]
 	#place_map[-2] = places_templates["cave"]
 	#place_map[-1] = places_templates["tower"]
 	place_map[0] = places_templates["home"]
-	place_map[2] = places_templates["mushroom_young"]
+	#place_map[1] = places_templates["mushroom_young"]
+	#place_map[2] = places_templates["mushroom_young"]
 	#place_map[2] = places_templates["stone_and_sword"]
 	var a = [
 		#places_templates["portal"],
 		#places_templates["store"],
 		]
-	a.append_array(pockets)
+	a.append_array(places)
 	
 	var available_keys: Array = range(-GC.END_WORLD, GC.END_WORLD+1)
 	for used_key in place_map.keys():
@@ -56,15 +59,16 @@ func add_place_rng(place_map):
 	
 	var random_index: int = (randi() % available_keys.size())
 	var cell: int = available_keys[random_index]
-	var place: Resource = Factory.create_place_rng(places_templates, items_templates)
+	var place: Resource = Factory.create_place2(places_templates, items_templates, "mushroom_young")
 	#print(place_time)
-	if place.timed:
-		place_time.append(cell)
-		#print(place_time)
+	#if place.timed:
+		#place_time.append(cell)
 	available_keys.remove_at(random_index)
 	return add_place(place_map, place, cell)
 func add_place(place_map, place, cell):
 	place_map[cell] = place
+	if place.timed:
+		place_time.append(cell)
 	place_map[cell + (GC.END_WORLD * 2 + 1)] = place_map[cell]
 	place_map[cell - (GC.END_WORLD * 2 + 1)] = place_map[cell]
 	return place_map

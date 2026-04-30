@@ -16,5 +16,6 @@ inventory = Dictionary[ExtResource("3_72gnd"), int]({
 ExtResource("4_tdoqa"): 1
 })
 timed = true
+max_ticks = 1
 transform_to = ExtResource("6_f6qgt")
 metadata/_custom_type_script = "uid://darocc302rkw8"

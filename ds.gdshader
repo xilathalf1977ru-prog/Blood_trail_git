@@ -26,7 +26,7 @@ uniform float noise_speed = 0.0;
 uniform float static_noise_intensity : hint_range(0.0, 1.0) = 0.03;
 
 uniform float aberration : hint_range(-1.0, 1.0) = 0.003;
-uniform float brightness = 1.05;
+uniform float brightness = 1.1;
 uniform bool discolor = false;
 
 uniform float warp_amount : hint_range(0.0, 5.0) = 0.02;

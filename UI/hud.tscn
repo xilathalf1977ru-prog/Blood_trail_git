@@ -43,7 +43,7 @@ layout_mode = 0
 offset_top = 969.0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.12941177, 0.23137255, 0.14509805, 1)
+color = Color(0.12941177, 0.23137255, 0.14509805, 0.39215687)
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=265988030]
 show_behind_parent = true
@@ -52,9 +52,10 @@ offset_left = 4.0000076
 offset_top = 971.00006
 offset_right = 294.0
 offset_bottom = 1002.0
-color = Color(0.33, 0, 0, 1)
+color = Color(0.32941177, 0, 0, 0.5882353)
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=564124582]
+modulate = Color(1, 1, 1, 0.8627451)
 layout_mode = 0
 offset_left = 4.0000076
 offset_top = 971.00006

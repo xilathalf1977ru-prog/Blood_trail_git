@@ -12,5 +12,6 @@ name = "Mushroom young"
 type = "loot"
 icon = ExtResource("2_nn83o")
 timed = true
+max_ticks = 1
 transform_to = ExtResource("5_nn83o")
 metadata/_custom_type_script = "uid://darocc302rkw8"

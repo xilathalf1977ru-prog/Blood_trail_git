@@ -23,17 +23,23 @@ invs_money: Dictionary[String, int],
 	else:
 		print("Ошибка сохранения: ", error)
 var n: int = 0
-func create_place_rng(places_templates, items_templates):
+func create_place2(places_templates, items_templates, place_name):
 	#var arr_names: Array = ["pocket", "mushroom_young"]
-	var place_name: String = "mushroom_young"#arr_names.pick_random()
+	#var place_name: String = "mushroom_young"#arr_names.pick_random()
+	#var arr_names: Array = ["mushroom", "mushroom_young", "mushroom_old"]
+	#var place_name: String = arr_names.pick_random()
+	
 	
 	var place: Resource = places_templates[place_name].duplicate(true)
-	place.id = place_name + str(n)
+	place.id = place.name + str(n)
+	place.name = place.id
+	
 	n += 1
 	var random_item: int = GC.rng.randi_range(0, int(items_templates.size()-1))
 	place.inventory[items_templates[items_templates.keys()[random_item]]] = 1
 	place.on_resource_init()
-	place.ticks = 0
+	#place.ticks = -1
+	#place.ticks = 0
 	return place
 
 
